@@ -1,12 +1,10 @@
 <h2>Iniciar sesión</h2>
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
-    <label for="">Correo</label><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.input :email, autofocus: true, autocomplete: "email" %>
   </div>
   <div class="field">
-    <label for="">Contraseña</label><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
+    <%= f.input :password, autocomplete: "current-password" %>
   </div>
   <% if devise_mapping.rememberable? %>
     <div class="field">
