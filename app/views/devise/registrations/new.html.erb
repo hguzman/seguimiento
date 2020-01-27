@@ -1,0 +1,24 @@
+<h2>Regístrate</h2>
+<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+  <div class="field">
+    <%= f.input :nombre, autofocus: true, placeholder:"Nombre" ,autocomplete: "nombre" %>
+  </div>
+  <div class="field">
+    <%= f.input :email, autofocus: true, placeholder:"Correo", autocomplete: "email" %>
+  </div>
+  <div class="field">
+    <label for="">Contraseña</label>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> mínimo de caracteres)</em>
+    <% end %><br />
+    <%= f.input :password, placeholder:"contraseña", autocomplete: "new-password" %>
+  </div>
+  <div class="field">
+    <%= f.input :password_confirmation, placeholder:"Confirme contraseña", autocomplete: "new-password" %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Regístrar" %>
+  </div>
+<% end %>
+<%= render "devise/shared/links" %>

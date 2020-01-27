@@ -13,3 +13,6 @@
  *= require_tree .
  *= require_self
  */
+
+/* simple_form helpers */
+@import "simple_form-bootstrap/simple_form-bootstrap";
