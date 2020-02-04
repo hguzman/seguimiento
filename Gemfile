@@ -8,6 +8,8 @@ end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.7'
+gem 'bootstrap', '~> 4.3.1'
+gem "font-awesome-rails"
 # Use sqlite3 as the database for Active Record
 #gem 'sqlite3'
 #pg
@@ -60,3 +62,6 @@ gem 'devise', '~> 4.7', '>= 4.7.1'
 gem 'rolify', '~> 5.2'
 #Simple_form_for
 gem 'simple_form', '~> 3.5'
+
+#Gema para las Migas de Pan
+gem "gretel"
