@@ -15,12 +15,16 @@
                     IN+
                 </div>
             </li>
-            <li class="<%= 'active' if current_page?('/novedad/index') %>">
-                <%= link_to "/novedad/index" do %>
+            <li class="<%= 'active' if current_page?('/novedades') %>">
+                <%= link_to novedades_path do %>
                 <i class="fa fa-laptop"></i> <span class="nav-label">Mis novedades</span>
                 <% end %>
             </li>
-            
+            <li class="<%= 'active' if current_page?('/users') %>">
+                <%= link_to users_path do %>
+                <i class="fa fa-laptop"></i> <span class="nav-label">Usuarios</span>
+                <% end %>
+            </li>
         </ul>
 
     </div>
