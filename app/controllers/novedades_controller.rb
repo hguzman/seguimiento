@@ -5,6 +5,7 @@ class NovedadesController < ApplicationController
       @novedades = current_user.novedades
     end
 
+
     def new
       @novedad = current_user.novedades.new
     end
@@ -16,6 +17,10 @@ class NovedadesController < ApplicationController
       else
         render :new
       end
+    end
+
+    def show
+      @novedad = current_user.novedades.find(params[:id])
     end
 
     private
