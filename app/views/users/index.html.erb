@@ -1,0 +1,21 @@
+            <div class="ibox-content">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Titulo</th>
+                        <th>Descricion</th>
+                    </tr>
+                    </thead>
+                    <tbody >
+                      <% @users.each do |user| %>
+                        <tr>
+                          <td><%= user.id %></td>
+                          <td><%= user.nombre %></td>
+                          <td><%= user.apellido %></td>
+                          <td><%= user.documento %></td>
+                          <td><%= user.email %></td>
+                        </tr>
+                      <% end %>
+                </table>
+            </div>
