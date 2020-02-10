@@ -1,32 +1,38 @@
+# SQLite. Versions 3.8.0 and up are supported.
+#   gem install sqlite3
+#
+#   Ensure the SQLite 3 gem is defined in your Gemfile
+#   gem 'sqlite3'
+#
 default: &default
   adapter: postgresql
-  encoding: unicode
-  # For details on connection pooling, see Rails configuration guide
-  # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: <%= ENV['BD_LOCAL_USER'] %>
-  password: <%= ENV['BD_LOCAL_PASSWORD'] %>
+  username: <%= ENV['LOCAL_BD_USER'] %>
+  password: <%= ENV['LOCAL_BD_PASSWORD'] %>
+  timeout: 5000
 
 development:
   <<: *default
   database: seguimiento_development
-  username: <%= ENV['BD_LOCAL_USER'] %>
-  password: <%= ENV['BD_LOCAL_PASSWORD'] %>
-  port: 5432
+  username: <%= ENV['LOCAL_BD_USER'] %>
+  password: <%= ENV['LOCAL_BD_PASSWORD'] %>
   host: localhost
+  port: 5432
+
+
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
   database: seguimiento_test
-  username: <%= ENV['BD_LOCAL_USER'] %>
-  password: <%= ENV['BD_LOCAL_PASSWORD'] %>
-  port: 5432
+  username: <%= ENV['LOCAL_BD_USER'] %>
+  password: <%= ENV['LOCAL_BD_PASSWORD'] %>
   host: localhost
+  port: 5432
 
 production:
   <<: *default
   database: seguimiento_production
   username: seguimiento
-  password: <%= ENV['UNIFORMATE_DATABASE_PASSWORD'] %>
+  password: <%= ENV['APPPRUEBA_DATABASE_PASSWORD'] %>
