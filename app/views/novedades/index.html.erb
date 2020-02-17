@@ -1,22 +1,21 @@
-<%= link_to "Nueva novedad", new_novedad_path %>
+<div class="container ibox-content">
+  <%= link_to "Nueva novedad", new_novedad_path, class:"btn btn-primary" %>
+  <table class="table">
+      <thead>
+      <tr>
+          <th>Id</th>
+          <th>Titulo</th>
+          <th>Descripcion</th>
+      </tr>
+      </thead>
+      <tbody >
+        <% @novedades.each do |novedad| %>
+          <tr>
+            <td> <%= link_to novedad.id, novedad_path(novedad) %> </td>
+            <td><%= novedad.titulo %></td>
+            <td><%= novedad.descripcion %></td>
+          </tr>
+      <% end %>
+  </table>
+</div>
 <!-- GENERAME UN LINK DE NUEVA NOVEDAD QUE ME REDIRECCIONE A NOVEDAD/NEW -->
-
-            <div class="ibox-content">
-                <table class="table">
-                    <thead>
-                    <tr>
-                        <th>Id</th>
-                        <th>Titulo</th>
-                        <th>Descripcion</th>
-                    </tr>
-                    </thead>
-                    <tbody >
-                      <% @novedades.each do |novedad| %>
-                        <tr>
-                          <td> <%= link_to novedad.id, novedad_path(novedad) %> </td>
-                          <td><%= novedad.titulo %></td>
-                          <td><%= novedad.descripcion %></td>
-                        </tr>
-                    <% end %>
-                </table>
-            </div>

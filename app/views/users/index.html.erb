@@ -12,7 +12,7 @@
                     <tbody >
                       <% @users.each do |user| %>
                         <tr>
-                          <td><%= user.id %></td>
+                          <td><%= link_to user.id, user_path(user) %></td>
                           <td><%= user.nombre %></td>
                           <td><%= user.apellido %></td>
                           <td><%= user.documento %></td>
