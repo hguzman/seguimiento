@@ -5,19 +5,13 @@ ruby '2.6.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.1'
-
-#estilos css
 gem 'bootstrap', '~> 4.3.1'
-
-#tipops de letra
 gem "font-awesome-rails"
 
-# # Use sqlite3 as the database for Active Record
+# Use sqlite3 as the database for Active Record
 # gem 'sqlite3', '~> 1.4'
-
-# # Use pg as the database for Active Record
+# Use pg as the database for Active Record
 gem 'pg', '~> 1.2', '>= 1.2.2'
-
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
 # Use SCSS for stylesheets
@@ -62,8 +56,5 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-#control de usuarios e inicio de sesion
-gem 'devise', '~> 4.7', '>= 4.7.1'
-
-#Formularios
 gem 'simple_form', '~> 5.0', '>= 5.0.2'
+gem 'devise', '~> 4.7', '>= 4.7.1'
