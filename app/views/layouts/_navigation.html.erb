@@ -1,31 +1,33 @@
 <nav class="navbar-default navbar-static-side" role="navigation">
-    <div class="sidebar-collapse">
-        <ul class="nav metismenu" id="side-menu">
-            <li class="nav-header">
-                <div class="dropdown profile-element">
-                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                        <span class="block m-t-xs font-bold">Example user</span>
-                        <span class="text-muted text-xs block">Example menu<b class="caret"></b></span>
-                    </a>
-                    <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                        <li><a class="dropdown-item" href="#">Logout</a></li>
-                    </ul>
-                </div>
-                <div class="logo-element">
-                    IN+
-                </div>
-            </li>
-            <li class="<%= 'active' if current_page?('/') %>">
-                <%= link_to "/" do %>
-                <i class="fa fa-laptop"></i> <span class="nav-label">Main page</span>
-                <% end %>
-            </li>
-            <li class="<%= 'active' if current_page?('/home/minor') %>">
-                <%= link_to "/home/minor" do %>
-                <i class="fa fa-desktop"></i> <span class="nav-label">Minor page</span>
-                <% end %>
-            </li>
-        </ul>
+<div class="sidebar-collapse">
+<ul class="nav metismenu" id="side-menu">
+<li class="nav-header">
+<div class="dropdown profile-element">
+<a data-toggle="dropdown" class="dropdown-toggle" href="#">
+<span class="block m-t-xs font-bold">Example user</span>
+<span class="text-muted text-xs block">Example menu<b class="caret"></b></span>
+</a>
+<ul class="dropdown-menu animated fadeInRight m-t-xs">
+<li><a class="dropdown-item" href="#">Logout</a></li>
+</ul>
+</div>
+<div class="logo-element">
+IN+
+</div>
+</li>
+<li class="<%= 'active' if current_page?('/') %>">
+<%= link_to "/" do %>
+<i class="fa fa-laptop"></i> <span class="nav-label">Inicio</span>
+<% end %>
+</li>
+<li class="<%= is_active_controller('graphs') %>">
+<a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label" data-i18n="nav.graphs">Especialidades</span><span class="fa arrow"></span></a>
+<ul class="nav nav-second-level collapse <%= is_active_controller('graphs', 'in') %>">
+<li class="<%= is_active_action('flot') %>"><%= link_to "Listar", especialidades_path %></li>
+<li class="<%= is_active_action('flot') %>"><%= link_to "Crear", new_especialidad_path %></li>
+</ul>
+</li>
+</ul>
 
-    </div>
+</div>
 </nav>
