@@ -1,28 +1,26 @@
 <div class = "container">
 
-<div class="row">
+    <div class="row">
 
-<div class="col-12">
-<h1 class="">Listado especialidades</h1>
-<table class="table">
-<thead class="thead-dark">
-<tr>
-<th>Codigo</th>
-<th>Nombre</th>
-</tr>
-</thead>
-<tbody>
-<% @especialidades.each do |especialidad| %> 
-<tr> 
-<td><%= especialidad.id %></td> 
-<td><%= especialidad.nombre %></td>
-</tr>
-<% end %> 
-</tbody>
-</table>
-
+        <div class="col-12">
+            <h1 class="">Listado especialidades</h1>
+            <table class="table table-hover">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Codigo</th>
+                        <th>Nombre</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @especialidades.each do |especialidad| %> 
+                    <tr class="align-middle"> 
+                        <td> <strong><%= link_to especialidad.id, especialidad_path(especialidad), class:"btn btn-primary" %></strong></td>
+                        <td><%= link_to especialidad.nombre, especialidad_path(especialidad) %></td>
+                    </tr>
+                    <% end %> 
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
 
-</div>
-
-</div>
