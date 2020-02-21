@@ -11,7 +11,7 @@ class EspecialidadesController < ApplicationController
   def create
     @especialidad = Especialidad.new(especialidad_params)
     if @especialidad.save
-      redirect_to especialidades_path, notice => "Se ha creado la especialidad"
+      redirect_to especialidades_path
     else
       render "new"
     end
