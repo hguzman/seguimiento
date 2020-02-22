@@ -3,37 +3,45 @@
 <div class="container_new_registration">
   <div class="container_columnas">
     <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-
-    <%= f.input :nombre,
+    <%=f.error_notification%>
+    <%= f.input :nombres,
                 required: true,
                 autofocus: true,
-                input_html: { autocomplete: "nombre" }%>
-    <%= f.input :apellido,
+                placeholder: "Escriba su nombre Completo",
+                input_html: { autocomplete: "nombres" }%>
+    <%= f.input :apellidos,
                 required: true,
                 autofocus: true,
+                placeholder: "Escriba sus apellidos Completos",
                 input_html: { autocomplete: "apellido" }%>
-    <%= f.input :documento,
+    <%= f.input :ndocumento,
                 required: true,
                 autofocus: true,
+                placeholder: "Digite su Documento de Identidad",
                 input_html: { autocomplete: "documento" }%>
     <%= f.input :telefono,
                 required: true,
                 autofocus: true,
+                placeholder: "Digite su numero de Telfono",
                 input_html: { autocomplete: "telefono" }%>
    <%= f.input :direccion,
                required: true,
                autofocus: true,
+               placeholder: "Escriba su direccion Completa",
                input_html: { autocomplete: "direccion" }%>
     <%= f.input :email,
                 required: true,
                 autofocus: true,
+                placeholder: "Escriba su correo Electronico",
                 input_html: { autocomplete: "email" }%>
     <%= f.input :password,
                 required: true,
+                placeholder: "Escriba su Contraseña",
                 hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
                 input_html: { autocomplete: "new-password" } %>
     <%= f.input :password_confirmation,
                 required: true,
+                placeholder: "Confirme su Contraseña",
                 input_html: { autocomplete: "new-password" } %>
         <center>
           <div class="col-md-8">

@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_user, only: [:edit, :show ,:change_password, :update_password, :update]
-  before_action :setiar_user
+  before_action :setiar_user, only: [:ver_user]
 
   def index
       @users = User.all
@@ -29,7 +29,7 @@ class UsersController < ApplicationController
       redirect_to "/"
     else
       flash[:alert]="Error al Actualizar"
-      render "edit"
+      render "change_password"
     end
   end
 
@@ -49,19 +49,20 @@ class UsersController < ApplicationController
   end
 
   def setiar_user
-    @user = User.find(params[:id])
+    @user = User.find(current_user.id)
   end
 
   def user_params
-    params.require(:user).permit(:nombre,
-                                 :apellido,
-                                 :documento,
-                                 :telefono,
-                                 :direccion,
-                                 :email,
+    params.require(:user).permit(:email,
                                  :password,
                                  :current_password,
                                  :password_confirmation,
+                                 :nombres,
+                                 :apellidos,
+                                 :ndocumento,
+                                 :telefono,
+                                 :direccion,
                                  )
   end
+
 end

@@ -7,23 +7,22 @@
 <div class="table-responsive">
   <table class="table table-striped">
     <tr>
-      <th class="">nombre</th>
-      <th class="">apellido</th>
-      <th class="">documento</th>
-      <th class="">telefono</th>
-      <th class="">direccion</th>
-      <th class="">email</th>
+        <th class="">nombres</th>
+        <th class="">apellidos</th>
+        <th class=""> N documento</th>
+        <th class="">telefono</th>
+        <th class="">direccion</th>
+        <th class="">email</th>
     </tr>
     <% @users.each do |user| %>
-     <tr>
-     <td><%= user.nombre%></td>
-     <td><%= user.apellido%></td>
-     <td><%= user.documento%></td>
-     <td><%= user.telefono%></td>
-     <td><%= user.direccion%></td>
-     <td><%= user.email%></td>
-
-              <%end%>
+       <tr>
+       <td><%= user.nombres%></td>
+       <td><%= user.apellidos%></td>
+       <td><%= user.ndocumento%></td>
+       <td><%= user.telefono%></td>
+       <td><%= user.direccion%></td>
+       <td><%= user.email%></td>
+    <%end%>
   </table>
 </div>
 <hr />
