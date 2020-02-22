@@ -3,16 +3,25 @@
         <ul class="nav metismenu" id="side-menu">
             <li class="nav-header">
                 <div class="dropdown profile-element">
+                    <!-- <img alt="image" class="rounded-circle" src="image_path('profile_small.jpg') %>"/> -->
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                        <span class="block m-t-xs font-bold">Example user</span>
-                        <span class="text-muted text-xs block">Example menu<b class="caret"></b></span>
+                        <span class="block m-t-xs font-bold"></span>
+                        <span class="text-muted text-xs block"><%= current_user.nombre %> <%= current_user.apellido %>
+                    </a>
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <span class="block m-t-xs font-bold"></span>
+                        <span class="text-muted text-xs block"><%= current_user.email %>
                     </a>
                     <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                        <li><a class="dropdown-item" href="#">Logout</a></li>
-                    </ul>
+                       <li><a class="dropdown-item" href=" <%= user_path %>" class="btn btn-nar">Mi Perfil</a></li>
+                       <li><a class="dropdown-item" href="<%= change_password_user_path %>">Cambiar Contraseña</a></li>
+                       <li><a class="dropdown-item" href="#">Buzón</a></li>
+                       <li class="dropdown-divider"></li>
+                       <li><%= link_to "Cerrar Sesion", destroy_user_session_path, method: :delete, class:"btn btn-nar"%></li>
+                   </ul>
                 </div>
                 <div class="logo-element">
-                    IN+
+                    <%=link_to "SG20", root_path %>
                 </div>
             </li>
             <li class="<%= 'active' if current_page?('/') %>">
