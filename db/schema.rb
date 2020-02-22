@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_19_021037) do
+ActiveRecord::Schema.define(version: 2020_02_22_055500) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,4 +21,32 @@ ActiveRecord::Schema.define(version: 2020_02_19_021037) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "fichas", force: :cascade do |t|
+    t.integer "numero"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "naprendices"
+    t.date "fechafin"
+    t.bigint "especialidad_id", null: false
+    t.index ["especialidad_id"], name: "index_fichas_on_especialidad_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "nombre"
+    t.string "apellido"
+    t.bigint "documento"
+    t.bigint "telefono"
+    t.string "direccion"
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  add_foreign_key "fichas", "especialidades"
 end
