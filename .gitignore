@@ -23,3 +23,5 @@ public/uploads
 .byebug_history
 config/local_env.yml
 Gemfile.lock
+.history
+/config/local_env

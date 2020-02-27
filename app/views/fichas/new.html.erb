@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="ibox mt-8 col-md-8 mx-auto">
+
+        <h1 class="font-weight-bold">NUEVA FICHA</h1>
+
+        <div class="ibox-content ">
+            <%= simple_form_for @ficha do |f| %>
+                <div class="col">
+                    <%= f.input :numero, class: "form-control" %>
+                </div>
+                <div class="col">
+                    <%= f.input :naprendices, class: "form-control" %>
+                </div>
+                <div class="col">
+                    <%= f.input :fechafin, as: :date, html5: true %>
+                </div>
+                <div class="col">
+                    <%= f.association :especialidad, label_method: :nombre, value_method: :id, min:"1" %>
+                </div>
+                <%= f.button :submit, class: "btn btn-primary btn-lg btn-block" %>
+                    <% end %>
+        </div>
+    </div>
+</div>

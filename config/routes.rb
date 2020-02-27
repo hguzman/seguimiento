@@ -1,8 +1,20 @@
 Rails.application.routes.draw do
 
-  get "home/index"
-  get "home/minor"
-
+  devise_for :users
   root to: 'home#index'
 
-end
+  resources :especialidades
+  resources :fichas
+
+  resources :users, only: [:index, :ver_user] do
+     get :ver_user, on: :member
+   end
+
+   resource :user, only: [:edit, :destroy, :update , :show] do
+     collection do
+       patch 'update_password'
+       get :change_password
+     end
+   end
+
+  end

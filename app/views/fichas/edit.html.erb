@@ -1,0 +1,25 @@
+<div class="container">
+    <h1>NUEVA FICHA</h1>
+    <%= simple_form_for @ficha do |f| %>
+        <div class="row">
+            <div class="col">
+                <%= f.input :numero, class: "form-control" %>
+            </div>
+            <div class="col">
+                <%= f.input :naprendices, class: "form-control" %>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <%= f.input :fechafin, as: :date, html5: true %>
+            </div>
+            <div class="col">
+                <%= f.association :especialidad, label_method: :nombre, value_method: :id, min:"1" %>
+            </div>
+
+        </div>
+
+        <%= f.button :submit, class: "btn btn-primary" %>
+
+            <% end %>
+</div>
