@@ -31,10 +31,18 @@ def update
 
       redirect_to ficha_path(@ficha), notice => "Se ha actualizado la ficha"
     else
-
       render "edit"
     end
   end
+
+#Genera excel.
+def toexcel
+    @fichas = Ficha.all
+    respond_to do |format|
+      format.xlsx
+    end
+  end
+
   private
 
   def ficha_params

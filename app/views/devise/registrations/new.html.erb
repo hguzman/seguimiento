@@ -1,59 +1,67 @@
-<h1 class="text-center mov-naranja">Formulario de  <strong>Registro</strong></h1>
+<h1 class="text-center mov-naranja">Formulario de <strong>Registro</strong></h1>
 <br>
 <div class="container_new_registration">
-  <div class="container_columnas">
-    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-    <%=f.error_notification%>
-    <%= f.input :nombres,
+    <div class="container_columnas">
+        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+            <%=f.error_notification%>
+                <%= f.input :nombres,
                 required: true,
+                label: false,
                 autofocus: true,
                 placeholder: "Escriba su nombre Completo",
                 input_html: { autocomplete: "nombres" }%>
-    <%= f.input :apellidos,
+                    <%= f.input :apellidos,
                 required: true,
+                label: false,
                 autofocus: true,
                 placeholder: "Escriba sus apellidos Completos",
                 input_html: { autocomplete: "apellido" }%>
-    <%= f.input :ndocumento,
+                        <%= f.input :ndocumento,
                 required: true,
+                label: false,
                 autofocus: true,
                 placeholder: "Digite su Documento de Identidad",
                 input_html: { autocomplete: "documento" }%>
-    <%= f.input :telefono,
+                            <%= f.input :telefono,
                 required: true,
+                label: false,
                 autofocus: true,
                 placeholder: "Digite su numero de Telfono",
                 input_html: { autocomplete: "telefono" }%>
-   <%= f.input :direccion,
+                                <%= f.input :direccion,
                required: true,
+               label: false,
                autofocus: true,
                placeholder: "Escriba su direccion Completa",
                input_html: { autocomplete: "direccion" }%>
-    <%= f.input :email,
+                                    <%= f.input :email,
                 required: true,
+                label: false,
                 autofocus: true,
                 placeholder: "Escriba su correo Electronico",
                 input_html: { autocomplete: "email" }%>
-    <%= f.input :password,
+                                        <%= f.input :password,
                 required: true,
+                label: false,
                 placeholder: "Escriba su Contraseña",
                 hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
                 input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
+                                            <%= f.input :password_confirmation,
                 required: true,
+                label: false,
                 placeholder: "Confirme su Contraseña",
                 input_html: { autocomplete: "new-password" } %>
-        <center>
-          <div class="col-md-8">
-            <%= f.button :submit, "Crear usuario", class: "btn-primary block full-width m-b" %>
-            <%= render "devise/shared/links" %>
-            <br>
-            <br>
-          </div>
-        </center>
+                                                <center>
+                                                    <div class="col-md-8">
+                                                        <%= f.button :submit, "Crear usuario", class: "btn-primary block full-width m-b" %>
+                                                            <%= render "devise/shared/links" %>
+                                                                <br>
+                                                                <br>
+                                                    </div>
+                                                </center>
 
-    <% end %>
-  </div>
+                                                <% end %>
+    </div>
 </div>
 
 <br>

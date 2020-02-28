@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   resources :especialidades
   resources :fichas
 
+  get "toexcel", to: "fichas#toexcel"
+
   resources :users, only: [:index, :ver_user] do
      get :ver_user, on: :member
    end
