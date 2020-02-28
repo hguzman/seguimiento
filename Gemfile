@@ -61,5 +61,4 @@ gem 'devise', '~> 4.7', '>= 4.7.1'
 
 #gemas para importar y exporta xls
 
-gem 'axlsx', '= 2.0.1'
-gem 'axlsx_rails'
+gem 'caxlsx_rails'
