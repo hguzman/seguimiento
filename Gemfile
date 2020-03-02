@@ -65,3 +65,8 @@ gem 'caxlsx_rails'
 
 # Very simple Roles library without any authorization
 gem 'rolify', '~> 5.2'
+
+#Gema para Generar Uploaders
+gem 'carrierwave', '~> 2.0'
+#Gema para Redimensionar Imagenes
+gem 'mini_magick'
