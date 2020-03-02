@@ -5,9 +5,13 @@
                 <div class="dropdown profile-element">
                   <% if user_signed_in? %>
                     <% if current_user.avatar.thumb.present?%>
-                      <%= image_tag current_user.avatar.thumb.url,  class: "user-image", alt: "User Image"%>
+                      <div class="d-flex justify-content-center imagen">
+                        <%= image_tag current_user.avatar.thumb.url,  class: " circle-border m-b-md border-green", alt: "User Image"%>
+                      </div>
                     <%else%>
-                      <img alt="image" class="rounded-circle" src="image_path('profile_small.jpg') %>"/>
+                    <div class="d-flex justify-content-center">
+                        <%=image_tag 'default-user-img.jpg', class: "rounded-circle w-50 circle-border m-b-md border-green", alt: "User Image"%>
+                    </div>
                   <%end%>
                   <%end%>
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
