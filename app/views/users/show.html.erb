@@ -3,6 +3,11 @@
   <div class="informacion">
     <div class="container_picture">
          <div class="picture">
+           <% if @user.avatar? %>
+             <%= image_tag @user.avatar.url(:thumb) %>
+             <%else%>
+                <img alt="image" class="rounded-circle" src="image_path('profile_small.jpg') %>"/>
+            <%end%>
          </div>
     </div>
     <div class="container_details">

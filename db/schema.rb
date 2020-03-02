@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(version: 2020_03_02_165844) do
     t.bigint "ndocumento"
     t.bigint "telefono"
     t.string "direccion"
+    t.string "avatar"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

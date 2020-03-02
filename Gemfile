@@ -63,5 +63,5 @@ gem 'devise', '~> 4.7', '>= 4.7.1'
 
 gem 'caxlsx_rails'
 
-# Very simple Roles library without any authorization 
+# Very simple Roles library without any authorization
 gem 'rolify', '~> 5.2'
