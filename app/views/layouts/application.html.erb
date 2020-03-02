@@ -33,12 +33,18 @@
             <!-- Page wrapper -->
             <%= render 'layouts/topnavbar' %>
 
-            <p class="notice"><%= notice %></p>
-            <p class="alert"><%= alert %></p>
+            <!--<p class="notice"><%= notice %></p>
+            <p class="alert"><%= alert %></p>-->
 
 
             <!-- Main view  -->
-            <%= yield %>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <%= yield %>
+                    </div>
+                </div>
+            </div>
 
             <!-- Footer -->
             <%= render 'layouts/footer' %>
