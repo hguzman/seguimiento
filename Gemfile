@@ -62,3 +62,6 @@ gem 'devise', '~> 4.7', '>= 4.7.1'
 #gemas para importar y exporta xls
 
 gem 'caxlsx_rails'
+
+# Very simple Roles library without any authorization 
+gem 'rolify', '~> 5.2'
