@@ -5,13 +5,13 @@
       <p>Debe iniciar sesión o registrarse antes de continuar.<p>
       <%= f.input :email, placeholder:"Email",  autofocus: true, autocomplete: "email" %>
       <%= f.input :password, placeholder:"Contraseña",  autocomplete: "current-password" %>
-      <% if devise_mapping.rememberable? %>
+      <!-- <% if devise_mapping.rememberable? %>
         <%= f.check_box :remember_me %>
         <%= f.label :remember_me, "Recuérdame" %>
-      <% end %>
+      <% end %> -->
       <%= f.button :submit, "Iniciar Sesion",  class: "btn-primary block full-width m-b" %>
       <a class="btn btn-sm btn-white btn-block" href="<%=new_user_registration_path%>">Crea una cuenta</a>
-      <%= render "devise/shared/links" %>
+      <!-- <%= render "devise/shared/links" %> -->
     <% end %>
   </div>
 </div>
