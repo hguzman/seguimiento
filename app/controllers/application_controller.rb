@@ -13,7 +13,8 @@ class ApplicationController < ActionController::Base
                                                                  :apellidos,
                                                                  :telefono,
                                                                  :direccion,
-                                                                 :ndocumento)}
+                                                                 :ndocumento,
+                                                                 :avatar)}
       devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:email,
                                                                         :password,
                                                                         :current_password,
@@ -22,6 +23,7 @@ class ApplicationController < ActionController::Base
                                                                         :apellidos,
                                                                         :telefono,
                                                                         :direccion,
-                                                                        :ndocumento)}
+                                                                        :ndocumento,
+                                                                        :avatar)}
   end
 end

@@ -62,3 +62,8 @@ gem 'devise', '~> 4.7', '>= 4.7.1'
 #gemas para importar y exporta xls
 
 gem 'caxlsx_rails'
+
+#Gema para Generar Uploaders
+gem 'carrierwave', '~> 2.0'
+#Gema para Redimensionar Imagenes
+gem 'mini_magick'

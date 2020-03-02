@@ -62,6 +62,7 @@ class UsersController < ApplicationController
                                  :ndocumento,
                                  :telefono,
                                  :direccion,
+                                 :avatar
                                  )
   end
 
