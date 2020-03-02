@@ -65,3 +65,6 @@ gem 'caxlsx_rails'
 
 # Very simple Roles library without any authorization 
 gem 'rolify', '~> 5.2'
+
+# Object oriented authorization for Rails applications
+gem 'pundit', '~> 1.1'
