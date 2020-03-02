@@ -5,7 +5,17 @@
                 <div class="col-md-6 align-items-center">
 
                     <div class="profile-image d-flex justify-content-center align-items-center">
-                        <img src="https://scontent-bog1-1.cdninstagram.com/v/t51.2885-19/s320x320/81711281_1042701509443610_5924580181338488832_n.jpg?_nc_ht=scontent-bog1-1.cdninstagram.com&_nc_ohc=VMAuKOA_6xcAX827vL4&oh=26d1b323ba2f568c603e197623d1e2fa&oe=5E98B8C5" class="rounded-circle circle-border m-b-md border-green" alt="profile">
+                      <% if user_signed_in? %>
+                        <% if current_user.avatar.thumb.present?%>
+                          <div class="d-flex justify-content-center">
+                            <%= image_tag current_user.avatar.thumb.url,  class: "rounded-circle circle-border m-b-md border-green", alt: "User Image"%>
+                          </div>
+                        <%else%>
+                        <div class="d-flex justify-content-center">
+                            <%=image_tag 'default-user-img.jpg', class: "rounded-circle w-50", alt: "User Image"%>
+                        </div>
+                      <%end%>
+                      <%end%>
                     </div>
                     <div class="profile-info">
                         <div class="">
@@ -43,5 +53,4 @@
                 </div>
             </div>
         </div>
-    </div>
-</div>
+    </div></div>
