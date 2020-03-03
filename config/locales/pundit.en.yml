@@ -1,0 +1,8 @@
+en:
+ pundit:
+   default: 'Esta accion solo la ejecutan Administradores o Instructores.'
+   especialidad_policy:
+     index?: 'No esta autorizado'
+   ficha_policy:
+     index?: 'No esta autorizado'
+   

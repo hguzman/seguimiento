@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   before_action :setiar_user, only: [:ver_user]
 
   def index
+      authorize User
       @users = User.all
   end
 

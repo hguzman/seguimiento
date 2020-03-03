@@ -29,29 +29,35 @@
                     <i class="fa fa-laptop"></i> <span class="nav-label">Inicio</span>
                     <% end %>
             </li>
-            <li class="<%= is_active_controller('graphs') %>">
-                <a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label" data-i18n="nav.graphs">Especialidades</span><span class="fa arrow"></span></a>
-                <ul class="nav nav-second-level collapse <%= is_active_controller('graphs', 'in') %>">
-                    <li class="<%= is_active_action('flot') %>">
-                        <%= link_to "Listar", especialidades_path %>
-                    </li>
-                    <li class="<%= is_active_action('flot') %>">
-                        <%= link_to "Crear", new_especialidad_path %>
-                    </li>
-                </ul>
-            </li>
-            <li class="<%= is_active_controller('graphs') %>">
-                <a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label" data-i18n="nav.graphs">Fichas</span><span class="fa arrow"></span></a>
-                <ul class="nav nav-second-level collapse <%= is_active_controller('graphs', 'in') %>">
-                    <li class="<%= is_active_action('flot') %>">
-                        <%= link_to "Listar", fichas_path %>
-                    </li>
-                    <li class="<%= is_active_action('flot') %>">
-                        <%= link_to "Crear", new_ficha_path %>
-                    </li>
-                </ul>
+        
+            <% if policy(Especialidad).index? %>
+                <li class="<%= is_active_controller('graphs') %>">
+                    <a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label" data-i18n="nav.graphs">Especialidades</span><span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level collapse <%= is_active_controller('graphs', 'in') %>">
+                        <li class="<%= is_active_action('flot') %>">
+                            <%= link_to "Listar", especialidades_path %>
+                        </li>
+                        <li class="<%= is_active_action('flot') %>">
+                            <%= link_to "Crear", new_especialidad_path %>
+                        </li>
+                    </ul>
+                </li>
+            <% end %>
 
-            </li>
+            <% if policy(Ficha).index? %>
+                <li class="<%= is_active_controller('graphs') %>">
+                    <a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label" data-i18n="nav.graphs">Fichas</span><span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level collapse <%= is_active_controller('graphs', 'in') %>">
+                        <li class="<%= is_active_action('flot') %>">
+                            <%= link_to "Listar", fichas_path %>
+                        </li>
+                        <li class="<%= is_active_action('flot') %>">
+                            <%= link_to "Crear", new_ficha_path %>
+                        </li>
+                    </ul>
+                </li>
+            <% end %>
+           
             <li class="<%= is_active_controller('graphs') %>">
                 <a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label" data-i18n="nav.graphs">Usuarios</span><span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level collapse <%= is_active_controller('graphs', 'in') %>">
@@ -59,9 +65,8 @@
                         <%= link_to "Listar", users_path %>
                     </li>
                 </ul>
-
             </li>
+           
         </ul>
-
     </div>
 </nav>
