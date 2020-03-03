@@ -70,3 +70,5 @@ gem 'rolify', '~> 5.2'
 gem 'carrierwave', '~> 2.0'
 #Gema para Redimensionar Imagenes
 gem 'mini_magick'
+# Object oriented authorization for Rails applications
+gem 'pundit', '~> 1.1'

@@ -1,6 +1,7 @@
 class FichasController < ApplicationController
   before_action :authenticate_user!
   def index
+    authorize Ficha
     @fichas = Ficha.all
   end
 
@@ -28,7 +29,6 @@ class FichasController < ApplicationController
 def update
   @ficha = Ficha.find(params[:id])
     if @ficha.update_attributes(ficha_params)
-
       redirect_to ficha_path(@ficha), notice => "Se ha actualizado la ficha"
     else
       render "edit"

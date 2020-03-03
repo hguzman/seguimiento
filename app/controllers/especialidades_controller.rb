@@ -2,6 +2,7 @@ class EspecialidadesController < ApplicationController
   before_action :authenticate_user!
 
   def index
+    authorize Especialidad
     @especialidades = Especialidad.all
   end
 
