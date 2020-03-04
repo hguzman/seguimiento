@@ -71,3 +71,5 @@ gem 'mini_magick'
 gem 'pundit', '~> 1.1'
 # Flexible Ruby on Rails breadcrumbs plugin. https://github.com/WilHall/gretel
 gem "gretel"
+# Simple javascript toast notifications http://www.toastrjs.com
+gem 'toastr-rails'

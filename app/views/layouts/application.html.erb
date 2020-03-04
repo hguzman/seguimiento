@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,18 +8,19 @@
     <title>SEGUIMIENTO | 2020</title>
 
     <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+        <%= csp_meta_tag %>
 
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap" rel="stylesheet">
+            <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap" rel="stylesheet">
 
-    <!-- Main css styles -->
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+            <!-- Main css styles -->
+            <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 
-    <!-- Main javascript files -->
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+                <!-- Main javascript files -->
+                <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
 
 </head>
+
 <body>
 
     <!-- Wrapper-->
@@ -27,31 +29,31 @@
         <!-- Navigation -->
         <%= render 'layouts/navigation' %>
 
-        <!-- Page wraper -->
-        <div id="page-wrapper" class="gray-bg <%= @extra_class %>">
+            <!-- Page wraper -->
+            <div id="page-wrapper" class="gray-bg <%= @extra_class %>">
 
-            <!-- Page wrapper -->
-            <%= render 'layouts/topnavbar' %>
+                <!-- Page wrapper -->
+                <%= render 'layouts/topnavbar' %>
 
-            <!--<p class="notice"><%= notice %></p>
+                    <!--<p class="notice"><%= notice %></p>
             <p class="alert"><%= alert %></p>-->
 
-            <%= breadcrumbs display_single_fragment: true ,separator: '/'%>
+                    <%= breadcrumbs display_single_fragment: true ,separator: '/'%>
 
-            <!-- Main view  -->
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <%= yield %>
-                    </div>
-                </div>
+                        <!-- Main view  -->
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <%= yield %>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Footer -->
+                        <%= render 'layouts/footer' %>
+
             </div>
-
-            <!-- Footer -->
-            <%= render 'layouts/footer' %>
-
-        </div>
-        <!-- End page wrapper-->
+            <!-- End page wrapper-->
 
     </div>
     <!-- End wrapper-->
@@ -60,6 +62,8 @@
     <!-- For demo purpose we include javascript in view but you can easily start SeedProject and organize it with Rails asset pipeline as you want -->
     <%= yield :javascript %>
 
-
+        <%= javascript_include_tag "application" %>
+            <%= custom_bootstrap_flash %>
 </body>
+
 </html>

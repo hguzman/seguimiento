@@ -13,7 +13,7 @@ class EspecialidadesController < ApplicationController
   def create
     @especialidad = Especialidad.new(especialidad_params)
     if @especialidad.save
-      redirect_to especialidades_path
+      redirect_to especialidades_path, notice: "Se ha creado la especialidad"
     else
       render "new"
     end
@@ -26,7 +26,7 @@ class EspecialidadesController < ApplicationController
   def update
     @especialidad = Especialidad.find(params[:id])
     if @especialidad.update(especialidad_params)
-      redirect_to especialidad_path(@especialidad), notice => "Se ha actualizado la especialidad"
+      redirect_to especialidad_path(@especialidad), notice: "Se ha actualizado la especialidad"
     else
       render "edit"
     end

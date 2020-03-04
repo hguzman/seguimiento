@@ -21,3 +21,4 @@
 //= require metisMenu/jquery.metisMenu.js
 //= require inspinia.js
 
+//= require toastr
