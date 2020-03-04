@@ -3,7 +3,7 @@
   <div class="session">
     <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <p>Debe iniciar sesión o registrarse antes de continuar.<p>
-      <%= f.input :email, placeholder:"Email",  autofocus: true, autocomplete: "email" %>
+      <%= f.input :email, placeholder:"Correo Electronico",  autofocus: true, autocomplete: "Correo Electronico" %>
       <%= f.input :password, placeholder:"Contraseña",  autocomplete: "current-password" %>
       <!-- <% if devise_mapping.rememberable? %>
         <%= f.check_box :remember_me %>
