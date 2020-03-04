@@ -45,6 +45,7 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <%= yield %>
+                                        <%= custom_bootstrap_flash %>
                                 </div>
                             </div>
                         </div>
@@ -62,8 +63,7 @@
     <!-- For demo purpose we include javascript in view but you can easily start SeedProject and organize it with Rails asset pipeline as you want -->
     <%= yield :javascript %>
 
-        <%= javascript_include_tag "application" %>
-            <%= custom_bootstrap_flash %>
+
 </body>
 
 </html>
