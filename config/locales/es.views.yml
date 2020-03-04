@@ -1,0 +1,13 @@
+es:
+  especialidades:
+    index:
+      edit_link: 'Editar'
+      remove_link: 'Eliminar'
+  fichas:
+    index:
+      edit_link: 'Editar'
+      remove_link: 'Eliminar'
+  novedades:
+    index:
+      edit_link: 'Editar'
+      remove_link: 'Eliminar'
