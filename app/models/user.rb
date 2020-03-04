@@ -12,5 +12,7 @@ class User < ApplicationRecord
   def assign_default_role
      self.add_role(:aprendiz) if self.roles.blank?
   end
+
+  belongs_to :tipodocumento 
   
 end
