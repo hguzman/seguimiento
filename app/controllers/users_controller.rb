@@ -63,7 +63,8 @@ class UsersController < ApplicationController
                                  :ndocumento,
                                  :telefono,
                                  :direccion,
-                                 :avatar
+                                 :avatar,
+                                 :tipodocumento_id
                                  )
   end
 

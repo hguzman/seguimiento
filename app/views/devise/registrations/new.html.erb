@@ -16,6 +16,14 @@
                 autofocus: true,
                 placeholder: "Escriba sus apellidos Completos",
                 input_html: { autocomplete: "apellido" }%>
+
+                 <%= f.association :tipodocumento, 
+                 label_method: :nombre, 
+                 value_method: :id , 
+                 prompt: "Tipo de documento",
+                 label: false,
+                 input_html: {class: "form-control", min:"1" } %>
+
                         <%= f.input :ndocumento,
                 required: true,
                 label: false,
