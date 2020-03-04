@@ -1,5 +1,10 @@
 <div class = "container">
+    <!-- breadcrumbs-->
+    <% breadcrumb :especialidad_edit, @especialidad %>
+    <!-- titulo -->
     <h1>Editar especialidad: <strong><%=@especialidad.nombre%></strong></h1>
+    
+    <!-- Formulario edit -->
     <%= simple_form_for @especialidad do |f| %>
         <%= f.input :nombre, class: "form-control" %>
         <%= f.button :submit, class: "btn btn-primary" %>    

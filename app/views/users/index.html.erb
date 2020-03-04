@@ -1,3 +1,6 @@
+<!-- breadscrumbs -->
+<% breadcrumb :users %>
+
 <h1 class="text-center mov-naranja"><strong>Usuarios</strong> Del Sistema</h1>
 <hr />
 <div class="row">
@@ -7,21 +10,21 @@
 <div class="table-responsive">
   <table class="table table-striped">
     <tr>
+        <th class=""> N documento</th>  
         <th class="">nombres</th>
         <th class="">apellidos</th>
-        <th class=""> N documento</th>
         <th class="">telefono</th>
         <th class="">direccion</th>
         <th class="">email</th>
     </tr>
     <% @users.each do |user| %>
        <tr>
-       <td><%= user.nombres%></td>
-       <td><%= user.apellidos%></td>
-       <td><%= user.ndocumento%></td>
-       <td><%= user.telefono%></td>
-       <td><%= user.direccion%></td>
-       <td><%= user.email%></td>
+        <td><%= user.ndocumento%></td>
+        <td><%= user.nombres%></td>
+        <td><%= user.apellidos%></td>
+        <td><%= user.telefono%></td>
+        <td><%= user.direccion%></td>
+        <td><%= user.email%></td>
     <%end%>
   </table>
 </div>

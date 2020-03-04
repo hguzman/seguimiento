@@ -3,7 +3,7 @@
         <div class="col-lg-12">
             <div class="row m-b-lg m-t-lg ibox-content pb-0">
                 <div class="col-md-6 align-items-center">
-
+                    <% breadcrumb :root %>
                     <div class="profile-image d-flex justify-content-center align-items-center">
                       <% if user_signed_in? %>
                         <% if current_user.avatar.thumb.present?%>

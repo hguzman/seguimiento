@@ -60,15 +60,14 @@ gem 'simple_form', '~> 5.0', '>= 5.0.2'
 gem 'devise', '~> 4.7', '>= 4.7.1'
 
 #gemas para importar y exporta xls
-
 gem 'caxlsx_rails'
-
 # Very simple Roles library without any authorization
 gem 'rolify', '~> 5.2'
-
 #Gema para Generar Uploaders
 gem 'carrierwave', '~> 2.0'
 #Gema para Redimensionar Imagenes
 gem 'mini_magick'
 # Object oriented authorization for Rails applications
 gem 'pundit', '~> 1.1'
+# Flexible Ruby on Rails breadcrumbs plugin. https://github.com/WilHall/gretel
+gem "gretel"
