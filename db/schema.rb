@@ -10,10 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_04_175311) do
+ActiveRecord::Schema.define(version: 2020_03_05_152358) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "anotaciones", force: :cascade do |t|
+    t.text "descripcion"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_anotaciones_on_user_id"
+  end
+
+  create_table "cursos", force: :cascade do |t|
+    t.integer "ficha"
+    t.string "nombre"
+    t.datetime "fecha"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "especialidades", force: :cascade do |t|
     t.string "nombre"
@@ -75,5 +91,6 @@ ActiveRecord::Schema.define(version: 2020_03_04_175311) do
     t.index ["user_id"], name: "index_users_roles_on_user_id"
   end
 
+  add_foreign_key "anotaciones", "users"
   add_foreign_key "fichas", "especialidades"
 end

@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  
+
   rolify
 
   after_create :assign_default_role
@@ -13,6 +13,8 @@ class User < ApplicationRecord
      self.add_role(:aprendiz) if self.roles.blank?
   end
 
-  belongs_to :tipodocumento 
+  belongs_to :tipodocumento
   
+  has_many :anotaciones
+
 end
