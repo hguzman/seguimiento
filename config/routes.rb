@@ -8,10 +8,9 @@ Rails.application.routes.draw do
 
   get "toexcel", to: "fichas#toexcel"
 
-  resources :users, only: [:index, :ver_user] do
+  resources :users, only: [:index, :ver_user, :show] do
      get :ver_user, on: :member
    end
-
    resource :user, only: [:edit, :destroy, :update , :show] do
      collection do
        patch 'update_password'

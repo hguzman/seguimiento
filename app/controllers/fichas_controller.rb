@@ -1,6 +1,6 @@
 class FichasController < ApplicationController
   before_action :authenticate_user!
-  
+
   def index
     authorize Ficha
     @fichas = Ficha.all

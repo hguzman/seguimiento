@@ -1,8 +1,7 @@
 wb = xlsx_package.workbook
 wb.add_worksheet(name: "Fichas") do |sheet|
     @fichas.each do |ficha|
-        sheet.add_row [ficha.id, ficha.numero, ficha.especialidad.nombre ,
+        sheet.add_row [ ficha.especialidad.nombre, ficha.id, ficha.numero,
         ficha.naprendices, ficha.fechafin]
     end
 end
-
