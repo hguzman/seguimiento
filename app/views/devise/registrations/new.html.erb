@@ -19,9 +19,9 @@
                         placeholder: "Escriba sus apellidos Completos",
                         input_html: { autocomplete: "apellido" }%>
 
-                        <%= f.association :tipodocumento, 
-                        label_method: :nombre, 
-                        value_method: :id , 
+                        <%= f.association :tipodocumento,
+                        label_method: :nombre,
+                        value_method: :id ,
                         prompt: "Tipo de documento",
                         label: false,
                         input_html: {class: "form-control", min:"1" } %>
@@ -62,7 +62,9 @@
                         placeholder: "Confirme su Contraseña",
                         input_html: { autocomplete: "new-password" } %>
                         <%= f.button :submit, "Crear usuario", class: "btn-primary block full-width m-b" %>
-                        <%= render "devise/shared/links" %>
+                        <a class="btn btn-sm btn-white btn-block" href="<%=new_user_session_path%>">Login</a>
+                        <!-- <%= render "devise/shared/links" %> -->
+
                         <% end %>
             </div>
         </div>
