@@ -18,4 +18,5 @@
 
 ActiveSupport::Inflector.inflections(:en) do |inflect|
   inflect.irregular 'especialidad', 'especialidades'
+  inflect.irregular 'anotacion', 'anotaciones'
 end

@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
+   resources :anotaciones
 
+  namespace :users do
+    get 'anotaciones/index'
+  end
   devise_for :users
   root to: 'home#index'
 
