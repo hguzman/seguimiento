@@ -23,14 +23,6 @@ ActiveRecord::Schema.define(version: 2020_03_05_152358) do
     t.index ["user_id"], name: "index_anotaciones_on_user_id"
   end
 
-  create_table "cursos", force: :cascade do |t|
-    t.integer "ficha"
-    t.string "nombre"
-    t.datetime "fecha"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "especialidades", force: :cascade do |t|
     t.string "nombre"
     t.datetime "created_at", precision: 6, null: false
