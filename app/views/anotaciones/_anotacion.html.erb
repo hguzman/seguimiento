@@ -1,3 +1,6 @@
-<tr>
-<td><%= anotacion.id %></td>  
+
+<tr class="align-middle">
+    <td><%= link_to anotacion.id, anotacion_path(anotacion) %></td>
+    <td><%= link_to anotacion.descripcion, anotacion_path(anotacion) %></td>
+    <td><%= l anotacion.created_at, format: :long%></td>
 </tr>
