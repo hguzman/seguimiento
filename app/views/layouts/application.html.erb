@@ -41,7 +41,13 @@
                     <!--<p class="notice"><%= notice %></p>
             <p class="alert"><%= alert %></p>-->
 
-                    <%= breadcrumbs display_single_fragment: true ,separator: '/'%>
+                        <div class="container mt-3 mb-3">
+                            <div class="row">
+                                <div class="col-lg-12 breadcrumb p-3">
+                                    <%= breadcrumbs display_single_fragment: true ,separator: ' / ', class:""%>
+                                </div>
+                            </div>
+                        </div>
 
                         <!-- Main view  -->
                         <div class="container">
