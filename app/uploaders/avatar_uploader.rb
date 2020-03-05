@@ -14,7 +14,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
   end
 
   version :thumb, :if => :image? do
-    process resize_to_fill: [136, 160]
+    process resize_to_fill: [136, 136]
   end
 
 # version :profile, :if => :image? do
