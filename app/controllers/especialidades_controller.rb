@@ -8,14 +8,24 @@ class EspecialidadesController < ApplicationController
 
   def new
     @especialidad = Especialidad.new
+      respond_to do |f|
+        f.js
+      end
   end
 
   def create
     @especialidad = Especialidad.new(especialidad_params)
-    if @especialidad.save
-      redirect_to especialidades_path, notice: "Se ha creado la especialidad"
-    else
-      render "new"
+    respond_to do |format|
+      if @especialidad.save
+          flash[:success]="Especialidad Registrada"
+          format.html {redirect_to @espcialidades}
+          format.json {render :index, status: :created, location: @espcialidades }
+          format.js
+        else
+          flash[:alert]="Error de Registro"
+          format.html {render :show}
+          format.json {render json: @espcialidad.errors, status: :unprocessable_entity}
+      end
     end
   end
 

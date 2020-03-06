@@ -1,0 +1,19 @@
+<div class="container down">
+  <!-- Modal HTML Markup -->
+  <div id="especialidad-modal" class="modal fade">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-tittle" align="center">&nbsp;Registrar Especialidad </h4>
+          <button  type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        </div>
+        <div class="modal-body">
+          <%= simple_form_for @especialidad, remote: true do |f| %>
+              <%= f.input :nombre, class: "form-control" %>
+              <%= f.button :submit, class: "btn btn-primary"%>
+          <% end %>
+        </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+</div>
