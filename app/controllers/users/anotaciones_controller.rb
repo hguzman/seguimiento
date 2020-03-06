@@ -4,6 +4,4 @@ class Users::AnotacionesController < ApplicationController
 
   def show
   end
-
-
 end

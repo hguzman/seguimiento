@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root to: 'home#index'
   get 'comentarios/index'
   get 'comentarios/show'
   get 'comentarios/new'
@@ -10,7 +11,10 @@ Rails.application.routes.draw do
     get 'anotaciones/new'
   end
   devise_for :users
-  root to: 'home#index'
+
+  resources :users, only: [:index] do
+  get 'index'
+  end
 
   resources :especialidades
   resources :fichas

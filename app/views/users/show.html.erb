@@ -1,34 +1,48 @@
-<h1 class="text-center mov-naranja"><strong><%=  @user.nombres %> <%=  @user.apellidos %></strong></h1><hr />
+<h1 class="text-center mov-naranja"><strong><%=  @user.nombres %> <%=  @user.apellidos %></strong></h1>
+<hr />
 <div class="usuario">
-  <div class="informacion">
-    <div class="ibox-title">
-    <div class="container_picture">
-         <div class="picture">
-           <% if @user.avatar? %>
-             <%= image_tag @user.avatar.url(:thumb) %>
-             <%else%>
-                <img alt="image" class="rounded-circle" src="image_path('profile_small.jpg') %>"/>
-            <%end%>
-         </div>
-    </div>
-    </div>
-    <div class="container_details">
-      <div class="info">
-      <div class="ibox-content">
-         <p class="details_info"><strong>Nombres:</strong> <%=  @user.nombres %></p>
-         <p class="details_info"><strong>apellidos:</strong> <%=  @user.apellidos %></p>
-         <p class="details_info"><strong>N documento:</strong> <%=  @user.ndocumento %></p>
-         <p class="details_info"><strong>Telefono:</strong> <%=  @user.telefono %></p>
-         <p class="details_info"><strong>Direccion:</strong> <%=  @user.direccion %></p>
-         <p class="details_info"><strong>email:</strong> <%=  @user.email %></p>
+    <div class="informacion">
+        <div class="ibox-title">
+            <div class="container_picture">
+                <div class="picture">
+                    <% if @user.avatar? %>
+                        <%= image_tag @user.avatar.url(:thumb) %>
+                            <%else%>
+                                <%=image_tag 'default-user-img.jpg', class: "m-b-md", alt: "User Image"%>
 
-    <div class="container">
-      <div class="row">
-          <%= link_to "editar mi perfil", edit_user_path(@user) , class:"btn btn-success"%>
+                                    <%end%>
+                </div>
+            </div>
         </div>
+        <div class="container_details">
+            <div class="info">
+                <div class="ibox-content">
+                    <p class="details_info"><strong>Nombres:</strong>
+                        <%=  @user.nombres %>
+                    </p>
+                    <p class="details_info"><strong>apellidos:</strong>
+                        <%=  @user.apellidos %>
+                    </p>
+                    <p class="details_info"><strong>N documento:</strong>
+                        <%=  @user.ndocumento %>
+                    </p>
+                    <p class="details_info"><strong>Telefono:</strong>
+                        <%=  @user.telefono %>
+                    </p>
+                    <p class="details_info"><strong>Direccion:</strong>
+                        <%=  @user.direccion %>
+                    </p>
+                    <p class="details_info"><strong>email:</strong>
+                        <%=  @user.email %>
+                    </p>
+
+                    <div class="container">
+                        <div class="row">
+                            <%= link_to "editar mi perfil", edit_user_path(@user) , class:"btn btn-success"%>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-    </div>
-  </div>
 </div>

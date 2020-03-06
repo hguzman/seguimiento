@@ -52,4 +52,16 @@ crumb :users do
   link "usuarios", users_path
 end
 
+# breadcrumbs para anotaciones
+
+crumb :anotaciones do
+  link "anotaciones", anotaciones_path
+end
+
+crumb :anotacion_new do
+  link "crear", new_anotacion_path
+  parent :anotaciones
+end
+
+# breadcrumbs para usersx
 
