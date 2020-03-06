@@ -8,9 +8,10 @@ class EspecialidadesController < ApplicationController
 
   def new
     @especialidad = Especialidad.new
-      respond_to do |f|
-        f.js
-      end
+    respond_to do |f|
+      f.html
+      f.js
+    end
   end
 
   def create
@@ -18,13 +19,13 @@ class EspecialidadesController < ApplicationController
     respond_to do |format|
       if @especialidad.save
           flash[:success]="Especialidad Registrada"
-          format.html {redirect_to @espcialidades}
-          format.json {render :index, status: :created, location: @espcialidades }
+          format.html {redirect_to @especialidad}
+          format.json {render :index, status: :created, location: @espcialidad}
           format.js
         else
           flash[:alert]="Error de Registro"
           format.html {render :show}
-          format.json {render json: @espcialidad.errors, status: :unprocessable_entity}
+          format.json {render json: @especialidad.errors, status: :unprocessable_entity}
       end
     end
   end
