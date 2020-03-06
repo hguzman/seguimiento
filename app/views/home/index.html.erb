@@ -1,18 +1,18 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-12">
-            <div class="row m-b-lg m-t-lg ibox-content pb-0">
+            <div class="row ibox-content">
                 <div class="col-md-6 align-items-center">
                     <% breadcrumb :root %>
                     <div class="profile-image d-flex justify-content-center align-items-center">
                       <% if user_signed_in? %>
                         <% if current_user.avatar.thumb.present?%>
                           <div class="d-flex justify-content-center">
-                            <%= image_tag current_user.avatar.thumb.url,  class: "rounded-circle circle-border m-b-md border-green", alt: "User Image"%>
+                            <%= image_tag current_user.avatar.thumb.url,  class: "m-b-md", alt: "User Image"%>
                           </div>
                         <%else%>
                         <div class="d-flex justify-content-center">
-                            <%=image_tag 'default-user-img.jpg', class: "rounded-circle circle-border m-b-md border-green", alt: "User Image"%>
+                            <%=image_tag 'default-user-img.jpg', class: "m-b-md", alt: "User Image"%>
                         </div>
                       <%end%>
                       <%end%>

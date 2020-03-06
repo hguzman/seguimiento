@@ -1,6 +1,6 @@
 <div class="edit-users">
   <div class="container">
-    <h2 class="text-center">Editar datos de <%= current_user.nombres%> <%= current_user.apellidos%> </h2> <hr />
+    <h2 class="text-center">Editar datos de <%= current_user.nombres%> <%= current_user.apellidos%> </h2> <hr/>
     <div class="row">
         <div class="col-md-6">
           <%= simple_form_for current_user, url: users_path do |f| %>
