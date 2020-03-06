@@ -7,5 +7,12 @@ class AnotacionesController < ApplicationController
     @anotacion = Anotacion.find(params[:id])
   end
 
+  def new
+
+  end
+
+  def create
+
+  end
 
 end

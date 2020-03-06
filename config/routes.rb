@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
+  get 'comentarios/index'
+  get 'comentarios/show'
+  get 'comentarios/new'
+  get 'comentarios/create'
    resources :anotaciones
 
   namespace :users do
     get 'anotaciones/index'
+    get 'anotaciones/new'
   end
   devise_for :users
   root to: 'home#index'

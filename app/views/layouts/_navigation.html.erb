@@ -32,7 +32,10 @@
                                                 <a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label" data-i18n="nav.graphs">Anotacion</span><span class="fa arrow"></span></a>
                                                 <ul class="nav nav-second-level collapse <%= is_active_controller('graphs', 'in') %>">
                                                     <li class="<%= is_active_action('flot') %>">
-                                                        <%= link_to "Anotaciones", anotaciones_path %>
+                                                        <%= link_to "Listar", anotaciones_path %>
+                                                    </li>
+                                                    <li class="<%= is_active_action('flot') %>">
+                                                        <%= link_to "Crear", new_anotacion_path %>
                                                     </li>
                                                 </ul>
                                             </li>

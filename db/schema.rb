@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_05_152358) do
+ActiveRecord::Schema.define(version: 2020_03_06_154345) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,7 +20,15 @@ ActiveRecord::Schema.define(version: 2020_03_05_152358) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "comentarios_id"
+    t.index ["comentarios_id"], name: "index_anotaciones_on_comentarios_id"
     t.index ["user_id"], name: "index_anotaciones_on_user_id"
+  end
+
+  create_table "comentarios", force: :cascade do |t|
+    t.string "comentario"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "especialidades", force: :cascade do |t|
