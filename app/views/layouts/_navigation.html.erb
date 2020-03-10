@@ -29,7 +29,7 @@
                                         <% end %>
                                             <!-- opciones admin -->
                                             <li class="<%= is_active_controller('graphs') %>">
-                                                <a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label" data-i18n="nav.graphs">Anotacion</span><span class="fa arrow"></span></a>
+                                                <a href="#"><i class="fa fa-clipboard"></i> <span class="nav-label" data-i18n="nav.graphs">Anotacion</span><span class="fa arrow"></span></a>
                                                 <ul class="nav nav-second-level collapse <%= is_active_controller('graphs', 'in') %>">
                                                     <li class="<%= is_active_action('flot') %>">
                                                         <%= link_to "Listar", anotaciones_path %>
@@ -40,11 +40,11 @@
                                                 </ul>
                                             </li>
                                             <li>
-                                                <a href="#"><i class="fa fa-sitemap"></i> <span class="nav-label" data-i18n="nav.menulevels">Administracion </span><span class="fa arrow"></span></a>
+                                                <a href="#"><i class="fa fa-shield"></i> <span class="nav-label" data-i18n="nav.menulevels">Administracion </span><span class="fa arrow"></span></a>
                                                 <ul class="nav nav-second-level">
                                                     <% if policy(Especialidad).index? %>
                                                         <li class="<%= is_active_controller('graphs') %>">
-                                                            <a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label" data-i18n="nav.graphs">Especialidades</span><span class="fa arrow"></span></a>
+                                                            <a href="#"><i class="fa fa-graduation-cap"></i> <span class="nav-label" data-i18n="nav.graphs">Especialidades</span><span class="fa arrow"></span></a>
                                                             <ul class="nav nav-second-level collapse <%= is_active_controller('graphs', 'in') %>">
                                                                 <li class="<%= is_active_action('flot') %>">
                                                                     <%= link_to "Listar", especialidades_path %>
@@ -57,7 +57,7 @@
                                                         <% end %>
                                                             <% if policy(Ficha).index? %>
                                                                 <li class="<%= is_active_controller('graphs') %>">
-                                                                    <a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label" data-i18n="nav.graphs">Fichas</span><span class="fa arrow"></span></a>
+                                                                    <a href="#"><i class="fa fa-list-ol"></i> <span class="nav-label" data-i18n="nav.graphs">Fichas</span><span class="fa arrow"></span></a>
                                                                     <ul class="nav nav-second-level collapse <%= is_active_controller('graphs', 'in') %>">
                                                                         <li class="<%= is_active_action('flot') %>">
                                                                             <%= link_to "Listar", fichas_path %>
@@ -70,7 +70,7 @@
                                                                 <% end %>
                                                                     <% if policy(User).index? %>
                                                                         <li class="<%= is_active_controller('graphs') %>">
-                                                                            <a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label" data-i18n="nav.graphs">Usuarios</span><span class="fa arrow"></span></a>
+                                                                            <a href="#"><i class="fa fa-users"></i> <span class="nav-label" data-i18n="nav.graphs">Usuarios</span><span class="fa arrow"></span></a>
                                                                             <ul class="nav nav-second-level collapse <%= is_active_controller('graphs', 'in') %>">
                                                                                 <li class="<%= is_active_action('flot') %>">
                                                                                     <%= link_to "Listar", users_path %>
@@ -81,10 +81,10 @@
                                                 </ul>
                                             </li>
                                             <li class="<%= is_active_controller('graphs') %>">
-                                                <a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label" data-i18n="nav.graphs">Opciones</span><span class="fa arrow"></span></a>
+                                                <a href="#"><i class="fa fa-pencil"></i> <span class="nav-label" data-i18n="nav.graphs">Opciones</span><span class="fa arrow"></span></a>
                                                 <ul class="nav nav-second-level collapse <%= is_active_controller('graphs', 'in') %>">
-                                                    <li><a class="dropdown-item" href=" <%= edit_user_path %>" class="btn btn-nar">Mi Perfil</a></li>
-                                                    <li><a class="dropdown-item" href="<%= change_password_user_path %>">Cambiar Contraseña</a></li>
+                                                    <li><a class="dropdown-item" href=" <%= edit_user_path %>" class="btn btn-nar"><i class="fa fa-user"></i>Mi Perfil</a></li>
+                                                    <li><a class="dropdown-item" href="<%= change_password_user_path %>"><i class="fa fa-lock"></i>Cambiar Contraseña</a></li>
                                                     <li class="<%= is_active_action('flot') %>">
                                                         <%= link_to " Cerrar Sesion ", destroy_user_session_path, method: :delete%>
                                                     </li>
