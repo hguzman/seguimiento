@@ -1,25 +1,24 @@
-<div class="container">
-    <div class="row">
-        <!-- breadcrumbs -->
-        <% breadcrumb :fichas %>
-            <div class="col-12">
-                <h1 class="">Fichas Actuales</h1>
-                <table class="table table-hover">
-                    <thead class="thead-dark">
-                        <tr>
-                            <th>Codigo</th>
-                            <th>Nombre</th>
-                            <th>N°Aprendices</th>
-                            <th>Especialidad</th>
-                            <th>Fecha Finalizaciön</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <%= render @fichas %>
-                    </tbody>
-                </table>
-                <%= link_to "Exportar a Excel", toexcel_path(format: "xlsx"), class: "btn btn-primary" %>
-            </div>
-    </div>
+<div class="row">
+    <!-- breadcrumbs -->
+    <% breadcrumb :fichas %>
+        <div class="w-100">
+            <h1 class="">Fichas Actuales</h1>
+            <table class="table table-hover">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Codigo</th>
+                        <th>Nombre</th>
+                        <th>N°Aprendices</th>
+                        <th>Especialidad</th>
+                        <th>Fecha Finalizaciön</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <%= render @fichas %>
+                </tbody>
+            </table>
+            <%= link_to "Exportar a Excel", toexcel_path(format: "xlsx"), class: "btn btn-primary" %>
+        </div>
 </div>
 </div>
+
