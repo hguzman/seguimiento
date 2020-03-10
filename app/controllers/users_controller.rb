@@ -5,7 +5,11 @@ class UsersController < ApplicationController
 
   def index
       authorize User
-      @users = User.all
+      if params[:q]
+        @users = User.where("nombres ilike ?", "%#{params[:q]}%")
+      else
+        @users = User.all
+      end
   end
 
   def show
@@ -52,6 +56,13 @@ class UsersController < ApplicationController
   def setiar_user
     @user = User.find(current_user.id)
   end
+
+  def buscar
+
+    @user = User.find_by(user.ndocumento)
+
+  end
+
 
   def user_params
     params.require(:user).permit(:email,
