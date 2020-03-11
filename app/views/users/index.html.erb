@@ -2,12 +2,14 @@
 <% breadcrumb :users %>
     <h1 class="text-center mov-naranja"><strong>Usuarios</strong> Del Sistema</h1>
     <hr />
+
     <div>
         <form action="<%= users_path %>" method="GET">
             <input type="text" name="q" value="<%= params[:q] %>">
             <input type="submit">
         </form>
     </div>
+
     <div class="row">
         <%= form_tag(users_path, class:"navbar-form-custom" , method: :get) do %>
             <%end%>
@@ -15,6 +17,7 @@
     <div class="table-responsive">
         <table class="table table-striped">
             <tr>
+
                 <th class="">Documento</th>
                 <th class="">Nombres</th>
                 <th class="">Apellidos</th>
@@ -22,6 +25,7 @@
             </tr>
             <% @users.each do |user| %>
                 <tr>
+
                     <td>
                         <%= link_to user.ndocumento, user_path(user) %>
                     </td>
