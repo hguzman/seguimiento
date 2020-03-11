@@ -5,6 +5,7 @@ class AnotacionesController < ApplicationController
     @anotaciones = current_user.anotaciones
   end
 
+
   def show
     @anotacion = Anotacion.find(params[:id])
   end

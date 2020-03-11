@@ -84,3 +84,5 @@ gem 'pundit', '~> 1.1'
 gem "gretel"
 # Simple javascript toast notifications http://www.toastrjs.com
 gem 'toastr-rails'
+# Buenas prácticas de código
+gem 'rubocop', require: false

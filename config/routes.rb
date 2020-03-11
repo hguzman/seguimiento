@@ -6,13 +6,12 @@ Rails.application.routes.draw do
   get 'comentarios/create'
    resources :anotaciones
 
-  namespace :users do
-    get 'anotaciones/index'
-    get 'anotaciones/new'
-  end
+
   devise_for :users
 
-  resources :users, only: [:index, :show]
+  resources :users, only: [:index, :show] do
+    resources :anotaciones, module: :users
+  end
 
   resources :especialidades
   resources :fichas

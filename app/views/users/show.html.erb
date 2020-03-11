@@ -81,17 +81,24 @@
                   </thead>
                   <tbody>
                     
-                    <tr class="align-middle">
-                        <td><a href="/anotaciones/1">1</a></td>
-                        <td><a href="/anotaciones/1">Prueba</a></td>
-                        <td>6 de marzo de 2020 19:40</td>
-                    </tr>
 
-                    <tr class="align-middle">
-                        <td><a href="/anotaciones/2">2</a></td>
-                        <td><a href="/anotaciones/2">Prueba de anotación</a></td>
-                        <td>6 de marzo de 2020 21:09</td>
-                    </tr>
+                <% @anotaciones.each do |anotacion| %>
+                <tr>
+
+                    <td>
+                        <%=  anotacion.id %>
+                    </td>
+
+                    <td>
+                        <%=  anotacion.descripcion %>
+                    </td>
+
+                    <td>
+                        <%= anotacion.created_at%>
+                    </td>
+
+                </tr>
+                <%end%>
 
                   </tbody>
               </table>
