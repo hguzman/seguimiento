@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   def index
       authorize User
       if params[:q]
-        @users = User.where("nombres ilike ?", "%#{params[:q]}%")
+        @users = User.where("ndocumento ilike :q or nombres ilike :q or apellidos ilike :q", q: "%#{params[:q]}%")
       else
         @users = User.all
       end
