@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   end
   devise_for :users
 
-  resources :users, only: [:index]
+  resources :users, only: [:index, :show]
 
   resources :especialidades
   resources :fichas

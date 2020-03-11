@@ -13,7 +13,11 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(current_user.id)
+    if current_user.has_role? :admin
+      @user = User.find(params[:id])
+    else
+      @user = User.find(current_user.id)
+    end
   end
 
   def ver_user
