@@ -86,3 +86,6 @@ gem "gretel"
 gem 'toastr-rails'
 # Buenas prácticas de código
 gem 'rubocop', require: false
+# Kaminari is a Scope & Engine based, clean, powerful, agnostic, customizable and sophisticated paginator for Rails 4+
+gem 'kaminari', '~> 1.2'
+gem 'bootstrap4-kaminari-views'

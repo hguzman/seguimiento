@@ -3,7 +3,7 @@ class EspecialidadesController < ApplicationController
 
   def index
     authorize Especialidad
-    @especialidades = Especialidad.all
+    @especialidades = Especialidad.all.page params[:page]
   end
 
   def new

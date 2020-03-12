@@ -3,23 +3,18 @@
         <!-- breadcrumbs -->
         <% breadcrumb :ficha_new %>
 
-            <h1 class="font-weight-bold">NUEVA FICHA</h1>
-
-            <div class="ibox-content ">
+            <h1 class=" ibox-title font-weight-bold text-center pr-3">Crear nueva Ficha</h1>
+            <div class="ibox-content p-3 ">
                 <%= simple_form_for @ficha do |f| %>
-                    <div class="col">
+                    <div class="col-12">
                         <%= f.association :especialidad, label_method: :nombre, value_method: :id, min:"1" %>
-                    </div>
-                    <div class="col">
                         <%= f.input :numero, class: "form-control" %>
-                    </div>
-                    <div class="col">
                         <%= f.input :naprendices, class: "form-control" %>
-                    </div>
-                    <div class="col">
                         <%= f.input :fechafin, as: :date, html5: true %>
+                        <%= f.button :submit, class: "btn btn-primary btn-lg btn-block" %>
                     </div>
-                    <%= f.button :submit, class: "btn btn-primary btn-lg btn-block" %>
+
+                    </div>
                         <% end %>
             </div>
     </div>
