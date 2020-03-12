@@ -1,13 +1,14 @@
+# frozen_string_literal: true
+
+# Controlador de Comentarios
 class ComentariosController < ApplicationController
-  def index
-  end
+  # frozen_string_literal: true
 
-  def show
-  end
+  def index; end
 
-  def new
-  end
+  def show; end
 
-  def create
-  end
+  def new; end
+
+  def create; end
 end

@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Controlador de Especialidades
 class EspecialidadesController < ApplicationController
   before_action :authenticate_user!
 
@@ -18,14 +21,14 @@ class EspecialidadesController < ApplicationController
     @especialidad = Especialidad.new(especialidad_params)
     respond_to do |format|
       if @especialidad.save
-          flash[:success]="Especialidad Registrada"
-          format.html {redirect_to @especialidad}
-          format.json {render :index, status: :created, location: @espcialidad}
-          format.js
-        else
-          flash[:alert]="Error de Registro"
-          format.html {render :show}
-          format.json {render json: @especialidad.errors, status: :unprocessable_entity}
+        flash[:success] = 'Especialidad Registrada'
+        format.html { redirect_to @especialidad }
+        format.json { render :index, status: :created, location: @especialidad }
+        format.js
+      else
+        flash[:alert] = 'Error de Registro'
+        format.html { render :show }
+        format.json { render json: @especialidad.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -37,9 +40,10 @@ class EspecialidadesController < ApplicationController
   def update
     @especialidad = Especialidad.find(params[:id])
     if @especialidad.update(especialidad_params)
-      redirect_to especialidad_path(@especialidad), notice: "Se ha actualizado la especialidad"
+      redirect_to especialidad_path(@especialidad),
+                  notice: 'Se ha actualizado la especialidad'
     else
-      render "edit"
+      render 'edit'
     end
   end
 
@@ -52,5 +56,4 @@ class EspecialidadesController < ApplicationController
   def especialidad_params
     params.require(:especialidad).permit(:nombre)
   end
-
-  end
+end
