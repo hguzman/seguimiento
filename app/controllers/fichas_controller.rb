@@ -1,5 +1,9 @@
+# frozen_string_literal: true
+
+# Controlador de Fichas
 class FichasController < ApplicationController
   before_action :authenticate_user!
+  respond_to :html, :json, :js
 
   def index
     authorize Ficha
@@ -17,9 +21,10 @@ class FichasController < ApplicationController
   def create
     @ficha = Ficha.new(ficha_params)
     if @ficha.save
-    redirect_to fichas_path, notice: "Se ha creado la ficha"
+      flash[:success] = 'Se ha creado la Ficha'
+      respond_with @ficha
     else
-    render "new"
+      render 'new'
     end
   end
 
@@ -27,17 +32,18 @@ class FichasController < ApplicationController
     @ficha = Ficha.find(params[:id])
   end
 
-def update
-  @ficha = Ficha.find(params[:id])
+  def update
+    @ficha = Ficha.find(params[:id])
     if @ficha.update_attributes(ficha_params)
-      redirect_to ficha_path(@ficha), notice: "Se ha actualizado la ficha"
+      flash[:success] = 'Se ha Actualizado la Ficha'
+      redirect_to ficha_path(@ficha)
     else
-      render "edit"
+      render 'edit'
     end
   end
 
-#Genera excel.
-def toexcel
+  # Genera excel.
+  def toexcel
     @fichas = Ficha.all
     respond_to do |format|
       format.xlsx
@@ -47,7 +53,9 @@ def toexcel
   private
 
   def ficha_params
-  params.require(:ficha).permit(:numero, :naprendices, :especialidad_id, :fechafin)
+    params.require(:ficha).permit(:numero,
+                                  :naprendices,
+                                  :especialidad_id,
+                                  :fechafin)
   end
-
 end
