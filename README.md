@@ -1,7 +1,7 @@
 ## Pasos para colaborar en repositorios Open-Source.
 
 
-Para la aportación a proyectos Open-Source, se deben seguir unos pasos sencillos que garantizan la acertada interacción entre
+Para la aportación a proyectos Open-Source, se deben seguir unos pasos sencillos que garantizan la acertada interacción entre 
 
 desarrolladores y un flujo organizado de trabajo; a continuación, se detallan los pasos a seguir.
 
