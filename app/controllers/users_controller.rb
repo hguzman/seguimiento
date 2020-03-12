@@ -10,7 +10,9 @@ class UsersController < ApplicationController
   def index
       authorize User
       if params[:q].present?
-        @users = User.where("ndocumento ilike :q or nombres ilike :q or apellidos ilike :q", q: "%#{params[:q]}%").page params[:page]
+        @users = User.where(
+          "ndocumento ilike :q or nombres ilike :q or apellidos ilike :q",
+           q: "%#{params[:q]}%").page params[:page]
       else
         @users = User.all.page params[:page]
       end
