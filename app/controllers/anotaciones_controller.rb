@@ -31,7 +31,8 @@ class AnotacionesController < ApplicationController
   def create
     @anotacion = Anotacion.new(anotacion_params)
     if @anotacion.save
-      redirect_to users_path, notice: 'Se ha creado la novedad'
+      redirect_to users_path,
+      flash[:success] = 'Se ha creado la Anotacion'
     else
       render 'new'
     end
