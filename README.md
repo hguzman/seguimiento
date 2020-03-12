@@ -1,48 +1,48 @@
 ## Pasos para colaborar en repositorios Open-Source.
 
-Para la aportación a proyectos Open-Source, se deben seguir unos pasos sencillos que garantizan la acertada interacción entre desarrolladores y
+Para la aportación a proyectos Open-Source, se deben seguir unos pasos sencillos que garantizan la acertada interacción entre desarrolladores y Un flujo
 
-un flujo organizado de trabajo; a continuación, se detallan los pasos a seguir.
+organizado de trabajo; a continuación, se detallan los pasos a seguir.
 
-1.	Fork del repositorio origen:
+    1.	Fork del repositorio origen:
 
-        ingresa a tu cuenta de github.
+            ingresa a tu cuenta de github.
 
-        Ubica el repositorio en el que vas a colaborar.
+            Ubica el repositorio en el que vas a colaborar.
 
-        En la esquina superior derecha ubica el icno de fork y click en el.
+            En la esquina superior derecha ubica el icno de fork y click en el.
 
-        Esto realiza una copia exacta del repositorio en el perfil del usuario colaborador.
+            Esto realiza una copia exacta del repositorio en el perfil del usuario colaborador.
 
-2.	Clonar el repositorio:
+    2.	Clonar el repositorio:
 
-        Una vez se realiza el Fork, se debe clonar el repositorio forkeado, con el siguiente
+            Una vez se realiza el Fork, se debe clonar el repositorio forkeado, con el siguiente
 
-        Comando:  git clone https://github.com/User/NombreRepo.git
+            Comando:  git clone https://github.com/User/NombreRepo.git
 
-3.	Ingresa a la carpeta clonada:
+    3.	Ingresa a la carpeta clonada:
 
-        cd NombreRepo
+            cd NombreRepo
 
-4.	Verificar las conexiones con fuentes remotas:
+    4.	Verificar las conexiones con fuentes remotas:
 
-        git remote -v
+            git remote -v
 
-5.	Adicionar una conexión remota con el repositorio original:
+    5.	Adicionar una conexión remota con el repositorio original:
 
-        git remote add upstream https://github.com/User/RepoOriginal(Forkeado)
+            git remote add upstream https://github.com/User/RepoOriginal(Forkeado)
 
-6.	Opcional, renombrar la conexión remota.
+    6.	Opcional, renombrar la conexión remota.
 
-        En haras de evitar confuciones, en el paso anterior se creo una conexión local con el 
+            En haras de evitar confuciones, en el paso anterior se creo una conexión local con el 
 
-        repositorio original de nombre upstream, este nombre se puede cambiar por otro mas 
+            repositorio original de nombre upstream, este nombre se puede cambiar por otro mas 
 
-        personalizado con el siguiente comando:
+            personalizado con el siguiente comando:
 
-        git remote rename origin fork
+            git remote rename origin fork
 
-## Ya tenemos una copia del repositorio origina, ahora trabajaremos el flujo diario de trabajo.
+## Ya tenemos una copia del repositorio original, ahora veremos el flujo diario de trabajo.
 
 1.	Antes de todo actualizar rama master local con últimos cambios, con el comando: git pull -r (nombre del remoto origen) master
 
