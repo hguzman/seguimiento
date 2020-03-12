@@ -1,6 +1,10 @@
+# frozen_string_literal: true
+
+# Controlador para los Users
 class UsersController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_user, only: [:edit, :show ,:change_password, :update_password, :update]
+  before_action :set_user, only:
+  %i[edit show change_password update_password update]
   before_action :setiar_user, only: [:ver_user]
 
   def index
@@ -13,46 +17,45 @@ class UsersController < ApplicationController
   end
 
   def show
-    if current_user.has_role? :admin
-      @user = User.find(params[:id])
-    else
-      @user = User.find(current_user.id)
-    end
+    @user = if current_user.has_role? :admin
+              User.find(params[:id])
+            else
+              User.find(current_user.id)
+            end
   end
 
   def ver_user
-    render :template => 'users/show'
+    render template: 'users/show'
   end
 
-  def edit
-  end
+  def edit; end
 
-  def change_password
-  end
+  def change_password; end
 
   def update_password
     if @user.update_with_password(user_params)
       # Sign in the user by passing validation in case their password changed
       bypass_sign_in(@user)
-      flash[:success] ="Contraseña Actualizada"
-      redirect_to "/"
+      flash[:success] = 'Contraseña Actualizada'
+      redirect_to '/'
     else
-      flash[:alert]="Error al Actualizar"
-      render "change_password"
+      flash[:alert] = 'Error al Actualizar'
+      render 'change_password'
     end
   end
 
   def update
     if current_user.update(user_params)
-      flash[:success]="Registro Actualizado"
+      flash[:success] = 'Registro Actualizado'
       redirect_to edit_user_path
     else
-      flash[:alert]="Error al Actualizar"
+      flash[:alert] = 'Error al Actualizar'
       render :edit
     end
   end
 
   private
+
   def set_user
     @user = current_user
   end
@@ -62,26 +65,16 @@ class UsersController < ApplicationController
   end
 
   def buscar
-
     @user = User.find_by(user.ndocumento)
-
   end
-
 
   def user_params
     params.require(:user).permit(:email,
                                  :password,
-                                 :current_password,
-                                 :password_confirmation,
-                                 :nombres,
-                                 :apellidos,
-                                 :ndocumento,
-                                 :telefono,
-                                 :direccion,
-                                 :avatar,
-                                 :tipodocumento_id,
-                                 :ficha_id
-                                 )
+                                 :current_password, :password_confirmation,
+                                 :nombres, :apellidos,
+                                 :ndocumento, :telefono,
+                                 :direccion, :avatar,
+                                 :tipodocumento_id, :ficha_id)
   end
-
 end
