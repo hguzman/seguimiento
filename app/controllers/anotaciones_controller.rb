@@ -2,8 +2,18 @@ class AnotacionesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @anotaciones = current_user.anotaciones
+      if current_user.has_role? :admin
+        if params[:q].present?
+          # buscar anotaciones por documento, nombres o apellidoss entre anotaciones y user
+          @anotaciones = Anotacion.includes(:user).where("ndocumento ilike :q or nombres ilike :q or apellidos ilike :q", q: "%#{params[:q]}%").references(:users)
+        else
+          @anotaciones = Anotacion.all
+        end
+      else
+        @anotaciones = current_user.anotaciones
+      end
   end
+
 
   def show
     @anotacion = Anotacion.find(params[:id])
@@ -12,7 +22,7 @@ class AnotacionesController < ApplicationController
   def new
     @anotacion = Anotacion.new
   end
-  
+
   def create
     @anotacion = Anotacion.new(anotacion_params)
     if @anotacion.save

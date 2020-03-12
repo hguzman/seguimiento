@@ -1,38 +1,24 @@
+<div class = "container">
+    <!-- breadcrumbs -->
 
-<div class="container">
-  <div class="row">
-    <div class="col-md-8 m-auto">
-      <div class="ibox">
-        <div class="ibox-title">
-              <h5>Anotacion</h5>
-            <div class="ibox-tools">
-                <a class="collapse-link">
-                    <i class="fa fa-chevron-up"></i>
-                </a>
-                <a class="fullscreen-link">
-                    <i class="fa fa-expand"></i>
-                </a>
-                <a class="close-link">
-                    <i class="fa fa-times"></i>
-                </a>
+            <div class="ibox mt-4 col-md-4 mx-auto">
+               <div class="ibox-title">
+                    <div class="ibox-tools" >
+                        <span class="label label-primary float-left"><h5><%=@anotacion.id%></h5></span>
+                    </div>
+                    <h3>ANOTACION</h3>
+                </div>
+                <div class="ibox-content">
+                    <div class="info">
+                      <h3>
+                       <p class="details_info"><strong>Descripcion:</strong></p><p><%=  @anotacion.descripcion %></p>
+                       <p class="details_info"><strong>Fecha de creacion:</strong></p><p><%=  @anotacion.created_at %></p>
+                      </h3>
+                    </div>
+                  <div class="row">
+                    <div class="col-md-4">
+                        <%= link_to "Editar ", edit_anotacion_path(@anotacion), class:"btn btn-primary btn-lg btn-block"%>
+                    </div>
+                  </div>
             </div>
-        </div>
-        <div class="ibox-content">
-          <div class="info">
-             <p class="details_info"><strong>Codigo:</strong> <%=  @anotacion.id %></p>
-             <p class="details_info"><strong>Descripcion:</strong> <%=  @anotacion.descripcion %></p>
-             <p class="details_info"><strong>Fecha de creacion:</strong> <%=  @anotacion.created_at %></p>
-          </div>
-          <div class="row">
-            <div class="col-md-2">
-                <%= link_to "Editar ", edit_anotacion_path(@anotacion), class:"btn btn-primary btn-lg btn-block"%>
-            </div>
-          </div>
-
-        </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
 </div>

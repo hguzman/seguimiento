@@ -10,7 +10,7 @@ class User < ApplicationRecord
 
   mount_uploader :avatar, AvatarUploader
   def assign_default_role
-     self.add_role(:aprendiz) if self.roles.blank?
+     add_role(:aprendiz) if self.roles.blank?
   end
 
   belongs_to :tipodocumento

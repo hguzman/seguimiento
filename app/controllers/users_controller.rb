@@ -5,11 +5,19 @@ class UsersController < ApplicationController
 
   def index
       authorize User
-      @users = User.all
+      if params[:q].present?
+        @users = User.where("ndocumento ilike :q or nombres ilike :q or apellidos ilike :q", q: "%#{params[:q]}%")
+      else
+        @users = User.all
+      end
   end
 
   def show
-    @user = User.find(current_user.id)
+    if current_user.has_role? :admin
+      @user = User.find(params[:id])
+    else
+      @user = User.find(current_user.id)
+    end
   end
 
   def ver_user
@@ -52,6 +60,13 @@ class UsersController < ApplicationController
   def setiar_user
     @user = User.find(current_user.id)
   end
+
+  def buscar
+
+    @user = User.find_by(user.ndocumento)
+
+  end
+
 
   def user_params
     params.require(:user).permit(:email,

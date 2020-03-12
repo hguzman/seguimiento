@@ -1,6 +1,19 @@
-
 <tr class="align-middle">
-    <td><%= link_to anotacion.id, anotacion_path(anotacion) %></td>
-    <td><%= link_to anotacion.descripcion, anotacion_path(anotacion) %></td>
-    <td><%= l anotacion.created_at, format: :long%></td>
+    <td>
+        <%= link_to anotacion.id, anotacion_path(anotacion)%>
+    </td>
+    <td>
+        <%= anotacion.user.ndocumento%>
+    </td>
+    <td>
+        <%= anotacion.user.nombres %>
+
+            <%= anotacion.user.apellidos %>
+    </td>
+    <td>
+        <%= anotacion.descripcion %>
+    </td>
+    <td>
+        <%= l anotacion.created_at, format: :long%>
+    </td>
 </tr>

@@ -1,9 +1,9 @@
 <!-- breadcrumbs -->
 <% breadcrumb :especialidades %>
 
-    <div class="container">
+
         <div class="row">
-            <div class="col-md-12">
+            <div class="w-100">
                 <div class="ibox ">
                     <div class="ibox-title">
                         <h5>Listado especialidades</h5>
@@ -38,6 +38,7 @@
 
         </div>
 
+<<<<<<< HEAD
     </div>
 
 <% content_for :javascript do %>
@@ -62,3 +63,7 @@
   </script>
 
 <% end %>
+=======
+        <%= link_to "Nueva especialidad", new_especialidad_path, remote: true, class: "btn btn-primary" %>
+
+>>>>>>> a9227e2122c8e1f9a627474b7accbfbb4365b440
