@@ -7,7 +7,7 @@ class FichasController < ApplicationController
 
   def index
     authorize Ficha
-    @fichas = Ficha.all
+    @fichas = Ficha.all.page params[:page]
   end
 
   def show
