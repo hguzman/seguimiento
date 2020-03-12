@@ -21,7 +21,14 @@
                                 <%= render @especialidades %>
                             </tbody>
                         </table>
+                        <hr>
+                        <%= link_to "Nueva especialidad", new_especialidad_path, remote: true, class: "btn btn-primary" %>
+                        <button type="button" name="prueba" id="prueba">Adicionar</button>
+                        <input type="text" name="a" value="" id="esp">
+                        <button type="button" name="enviar" id="enviar">enviar</button>
+
                     </div>
+
                 </div>
 
 
@@ -31,5 +38,27 @@
 
         </div>
 
-        <%= link_to "Nueva especialidad", new_especialidad_path, remote: true, class: "btn btn-primary" %>
     </div>
+
+<% content_for :javascript do %>
+  <script>
+    $("#prueba").click(function () {
+      $("#esp").show();
+    });
+
+    $("#enviar").click(function () {
+      $.ajax({
+        type: "POST",
+        url: "especialidades.js",
+        data: {especialidad: {nombre: "algo"}},
+        success: function(data)
+        {
+          alert("Respondio");
+        }
+      });
+    });
+
+
+  </script>
+
+<% end %>

@@ -9,7 +9,7 @@ class EspecialidadesController < ApplicationController
   def new
     @especialidad = Especialidad.new
     respond_to do |f|
-      f.html
+      # f.html
       f.js
     end
   end
