@@ -1,6 +1,6 @@
 namespace :db do
     desc "Llenar El modelo ficha"
-    
+
     task llenar_fichas: :environment do
         Ficha.create(numero: '1963770')
         Ficha.create(numero: '1022121')
