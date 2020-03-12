@@ -1,5 +1,5 @@
 ## Pasos para colaborar en repositorios Open-Source.
----
+
 
 Para la aportación a proyectos Open-Source, se deben seguir unos pasos sencillos que garantizan la acertada interacción entre
 
