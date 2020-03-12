@@ -26,43 +26,57 @@
                         label: false,
                         input_html: {class: "form-control", min:"1" } %>
 
-                                <%= f.input :ndocumento,
+                        <%= f.input :ndocumento,
                         required: true,
                         label: false,
                         autofocus: true,
                         placeholder: "Digite su Documento de Identidad",
                         input_html: { autocomplete: "documento" }%>
-                                    <%= f.input :telefono,
+
+                        <%= f.input :telefono,
                         required: true,
                         label: false,
                         autofocus: true,
                         placeholder: "Digite su numero de Telfono",
                         input_html: { autocomplete: "telefono" }%>
-                                        <%= f.input :direccion,
-                    required: true,
-                    label: false,
-                    autofocus: true,
-                    placeholder: "Escriba su direccion Completa",
-                    input_html: { autocomplete: "direccion" }%>
-                                            <%= f.input :email,
+
+                        <%= f.input :direccion,
+                        required: true,
+                        label: false,
+                        autofocus: true,
+                        placeholder: "Escriba su direccion Completa",
+                        input_html: { autocomplete: "direccion" }%>
+
+                        <%= f.input :email,
                         required: true,
                         label: false,
                         autofocus: true,
                         placeholder: "Escriba su correo Electronico",
                         input_html: { autocomplete: "email" }%>
-                                                <%= f.input :password,
+
+                        <%= f.association :ficha,
+                        label_method: :numero,
+                        value_method: :id ,
+                        prompt: "Seleccione Ficha",
+                        label: false,
+                        input_html: {class: "form-control", min:"1" } %>
+
+                        <%= f.input :password,
                         required: true,
                         label: false,
                         placeholder: "Escriba su Contraseña",
                         hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
                         input_html: { autocomplete: "new-password" } %>
-                                                    <%= f.input :password_confirmation,
+
+                        <%= f.input :password_confirmation,
                         required: true,
                         label: false,
                         placeholder: "Confirme su Contraseña",
                         input_html: { autocomplete: "new-password" } %>
+
                         <%= f.button :submit, "Crear usuario", class: "btn-primary block full-width m-b" %>
                         <a class="btn btn-sm btn-white btn-block" href="<%=new_user_session_path%>">Login</a>
+
                         <!-- <%= render "devise/shared/links" %> -->
 
                         <% end %>
