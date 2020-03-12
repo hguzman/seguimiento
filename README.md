@@ -1,8 +1,8 @@
 ## Pasos para colaborar en repositorios Open-Source.
 
-Para la aportación a proyectos Open-Source, se deben seguir unos pasos sencillos que garantizan la acertada interacción entre desarrolladores y
+Para la aportación a proyectos Open-Source, se deben seguir unos pasos sencillos que garantizan la acertada interacción entre
 
-un flujo organizado de trabajo; a continuación, se detallan los pasos a seguir.
+desarrolladores y un flujo organizado de trabajo; a continuación, se detallan los pasos a seguir.
 
 1.	Fork del repositorio origen:
 
@@ -18,7 +18,7 @@ un flujo organizado de trabajo; a continuación, se detallan los pasos a seguir.
 
         Una vez se realiza el Fork, se debe clonar el repositorio forkeado, con el siguiente
 
-        Comando:  git clone https://github.com/User/NombreRepo.git
+        Comando:  git clone **https://github.com/User/NombreRepo.git**
 
 3.	Ingresa a la carpeta clonada:
 
