@@ -79,7 +79,8 @@ class UsersController < ApplicationController
                                  :telefono,
                                  :direccion,
                                  :avatar,
-                                 :tipodocumento_id
+                                 :tipodocumento_id,
+                                 :ficha_id
                                  )
   end
 
