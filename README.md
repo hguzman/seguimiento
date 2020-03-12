@@ -1,8 +1,15 @@
 ## Pasos para colaborar en repositorios Open-Source.
 
+<<<<<<< HEAD
 Para la aportación a proyectos Open-Source, se deben seguir unos pasos sencillos que garantizan la acertada interacción entre desarrolladores y Un flujo
 
 organizado de trabajo; a continuación, se detallan los pasos a seguir.
+=======
+
+Para la aportación a proyectos Open-Source, se deben seguir unos pasos sencillos que garantizan la acertada interacción entre 
+
+desarrolladores y un flujo organizado de trabajo; a continuación, se detallan los pasos a seguir.
+>>>>>>> e9244024b6d12c60f5531a8dc36a9cf1aef314a2
 
     1.	Fork del repositorio origen:
 
@@ -18,7 +25,11 @@ organizado de trabajo; a continuación, se detallan los pasos a seguir.
 
             Una vez se realiza el Fork, se debe clonar el repositorio forkeado, con el siguiente
 
+<<<<<<< HEAD
             Comando:  git clone https://github.com/User/NombreRepo.git
+=======
+        Comando:  git clone  https://github.com/User/NombreRepo.git
+>>>>>>> e9244024b6d12c60f5531a8dc36a9cf1aef314a2
 
     3.	Ingresa a la carpeta clonada:
 
@@ -42,7 +53,11 @@ organizado de trabajo; a continuación, se detallan los pasos a seguir.
 
             git remote rename origin fork
 
+<<<<<<< HEAD
 ## Ya tenemos una copia del repositorio original, ahora veremos el flujo diario de trabajo.
+=======
+## Ya tenemos una copia del repositorio original, ahora trabajaremos el flujo diario de trabajo.
+>>>>>>> e9244024b6d12c60f5531a8dc36a9cf1aef314a2
 
 1.	Antes de todo actualizar rama master local con últimos cambios, con el comando: git pull -r (nombre del remoto origen) master
 
