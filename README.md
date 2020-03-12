@@ -43,7 +43,7 @@ desarrolladores y un flujo organizado de trabajo; a continuación, se detallan l
 
         git remote rename origin fork
 
-## Ya tenemos una copia del repositorio origina, ahora trabajaremos el flujo diario de trabajo.
+## Ya tenemos una copia del repositorio original, ahora trabajaremos el flujo diario de trabajo.
 
 1.	Antes de todo actualizar rama master local con últimos cambios, con el comando: git pull -r (nombre del remoto origen) master
 
