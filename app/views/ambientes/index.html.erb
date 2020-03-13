@@ -1,0 +1,26 @@
+<div class="row">
+    <!-- breadcrumbs -->
+        <div class="w-100">
+            <h1 class="">Ambientes</h1>
+            <table class="table table-hover">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Nombre del Ambientes</th>
+                        <th>Descripcion</th>
+                    </tr>
+                </thead>
+                <% @ambientes.each do |ambiente| %>
+                    <tr>
+                      <td>
+                          <%= link_to ambiente.nombre, ambiente_path(ambiente) %>
+                          
+                      </td>
+                        <td>
+                            <%= ambiente.descripcion%>
+                        </td>
+                        <%end%>
+            </table>
+        </div>
+
+</div>
+</div>
