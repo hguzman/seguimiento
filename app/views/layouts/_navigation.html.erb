@@ -78,6 +78,19 @@
                                                                             </ul>
                                                                         </li>
                                                                         <% end %>
+                                                                        <% if policy(Ambiente).index? %>
+                                                                        <li class="<%= is_active_controller('graphs')%>" >
+                                                                          <a href="#"><i class="fa fa-university"></i> <span class="nav-label" data-i18n="nav.graphs">Ambientes</span><span class="fa arrow"></span></a>
+                                                                          <ul class="nav nav-second-level collapse <%= is_active_controller('graphs', 'in')%>">
+                                                                            <li class="<%= is_active_action('flot')%>">
+                                                                              <%= link_to "Listar", ambientes_path %>
+                                                                            </li>
+                                                                            <li class="<%= is_active_action('flot') %>">
+                                                                                <%= link_to "Crear", new_ambiente_path%>
+                                                                            </li>
+                                                                          </ul>
+                                                                        </li>
+                                                                        <%end%>
                                                 </ul>
                                             </li>
                                             <li class="<%= is_active_controller('graphs') %>">

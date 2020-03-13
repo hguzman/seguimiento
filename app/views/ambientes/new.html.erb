@@ -1,0 +1,30 @@
+<% breadcrumb :anotacion_new %>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 m-auto">
+                <div class="ibox">
+                    <div class="ibox-title">
+                        <h5>NUEVO AMBIENTE</h5>
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                            <a class="fullscreen-link">
+                                <i class="fa fa-expand"></i>
+                            </a>
+                            <a class="close-link">
+                                <i class="fa fa-times"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+                        <%= simple_form_for @ambiente do |f| %>
+                            <%= f.input :nombre, class: "form-control" %>
+                            <%= f.input :descripcion, class: "form-control" %>
+                            <%= f.button :submit, class: "btn btn-primary" %>
+                                    <% end %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
