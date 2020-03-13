@@ -21,6 +21,6 @@
 /yarn-error.log
 public/uploads
 .byebug_history
-Gemfile.lock
+
 .history
 config/local_env.yml
