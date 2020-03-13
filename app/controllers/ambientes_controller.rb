@@ -1,5 +1,9 @@
+# frozen_string_literal: true
+
+# Controlador de Ambientes
 class AmbientesController < ApplicationController
   before_action :authenticate_user!
+  
   def show
     @ambiente = Ambiente.find(params[:id])
   end
@@ -7,8 +11,6 @@ class AmbientesController < ApplicationController
   def edit
     @ambiente = Ambiente.find(params[:id])
   end
-
-
 
   def index
     authorize Ambiente
@@ -27,6 +29,7 @@ class AmbientesController < ApplicationController
       render "new"
     end
   end
+  
   def update
     @ambiente = Ambiente.find(params[:id])
     if  @ambiente.update_attributes(ambiente_params)
