@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :ambientes
   root to: 'home#index'
   get 'comentarios/index'
   get 'comentarios/show'

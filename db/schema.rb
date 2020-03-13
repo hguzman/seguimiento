@@ -10,10 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_12_150358) do
+ActiveRecord::Schema.define(version: 2020_03_13_040017) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "ambientes", force: :cascade do |t|
+    t.string "nombre"
+    t.string "descripcion"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "anotaciones", force: :cascade do |t|
     t.text "descripcion"
@@ -57,6 +64,12 @@ ActiveRecord::Schema.define(version: 2020_03_12_150358) do
     t.index ["resource_type", "resource_id"], name: "index_roles_on_resource_type_and_resource_id"
   end
 
+  create_table "tipo_documentos", force: :cascade do |t|
+    t.string "nombre"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "tipodocumentos", force: :cascade do |t|
     t.string "nombre"
     t.datetime "created_at", precision: 6, null: false
@@ -76,6 +89,7 @@ ActiveRecord::Schema.define(version: 2020_03_12_150358) do
     t.string "ndocumento"
     t.bigint "telefono"
     t.string "direccion"
+    t.bigint "{:index=>true}_id"
     t.string "avatar"
     t.bigint "tipodocumento_id"
     t.bigint "ficha_id"
@@ -83,6 +97,7 @@ ActiveRecord::Schema.define(version: 2020_03_12_150358) do
     t.index ["ficha_id"], name: "index_users_on_ficha_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["tipodocumento_id"], name: "index_users_on_tipodocumento_id"
+    t.index ["{:index=>true}_id"], name: "index_users_on_{:index=>true}_id"
   end
 
   create_table "users_roles", id: false, force: :cascade do |t|
