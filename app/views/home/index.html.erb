@@ -1,57 +1,79 @@
-
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="row ibox-content">
-                <div class="col-md-6 align-items-center">
-                    <% breadcrumb :root %>
-                    <div class="profile-image d-flex justify-content-center align-items-center">
-                      <% if user_signed_in? %>
-                        <% if current_user.avatar.thumb.present?%>
-                          <div class="d-flex justify-content-center">
-                            <%= image_tag current_user.avatar.thumb.url,  class: "m-b-md", alt: "User Image"%>
-                          </div>
-                        <%else%>
-                        <div class="d-flex justify-content-center">
-                            <%=image_tag 'default-user-img.jpg', class: "m-b-md", alt: "User Image"%>
-                        </div>
-                      <%end%>
-                      <%end%>
-                    </div>
-                    <div class="profile-info">
-                        <div class="">
-                            <div>
-                                <h2 class="no-margins">
-                                    <%= current_user.nombres %> <%= current_user.apellidos %>
-                                </h2>
-                                <h4>ADSI</h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 d-flex justify-content-center align-items-center">
-                    <table class="table m-b-xs">
-                        <tbody>
-                        <tr>
-                            <td>
-                                <strong>Número de documento:</strong> <%= current_user.ndocumento %>
-                            </td>
-                            <td>
-                                <strong>Teléfono:</strong> <%= current_user.telefono %>
-                            </td>
-
-                        </tr>
-                        <tr>
-                            <td>
-                                <strong>E-mail:</strong> <%= current_user.email %>
-                            </td>
-                            <td>
-                                <strong>Dirección:</strong> <%= current_user.direccion %>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+<div class="row mb-3">
+  <div class="col-lg-12">
+    <div class="row ibox-content">
+      <div class="col-md-6 align-items-center">
+        <% breadcrumb :root %>
+        <div class="profile-image d-flex justify-content-center align-items-center">
+          <% if user_signed_in? %>
+          <% if current_user.avatar.thumb.present?%>
+          <div class="d-flex justify-content-center">
+            <%= image_tag current_user.avatar.thumb.url,  class: "m-b-md", alt: "User Image"%>
+          </div>
+          <%else%>
+          <div class="d-flex justify-content-center">
+            <%=image_tag 'default-user-img.jpg', class: "m-b-md", alt: "User Image"%>
+          </div>
+          <%end%>
+          <%end%>
         </div>
+        <div class="profile-info">
+          <div class="">
+            <div>
+              <h2 class="no-margins">
+                <%= current_user.nombres %> <%= current_user.apellidos %>
+              </h2>
+              <h4>ADSI</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 d-flex justify-content-center align-items-center">
+        <table class="table m-b-xs">
+          <tbody>
+            <tr>
+              <td>
+                <strong>Número de documento:</strong> <%= current_user.ndocumento %>
+              </td><td>
+                <strong>Teléfono:</strong> <%= current_user.telefono %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <strong>E-mail:</strong> <%= current_user.email %>
+              </td>
+              <td>
+                <strong>Dirección:</strong> <%= current_user.direccion %>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
-
+  </div>
+</div>
+<div class="row d-flex justify-content-space-bettween">
+  <div class="w-50 pr-2">
+    <div class="ibox">
+      <div class="ibox-title">
+        <h5>Anotaciones</h5>
+      </div>
+      <div class="ibox-content">
+        <h1 class="no-margins"><%= current_user.anotaciones.count %></h1>
+        <small>Total anotaciones</small>
+      </div>
+    </div>
+  </div>
+  <div class="">
+  </div>
+  <div class="w-50 pl-2">
+    <div class="ibox">
+      <div class="ibox-title">
+        <h5>Comentarios</h5>
+      </div>
+      <div class="ibox-content">
+        <h1 class="no-margins">80,600</h1>
+        <small>Total comentarios</small>
+      </div>
+    </div>
+  </div>
+</div>

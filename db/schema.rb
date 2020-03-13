@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2020_03_13_040017) do
+=======
+ActiveRecord::Schema.define(version: 2020_03_12_150358) do
+>>>>>>> 7b51406d2455bd33e51afdc64c109d64f034ca61
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -92,7 +96,9 @@ ActiveRecord::Schema.define(version: 2020_03_13_040017) do
     t.bigint "{:index=>true}_id"
     t.string "avatar"
     t.bigint "tipodocumento_id"
+    t.bigint "ficha_id"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["ficha_id"], name: "index_users_on_ficha_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["tipodocumento_id"], name: "index_users_on_tipodocumento_id"
     t.index ["{:index=>true}_id"], name: "index_users_on_{:index=>true}_id"
