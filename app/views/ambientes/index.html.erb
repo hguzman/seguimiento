@@ -1,25 +1,40 @@
 <div class="row">
     <!-- breadcrumbs -->
         <div class="w-100">
-            <h1 class="">Ambientes</h1>
-            <table class="table table-hover">
-                <thead class="thead-dark">
-                    <tr>
-                        <th>Nombre del Ambientes</th>
-                        <th>Descripcion</th>
-                    </tr>
-                </thead>
-                <% @ambientes.each do |ambiente| %>
-                    <tr>
-                      <td>
-                          <%= link_to ambiente.nombre, ambiente_path(ambiente) %>
-                          
-                      </td>
+        <div class="ibox">
+        
+            <div class="ibox-title d-flex justify-content-between align-items-center pr-3">
+                <h5>Listado de Ambientes</h5>
+                <form action="" method="GET" class="d-flex justify-content-between align-items-center" >
+                    <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Buscar.." aria-label="Recipient's username" aria-describedby="button-addon2" name="" value="">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="submit" id="button-addon2"><i class="fa fa-search"></i></button>
+                            </div>
+                    </div>
+                </form>
+            </div>
+            <div class="ibox-content">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Nombre del Ambientes</th>
+                            <th>Descripcion</th>
+                        </tr>
+                    </thead>
+                    <% @ambientes.each do |ambiente| %>
+                        <tr>
                         <td>
-                            <%= ambiente.descripcion%>
+                            <%= link_to ambiente.nombre, ambiente_path(ambiente) %>
+                            
                         </td>
-                        <%end%>
-            </table>
+                            <td>
+                                <%= ambiente.descripcion%>
+                            </td>
+                            <%end%>
+                </table>
+            </div>
+        </div>
         </div>
 
 </div>
