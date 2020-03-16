@@ -91,11 +91,11 @@
                                         <% end %>
                         </ul>
                     </li>
-                    <li class="<%= 'active' if current_page?(controller: 'users', action: 'edit') %>  <%= 'active' if current_page?(controller: 'users', action: 'change_password') %>">
+                    <li class="<%= 'active' if current_page?('/user/edit') %> <%= 'active' if current_page?('/user/change_password') %>">
                         <a href="#"><i class="fa fa-pencil"></i> <span class="nav-label" data-i18n="nav.graphs">Opciones</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level collapse ">
-                            <li class="<%= 'active' if current_page?(controller: 'users', action: 'edit') %>"><a class="dropdown-item" href=" <%= edit_user_path %>" class="btn btn-nar"><i class="fa fa-user"></i>Mi Perfil</a></li>
-                            <li class="<%= 'active' if current_page?(controller: 'users', action: 'change_password') %>"><a class="dropdown-item" href="<%= change_password_user_path %>"><i class="fa fa-lock"></i>Cambiar Contraseña</a></li>
+                            <li class="<%= is_active_action('edit') %>"><a class="dropdown-item" href=" <%= edit_user_path %>" class="btn btn-nar"><i class="fa fa-user"></i>Mi Perfil</a></li>
+                            <li class="<%= 'active' if current_page?('/user/change_password') %>"><a class="dropdown-item" href="<%= change_password_user_path %>"><i class="fa fa-lock"></i>Cambiar Contraseña</a></li>
                             <li class="">
                                 <%= link_to " Cerrar Sesion ", destroy_user_session_path, method: :delete%>
                             </li>
