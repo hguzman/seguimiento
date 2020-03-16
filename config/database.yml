@@ -20,7 +20,5 @@ test:
   host: localhost
 
 production:
-  <<: *default
-  database: seguimiento_production
-  username: seguimiento
-  password: <%= ENV['UNIFORMATE_DATABASE_PASSWORD'] %>
+
+  url: <%= ENV['DATABASE_URL'] %>
