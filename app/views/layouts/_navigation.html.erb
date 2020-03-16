@@ -63,16 +63,12 @@
                                         <li class="<%= is_active_action('index') %>">
                                             <%= link_to "Listar", especialidades_path %>
                                         </li>
-                                        <li class="<%= is_active_action('new') %>">
-                                            <%= link_to "Crear", new_especialidad_path%>
-                                        </li>
                                     </ul>
                                 </li>
                                 <% end %>
                                     <% if policy(Ficha).index? %>
                                         <!-- Fichas -->
                                         <li class="<%= is_active_controller('fichas') %>">
-                                            Fichas
                                             <a href="#"><i class="fa fa-list-ol"></i> <span class="nav-label" data-i18n="nav.graphs">Fichas</span><span class="fa arrow"></span></a>
                                             <ul class="nav nav-second-level collapse <%= is_active_controller('fichas', 'in') %>">
                                                 <li class="<%= is_active_action('index') %>">
