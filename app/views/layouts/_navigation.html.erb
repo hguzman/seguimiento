@@ -23,47 +23,51 @@
                     <%=link_to "SG20", root_path %>
                 </div>
             </li>
+            <!-- boton inicio -->
             <li class="<%= 'active' if current_page?('/') %>">
                 <%= link_to "/" do %>
                 <i class="fa fa-laptop"></i> <span class="nav-label">Inicio</span>
-                <% end %>
+                                        <% end %>
             </li>
-
-            <li class="<%= 'active' if current_page?('/users') %>">
-                <%= link_to "/users" do %>
-                <i class="fa fa-users"></i> <span class="nav-label">Aprendices</span>
+            <!-- aprendices -->
+            <% if policy(User).index? %>
+                <li class="<%= 'active' if current_page?('/users') %>">
+                    <%= link_to "/users" do %>
+                        <i class="fa fa-users"></i> <span class="nav-label">Aprendices</span>
+                        <% end %>
+                </li>
                 <% end %>
-            </li>
-                    <!-- opciones admin -->
+                    <!-- menu anotaciones -->
                     <li class="<%= is_active_controller('anotaciones') %>">
-                        <a href="#"><i class="fa fa-clipboard"></i> <span class="nav-label" data-i18n="nav.graphs">Anotacion</span><span class="fa arrow"></span></a>
+                        <a href="#"><i class="fa fa-clipboard"></i> <span class="nav-label" data-i18n="nav.graphs">Anotaciones</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level collapse <%= is_active_controller('anotaciones', 'in') %>">
                             <li class="<%= is_active_action('index') %>">
                                 <%= link_to "Listar", anotaciones_path %>
                             </li>
-                            <li class="<%= is_active_action('new') %>">
-                                <%= link_to "Crear", new_anotacion_path %>
-                            </li>
+                            <% if policy(Anotacion).new? %>
+                                <li class="<%= is_active_action('new') %>">
+                                    <%= link_to "Crear", new_anotacion_path %>
+                                </li>
+                                <% end %>
                         </ul>
                     </li>
-
-                    <li class="<%= is_active_controller('especialidades') %> <%= is_active_controller('fichas') %> <%= is_active_controller('ambientes') %>">
-                        <a href="#"><i class="fa fa-shield"></i> <span class="nav-label" data-i18n="nav.menulevels">Administracion </span><span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <% if policy(Especialidad).index? %>
+                    <!-- opciones admin -->
+                    <% if policy(Especialidad).index? %>
+                        <li class="<%= is_active_controller('especialidades') %> <%= is_active_controller('fichas') %> <%= is_active_controller('ambientes') %>">
+                            <a href="#"><i class="fa fa-shield"></i> <span class="nav-label" data-i18n="nav.menulevels">Administracion </span><span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <!-- Especialidades -->
                                 <li class="<%= is_active_controller('especialidades') %>">
                                     <a href="#"><i class="fa fa-graduation-cap"></i> <span class="nav-label" data-i18n="nav.graphs">Especialidades</span><span class="fa arrow"></span></a>
                                     <ul class="nav nav-second-level collapse <%= is_active_controller('especialidades', 'in') %>">
                                         <li class="<%= is_active_action('index') %>">
                                             <%= link_to "Listar", especialidades_path %>
                                         </li>
-                                        <li class="<%= is_active_action('new') %>">
-                                            <%= link_to "Crear", new_especialidad_path%>
-                                        </li>
                                     </ul>
                                 </li>
                                 <% end %>
                                     <% if policy(Ficha).index? %>
+                                        <!-- Fichas -->
                                         <li class="<%= is_active_controller('fichas') %>">
                                             <a href="#"><i class="fa fa-list-ol"></i> <span class="nav-label" data-i18n="nav.graphs">Fichas</span><span class="fa arrow"></span></a>
                                             <ul class="nav nav-second-level collapse <%= is_active_controller('fichas', 'in') %>">
@@ -76,32 +80,34 @@
                                             </ul>
                                         </li>
                                         <% end %>
-                                    <% if policy(Ficha).index? %>
-                                        <li class="<%= is_active_controller('ambientes') %>">
-                                            <a href="#"><i class="fa fa-university"></i> <span class="nav-label" data-i18n="nav.graphs">Ambientes</span><span class="fa arrow"></span></a>
-                                            <ul class="nav nav-second-level collapse <%= is_active_controller('ambientes', 'in') %>">
-                                                <li class="<%= is_active_action('index') %>">
-                                                    <%= link_to "Listar", ambientes_path %>
+                                            <% if policy(Ficha).index? %>
+                                                <!-- Ambientes -->
+                                                <li class="<%= is_active_controller('ambientes') %>">
+                                                    <a href="#"><i class="fa fa-university"></i> <span class="nav-label" data-i18n="nav.graphs">Ambientes</span><span class="fa arrow"></span></a>
+                                                    <ul class="nav nav-second-level collapse <%= is_active_controller('ambientes', 'in') %>">
+                                                        <li class="<%= is_active_action('index') %>">
+                                                            <%= link_to "Listar", ambientes_path %>
+                                                        </li>
+                                                        <li class="<%= is_active_action('new') %>">
+                                                            <%= link_to "Crear", new_ambiente_path %>
+                                                        </li>
+                                                    </ul>
                                                 </li>
-                                                <li class="<%= is_active_action('new') %>">
-                                                    <%= link_to "Crear", new_ambiente_path %>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <% end %>
-                        </ul>
-                    </li>
-                    <li class="<%= 'active' if current_page?('/user/edit') %> <%= 'active' if current_page?('/user/change_password') %>">
-                        <a href="#"><i class="fa fa-pencil"></i> <span class="nav-label" data-i18n="nav.graphs">Opciones</span><span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level collapse ">
-                            <li class="<%= is_active_action('edit') %>"><a class="dropdown-item" href=" <%= edit_user_path %>" class="btn btn-nar"><i class="fa fa-user"></i>Mi Perfil</a></li>
-                            <li class="<%= 'active' if current_page?('/user/change_password') %>"><a class="dropdown-item" href="<%= change_password_user_path %>"><i class="fa fa-lock"></i>Cambiar Contraseña</a></li>
-                            <li class="">
-                                <%= link_to " Cerrar Sesion ", destroy_user_session_path, method: :delete%>
+                             </ul>
+                        </li>
+                        <% end %>
+                            <!-- perfil current user -->
+                            <li class="<%= 'active' if current_page?(controller: 'users', action: 'edit') %>  <%= 'active' if current_page?(controller: 'users', action: 'change_password') %>">
+                                <a href="#"><i class="fa fa-pencil"></i> <span class="nav-label" data-i18n="nav.graphs">Opciones</span><span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level collapse ">
+                                    <li class="<%= 'active' if current_page?(controller: 'users', action: 'edit') %>"><a class="dropdown-item" href=" <%= edit_user_path %>" class="btn btn-nar"><i class="fa fa-user"></i>Mi Perfil</a></li>
+                                    <li class="<%= 'active' if current_page?(controller: 'users', action: 'change_password') %>"><a class="dropdown-item" href="<%= change_password_user_path %>"><i class="fa fa-lock"></i>Cambiar Contraseña</a></li>
+                                    <li class="">
+                                        <%= link_to " Cerrar Sesion ", destroy_user_session_path, method: :delete%>
+                                    </li>
+                                </ul>
                             </li>
-                        </ul>
-                    </li>
-            </li>
-        </ul>
+                      </li>
+               </ul>
         </div>
 </nav>
