@@ -30,7 +30,8 @@ class UsersController < ApplicationController
     render template: 'users/show'
   end
 
-  def edit; end
+  def edit
+  end
 
   def change_password; end
 

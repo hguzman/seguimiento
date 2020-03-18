@@ -1,12 +1,7 @@
 Rails.application.routes.draw do
-  resources :ambientes
   root to: 'home#index'
-  get 'comentarios/index'
-  get 'comentarios/show'
-  get 'comentarios/new'
-  get 'comentarios/create'
-   resources :anotaciones
 
+  resources :ambientes, :anotaciones, :especialidades, :fichas, :comentarios
 
   devise_for :users
 
@@ -14,8 +9,7 @@ Rails.application.routes.draw do
     resources :anotaciones, module: :users
   end
 
-  resources :especialidades
-  resources :fichas
+  patch "/users/:id", to: "users#update"
 
   get "toexcel", to: "fichas#toexcel"
 

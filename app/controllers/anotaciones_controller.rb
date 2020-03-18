@@ -3,15 +3,12 @@
 # Controlador de Anotaciones
 class AnotacionesController < ApplicationController
   before_action :authenticate_user!
-
   def index
     if current_user.has_role? :admin
       if params[:q].present?
         # buscar anotaciones por documento, nombres o apellidos
         # entre anotaciones y user
-        @anotaciones = Anotacion.includes(:user).where('ndocumento ilike :q or
-          nombres ilike :q or apellidos ilike :q', q: "%#{params[:q]}%")
-                                .references(:users)
+        @anotaciones = Anotacion.includes(:user).where('ndocumento ilike :q or nombres ilike :q or apellidos ilike :q', q: "%#{params[:q]}%").references(:users)
       else
         @anotaciones = Anotacion.all
       end
