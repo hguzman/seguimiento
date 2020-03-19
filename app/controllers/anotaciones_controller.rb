@@ -37,6 +37,6 @@ class AnotacionesController < ApplicationController
   end
 
   def anotacion_params
-    params.require(:anotacion).permit(:user_id, :descripcion)
+    params.require(:anotacion).permit(:descripcion, :anotable_id, :anotable_type, :global_anotable)
   end
 end
