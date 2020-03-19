@@ -8,7 +8,7 @@ class AnotacionesController < ApplicationController
       if params[:q].present?
         # buscar anotaciones por documento, nombres o apellidos
         # entre anotaciones y user
-        @anotaciones = Anotacion.includes(:user).where('ndocumento ilike :q or 
+        @anotaciones = Anotacion.includes(:user).where('ndocumento ilike :q or
         nombres ilike :q or apellidos ilike :q', q: "%#{params[:q]}%")
                     .references(:users)
       else
