@@ -63,5 +63,11 @@ crumb :anotacion_new do
   parent :anotaciones
 end
 
-# breadcrumbs para usersx
+# breadcrumbs para devise
+
+crumb :devise_edit do |current_user|
+  link current_user.nombres,  edit_user_registration_path
+  parent :root
+end
+
 

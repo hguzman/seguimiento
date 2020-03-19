@@ -12,7 +12,7 @@
                         autofocus: true,
                         placeholder: "Escriba su nombre Completo",
                         input_html: { autocomplete: "nombres" }%>
-                            <%= f.input :apellidos,
+                        <%= f.input :apellidos,
                         required: true,
                         label: false,
                         autofocus: true,
@@ -76,9 +76,7 @@
 
                         <%= f.button :submit, "Crear usuario", class: "btn-primary block full-width m-b" %>
                         <a class="btn btn-sm btn-white btn-block" href="<%=new_user_session_path%>">Login</a>
-
                         <!-- <%= render "devise/shared/links" %> -->
-
                         <% end %>
             </div>
         </div>
