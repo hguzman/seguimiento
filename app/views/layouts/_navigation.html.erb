@@ -3,16 +3,16 @@
         <ul class="nav metismenu" id="side-menu">
             <li class="nav-header">
                 <div class="dropdown profile-element">
-                        <% if user_signed_in? %>
-                            <% if current_user.avatar.thumb.present?%>
-                                <div class="d-flex justify-content-center imagen">
-                                    <%= image_tag current_user.avatar.thumb.url,  class: " circle-border m-b-md w-50", alt: "User Image"%>
-                                </div>
-                            <%else%>
-                                <div class="d-flex justify-content-center">
-                                    <%=image_tag 'default-user-img.jpg', class: "rounded-circle w-50 circle-border m-b-md", alt: "User Image"%>
-                                </div>
-                            <%end%>
+                      <% if user_signed_in? %>
+                          <% if current_user.avatar.thumb.present?%>
+                              <div class="d-flex justify-content-center imagen">
+                                  <%= image_tag current_user.avatar.thumb.url,  class: " circle-border m-b-md w-50", alt: "User Image"%>
+                              </div>
+                          <%else%>
+                              <div class="d-flex justify-content-center">
+                                  <%=image_tag 'default-user-img.jpg', class: "rounded-circle w-50 circle-border m-b-md", alt: "User Image"%>
+                              </div>
+                          <%end%>
                         <%end%>
                         <span class="block m-t-xs font-bold"></span>
                         <span class="text-muted text-xs block"><%= current_user.nombres %> <%= current_user.apellidos %>
@@ -26,7 +26,7 @@
             <!-- boton inicio -->
             <li class="<%= 'active' if current_page?('/') %>">
                 <%= link_to "/" do %>
-                    <i class="fa fa-laptop"></i> <span class="nav-label">Inicio</span>
+                  <i class="fa fa-laptop"></i> <span class="nav-label">Inicio</span>
                 <% end %>
             </li>
             <!-- aprendices -->
