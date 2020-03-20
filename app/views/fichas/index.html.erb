@@ -1,42 +1,43 @@
+<!-- breadcrumbs -->
+<% breadcrumb :fichas %>
 <div class="row">
-    <!-- breadcrumbs -->
-    <% breadcrumb :fichas %>
-        <div class="w-100">
-            <div class="ibox">
+    <div class="w-100">
+        <div class="ibox">
             <div class="ibox-title d-flex justify-content-between align-items-center pr-3">
                 <h5>Listado de Fichas</h5>
-                <form action="<%= users_path %>" method="GET">
+                <form action="<%= fichas_path %>" method="GET">
                     <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Buscar.." aria-label="Recipient's username" aria-describedby="button-addon2" name="q" value="<%= params[:q] %>">
-                            <div class="input-group-append">
-                                <button class="btn btn-primary" type="submit" id="button-addon2"><i class="fa fa-search"></i></button>
-                            </div>
+                        <input type="text" class="form-control" placeholder="Buscar.." aria-label="Recipient's username"
+                            aria-describedby="button-addon2" name="q" value="<%= params[:q] %>">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary" type="submit" id="button-addon2"><i
+                                    class="fa fa-search"></i></button>
+                        </div>
                     </div>
                 </form>
             </div>
-                <div class="ibox-content">
-                    <table class="table table-hover">
-                        <thead>
-                            <tr>
-                                <th>Codigo</th>
-                                <th>Nombre</th>
-                                <th>N°Aprendices</th>
-                                <th>Especialidad</th>
-                                <th>Fecha Finalizaciön</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <%= render @fichas %>
-                        </tbody>
-                    </table>
-                    <%= paginate @fichas, theme: 'twitter-bootstrap-4' %>
-                    <hr/>
-                    <div class="d-flex justify-content-between">
-                        <%= link_to "Nueva Ficha", new_ficha_path, class: "btn btn-primary" %>
-                        <%= link_to "Exportar a Excel", toexcel_path(format: "xlsx"), class: "btn btn-primary" %>
-                    </div>
+            <div class="ibox-content">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Codigo</th>
+                            <th>Nombre</th>
+                            <th>N°Aprendices</th>
+                            <th>Especialidad</th>
+                            <th>Fecha Finalizaciön</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <%= render @fichas %>
+                    </tbody>
+                </table>
+                <%= paginate @fichas, theme: 'twitter-bootstrap-4' %>
+                <hr />
+                <div class="d-flex justify-content-between">
+                    <%= link_to "Nueva Ficha", new_ficha_path, class: "btn btn-primary" %>
+                    <%= link_to "Exportar a Excel", toexcel_path(format: "xlsx"), class: "btn btn-primary" %>
                 </div>
-            </div>        
+            </div>
         </div>
+    </div>
 </div>
-

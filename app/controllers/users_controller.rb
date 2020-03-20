@@ -8,14 +8,15 @@ class UsersController < ApplicationController
   before_action :setiar_user, only: [:ver_user]
 
   def index
-      authorize User
-      if params[:q].present?
-        @users = User.where(
-          "ndocumento ilike :q or nombres ilike :q or apellidos ilike :q",
-           q: "%#{params[:q]}%").page params[:page]
-      else
-        @users = User.all.page params[:page]
-      end
+    authorize User
+    if params[:q].present?
+      @users = User.where(
+        'ndocumento ilike :q or nombres ilike :q or apellidos ilike :q',
+        q: "%#{params[:q]}%"
+      ).page params[:page]
+    else
+      @users = User.all.page params[:page]
+    end
   end
 
   def show

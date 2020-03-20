@@ -7,7 +7,14 @@ class FichasController < ApplicationController
 
   def index
     authorize Ficha
-    @fichas = Ficha.all.page params[:page]
+    @fichas = if params[:q].present?
+                Ficha.where(
+                  'cast(numero as text) ilike :q ',
+                  q: "%#{params[:q]}%"
+                ).page params[:page]
+              else
+                Ficha.all.page params[:page]
+              end
   end
 
   def show
