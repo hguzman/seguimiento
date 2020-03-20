@@ -3,7 +3,7 @@
 # Controlador de Ambientes
 class AmbientesController < ApplicationController
   before_action :authenticate_user!
-  
+
   def show
     @ambiente = Ambiente.find(params[:id])
   end
@@ -14,7 +14,7 @@ class AmbientesController < ApplicationController
 
   def index
     authorize Ambiente
-    @ambientes = Ambiente.all
+    @ambientes = Ambiente.all.page params[:page]
   end
 
   def new
@@ -29,7 +29,7 @@ class AmbientesController < ApplicationController
       render "new"
     end
   end
-  
+
   def update
     @ambiente = Ambiente.find(params[:id])
     if  @ambiente.update_attributes(ambiente_params)

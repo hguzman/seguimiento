@@ -2,7 +2,7 @@
     <!-- breadcrumbs -->
         <div class="w-100">
         <div class="ibox">
-        
+
             <div class="ibox-title d-flex justify-content-between align-items-center pr-3">
                 <h5>Listado de Ambientes</h5>
                 <form action="" method="GET" class="d-flex justify-content-between align-items-center" >
@@ -26,7 +26,7 @@
                         <tr>
                         <td>
                             <%= link_to ambiente.nombre, ambiente_path(ambiente) %>
-                            
+
                         </td>
                             <td>
                                 <%= ambiente.descripcion%>
@@ -38,4 +38,4 @@
         </div>
 
 </div>
-</div>
+<%= paginate @ambientes, theme: 'twitter-bootstrap-4' %>
