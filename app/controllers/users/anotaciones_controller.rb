@@ -6,7 +6,7 @@ module Users
     before_action :set_user
 
     def index
-      @anotaciones = @user.anotaciones
+      @anotaciones = @user.anotaciones.all.page params[:page]
     end
 
     def show; end

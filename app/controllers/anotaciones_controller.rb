@@ -12,10 +12,10 @@ class AnotacionesController < ApplicationController
         nombres ilike :q or apellidos ilike :q', q: "%#{params[:q]}%")
                     .references(:users)
       else
-        @anotaciones = Anotacion.all
+        @anotaciones = Anotacion.all.page params[:page]
       end
     else
-      @anotaciones = current_user.anotaciones
+      @anotaciones = current_user.anotaciones.all.page params[:page]
     end
   end
 
