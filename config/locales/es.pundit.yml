@@ -1,0 +1,3 @@
+es:
+ pundit:
+   default: "Esta accion solo la ejecutan Administradores o Instructores."
