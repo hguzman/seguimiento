@@ -3,12 +3,19 @@
         <%= link_to anotacion.id, anotacion_path(anotacion)%>
     </td>
     <td>
-        <%= anotacion.user.ndocumento%>
+        <% if anotacion.anotable_type == "User"   %>
+          <%= anotacion.anotable.ndocumento%>
+        <% else %>
+          <%= anotacion.anotable.id%>
+        <% end %>
     </td>
     <td>
-        <%= anotacion.user.nombres %>
-
-            <%= anotacion.user.apellidos %>
+        <% if anotacion.anotable_type == "User"   %>
+          <%= anotacion.anotable.nombres%>
+           <%= anotacion.anotable.apellidos%>
+        <% else %>
+           <%= anotacion.anotable.nombre%>
+        <% end %>
     </td>
     <td>
         <%= anotacion.descripcion %>

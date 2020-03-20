@@ -15,7 +15,7 @@ class User < ApplicationRecord
 
   belongs_to :tipodocumento
 
-  has_many :anotaciones
+  has_many :anotaciones, as: :anotable
 
   belongs_to :ficha
 

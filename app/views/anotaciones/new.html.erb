@@ -1,35 +1,12 @@
 <div class="container">
-    <div class="row">
-        <div class="col-md-8 m-auto">
-            <div class="ibox">
-                <div class="ibox-title">
-                    <h5>NUEVA ANOTACION</h5>
-                    <div class="ibox-tools">
-                        <a class="collapse-link">
-                            <i class="fa fa-chevron-up"></i>
-                        </a>
-                        <a class="fullscreen-link">
-                            <i class="fa fa-expand"></i>
-                        </a>
-                        <a class="close-link">
-                            <i class="fa fa-times"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="ibox-content">
-                    <%= simple_form_for @anotacion do |f| %>
-                        <%= f.association :user,
-                        label_method: :apellidos,
-                        value_method: :id ,
-                        prompt: "Seleccione un aprendiz",
-                        label: false,
-                        input_html: {class: "form-control", min:"1" } %>
-
-                        <%= f.input :descripcion, class: "form-control" %>
-                            <%= f.button :submit, class: "btn btn-primary" %>
-                                <% end %>
-                </div>
-            </div>
+    <div class="ibox mt-8 col-md-8 mx-auto">
+        <h1 class=" ibox-title font-weight-bold text-center pr-3">Crear nueva Anotacion</h1>
+        <div class="ibox-content p-3 form-group col-12">
+            <%= simple_form_for @anotacion do |f| %>
+              <%= f.grouped_collection_select :global_anotable, [User, Ambiente], :all, :model_name, :to_global_id, lambda {|user_or_ambiente_object| user_or_ambiente_object.instance_of? User? rescue user_or_ambiente_object.nombres + " " + user_or_ambiente_object.apellidos rescue user_or_ambiente_object.nombre}, class:'form_control' %>
+              <%= f.input :descripcion, class: "form-control" %>
+              <%= f.button :submit, class: "btn btn-primary btn-lg btn-block" %>
+            <% end %>
         </div>
     </div>
 </div>
