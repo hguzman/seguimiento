@@ -7,7 +7,12 @@ class EspecialidadesController < ApplicationController
 
   def index
     authorize Especialidad
-    @especialidades = Especialidad.all.page params[:page]
+    @especialidades = if params[:q].present?
+                        Especialidad.where('nombre ilike :q', q:
+                          "%#{params[:q]}%").page params[:page]
+                      else
+                        Especialidad.all.page params[:page]
+                      end
   end
 
   def new

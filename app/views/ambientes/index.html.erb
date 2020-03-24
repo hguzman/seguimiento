@@ -1,16 +1,19 @@
+<!-- breadcrumbs -->
+<% breadcrumb :ambientes %>
 <div class="row">
-    <!-- breadcrumbs -->
-        <div class="w-100">
+    <div class="w-100">
         <div class="ibox">
-
             <div class="ibox-title d-flex justify-content-between align-items-center pr-3">
                 <h5>Listado de Ambientes</h5>
-                <form action="" method="GET" class="d-flex justify-content-between align-items-center" >
+                <form action="<%= ambientes_path %>" method="GET"
+                    class="d-flex justify-content-between align-items-center">
                     <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Buscar.." aria-label="Recipient's username" aria-describedby="button-addon2" name="" value="">
-                            <div class="input-group-append">
-                                <button class="btn btn-primary" type="submit" id="button-addon2"><i class="fa fa-search"></i></button>
-                            </div>
+                        <input type="text" class="form-control" placeholder="Buscar.." aria-label="Recipient's username"
+                            aria-describedby="button-addon2" name="q" value="<%= @q %>">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary" type="submit" id="button-addon2"><i
+                                    class="fa fa-search"></i></button>
+                        </div>
                     </div>
                 </form>
             </div>
@@ -22,20 +25,17 @@
                             <th>Descripcion</th>
                         </tr>
                     </thead>
-                    <% @ambientes.each do |ambiente| %>
-                        <tr>
-                        <td>
-                            <%= link_to ambiente.nombre, ambiente_path(ambiente) %>
-
-                        </td>
-                            <td>
-                                <%= ambiente.descripcion%>
-                            </td>
-                            <%end%>
+                    <tbody>
+                        <%= render @ambientes %>
+                    </tbody>
                 </table>
+                <%= paginate @ambientes, theme: 'twitter-bootstrap-4' %>
+                <hr />
+                <div class="d-flex justify-content-between">
+                    <%= link_to "Nuevo Ambiente", new_ambiente_path, class: "btn btn-primary" %>
+                    <%= link_to "Exportar a Excel", toexcel_path(format: "xlsx"), class: "btn btn-primary" %>
+                </div>
             </div>
         </div>
-        </div>
-
+    </div>
 </div>
-<%= paginate @ambientes, theme: 'twitter-bootstrap-4' %>

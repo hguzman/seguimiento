@@ -4,17 +4,17 @@
     </td>
     <td>
         <% if anotacion.anotable_type == "User"   %>
-          <%= anotacion.anotable.ndocumento%>
+        <%= anotacion.anotable.ndocumento%>
         <% else %>
-          <%= anotacion.anotable.id%>
+        <%= anotacion.anotable.id%>
         <% end %>
     </td>
     <td>
         <% if anotacion.anotable_type == "User"   %>
-          <%= anotacion.anotable.nombres%>
-           <%= anotacion.anotable.apellidos%>
+        <%= anotacion.anotable.nombres%>
+        <%= anotacion.anotable.apellidos%>
         <% else %>
-           <%= anotacion.anotable.nombre%>
+        <%= anotacion.anotable.nombre%>
         <% end %>
     </td>
     <td>
