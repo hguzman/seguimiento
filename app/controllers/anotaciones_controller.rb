@@ -5,15 +5,12 @@ class AnotacionesController < ApplicationController
   before_action :authenticate_user!
   def index
     if current_user.has_role? :admin
-      if params[:q].present?
-        # buscar anotaciones por documento, nombres o apellidos
-        # entre anotaciones y user
-        @anotaciones = Anotacion.includes(:user).where('ndocumento ilike :q or
-        nombres ilike :q or apellidos ilike :q', q: "%#{params[:q]}%")
-                    .references(:users)
-      else
-        @anotaciones = Anotacion.all.page params[:page]
-      end
+      @anotaciones = if params[:q].present?
+                       Anotacion.where('cast(anotaciones.id as text) ilike :q',
+                                       q: "%#{params[:q]}%").page params[:page]
+                     else
+                       Anotacion.all.page params[:page]
+                     end
     else
       @anotaciones = current_user.anotaciones.all.page params[:page]
     end
@@ -39,6 +36,7 @@ class AnotacionesController < ApplicationController
   end
 
   def anotacion_params
-    params.require(:anotacion).permit(:descripcion, :anotable_id, :anotable_type, :global_anotable)
+    params.require(:anotacion).permit(:descripcion, :anotable_id,
+                                      :anotable_type, :global_anotable)
   end
 end
