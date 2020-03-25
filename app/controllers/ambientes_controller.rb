@@ -3,6 +3,7 @@
 # Controlador de Ambientes
 class AmbientesController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_ambiente, only: [:show, :edit, :update, :destroy]
 
   def index
     authorize Ambiente
@@ -17,11 +18,10 @@ class AmbientesController < ApplicationController
   end
 
   def show
-    @ambiente = Ambiente.find(params[:id])
+    @anotaciones = @ambiente.anotaciones
   end
 
   def edit
-    @ambiente = Ambiente.find(params[:id])
   end
 
   def new
@@ -38,7 +38,6 @@ class AmbientesController < ApplicationController
   end
 
   def update
-    @ambiente = Ambiente.find(params[:id])
     if @ambiente.update_attributes(ambiente_params)
       redirect_to ambiente_path(@ambiente), notice: 'Se ha Midificado el ambiente'
     else
@@ -54,5 +53,9 @@ class AmbientesController < ApplicationController
 
   def ambiente_params
     params.require(:ambiente).permit(:nombre, :descripcion)
+  end
+
+  def set_ambiente
+    @ambiente = Ambiente.find(params[:id])
   end
 end

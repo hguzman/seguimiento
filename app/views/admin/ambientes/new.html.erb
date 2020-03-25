@@ -1,0 +1,5 @@
+<%= simple_form_for [:admin, @ambiente] do |f| %>
+  <%= f.input :nombre, class: "form-control" %>
+  <%= f.input :descripcion, class: "form-control" %>
+  <%= f.button :submit, class: "btn btn-primary" %>
+<% end %>

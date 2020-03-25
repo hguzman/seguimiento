@@ -1,0 +1,8 @@
+<h1>Datos del ambiente</h1>
+<%= @ambiente.nombre %>
+<%= @ambiente.descripcion %>
+<hr>
+<%= simple_form_for [@ambiente, @anotacion] do |f| %>
+ <%= f.input :descripcion %>
+ <%= f.button :submit, class: "btn btn-success" %>
+<% end %>

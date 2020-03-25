@@ -1,0 +1,2 @@
+module Admin::AmbientesHelper
+end

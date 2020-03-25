@@ -35,6 +35,12 @@
                 <%= link_to "/users" do %> <i class="fa fa-users"></i> <span class="nav-label">Aprendices</span>
                 <% end %>
             </li>
+            <li class="<%= 'active' if current_page?('/users') %>">
+              <%= link_to ambientes_path do %>
+                <i class="fa fa-users"></i>
+                <span class="nav-label">Ambientes</span>
+              <% end %>
+            </li>
             <% end %>
             <!-- menu anotaciones -->
             <li class="<%= is_active_controller('anotaciones') %>">
@@ -91,10 +97,10 @@
                                 data-i18n="nav.graphs">Ambientes</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level collapse <%= is_active_controller('ambientes', 'in') %>">
                             <li class="<%= is_active_action('index') %>">
-                                <%= link_to "Listar", ambientes_path %>
+                                <%= link_to "Listar", admin_ambientes_path %>
                             </li>
                             <li class="<%= is_active_action('new') %>">
-                                <%= link_to "Crear", new_ambiente_path %>
+                                <%= link_to "Crear", new_admin_ambiente_path %>
                             </li>
                         </ul>
                     </li>

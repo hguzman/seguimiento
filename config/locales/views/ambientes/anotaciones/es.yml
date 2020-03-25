@@ -1,0 +1,11 @@
+es:
+  ambientes:
+    anotaciones:
+      create:
+        success: Se creo la anotacion de manera correcta
+        alert: Problemas al momento de registra la anotacion
+      update:
+        success: Anotacion actualizada
+        alert: Problemas con la actualización de la anotacion
+      destroy:
+        success: Anotacion eliminada correctamente

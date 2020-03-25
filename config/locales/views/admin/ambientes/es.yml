@@ -1,0 +1,11 @@
+es:
+  admin:
+    ambientes:
+      create:
+        success: Ambiente creado de manera correcta
+        alert: Problemas con la creación del ambiente
+      update:
+        success: Se acualizo der manera correcta
+        alert: Problemas con la actualizacion
+      destroy:
+        succes: Se elimino el ambiente de manera correcta
