@@ -39,4 +39,18 @@ class AnotacionesController < ApplicationController
     params.require(:anotacion).permit(:descripcion, :anotable_id,
                                       :anotable_type, :global_anotable)
   end
+
+  def edit
+    @anotacion = Anotacion.find(params[:id])
+  end
+
+  def update
+    @anotacion = Anotacion.find(params[:id])
+    if @anotacion.update(anotacion_params)
+      redirect_to anotacion_path(@anotacion)
+      flash[:success] = 'Anotacion Registrada'
+    else
+      render 'edit'
+    end
+  end
 end
