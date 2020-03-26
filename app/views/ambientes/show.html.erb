@@ -1,43 +1,48 @@
 <div class="container">
        <!-- breadcrumbs -->
-    <div class="ibox mt-4 col-md-12 ">
-        <div class="ibox-title">
-            <h1>Ambientes</h1>
-        </div>
-        <div class="ibox-content ">
-              <div class="info">
-                    <h2>
-                        <p> <span class="font-weight-bold">Nombre:</span>
-                         <%=  @ambiente.nombre %></p>
-                    </h2>
-                    <h2>
-                        <p></p>  <span class="font-weight-bold">Descripción: </span>
-                          <%=  @ambiente.descripcion %></p>
-                    </h2>
-              </div>
-                 <table class="table table-hover">
-                       <thead>
-                             <tr>
-                                 <th scope="col">Codigo De Anotaciones</th>
-                                 <th scope="col">Novedad</th>
-                             </tr>
-                      </thead>
-                   <tbody>
-                       <%= render partial: "anotacion", collection: @anotaciones %>
-                   </tbody>
-                </table>
-
-                <div class="row">
-                    <div class="col-md-2">
-                          <%= link_to "Nueva Anotacion", new_ambiente_anotacion_path(@ambiente), class:"btn btn-primary btn-lg btn-block"%>
-                    </div>
-                </div>
-
-        </div>
-        <div class="row">
-            <div class="col-md-4">
-                <%# <%= link_to "Editar ", edit_ambiente_path(@ambiente), class:"btn btn-primary btn-lg btn-block"%>
-            </div>
-        </div>
+  <div class="ibox mt-4 col-md-12 ">
+    <div class="ibox-title">
+        <h1>Ambientes</h1>
     </div>
+      <div class="ibox-content ">
+            <div class="info">
+              <h2>
+                  <p> <span class="font-weight-bold">Nombre:</span>
+                   <%=  @ambiente.nombre %></p>
+              </h2>
+                  <h2>
+                    <p>
+                      <span class="font-weight-bold">Descripción: </span>
+                      <%=  @ambiente.descripcion %>
+                    </p>
+                  </h2>
+            </div>
+
+            <hr>
+            <h2>Lista de anotaciones</h2>
+               <table class="table table-hover">
+                     <thead>
+                           <tr>
+                               <th scope="col">Codigo De Anotaciones</th>
+                               <th scope="col">Novedad</th>
+                           </tr>
+                    </thead>
+                 <tbody>
+                     <%= render partial: "anotacion", collection: @anotaciones %>
+                 </tbody>
+              </table>
+
+              <div class="row">
+                  <div class="col-md-2">
+                        <%= link_to "Nueva Anotacion", new_ambiente_anotacion_path(@ambiente), class:"btn btn-primary btn-lg btn-block"%>
+                  </div>
+              </div>
+
+      </div>
+      <div class="row">
+          <div class="col-md-4">
+              <%# <%= link_to "Editar ", edit_ambiente_path(@ambiente), class:"btn btn-primary btn-lg btn-block"%>
+          </div>
+      </div>
+  </div>
 </div>

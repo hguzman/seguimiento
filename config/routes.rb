@@ -10,18 +10,12 @@ Rails.application.routes.draw do
   end
 
   resources :anotaciones, :especialidades, :comentarios
-  resources :ambientes, only: %i[index, show] do
-    resources :anotaciones, :especialidades, :fichas, :comentarios
-  end
-  resources :ambientes, only: %i[index show] do
-    resources :anotaciones, :especialidades, :fichas, :comentarios
-  end
-  
-  resources :especialidades
 
-  resources :ambientes, only: [:index, :show] do
+  resources :ambientes, only: %i[index show] do
     resources :anotaciones, module: :ambientes
   end
+
+  # resources :especialidades
 
   devise_for :users
 

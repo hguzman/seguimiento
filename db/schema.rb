@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_19_144330) do
+ActiveRecord::Schema.define(version: 2020_03_26_210808) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,8 +49,8 @@ ActiveRecord::Schema.define(version: 2020_03_19_144330) do
     t.integer "numero"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "naprendices"
-    t.date "fechafin"
+    t.integer "numero_aprendices"
+    t.date "fecha_fin_at"
     t.bigint "especialidad_id", null: false
     t.index ["especialidad_id"], name: "index_fichas_on_especialidad_id"
   end
