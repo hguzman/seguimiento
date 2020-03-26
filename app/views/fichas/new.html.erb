@@ -1,20 +1,19 @@
 <div class="container">
     <div class="ibox mt-8 col-md-8 mx-auto">
         <!-- breadcrumbs -->
-        <% breadcrumb :ficha_new %>
 
-            <h1 class=" ibox-title font-weight-bold text-center pr-3">Crear nueva Ficha</h1>
-            <div class="ibox-content p-3 ">
+
+        <h1 class=" ibox-title font-weight-bold text-center pr-3">Crear nueva Ficha</h1>
+        <div class="ibox-content p-3 ">
+            <div class="col-12">
                 <%= simple_form_for @ficha do |f| %>
-                    <div class="col-12">
-                        <%= f.association :especialidad, label_method: :nombre, value_method: :id, min:"1" %>
-                        <%= f.input :numero, class: "form-control" %>
-                        <%= f.input :naprendices, class: "form-control" %>
-                        <%= f.input :fechafin, as: :date, html5: true %>
-                        <%= f.button :submit, class: "btn btn-primary btn-lg btn-block" %>
-                    </div>
-
-            </div>
+                <%= f.association :especialidad, label_method: :nombre, value_method: :id, min:"1" %>
+                <%= f.input :numero, class: "form-control" %>
+                <%= f.input :naprendices, class: "form-control" %>
+                <%= f.input :fechafin, as: :date, html5: true %>
+                <%= f.button :submit, class: "btn btn-primary btn-lg btn-block" %>
                 <% end %>
+            </div>
+        </div>
     </div>
 </div>

@@ -7,7 +7,7 @@ module Admin
     respond_to :html
 
     def index
-      @fichas = Ficha.all.page params[:page]
+      @fichas = Ficha.all.order(id: :asc).page params[:page]
     end
 
     def show; end
@@ -32,7 +32,7 @@ module Admin
     def update
       if @ficha.update_attributes(ficha_params)
         flash[:success] = t('.success')
-        redirect_to ficha_path(@ficha)
+        redirect_to admin_ficha_path(@ficha)
       else
         flash[:success] = t('.success')
         render 'edit'
@@ -42,7 +42,7 @@ module Admin
     private
 
     def set_ficha
-      @ficha = Ficha.find(params[:ficha_id])
+      @ficha = Ficha.find(params[:id])
     end
 
     def ficha_params

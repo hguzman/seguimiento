@@ -28,21 +28,21 @@ end
 # breadcrumbs para fichas
 
 crumb :fichas do
-  link 'fichas', fichas_path
+  link 'fichas', admin_fichas_path
 end
 
 crumb :ficha_new do
-  link 'crear', new_ficha_path
+  link 'crear', new_admin_ficha_path
   parent :fichas
 end
 
 crumb :ficha_edit do |ficha|
-  link ficha.numero, ficha
+  link ficha.numero, edit_admin_ficha_path
   parent :fichas
 end
 
 crumb :ficha_show do |ficha|
-  link ficha.numero, ficha
+  link ficha.numero, admin_ficha_path
   parent :fichas
 end
 

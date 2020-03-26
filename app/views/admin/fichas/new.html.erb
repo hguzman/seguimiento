@@ -1,0 +1,25 @@
+<div class="container">
+ <div class="ibox mt-8 col-md-8 mx-auto">
+  <!-- breadcrumbs -->
+  <% breadcrumb :ficha_new %>
+  <h1 class=" ibox-title font-weight-bold text-center pr-3">Crear nueva Ficha</h1>
+  <div class="ibox-content p-3 ">
+   <div class="col-12">
+    <%= simple_form_for [:admin, @ficha] do |f| %>
+    <%= f.association :especialidad, label_method: :nombre, value_method: :id, min:"1" %>
+    <%= f.input :numero, class: "form-control" %>
+    <%= f.input :naprendices, class: "form-control" %>
+    <%= f.input :fechafin, as: :date, html5: true %>
+   </div>
+   <div class="row">
+    <div class="col-6">
+     <%= f.button :submit, class: "btn btn-primary btn-md btn-block" %>
+     <% end %>
+    </div>
+    <div class="col-6">
+     <%= link_to "Volver", :back, class: "btn btn-danger btn-md btn-block" %>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>

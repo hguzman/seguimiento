@@ -1,14 +1,14 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  root to: 'home#index'
+
   namespace :admin do
     resources :ambientes
     resources :fichas
   end
 
-  root to: 'home#index'
-
-  resources :anotaciones, :especialidades, :fichas, :comentarios
+  resources :anotaciones, :especialidades, :comentarios
 
   resources :ambientes, only: %i[index show] do
     resources :anotaciones, module: :ambientes

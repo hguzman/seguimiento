@@ -1,2 +1,37 @@
-<h1>Admin::Fichas#edit</h1>
-<p>Find me in app/views/admin/fichas/edit.html.erb</p>
+<!-- breadcrumbs -->
+<% breadcrumb :ficha_edit, @ficha %>
+<div class="ibox mt-4 col-md-12 mx-auto">
+ <div class="row">
+  <h1>NUEVA FICHA</h1>
+ </div>
+ <div class="row">
+  <div class="col-12">
+   <%= simple_form_for [:admin, @ficha] do |f| %>
+   <div class="row">
+    <div class="col">
+     <%= f.input :numero, class: "form-control" %>
+    </div>
+    <div class="col">
+     <%= f.input :naprendices, class: "form-control" %>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col">
+     <%= f.input :fechafin, as: :date, html5: true %>
+    </div>
+    <div class="col">
+     <%= f.association :especialidad, label_method: :nombre, value_method: :id, min:"1" %>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-6">
+     <%= f.button :submit, class: "btn btn-primary btn-lg btn-block" %>
+    </div>
+    <div class="col-6">
+     <%= link_to "Volver", :back, class: "btn btn-danger btn-lg btn-block" %>
+    </div>
+   </div>
+   <% end %>
+  </div>
+ </div>
+</div>
