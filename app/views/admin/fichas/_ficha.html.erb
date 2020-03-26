@@ -1,0 +1,21 @@
+<tr>
+ <td>
+  <%= ficha.id %>
+ </td>
+ <td>
+  <%= ficha.numero %>
+ </td>
+ <td>
+  <%= ficha.naprendices %>
+ </td>
+ <td>
+  <%= ficha.especialidad.nombre %>
+ </td>
+ <td>
+  <%= ficha.fechafin %>
+ </td>
+ <td>
+  <%= link_to "Editar", edit_admin_ficha_path(ficha), class: "btn btn-primary" %>
+  <!-- <#<%= link_to "Eliminar", admin_ficha_path(ficha), class: "btn btn-danger" %> -->
+ </td>
+</tr>

@@ -1,11 +1,21 @@
-Rails.application.routes.draw do
-  namespace :admin do
-    resources :ambientes
-  end
+# frozen_string_literal: true
 
+Rails.application.routes.draw do
   root to: 'home#index'
 
-  resources :anotaciones, :especialidades, :fichas, :comentarios
+  namespace :admin do
+    resources :ambientes
+    resources :fichas
+    resources :especialidades
+  end
+
+  resources :anotaciones, :especialidades, :comentarios
+
+  resources :ambientes, only: %i[index show] do
+    resources :anotaciones, :especialidades, :fichas, :comentarios
+  end
+  
+  resources :especialidades
 
   resources :ambientes, only: [:index, :show] do
     resources :anotaciones, module: :ambientes
@@ -13,21 +23,19 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  resources :users, only: [:index, :show] do
+  resources :users, only: %i[index show] do
     resources :anotaciones, module: :users
   end
 
-  patch "/users/:id", to: "users#update"
+  patch '/users/:id', to: 'users#update'
 
-  get "toexcel", to: "fichas#toexcel"
+  get 'toexcel', to: 'fichas#toexcel'
 
-
-   resource :user, only: [:index, :edit, :destroy, :update , :show] do
-     get :ver_user, on: :member
-     collection do
-       patch 'update_password'
-       get :change_password
-     end
-   end
-
+  resource :user, only: %i[index edit destroy update show] do
+    get :ver_user, on: :member
+    collection do
+      patch 'update_password'
+      get :change_password
+    end
   end
+end

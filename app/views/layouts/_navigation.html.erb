@@ -35,11 +35,11 @@
                 <%= link_to "/users" do %> <i class="fa fa-users"></i> <span class="nav-label">Aprendices</span>
                 <% end %>
             </li>
-            <li class="<%= 'active' if current_page?('/users') %>">
-              <%= link_to ambientes_path do %>
+            <li class="<%= 'active' if current_page?('/ambientes') %>">
+                <%= link_to ambientes_path do %>
                 <i class="fa fa-users"></i>
                 <span class="nav-label">Ambientes</span>
-              <% end %>
+                <% end %>
             </li>
             <% end %>
             <!-- menu anotaciones -->
@@ -61,33 +61,27 @@
             <!-- Especialidades -->
             <% if policy(Especialidad).index? %>
             <li
-                class="<%= is_active_controller('especialidades') %> <%= is_active_controller('fichas') %> <%= is_active_controller('ambientes') %>">
+                class="<%= is_active_controller('especialidades') %> <%= is_active_controller('admin/fichas') %> <%= is_active_controller('ambientes') %>">
                 <a href="#"><i class="fa fa-shield"></i> <span class="nav-label"
                         data-i18n="nav.menulevels">Administracion </span><span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
-                    <li class="<%= is_active_controller('especialidades') %>">
+                    <li class="<%= is_active_controller('admin/especialidades') %>">
                         <a href="#"><i class="fa fa-graduation-cap"></i> <span class="nav-label"
                                 data-i18n="nav.graphs">Especialidades</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level collapse <%= is_active_controller('especialidades', 'in') %>">
                             <li class="<%= is_active_action('index') %>">
-                                <%= link_to "Listar", especialidades_path %>
+                                <%= link_to "Listar", admin_especialidades_path %>
                             </li>
                         </ul>
                     </li>
                     <% end %>
                     <!-- Fichas -->
                     <% if policy(Ficha).index? %>
-                    <li class="<%= is_active_controller('fichas') %>">
-                        <a href="#"><i class="fa fa-list-ol"></i> <span class="nav-label"
-                                data-i18n="nav.graphs">Fichas</span><span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level collapse <%= is_active_controller('fichas', 'in') %>">
-                            <li class="<%= is_active_action('index') %>">
-                                <%= link_to "Listar", fichas_path %>
-                            </li>
-                            <li class="<%= is_active_action('new') %>">
-                                <%= link_to "Crear", new_ficha_path %>
-                            </li>
-                        </ul>
+                    <li class="nav nav-second-level <%= is_active_controller('admin/fichas') %>">
+                        <%= link_to admin_fichas_path do %>
+                        <i class="fa fa-users"></i>
+                        <span class="nav-label">Fichas</span>
+                        <% end %>
                     </li>
                     <% end %>
                     <!-- Ambientes -->
