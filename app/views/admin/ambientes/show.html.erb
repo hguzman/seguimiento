@@ -1,2 +1,29 @@
-<h1>Admin::Ambientes#show</h1>
-<p>Find me in app/views/admin/ambientes/show.html.erb</p>
+<div class="container">
+       <!-- breadcrumbs -->
+    <div class="ibox mt-4 col-md-12 ">
+        <div class="ibox-title">
+            <h1>Ambientes</h1>
+        </div>
+        <div class="ibox-content ">
+            <h2 class="no-margins ">
+                <span class="font-weight-bold">Nombre: </span>
+                <%= @ambiente.nombre %>
+            </h2>
+            <h2 class="no-margins ">
+                <span class="font-weight-bold">Descripcion: </span>
+                <%= @ambiente.descripcion %>
+            </h2>
+            <br>
+
+            <%= link_to "Nueva anotacion", new_ambiente_anotacion_path(@ambiente), class: "btn btn-success"%>
+            <table class= "table">
+              <%= render partial: "anotacion", collection: @anotaciones %>
+            </table>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+              <%# <%= link_to "Editar ", edit_ambiente_path(@ambiente), class:"btn btn-primary btn-lg btn-block"%>
+          </div>
+        </div>
+    </div>
+</div>

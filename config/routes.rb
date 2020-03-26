@@ -11,8 +11,9 @@ Rails.application.routes.draw do
 
   resources :anotaciones, :especialidades, :comentarios
 
-  resources :ambientes, only: %i[index show] do
-  resources :anotaciones, :especialidades, :fichas, :comentarios
+  resources :ambientes, only: %i[index, show] do
+    resources :anotaciones, :especialidades, :fichas, :comentarios
+  end
 
   resources :especialidades
 
