@@ -77,6 +77,11 @@ crumb :ambientes do |_current_user|
   parent :root
 end
 
+crumb :ambiente_new do
+  link 'crear', new_admin_ambiente_path
+  parent :ambientes
+end
+
 crumb :ambiente_edit do |ambiente|
   link ambiente.nombre, edit_admin_ambiente_path
   parent :ambientes
