@@ -21,8 +21,7 @@ class AmbientesController < ApplicationController
     @anotaciones = @ambiente.anotaciones
   end
 
-  def edit
-  end
+  def edit; end
 
   def new
     @ambiente = Ambiente.new
