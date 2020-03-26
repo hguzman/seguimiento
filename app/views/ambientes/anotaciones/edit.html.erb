@@ -17,7 +17,7 @@
                     </div>
                 </div>
                 <div class="ibox-content">
-                    <%= simple_form_for @anotacion do |f| %>
+                    <%= simple_form_for [@ambiente, @anotacion] do |f| %>
                         <%= f.input :descripcion, class: "form-control" %>
                         <%= f.button :submit, class: "btn btn-primary" %>
                     <% end %>

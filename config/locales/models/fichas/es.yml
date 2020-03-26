@@ -1,0 +1,11 @@
+es:
+  activerecord:
+    models:
+      ficha:
+        one: Ficha
+        other: Fichas
+    attributes:
+      ficha:
+        numero: Número ficha
+        numero_aprendices: Cantidad de aprendices
+        fecha_fin_at: Fecha finalización
