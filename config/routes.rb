@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
   namespace :admin do
     resources :ambientes
+    resources :especialidades
   end
 
   root to: 'home#index'
 
   resources :anotaciones, :especialidades, :fichas, :comentarios
+
+  resources :especialidades
 
   resources :ambientes, only: [:index, :show] do
     resources :anotaciones, module: :ambientes

@@ -65,12 +65,12 @@
                 <a href="#"><i class="fa fa-shield"></i> <span class="nav-label"
                         data-i18n="nav.menulevels">Administracion </span><span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
-                    <li class="<%= is_active_controller('especialidades') %>">
+                    <li class="<%= is_active_controller('admin/especialidades') %>">
                         <a href="#"><i class="fa fa-graduation-cap"></i> <span class="nav-label"
                                 data-i18n="nav.graphs">Especialidades</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level collapse <%= is_active_controller('especialidades', 'in') %>">
                             <li class="<%= is_active_action('index') %>">
-                                <%= link_to "Listar", especialidades_path %>
+                                <%= link_to "Listar", admin_especialidades_path %>
                             </li>
                         </ul>
                     </li>
