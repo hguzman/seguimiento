@@ -65,15 +65,12 @@
                 <a href="#"><i class="fa fa-shield"></i> <span class="nav-label"
                         data-i18n="nav.menulevels">Administracion </span><span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
-                    <li class="<%= is_active_controller('admin/especialidades') %>">
-                        <a href="#"><i class="fa fa-graduation-cap"></i> <span class="nav-label"
-                                data-i18n="nav.graphs">Especialidades</span><span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level collapse <%= is_active_controller('especialidades', 'in') %>">
-                            <li class="<%= is_active_action('index') %>">
-                                <%= link_to "Listar", admin_especialidades_path %>
-                            </li>
-                        </ul>
-                    </li>
+                  <li class="<%= 'active' if current_page?('admin/especialidades') %>">
+                      <%= link_to admin_especialidades_path do %>
+                      <i class="fa fa-graduation-cap"></i>
+                      <span class="nav-label">especialidades</span>
+                      <% end %>
+                  </li>
                     <% end %>
                     <!-- Fichas -->
                     <% if policy(Ficha).index? %>
@@ -85,18 +82,12 @@
                     </li>
                     <% end %>
                     <!-- Ambientes -->
-                    <% if policy(Ficha).index? %>
-                    <li class="<%= is_active_controller('ambientes') %>">
-                        <a href="#"><i class="fa fa-university"></i> <span class="nav-label"
-                                data-i18n="nav.graphs">Ambientes</span><span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level collapse <%= is_active_controller('ambientes', 'in') %>">
-                            <li class="<%= is_active_action('index') %>">
-                                <%= link_to "Listar", admin_ambientes_path %>
-                            </li>
-                            <li class="<%= is_active_action('new') %>">
-                                <%= link_to "Crear", new_admin_ambiente_path %>
-                            </li>
-                        </ul>
+                    <% if policy(Ambiente).index? %>
+                    <li class="nav nav-second-level <%= is_active_controller('admin/ambientes') %>">
+                        <%= link_to admin_ambientes_path do %>
+                        <i class="fa fa-users"></i>
+                        <span class="nav-label">Ambientes</span>
+                        <% end %>
                     </li>
                 </ul>
             </li>

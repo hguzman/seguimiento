@@ -1,2 +1,29 @@
-<h1>Admin::Ambientes#edit</h1>
-<p>Find me in app/views/admin/ambientes/edit.html.erb</p>
+<!-- breadcrumbs -->
+<% breadcrumb :ambiente_edit, @ambiente %>
+<div class="ibox mt-4 col-md-12 mx-auto">
+ <div class="row">
+  <h1>NUEVO AMBIENTE</h1>
+ </div>
+ <div class="row">
+  <div class="col-12">
+   <%= simple_form_for [:admin, @ambiente] do |f| %>
+   <div class="row">
+    <div class="col">
+     <%= f.input :nombre, class: "form-control" %>
+    </div>
+    <div class="col">
+     <%= f.input :descripcion, class: "form-control" %>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-6">
+     <%= f.button :submit, class: "btn btn-primary btn-lg btn-block" %>
+    </div>
+    <div class="col-6">
+     <%= link_to "Volver", :back, class: "btn btn-danger btn-lg btn-block" %>
+    </div>
+   </div>
+   <% end %>
+  </div>
+ </div>
+</div>
