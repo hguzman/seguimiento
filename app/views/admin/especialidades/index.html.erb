@@ -31,8 +31,12 @@
                 </table>
                 <%= paginate @especialidades, theme: 'twitter-bootstrap-4' %>
                 <hr>
-                <%= link_to "Nueva especialidad", new_especialidad_path, remote: true, class: "btn btn-primary" %>
+                <%= link_to "Nueva especialidad", new_admin_especialidad_path, remote: true, class: "btn btn-primary" %>
             </div>
         </div>
     </div>
+</div>
+<!-- requerido para el modal de nueva especialidad NO ELIMINAR -->
+<div id="new-especialidad">
+
 </div>
