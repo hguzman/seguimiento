@@ -1,0 +1,11 @@
+es:
+  admin:
+    especialidades:
+      create:
+        success: Especialidad creada de manera correcta
+        alert: Problemas con la creación de la especialidad
+      update:
+        success: Se acualizo der manera correcta
+        alert: Problemas con la actualizacion
+      destroy:
+        succes: Se elimino la especialidad de manera correcta

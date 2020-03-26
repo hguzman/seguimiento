@@ -6,11 +6,17 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :ambientes
     resources :fichas
+    resources :especialidades
   end
 
   resources :anotaciones, :especialidades, :comentarios
 
   resources :ambientes, only: %i[index show] do
+  resources :anotaciones, :especialidades, :fichas, :comentarios
+
+  resources :especialidades
+
+  resources :ambientes, only: [:index, :show] do
     resources :anotaciones, module: :ambientes
   end
 
