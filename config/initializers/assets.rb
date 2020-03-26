@@ -17,3 +17,5 @@ Rails.application.config.assets.precompile += %w( users/anotaciones.css)
 
 
 Rails.application.config.assets.precompile += %w( admin/ambientes.css)
+
+Rails.application.config.assets.precompile += %w( admin/especialidades.css)
