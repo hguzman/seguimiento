@@ -1,5 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Ficha, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it { should have_db_column(:numero).of_type(:integer) }
+  it { should have_db_column(:naprendices).of_type(:integer) }
+  it { should have_db_column(:fechafin).of_type(:date) }
+  it { should belong_to(:especialidad) }
+  it { should have_many(:users) }
 end
