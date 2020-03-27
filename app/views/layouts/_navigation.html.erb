@@ -60,8 +60,7 @@
             <!-- opciones admin -->
             <!-- Especialidades -->
             <% if policy(Especialidad).index? %>
-            <li
-                class="<%= is_active_controller('especialidades') %> <%= is_active_controller('admin/fichas') %> <%= is_active_controller('ambientes') %>">
+            <li class="<%= is_active_controller('especialidades') %> <%= is_active_controller('admin/fichas') %> <%= is_active_controller('ambientes') %>">
                 <a href="#"><i class="fa fa-shield"></i> <span class="nav-label"
                         data-i18n="nav.menulevels">Administracion </span><span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
@@ -94,21 +93,16 @@
             <% end %>
             <!-- perfil current user -->
             <li class="<%= 'active' if current_page?(controller: 'devise/registrations', action: 'edit') %>">
-                <a href="#"><i class="fa fa-pencil"></i> <span class="nav-label"
+                <a href="#"><i class="fa fa-cogs"></i> <span class="nav-label"
                         data-i18n="nav.graphs">Opciones</span><span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level collapse ">
                     <li class="<%= 'active' if current_page?(controller: 'devise/registrations', action: 'edit') %>">
-                        <a class="dropdown-item" href=" <%=edit_user_registration_path %>" class="btn btn-nar"><i
-                                class="fa fa-user"></i>Mi Perfil</a>
+                        <a class="dropdown-item" href=" <%= edit_user_path %>" class="btn btn-nar"><i class="fa fa-user"></i>Mi Perfil</a>
                     </li>
-                    <!-- <li class="<%= 'active' if current_page?(controller: 'devise/passwords', action: 'new') %>">
-                            <a class="dropdown-item" href="<%= new_user_password_path %>"><i class="fa fa-lock"></i>Cambiar Contraseña</a>
-                        </li> -->
-                    <li class="">
-                        <%= link_to " Cerrar Sesion ", destroy_user_session_path, method: :delete%>
+                    <li class="<%= 'active' if current_page?(controller: 'devise/passwords', action: 'new') %>">
+                        <a class="dropdown-item" href="<%= change_password_user_path %>"><i class="fa fa-lock"></i>Cambiar Contraseña</a>
                     </li>
                 </ul>
-            </li>
             </li>
         </ul>
     </div>

@@ -1,11 +1,9 @@
 # frozen_string_literal: true
-
 crumb :root do
   link 'Home', root_path
 end
 
 # breadcrumbs para especialidades
-
 crumb :especialidades do
   link 'Especialidades', especialidades_path
 end
@@ -26,18 +24,12 @@ crumb :especialidad_show do |especialidad|
 end
 
 # breadcrumbs para fichas
-
 crumb :fichas do
-  link 'fichas', admin_fichas_path
+  link 'Fichas', admin_fichas_path
 end
 
 crumb :ficha_new do
-  link 'crear', new_admin_ficha_path
-  parent :fichas
-end
-
-crumb :ficha_edit do |ficha|
-  link ficha.numero, edit_admin_ficha_path
+  link 'Nueva Ficha', new_admin_ficha_path
   parent :fichas
 end
 
@@ -46,43 +38,65 @@ crumb :ficha_show do |ficha|
   parent :fichas
 end
 
-# breadcrumbs para users
-
-crumb :users do
-  link 'usuarios', users_path
+crumb :ficha_edit do |ficha|
+  link ficha.numero, edit_admin_ficha_path
+  parent :fichas
 end
 
 # breadcrumbs para anotaciones
-
 crumb :anotaciones do
-  link 'anotaciones', anotaciones_path
+  link 'Anotaciones', anotaciones_path
 end
 
 crumb :anotacion_new do
-  link 'crear', new_anotacion_path
+  link 'Nueva Anotacion', new_anotacion_path
   parent :anotaciones
+end
+crumb :anotacion_show do |anotacion|
+  link anotacion.descripcion, anotacion_path
+  parent :anotaciones
+end
+crumb :anotacion_edit do |anotacion|
+  link "Editar Anotacion", edit_anotacion_path(anotacion)
+  parent :anotacion_show, anotacion
 end
 
 # breadcrumbs para devise
+crumb :users do
+  link 'Usuarios', users_path
+end
 
 crumb :devise_edit do |current_user|
-  link current_user.nombres, edit_user_registration_path
+  link "Mi Perfil ", edit_user_path
   parent :root
 end
 
-# breadcrumbs para ambientes
+crumb :edit_password do |current_user|
+  link "Cambiar Contraseña", change_password_user_path
+  parent :devise_edit
+end
+crumb :anotaciones_users do |user|
+  link "Anotaciones del aprendiz", user_anotaciones_path(user)
+  parent :users, user
+end
 
-crumb :ambientes do |_current_user|
+# breadcrumbs para ambientes
+crumb :ambientes do
   link 'Ambientes', ambientes_path
   parent :root
 end
 
 crumb :ambiente_new do
-  link 'crear', new_admin_ambiente_path
+  link 'Nuevo Ambiente', new_admin_ambiente_path
   parent :ambientes
 end
 
 crumb :ambiente_edit do |ambiente|
   link ambiente.nombre, edit_admin_ambiente_path
+  parent :ambientes
+end
+
+crumb :ambiente_show do |ambiente|
+  link ambiente.nombre, admin_ambiente_path
   parent :ambientes
 end

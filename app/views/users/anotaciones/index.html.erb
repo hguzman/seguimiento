@@ -1,14 +1,22 @@
-
- <table class="table table-hover">
-                  <thead>
-                    <tr>
-                        <th>Codigo</th>
-                        <th>Descripcion</th>
-                        <th>Fecha creación</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <%= render @anotaciones %>
-                  </tbody>
-              </table>
-  <%= paginate @anotaciones, theme: 'twitter-bootstrap-4' %>
+<% breadcrumb :anotaciones_users, @user %>
+<div class="row">
+  <div class="w-100">
+    <div class="ibox">
+       <div class="ibox-content">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>Codigo</th>
+                <th>Descripcion</th>
+                <th>Fecha creación</th>
+              </tr>
+            </thead>
+            <tbody>
+              <%= render @anotaciones %>
+            </tbody>
+          </table>
+          <%= paginate @anotaciones, theme: 'twitter-bootstrap-4' %>
+       </div>
+    </div>
+  </div>
+</div>
