@@ -29,10 +29,11 @@
                 <i class="fa fa-laptop"></i> <span class="nav-label">Inicio</span>
                 <% end %>
             </li>
-            <!-- aprendices -->
+            <!-- anotaciones ambientes y aprendices admin e instructor-->
             <% if policy(User).index? %>
             <li class="<%= 'active' if current_page?('/users') %>">
-                <%= link_to "/users" do %> <i class="fa fa-users"></i> <span class="nav-label">Aprendices</span>
+                <%= link_to "/users" do %> <i class="fa fa-users">
+                </i> <span class="nav-label">Aprendices</span>
                 <% end %>
             </li>
             <li class="<%= 'active' if current_page?('/ambientes') %>">
@@ -41,15 +42,13 @@
                 <span class="nav-label">Ambientes</span>
                 <% end %>
             </li>
-            <% end %>
             <!-- opciones admin -->
-            <!-- Especialidades -->
-            <% if policy(Especialidad).index? %>
             <li
-                class="<%= is_active_controller('especialidades') %> <%= is_active_controller('admin/fichas') %> <%= is_active_controller('ambientes') %>">
+                class="<%= is_active_controller('admin/especialidades') %> <%= is_active_controller('admin/fichas') %> <%= is_active_controller('admin/ambientes') %>">
                 <a href="#"><i class="fa fa-shield"></i> <span class="nav-label"
                         data-i18n="nav.menulevels">Administracion </span><span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
+                    <!-- Especialidades -->
                     <li class="<%= 'active' if current_page?('admin/especialidades') %>">
                         <%= link_to admin_especialidades_path do %>
                         <i class="fa fa-graduation-cap"></i>
@@ -91,7 +90,6 @@
                                 class="fa fa-lock"></i>Cambiar Contraseña</a>
                     </li>
                 </ul>
-            </li>
             </li>
         </ul>
     </div>
