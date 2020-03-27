@@ -15,9 +15,10 @@
                     <%end%>
                     <%end%>
                     <span class="block m-t-xs font-bold"></span>
-                    <span class="text-muted text-xs block"><%= current_user.nombres %> <%= current_user.apellidos %>
-                        <span class="block m-t-xs font-bold"></span>
-                        <span class="text-muted text-xs block"><%= current_user.email %>
+                    <span class="text-muted text-xs block"><%= current_user.nombres %>
+                        <%= current_user.apellidos %></span>
+                    <span class="block m-t-xs font-bold"></span>
+                    <span class="text-muted text-xs block"><%= current_user.email %></span>
                 </div>
                 <div class="logo-element">
                     <%=link_to "SG20", root_path %>
@@ -29,20 +30,24 @@
                 <i class="fa fa-laptop"></i> <span class="nav-label">Inicio</span>
                 <% end %>
             </li>
-            <!-- anotaciones ambientes y aprendices admin e instructor-->
+            <!-- anotaciones ambientes y aprendices solo admin e instructor-->
             <% if policy(User).index? %>
             <li class="<%= 'active' if current_page?('/users') %>">
                 <%= link_to "/users" do %> <i class="fa fa-users">
                 </i> <span class="nav-label">Aprendices</span>
                 <% end %>
             </li>
+            <% end %>
+            <% if policy(Ambiente).index? %>
             <li class="<%= 'active' if current_page?('/ambientes') %>">
                 <%= link_to ambientes_path do %>
                 <i class="fa fa-users"></i>
                 <span class="nav-label">Ambientes</span>
                 <% end %>
             </li>
+            <% end %>
             <!-- opciones admin -->
+            <% if policy(User).index? %>
             <li
                 class="<%= is_active_controller('admin/especialidades') %> <%= is_active_controller('admin/fichas') %> <%= is_active_controller('admin/ambientes') %>">
                 <a href="#"><i class="fa fa-shield"></i> <span class="nav-label"
@@ -55,18 +60,14 @@
                         <span class="nav-label">especialidades</span>
                         <% end %>
                     </li>
-                    <% end %>
                     <!-- Fichas -->
-                    <% if policy(Ficha).index? %>
                     <li class="nav nav-second-level <%= is_active_controller('admin/fichas') %>">
                         <%= link_to admin_fichas_path do %>
                         <i class="fa fa-users"></i>
                         <span class="nav-label">Fichas</span>
                         <% end %>
                     </li>
-                    <% end %>
                     <!-- Ambientes -->
-                    <% if policy(Ambiente).index? %>
                     <li class="nav nav-second-level <%= is_active_controller('admin/ambientes') %>">
                         <%= link_to admin_ambientes_path do %>
                         <i class="fa fa-users"></i>
