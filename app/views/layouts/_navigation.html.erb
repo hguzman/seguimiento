@@ -29,10 +29,11 @@
                 <i class="fa fa-laptop"></i> <span class="nav-label">Inicio</span>
                 <% end %>
             </li>
-            <!-- aprendices -->
+            <!-- anotaciones ambientes y aprendices admin e instructor-->
             <% if policy(User).index? %>
             <li class="<%= 'active' if current_page?('/users') %>">
-                <%= link_to "/users" do %> <i class="fa fa-users"></i> <span class="nav-label">Aprendices</span>
+                <%= link_to "/users" do %> <i class="fa fa-users">
+                </i> <span class="nav-label">Aprendices</span>
                 <% end %>
             </li>
             <li class="<%= 'active' if current_page?('/ambientes') %>">
@@ -41,36 +42,19 @@
                 <span class="nav-label">Ambientes</span>
                 <% end %>
             </li>
-            <% end %>
-            <!-- menu anotaciones -->
-            <li class="<%= is_active_controller('anotaciones') %>">
-                <a href="#"><i class="fa fa-clipboard"></i> <span class="nav-label"
-                        data-i18n="nav.graphs">Anotaciones</span><span class="fa arrow"></span></a>
-                <ul class="nav nav-second-level collapse <%= is_active_controller('anotaciones', 'in') %>">
-                    <li class="<%= is_active_action('index') %>">
-                        <%= link_to "Listar", anotaciones_path %>
-                    </li>
-                    <% if policy(Anotacion).new? %>
-                    <li class="<%= is_active_action('new') %>">
-                        <%= link_to "Crear", new_anotacion_path %>
-                    </li>
-                    <% end %>
-                </ul>
-            </li>
             <!-- opciones admin -->
-            <!-- Especialidades -->
-            <% if policy(Especialidad).index? %>
             <li
-                class="<%= is_active_controller('especialidades') %> <%= is_active_controller('admin/fichas') %> <%= is_active_controller('ambientes') %>">
+                class="<%= is_active_controller('admin/especialidades') %> <%= is_active_controller('admin/fichas') %> <%= is_active_controller('admin/ambientes') %>">
                 <a href="#"><i class="fa fa-shield"></i> <span class="nav-label"
                         data-i18n="nav.menulevels">Administracion </span><span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
-                  <li class="<%= 'active' if current_page?('admin/especialidades') %>">
-                      <%= link_to admin_especialidades_path do %>
-                      <i class="fa fa-graduation-cap"></i>
-                      <span class="nav-label">especialidades</span>
-                      <% end %>
-                  </li>
+                    <!-- Especialidades -->
+                    <li class="<%= 'active' if current_page?('admin/especialidades') %>">
+                        <%= link_to admin_especialidades_path do %>
+                        <i class="fa fa-graduation-cap"></i>
+                        <span class="nav-label">especialidades</span>
+                        <% end %>
+                    </li>
                     <% end %>
                     <!-- Fichas -->
                     <% if policy(Ficha).index? %>
@@ -101,14 +85,11 @@
                         <a class="dropdown-item" href=" <%=edit_user_registration_path %>" class="btn btn-nar"><i
                                 class="fa fa-user"></i>Mi Perfil</a>
                     </li>
-                    <!-- <li class="<%= 'active' if current_page?(controller: 'devise/passwords', action: 'new') %>">
-                            <a class="dropdown-item" href="<%= new_user_password_path %>"><i class="fa fa-lock"></i>Cambiar Contraseña</a>
-                        </li> -->
-                    <li class="">
-                        <%= link_to " Cerrar Sesion ", destroy_user_session_path, method: :delete%>
+                    <li class="<%= 'active' if current_page?(controller: '/users', action: 'change_password') %>">
+                        <a class="dropdown-item" href="<%= change_password_user_path %>"><i
+                                class="fa fa-lock"></i>Cambiar Contraseña</a>
                     </li>
                 </ul>
-            </li>
             </li>
         </ul>
     </div>
