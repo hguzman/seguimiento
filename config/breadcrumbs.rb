@@ -75,13 +75,13 @@ crumb :edit_password do |current_user|
   link "Cambiar Contraseña", change_password_user_path
   parent :devise_edit
 end
-crumb :anotaciones_users do |_current_user|
-  link "Anotaciones del aprendiz", user_anotaciones_path(current_user)
-  parent :users, current_user
+crumb :anotaciones_users do |user|
+  link "Anotaciones del aprendiz", user_anotaciones_path(user)
+  parent :users, user
 end
 
 # breadcrumbs para ambientes
-crumb :ambientes do |_current_user|
+crumb :ambientes do
   link 'Ambientes', ambientes_path
   parent :root
 end
