@@ -5,17 +5,21 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :ambientes
-    resources :fichas
-    resources :especialidades
+    # resources :fichas
+    resources :especialidades do
+      resources :programas, module: :especialidades
+    end
+    resources :programas do
+      resources :fichas, module: :programas
+    end
   end
 
-  resources :anotaciones, :especialidades, :comentarios
+  resources :comentarios
 
   resources :ambientes, only: %i[index show] do
     resources :anotaciones, module: :ambientes
   end
 
-  # resources :especialidades
 
   devise_for :users
 
@@ -34,4 +38,6 @@ Rails.application.routes.draw do
       get :change_password
     end
   end
+
+  get "*any", via: :all, to: "application#catch_404"
 end

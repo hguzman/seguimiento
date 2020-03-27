@@ -7,6 +7,6 @@ class EspecialidadPolicy
     end
 
     def index?
-      @user.has_role? :admin
+      # @user.has_role? :admin
     end
 end

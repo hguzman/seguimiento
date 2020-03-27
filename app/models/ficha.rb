@@ -1,4 +1,4 @@
 class Ficha < ApplicationRecord
-    belongs_to :especialidad
+    belongs_to :programa
     has_many :users
 end

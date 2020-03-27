@@ -1,6 +1,6 @@
 <div class = "container">
     <!-- breadcrumbs -->
-    <% breadcrumb :especialidad_show, @especialidad %>
+    <%# <% breadcrumb :especialidad_show, @especialidad %>
 
             <div class="ibox mt-4 col-md-4 mx-auto">
                 <div class="ibox-title">
@@ -12,7 +12,7 @@
                 <div class="ibox-content">
                     <h1 class="no-margins"><%= @especialidad.nombre%></h1>
                     <br>
-                    <%= link_to "Editar", edit_especialidad_path(@especialidad), class:"btn btn-primary"%>
+                    <%= link_to "Editar", edit_admin_especialidad_path(@especialidad), class:"btn btn-primary"%>
                 </div>
             </div>
 </div>

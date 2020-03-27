@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_26_210808) do
+ActiveRecord::Schema.define(version: 2020_03_27_201551) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,8 +51,16 @@ ActiveRecord::Schema.define(version: 2020_03_26_210808) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "numero_aprendices"
     t.date "fecha_fin_at"
-    t.bigint "especialidad_id", null: false
-    t.index ["especialidad_id"], name: "index_fichas_on_especialidad_id"
+    t.bigint "programa_id"
+    t.index ["programa_id"], name: "index_fichas_on_programa_id"
+  end
+
+  create_table "programas", force: :cascade do |t|
+    t.string "nombre"
+    t.bigint "especialidad_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["especialidad_id"], name: "index_programas_on_especialidad_id"
   end
 
   create_table "roles", force: :cascade do |t|
@@ -102,5 +110,6 @@ ActiveRecord::Schema.define(version: 2020_03_26_210808) do
   end
 
   add_foreign_key "comentarios", "anotaciones"
-  add_foreign_key "fichas", "especialidades"
+  add_foreign_key "fichas", "programas"
+  add_foreign_key "programas", "especialidades"
 end

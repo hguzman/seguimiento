@@ -1,0 +1,7 @@
+Index
+<hr>
+<%= render partial: "ficha", collection: @fichas %>
+<hr>
+<%= link_to "nueva ficha", new_admin_programa_ficha_path(@programa) %>
+<hr>
+<%= link_to "Ir a la especialidad", admin_especialidad_path(@programa.especialidad) %>

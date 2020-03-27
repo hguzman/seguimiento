@@ -3,7 +3,7 @@ module Admin
     respond_to :html
 
     def index
-      authorize Especialidad
+      # authorize Especialidad
       @especialidades = if params[:q].present?
                         Especialidad.where('nombre ilike :q', q:
                           "%#{params[:q]}%").page params[:page]
@@ -38,9 +38,10 @@ module Admin
     def update
       @especialidad = Especialidad.find(params[:id])
       if @especialidad.update(especialidad_params)
-        redirect_to especialidad_path(@especialidad)
-        flash[:success] = 'Especialidad Registrada'
+        flash[:success] = t('.success') 
+        respond_with :admin, @especialidad
       else
+        flash[:alert] = t(`'alert'`)
         render 'edit'
       end
     end

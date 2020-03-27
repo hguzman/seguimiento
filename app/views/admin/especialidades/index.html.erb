@@ -1,5 +1,5 @@
 <!-- breadcrumbs -->
-<% breadcrumb :especialidades %>
+<%# <% breadcrumb :especialidades %>
 <div class="row">
     <div class="w-100">
         <div class="ibox ">
@@ -31,7 +31,7 @@
                 </table>
                 <%= paginate @especialidades, theme: 'twitter-bootstrap-4' %>
                 <hr>
-                <%= link_to "Nueva especialidad", new_especialidad_path, remote: true, class: "btn btn-primary" %>
+                <%= link_to "Nueva especialidad", new_admin_especialidad_path, remote: true, class: "btn btn-primary" %>
             </div>
         </div>
     </div>

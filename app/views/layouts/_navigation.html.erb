@@ -78,11 +78,11 @@
             </li>
             <% end %>
             <!-- perfil current user -->
-            <li class="<%= 'active' if current_page?(controller: 'devise/registrations', action: 'edit') %>">
+            <li class="<%= 'active' if current_page?(controller: '/devise/registrations', action: 'edit') %>">
                 <a href="#"><i class="fa fa-pencil"></i> <span class="nav-label"
                         data-i18n="nav.graphs">Opciones</span><span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level collapse ">
-                    <li class="<%= 'active' if current_page?(controller: 'devise/registrations', action: 'edit') %>">
+                    <li class="<%= 'active' if current_page?(controller: '/devise/registrations', action: 'edit') %>">
                         <a class="dropdown-item" href=" <%=edit_user_registration_path %>" class="btn btn-nar"><i
                                 class="fa fa-user"></i>Mi Perfil</a>
                     </li>

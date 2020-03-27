@@ -1,0 +1,8 @@
+<%= @programa.nombre %>
+
+<br></br>
+
+
+<%= link_to "Editar", edit_admin_especialidad_programa_path(@especialidad, @programa) %>
+
+<%= link_to "Eliminar", admin_especialidad_programa_path(@especialidad, @programa), method: :delete, data: {confirm: "¿Estas seguro?"} %>
