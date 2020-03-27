@@ -2,5 +2,15 @@ es:
   simple_form:
     placeholders:
       user:
-        nombre: UVX455 ó KLATF19Y
-
+        nombres: 'Escribe tus nombres'
+        apellidos: 'Escribe tus apellidos'
+        ndocumento: 'Digite su documento de identidad'
+        telefono: 'Digite su número de teléfono'
+        direccion: 'Escriba su dirección completa'
+        email: 'Escriba su correo electronico'
+        password: 'Escriba su contraseña'
+        password_confirmation: 'Confirme su contraseña'
+    prompts:
+      user:
+        tipodocumento: 'Tipo de documento'
+        ficha: 'Seleccione ficha'

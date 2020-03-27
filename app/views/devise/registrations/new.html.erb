@@ -15,13 +15,12 @@
                         required: true,
                         label: false,
                         autofocus: true,
-                        placeholder: "Escriba sus apellidos Completos",
                         input_html: { autocomplete: "apellido" }%>
 
                         <%= f.association :tipodocumento,
+                        prompt: :translate,
                         label_method: :nombre,
-                        value_method: :id ,
-                        prompt: "Tipo de documento",
+                        value_method: :id,
                         label: false,
                         input_html: {class: "form-control", min:"1" } %>
 
@@ -29,48 +28,42 @@
                         required: true,
                         label: false,
                         autofocus: true,
-                        placeholder: "Digite su Documento de Identidad",
                         input_html: { autocomplete: "documento" }%>
 
                         <%= f.input :telefono,
                         required: true,
                         label: false,
                         autofocus: true,
-                        placeholder: "Digite su numero de Telfono",
                         input_html: { autocomplete: "telefono" }%>
 
                         <%= f.input :direccion,
                         required: true,
                         label: false,
                         autofocus: true,
-                        placeholder: "Escriba su direccion Completa",
                         input_html: { autocomplete: "direccion" }%>
 
                         <%= f.input :email,
                         required: true,
                         label: false,
                         autofocus: true,
-                        placeholder: "Escriba su correo Electronico",
                         input_html: { autocomplete: "email" }%>
 
                         <%= f.association :ficha,
+                        prompt: :translate,
                         label_method: :numero,
-                        value_method: :id ,
-                        prompt: "Seleccione Ficha",
+                        value_method: :id,
                         label: false,
                         input_html: {class: "form-control", min:"1" } %>
 
                         <%= f.input :password,
                         required: true,
                         label: false,
-                        placeholder: "Escriba su Contraseña",
                         hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
                         input_html: { autocomplete: "new-password" } %>
 
                         <%= f.input :password_confirmation,
                         required: true,
                         label: false,
-                        placeholder: "Confirme su Contraseña",
                         input_html: { autocomplete: "new-password" } %>
 
                         <%= f.button :submit, "Crear usuario", class: "btn-primary block full-width m-b" %>
