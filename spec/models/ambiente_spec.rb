@@ -1,5 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Ambiente, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it { should have_db_column(:nombre).of_type(:string) }
+  it { should have_db_column(:descripcion).of_type(:string) }
+
 end

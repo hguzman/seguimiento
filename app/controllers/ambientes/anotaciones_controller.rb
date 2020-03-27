@@ -26,9 +26,10 @@ module Ambientes
     def update
       @anotacion = Anotacion.find(params[:id])
       if @anotacion.update(anotacion_params)
-        redirect_to anotacion_path(@anotacion)
         flash[:success] = 'Anotacion Registrada'
+        respond_with @ambiente
       else
+        flash[:alert] = t('.alert')
         render 'edit'
       end
     end

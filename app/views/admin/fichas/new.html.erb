@@ -8,8 +8,8 @@
     <%= simple_form_for [:admin, @ficha] do |f| %>
     <%= f.association :especialidad, label_method: :nombre, value_method: :id, min:"1" %>
     <%= f.input :numero, class: "form-control" %>
-    <%= f.input :naprendices, class: "form-control" %>
-    <%= f.input :fechafin, as: :date, html5: true %>
+    <%= f.input :numero_aprendices, class: "form-control" %>
+    <%= f.input :fecha_fin_at, as: :date, html5: true %>
    </div>
    <div class="row">
     <div class="col-6">
