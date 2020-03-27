@@ -67,7 +67,7 @@ crumb :users do
 end
 
 crumb :devise_edit do |current_user|
-  link "Mi Perfil ", edit_user_registration_path
+  link "Mi Perfil ", edit_user_path
   parent :root
 end
 
