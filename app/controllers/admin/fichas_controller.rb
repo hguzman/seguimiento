@@ -47,9 +47,9 @@ module Admin
 
     def ficha_params
       params.require(:ficha).permit(:numero,
-                                    :naprendices,
+                                    :numero_aprendices,
                                     :especialidad_id,
-                                    :fechafin)
+                                    :fecha_fin_at)
     end
   end
 end

@@ -12,12 +12,12 @@
      <%= f.input :numero, class: "form-control" %>
     </div>
     <div class="col">
-     <%= f.input :naprendices, class: "form-control" %>
+     <%= f.input :numero_aprendices, class: "form-control" %>
     </div>
    </div>
    <div class="row">
     <div class="col">
-     <%= f.input :fechafin, as: :date, html5: true %>
+     <%= f.input :fecha_fin_at, as: :date, html5: true %>
     </div>
     <div class="col">
      <%= f.association :especialidad, label_method: :nombre, value_method: :id, min:"1" %>
