@@ -6,5 +6,8 @@ class CreateAnotaciones < ActiveRecord::Migration[6.0]
 
       t.timestamps
     end
+
+    add_reference :comentario, :anotaciones, foreign_key: true
+
   end
 end
