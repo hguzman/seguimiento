@@ -18,11 +18,9 @@ Rails.application.config.assets.precompile += %w[devise/registrations.css]
 Rails.application.config.assets.precompile += %w[users/anotaciones.css]
 Rails.application.config.assets.precompile += %w[admin/ambientes.css]
 Rails.application.config.assets.precompile += %w[admin/fichas.css]
-Rails.application.config.assets.precompile += %w( devise/sessions.css devise/sessions.js)
-Rails.application.config.assets.precompile += %w( devise/registrations.css)
-Rails.application.config.assets.precompile += %w( users/anotaciones.css)
-
-
-Rails.application.config.assets.precompile += %w( admin/ambientes.css)
-
-Rails.application.config.assets.precompile += %w( admin/especialidades.css)
+Rails.application.config.assets.precompile += %w[devise/sessions.css devise/sessions.js]
+Rails.application.config.assets.precompile += %w[devise/registrations.css]
+Rails.application.config.assets.precompile += %w[users/anotaciones.css]
+Rails.application.config.assets.precompile += %w[admin/ambientes.css]
+Rails.application.config.assets.precompile += %w[admin/especialidades.css]
+Rails.application.config.assets.precompile += %w[admin/tipo_documentos.css]

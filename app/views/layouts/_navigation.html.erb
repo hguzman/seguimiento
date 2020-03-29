@@ -31,23 +31,18 @@
                 <% end %>
             </li>
             <!-- anotaciones ambientes y aprendices solo admin e instructor-->
-
             <li class="<%= 'active' if current_page?('/users') %>">
                 <%= link_to "/users" do %> <i class="fa fa-users">
                 </i> <span class="nav-label">Aprendices</span>
                 <% end %>
             </li>
-
-            <%# if policy(Ambiente).index? %>
             <li class="<%= 'active' if current_page?('/ambientes') %>">
                 <%= link_to ambientes_path do %>
                 <i class="fa fa-users"></i>
                 <span class="nav-label">Ambientes</span>
                 <% end %>
             </li>
-            <%# end %>
             <!-- opciones admin -->
-            <%# if policy(User).index? %>
             <li
                 class="<%= is_active_controller('admin/especialidades') %> <%= is_active_controller('admin/fichas') %> <%= is_active_controller('admin/ambientes') %>">
                 <a href="#"><i class="fa fa-shield"></i> <span class="nav-label"
@@ -58,6 +53,13 @@
                         <%= link_to admin_especialidades_path do %>
                         <i class="fa fa-graduation-cap"></i>
                         <span class="nav-label">Especialidades</span>
+                        <% end %>
+                    </li>
+                    <!-- tipodocumento -->
+                    <li class="<%= 'active' if current_page?('/admin/tipo_documentos') %>">
+                        <%= link_to admin_tipo_documentos_path do %>
+                        <i class="fa fa-graduation-cap"></i>
+                        <span class="nav-label">Tipo documentos</span>
                         <% end %>
                     </li>
                     <!-- Fichas -->
@@ -76,7 +78,6 @@
                     </li>
                 </ul>
             </li>
-            <%# end %>
             <!-- perfil current user -->
             <li class="<%= 'active' if current_page?(controller: '/devise/registrations', action: 'edit') %>">
                 <a href="#"><i class="fa fa-pencil"></i> <span class="nav-label"

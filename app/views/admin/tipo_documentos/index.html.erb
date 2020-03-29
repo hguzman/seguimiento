@@ -1,0 +1,38 @@
+<!-- breadcrumbs -->
+<div class="row">
+ <div class="w-100">
+  <div class="ibox">
+   <div class="ibox-title d-flex justify-content-between align-items-center pr-3">
+    <h5>Listado Tipo de documentos</h5>
+    <form action="<%= admin_tipo_documentos_path %>" method="GET">
+     <div class="input-group mb-3">
+      <input type="text" class="form-control" placeholder="Buscar.." aria-label="Recipient's username"
+       aria-describedby="button-addon2" name="q" value="<%= params[:q] %>">
+      <div class="input-group-append">
+       <button class="btn btn-primary" type="submit" id="button-addon2"><i class="fa fa-search"></i></button>
+      </div>
+     </div>
+    </form>
+   </div>
+   <div class="ibox-content">
+    <table class="table table-hover">
+     <thead>
+      <tr>
+       <th>Codigo</th>
+       <th>Nombre</th>
+       <th>Fecha creacion</th>
+       <th class="text-center">Accion</th>
+      </tr>
+     </thead>
+     <tbody>
+      <%= render partial: "tipodocumento", collection: @tipodocumentos %>
+     </tbody>
+    </table>
+    <hr />
+    <div class="d-flex justify-content-between">
+     <%= link_to "Nuevo Tipo de docuemnto", new_admin_tipo_documento_path, class: "btn btn-primary" %>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>

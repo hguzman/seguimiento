@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_27_201551) do
+ActiveRecord::Schema.define(version: 2020_03_29_022436) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -93,8 +93,8 @@ ActiveRecord::Schema.define(version: 2020_03_27_201551) do
     t.bigint "telefono"
     t.string "direccion"
     t.string "avatar"
-    t.bigint "tipodocumento_id"
     t.bigint "ficha_id"
+    t.bigint "tipodocumento_id", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["ficha_id"], name: "index_users_on_ficha_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
@@ -112,4 +112,5 @@ ActiveRecord::Schema.define(version: 2020_03_27_201551) do
   add_foreign_key "comentarios", "anotaciones"
   add_foreign_key "fichas", "programas"
   add_foreign_key "programas", "especialidades"
+  add_foreign_key "users", "tipodocumentos"
 end

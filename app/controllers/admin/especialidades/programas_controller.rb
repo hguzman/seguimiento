@@ -24,7 +24,7 @@ module Admin
         @programa = @especialidad.programas.new(programa_params)
         if @programa.save
           flash[:success] = t('.success')
-          respond_with :admin, @especialidad, @programa
+          respond_with :admin, @especialidad, :programas
         else
           flash[:alert] = t('.alert')
           render :new
