@@ -1,9 +1,12 @@
+# frozen_string_literal: true
+
 module Admin
   module Especialidades
+    # Clase programa del modulo especialidad en modulo admin
     class ProgramasController < ApplicationController
       respond_to :html
       before_action :set_especialidad
-      before_action :set_programa, only: [:show, :edit, :update, :destroy]
+      before_action :set_programa, only: %i[show edit update destroy]
 
       def index
         @programas = @especialidad.programas
@@ -13,11 +16,9 @@ module Admin
         @programa = @especialidad.programas.new
       end
 
-      def show
-      end
+      def show; end
 
-      def edit
-      end
+      def edit; end
 
       def create
         @programa = @especialidad.programas.new(programa_params)
@@ -46,7 +47,6 @@ module Admin
         respond_with :admin, @especialidad, :programas
       end
 
-
       private
 
       def set_especialidad
@@ -60,9 +60,6 @@ module Admin
       def programa_params
         params.require(:programa).permit(:nombre)
       end
-
-
     end
   end
 end
-

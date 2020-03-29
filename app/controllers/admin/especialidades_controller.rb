@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Admin
   class EspecialidadesController < ApplicationController
     respond_to :html
@@ -5,10 +7,10 @@ module Admin
     def index
       # authorize Especialidad
       @especialidades = if params[:q].present?
-                        Especialidad.where('nombre ilike :q', q:
-                          "%#{params[:q]}%").page params[:page]
-                      else
-                        Especialidad.all.page params[:page]
+                          Especialidad.where('nombre ilike :q', q:
+                            "%#{params[:q]}%").page params[:page]
+                        else
+                          Especialidad.all.page params[:page]
                       end
     end
 
@@ -38,7 +40,7 @@ module Admin
     def update
       @especialidad = Especialidad.find(params[:id])
       if @especialidad.update(especialidad_params)
-        flash[:success] = t('.success') 
+        flash[:success] = t('.success')
         respond_with :admin, @especialidad
       else
         flash[:alert] = t(`'alert'`)
@@ -55,5 +57,5 @@ module Admin
     def especialidad_params
       params.require(:especialidad).permit(:nombre)
     end
-  end 
+  end
 end

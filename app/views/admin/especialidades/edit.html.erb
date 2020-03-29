@@ -1,13 +1,17 @@
-<div class = "container">
-    <!-- breadcrumbs-->
-    <!-- titulo -->
-    <h1>Editar especialidad: <strong><%=@especialidad.nombre%></strong></h1>
-    <!-- Formulario edit -->
-    <%= simple_form_for [:admin, @especialidad] do |f| %>
-        <%= f.input :nombre, class: "form-control" %>
-        <%= f.button :submit, class: "btn btn-primary" %>    
-    <% end %>
-</div>
-
 <div class="container">
+ <!-- breadcrumbs-->
+ <!-- titulo -->
+ <h1>Editar especialidad: <strong><%=@especialidad.nombre%></strong></h1>
+ <!-- Formulario edit -->
+ <%= simple_form_for [:admin, @especialidad] do |f| %>
+ <%= f.input :nombre, class: "form-control" %>
+ <div class="row">
+  <div class="col-md-6">
+   <%= f.button :submit, class: "btn btn-primary btn-lg btn-block" %>
+   <% end %>
+  </div>
+  <div class="col-md-6">
+   <%= link_to "Volver", :back, class: "btn btn-danger btn-lg btn-block" %>
+  </div>
+ </div>
 </div>

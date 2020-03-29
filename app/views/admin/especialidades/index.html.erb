@@ -23,6 +23,7 @@
                             <th>ID</th>
                             <th>Nombre</th>
                             <th>Fecha creación</th>
+                            <th class="text-center">Acción</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -31,8 +32,19 @@
                 </table>
                 <%= paginate @especialidades, theme: 'twitter-bootstrap-4' %>
                 <hr>
-                <%= link_to "Nueva especialidad", new_admin_especialidad_path, remote: true, class: "btn btn-primary" %>
+                <div class="row">
+                    <div class="col-md-6">
+                        <%= link_to "Nueva especialidad", new_admin_especialidad_path, remote: true, class: "btn btn-primary btn-lg btn-block" %>
+                    </div>
+                    <div class="col-md-6">
+                        <%= link_to "Volver", :back, class: "btn btn-danger btn-lg btn-block" %>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+</div>
+<!-- NO BORRAR, SE USA PARA EL MODAL DE ESPECIALIDAD -->
+<div id="new-especialidad">
+
 </div>

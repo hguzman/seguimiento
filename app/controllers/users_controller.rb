@@ -8,7 +8,6 @@ class UsersController < ApplicationController
   before_action :setiar_user, only: [:ver_user]
 
   def index
-    authorize User
     if params[:q].present?
       @users = User.where(
         'ndocumento ilike :q or nombres ilike :q or apellidos ilike :q',

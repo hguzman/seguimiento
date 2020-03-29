@@ -1,6 +1,48 @@
-Este es el index
+<!-- breadcrumbs -->
+<%# <% breadcrumb :especialidades %>
+<div class="row">
+  <div class="w-100">
+    <div class="ibox ">
+      <div class="ibox-title d-flex justify-content-between align-items-center pr-3">
+        <h5>Programas de <span><%= @especialidad.nombre%></span></h5>
+        <form action="" method="GET" class="d-flex justify-content-between align-items-center">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Buscar.." aria-label="Recipient's username"
+              aria-describedby="button-addon2" name="q" value="<%= @q %>">
+            <div class="input-group-append">
+              <button class="btn btn-primary" type="submit" id="button-addon2"><i class="fa fa-search"></i></button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="ibox-content">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nombre</th>
+              <th>Fecha creación</th>
+              <th class="text-center">Acción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <%= render @programas %>
+          </tbody>
+        </table>
+        <%#= paginate @especialidades, theme: 'twitter-bootstrap-4' %>
+        <hr>
+        <div class="row">
+          <div class="col-md-4">
+            <%= link_to "Nuevo programa", new_admin_especialidad_programa_path(@especialidad), class: "btn btn-primary btn-lg btn-block"  %>
+          </div>
+          <div class="col-md-4">
 
-<%= link_to "Nuevo programa", new_admin_especialidad_programa_path(@especialidad) %>
-<table>
-  <%= render partial: "programa", collection: @programas %>
-</table>
+          </div>
+          <div class="col-md-4">
+            <%= link_to "Volver", admin_especialidades_path, class: "btn btn-danger btn-lg btn-block" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

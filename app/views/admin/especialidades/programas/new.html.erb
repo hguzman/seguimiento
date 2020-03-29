@@ -1,1 +1,14 @@
-<%= render "form" %>
+<div class="ibox mt-8 col-md-8 mx-auto">
+ <!-- breadcrumbs -->
+ <!-- titulo de la seccion-->
+ <h1 class="ibox-title font-weight-bold text-center pr-3">Crear nuevo Programa</h1>
+ <div class="ibox-content p-3 ">
+  <div class="col-12">
+   <!-- en que especialidad va a crear el nuevo programa -->
+   <h1>Especialidad: <%= @especialidad.nombre%></h1>
+   <hr>
+   <!-- formulario _firm.html.erb -->
+   <%= render "form" %>
+  </div>
+ </div>
+</div>

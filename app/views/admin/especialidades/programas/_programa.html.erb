@@ -1,3 +1,16 @@
 <tr>
+  <td><%= programa.id %></td>
   <td><%= programa.nombre %></td>
+  <td><%= l programa.created_at, format: :long%></td>
+  <td>
+    <div class="row">
+      <div class="col-md-6">
+        <%= link_to "Editar", edit_admin_especialidad_programa_path(@especialidad, programa),class:"btn btn-primary btn-xs btn-block" %>
+      </div>
+      <div class="col-md-6">
+        <%= link_to "Eliminar", admin_especialidad_programa_path(@especialidad, programa), method: :delete, data: {confirm: "¿Estas seguro?"}, class:"btn btn-danger btn-xs btn-block"%>
+      </div>
+    </div>
+    </div>
+  </td>
 </tr>
