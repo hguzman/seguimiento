@@ -27,9 +27,9 @@
      <tbody>
       <%= render partial: "tipodocumento", collection: @tipodocumentos %>
      </tbody>
-     <hr>
-     <%= paginate @tipodocumentos, theme: 'twitter-bootstrap-4' %>
     </table>
+    <hr>
+    <%= paginate @tipodocumentos, theme: 'twitter-bootstrap-4' %>
     <hr />
     <div class="d-flex justify-content-between">
      <%= link_to "Nuevo Tipo de docuemnto", new_admin_tipo_documento_path, class: "btn btn-primary" %>

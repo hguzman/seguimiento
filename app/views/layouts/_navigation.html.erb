@@ -44,7 +44,7 @@
             </li>
             <!-- opciones admin -->
             <li
-                class="<%= is_active_controller('admin/especialidades') %> <%= is_active_controller('admin/fichas') %> <%= is_active_controller('admin/ambientes') %>">
+                class="<%= is_active_controller('admin/especialidades') %> <%= is_active_controller('admin/fichas') %> <%= is_active_controller('admin/ambientes') %> <%= is_active_controller('admin/tipo_documentos') %> ">
                 <a href="#"><i class="fa fa-shield"></i> <span class="nav-label"
                         data-i18n="nav.menulevels">Administracion </span><span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
@@ -70,7 +70,7 @@
                         <%# end %>
                     </li> -->
                     <!-- Ambientes -->
-                    <li class="nav nav-second-level <%= is_active_controller('admin/ambientes') %>">
+                    <li class="nav nav-second-level <%= is_active_controller('/admin/ambientes') %>">
                         <%= link_to admin_ambientes_path do %>
                         <i class="fa fa-users"></i>
                         <span class="nav-label">Ambientes</span>
