@@ -1,5 +1,6 @@
 <!-- breadcrumbs -->
 <%# <% breadcrumb :especialidades %>
+<% breadcrumb :programas %>
 <div class="row">
   <div class="w-100">
     <div class="ibox ">
@@ -29,7 +30,7 @@
             <%= render @programas %>
           </tbody>
         </table>
-        <%#= paginate @especialidades, theme: 'twitter-bootstrap-4' %>
+        <%= paginate @programas, theme: 'twitter-bootstrap-4' %>
         <hr>
         <div class="row">
           <div class="col-md-4">

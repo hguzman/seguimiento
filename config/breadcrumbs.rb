@@ -7,23 +7,44 @@ end
 # breadcrumbs para especialidades
 
 crumb :especialidades do
-  link 'Especialidades', especialidades_path
+  link 'Especialidades', admin_especialidades_path
 end
 
 crumb :especialidad_new do
-  link 'crear', new_especialidad_path
+  link 'crear', new_admin_especialidad_path
   parent :especialidades
 end
 
-crumb :especialidad_edit do |especialidad|
-  link especialidad.nombre, especialidad
-  parent :especialidades
+# crumb :especialidad_edit do |especialidad|
+#   link especialidad.nombre, edit_admin_especialidad_path
+#   parent :especialidades
+# end
+
+# crumb :especialidad_show do |especialidad|
+#   link especialidad.nombre, admin_especialidad_path
+#   parent :especialidades
+# end
+
+# breadcrumbs para programas
+
+crumb :programas do
+  link 'Programas', admin_especialidad_programas_path
 end
 
-crumb :especialidad_show do |especialidad|
-  link especialidad.nombre, especialidad
-  parent :especialidades
+crumb :programa_new do
+  link 'crear', new_admin_especialidad_programa_path
+  parent :programas
 end
+
+# crumb :programa_edit do |programa|
+#   link programa.nombre, edit_admin_especialidad_programa_path
+#   parent :programas
+# end
+
+# crumb :programa_show do |programa|
+#   link programa.nombre, admin_especialidad_programa_path
+#   parent :programas
+# end
 
 # breadcrumbs para fichas
 

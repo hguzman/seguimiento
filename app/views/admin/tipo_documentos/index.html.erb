@@ -27,6 +27,8 @@
      <tbody>
       <%= render partial: "tipodocumento", collection: @tipodocumentos %>
      </tbody>
+     <hr>
+     <%= paginate @tipodocumentos, theme: 'twitter-bootstrap-4' %>
     </table>
     <hr />
     <div class="d-flex justify-content-between">

@@ -4,12 +4,18 @@ module Admin
   module Especialidades
     # Clase programa del modulo especialidad en modulo admin
     class ProgramasController < ApplicationController
+      before_action :authenticate_user!
       respond_to :html
       before_action :set_especialidad
       before_action :set_programa, only: %i[show edit update destroy]
 
       def index
-        @programas = @especialidad.programas
+        @programas = if params[:q].present?
+                       @especialidad.programas.where('nombre ilike :q', q:
+                       "%#{params[:q]}%").page params[:page]
+                     else
+                       @especialidad.programas.page params[:page]
+                     end
       end
 
       def new

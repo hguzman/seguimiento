@@ -8,4 +8,8 @@ es:
         success: Se acualizo der manera correcta
         alert: Problemas con la actualizacion
       destroy:
-        succes: Se elimino la especialidad de manera correcta
+        success: Se elimino la especialidad de manera correcta
+  simple_form:
+    placeholders:
+      especialidad:
+          nombre: 'Escribe aquí la especialidad'

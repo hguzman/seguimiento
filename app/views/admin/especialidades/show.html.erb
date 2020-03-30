@@ -1,4 +1,5 @@
 <!-- breadcrumbs -->
+<%# breadcrumb :especialidad_show %>
 <div class="ibox mt-4 col-md-4 mx-auto">
     <div class="ibox-title">
         <div class="ibox-tools">
@@ -13,7 +14,12 @@
                 <%= link_to "Editar", edit_admin_especialidad_path(@especialidad), class:"btn btn-primary btn-lg btn-block"%>
             </div>
             <div class="col-md-6">
-                <%= link_to "Volver", :back, class: "btn btn-danger btn-lg btn-block" %>
+                <%= link_to "Eliminar", admin_especialidad_path(@especialidad), method: :delete, data: {confirm: "¿Estas seguro?"}, class:"btn btn-danger btn-lg btn-block"%>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <%= link_to "Volver", admin_especialidades_path, class: "btn btn-primary btn-lg btn-block mt-3" %>
             </div>
         </div>
     </div>
