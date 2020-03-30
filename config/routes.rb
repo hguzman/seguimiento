@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :ambientes
-    # resources :fichas
+    resources :tipo_documentos
     resources :especialidades do
       resources :programas, module: :especialidades
     end
@@ -19,7 +19,6 @@ Rails.application.routes.draw do
   resources :ambientes, only: %i[index show] do
     resources :anotaciones, module: :ambientes
   end
-
 
   devise_for :users
 
@@ -39,5 +38,5 @@ Rails.application.routes.draw do
     end
   end
 
-  get "*any", via: :all, to: "application#catch_404"
+  get '*any', via: :all, to: 'application#catch_404'
 end

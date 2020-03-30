@@ -1,10 +1,9 @@
 <div class="container">
  <!-- breadcrumbs-->
- <%# breadcrumb :especialidad_edit %>
  <!-- titulo -->
- <h1>Editar especialidad: <strong><%=@especialidad.nombre%></strong></h1>
+ <h1>Editar tipo de documento</strong></h1>
  <!-- Formulario edit -->
- <%= simple_form_for [:admin, @especialidad] do |f| %>
+ <%= simple_form_for @tipodocumento, url: admin_tipo_documento_path do |f| %>
  <%= f.input :nombre, class: "form-control" %>
  <div class="row">
   <div class="col-md-6">

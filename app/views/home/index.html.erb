@@ -1,8 +1,9 @@
+<!-- breadcrumbs -->
+<% breadcrumb :root %>
 <div class="row mb-3">
   <div class="col-lg-12">
     <div class="row ibox-content">
       <div class="col-md-6 align-items-center">
-        <% breadcrumb :root %>
         <div class="profile-image d-flex justify-content-center align-items-center">
           <% if user_signed_in? %>
           <% if current_user.avatar.thumb.present?%>
@@ -33,7 +34,8 @@
             <tr>
               <td>
                 <strong>Número de documento:</strong> <%= current_user.ndocumento %>
-              </td><td>
+              </td>
+              <td>
                 <strong>Teléfono:</strong> <%= current_user.telefono %>
               </td>
             </tr>

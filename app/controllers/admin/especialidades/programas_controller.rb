@@ -1,29 +1,36 @@
+# frozen_string_literal: true
+
 module Admin
   module Especialidades
+    # Clase programa del modulo especialidad en modulo admin
     class ProgramasController < ApplicationController
+      before_action :authenticate_user!
       respond_to :html
       before_action :set_especialidad
-      before_action :set_programa, only: [:show, :edit, :update, :destroy]
+      before_action :set_programa, only: %i[show edit update destroy]
 
       def index
-        @programas = @especialidad.programas
+        @programas = if params[:q].present?
+                       @especialidad.programas.where('nombre ilike :q', q:
+                       "%#{params[:q]}%").page params[:page]
+                     else
+                       @especialidad.programas.page params[:page]
+                     end
       end
 
       def new
         @programa = @especialidad.programas.new
       end
 
-      def show
-      end
+      def show; end
 
-      def edit
-      end
+      def edit; end
 
       def create
         @programa = @especialidad.programas.new(programa_params)
         if @programa.save
           flash[:success] = t('.success')
-          respond_with :admin, @especialidad, @programa
+          respond_with :admin, @especialidad, :programas
         else
           flash[:alert] = t('.alert')
           render :new
@@ -46,7 +53,6 @@ module Admin
         respond_with :admin, @especialidad, :programas
       end
 
-
       private
 
       def set_especialidad
@@ -60,9 +66,6 @@ module Admin
       def programa_params
         params.require(:programa).permit(:nombre)
       end
-
-
     end
   end
 end
-

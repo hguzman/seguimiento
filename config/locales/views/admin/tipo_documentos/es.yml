@@ -1,0 +1,15 @@
+es:
+  admin:
+    tipo_documentos:
+      create:
+        success: Nuevo tipo de documento creado
+        alert: Problemas con la creación del nuevo tipo de documento
+      update:
+        success: Se actualizo de manera correcta el yipo de documento
+        alert: Problemas Al actualizar el tipo de documento
+      destroy:
+        success: Se elimino el tipo de documento de manera correcta
+  simple_form:
+    placeholders:
+      tipodocumento:
+          nombre: 'Escribe aquí el tipo de documento'

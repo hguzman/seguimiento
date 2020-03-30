@@ -1,0 +1,19 @@
+es:
+  admin:
+    especialidades:
+      programas:
+        create:
+          success: Programa creado de manera correcta.
+          alert: Problemas con la creación del programa.
+        update:
+          success: Se acualizo der manera correcta el programa.
+          alert: Problemas con la actualizacion del programa.
+        destroy:
+          success: Se elimino el programa de manera correcta.
+  simple_form:
+    placeholders:
+          programa:
+              nombre: 'Escribe aquí el nuevo programa'
+              create_at: 'fecha de creacion'
+
+

@@ -1,8 +1,20 @@
-<%= @programa.nombre %>
-
-<br></br>
-
-
-<%= link_to "Editar", edit_admin_especialidad_programa_path(@especialidad, @programa) %>
-
-<%= link_to "Eliminar", admin_especialidad_programa_path(@especialidad, @programa), method: :delete, data: {confirm: "¿Estas seguro?"} %>
+<!-- breadcrumbs -->
+<div class="ibox mt-4 col-md-4 mx-auto">
+ <div class="ibox-title">
+  <div class="ibox-tools">
+   <span class="label label-primary float-right"><%=@especialidad.id%></span>
+  </div>
+  <h5>ESPECIALIDAD</h5>
+ </div>
+ <div class="ibox-content">
+  <h1>Nombre: <%= @programa.nombre%></h1>
+  <div class="row">
+   <div class="col-md-6">
+    <%= link_to "Editar", edit_admin_especialidad_programa_path(@especialidad, @programa), class:"btn btn-primary btn-lg btn-block mb-3"%>
+   </div>
+   <div class="col-md-6">
+    <%= link_to "Volver", admin_especialidad_programas_path, class: "btn btn-danger btn-lg btn-block" %>
+   </div>
+  </div>
+ </div>
+</div>

@@ -2,4 +2,7 @@
     <td><%= link_to especialidad.id, admin_especialidad_path(especialidad) %></td>
     <td><%= link_to especialidad.nombre, admin_especialidad_path(especialidad) %></td>
     <td><%= l especialidad.created_at, format: :long%></td>
+    <td>
+        <%= link_to "Programas", admin_especialidad_programas_path(especialidad), class:"btn btn-primary btn-lg" %>
+    </td>
 </tr>

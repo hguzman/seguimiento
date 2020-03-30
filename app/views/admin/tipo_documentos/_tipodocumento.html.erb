@@ -1,0 +1,21 @@
+<tr>
+ <td>
+  <%= tipodocumento.id %>
+ </td>
+ <td>
+  <%= tipodocumento.nombre %>
+ </td>
+ <td>
+  <%= l tipodocumento.created_at, format: :long%>
+ </td>
+ <td>
+  <div class="row">
+   <div class="col-md-6">
+    <%= link_to "Editar", edit_admin_tipo_documento_path(tipodocumento), class:"btn btn-primary btn-xs btn-block" %>
+   </div>
+   <div class="col-md-6">
+    <%= link_to "Eliminar", admin_tipo_documento_path(tipodocumento), method: :delete, data: {confirm: "¿Estas seguro?"}, class:"btn btn-danger btn-xs btn-block"%>
+   </div>
+  </div>
+ </td>
+</tr>
