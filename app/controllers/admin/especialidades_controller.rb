@@ -10,7 +10,7 @@ module Admin
       # authorize Especialidad
       @especialidades = if params[:q].present?
                           Especialidad.where('nombre ilike :q', q:
-                            "%#{params[:q]}%").page params[:page]
+                          "%#{params[:q]}%").page params[:page]
                         else
                           Especialidad.all.page params[:page]
                         end
