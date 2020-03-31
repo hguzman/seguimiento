@@ -30,6 +30,12 @@ module Admin
       end
     end
 
+    def destroy
+      @ambiente.destroy
+      flash[:success] = t('.success')
+      respond_with :admin, :ambientes
+    end
+
     private
 
     def ambiente_params

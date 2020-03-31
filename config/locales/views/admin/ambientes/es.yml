@@ -8,4 +8,4 @@ es:
         success: Se acualizo der manera correcta
         alert: Problemas con la actualizacion
       destroy:
-        succes: Se elimino el ambiente de manera correcta
+        success: Se elimino el ambiente de manera correcta

@@ -1,5 +1,5 @@
 <div class="container">
-       <!-- breadcrumbs -->
+    <!-- breadcrumbs -->
     <div class="ibox mt-4 col-md-12 ">
         <div class="ibox-title">
             <h1>Ambientes</h1>
@@ -14,16 +14,14 @@
                 <%= @ambiente.descripcion %>
             </h2>
             <br>
-
-            <%= link_to "Nueva anotacion", new_ambiente_anotacion_path(@ambiente), class: "btn btn-success"%>
-            <table class= "table">
-              <%= render partial: "anotacion", collection: @anotaciones %>
-            </table>
-        </div>
-        <div class="row">
-          <div class="col-md-4">
-              <%# <%= link_to "Editar ", edit_ambiente_path(@ambiente), class:"btn btn-primary btn-lg btn-block"%>
-          </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <%= link_to "Editar ", edit_admin_ambiente_path(@ambiente), class:"btn btn-primary btn-lg btn-block"%>
+                </div>
+                <div class="col-md-6">
+                    <%= link_to "Eliminar", admin_ambiente_path(@ambiente), method: :delete, data: {confirm: "¿Estas seguro?"}, class:"btn btn-danger btn-lg btn-block"%>
+                </div>
+            </div>
         </div>
     </div>
 </div>
