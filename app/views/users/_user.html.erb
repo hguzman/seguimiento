@@ -1,0 +1,17 @@
+<tr>
+ <td>
+  <%= link_to user.ndocumento, user_anotaciones_path(user) %>
+ </td>
+ <td>
+  <%= user.nombres%>
+ </td>
+ <td>
+  <%= user.apellidos%>
+ </td>
+ <td>
+  <%= user.created_at%>
+ </td>
+ <td>
+  <%= link_to "Anotaciones", user_anotaciones_path(user), class: "btn btn-primary btn-lg btn-block"%>
+ </td>
+</tr>

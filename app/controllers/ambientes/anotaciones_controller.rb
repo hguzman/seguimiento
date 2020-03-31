@@ -2,6 +2,7 @@
 
 module Ambientes
   class AnotacionesController < ApplicationController
+    before_action :authenticate_user!
     respond_to :html
     before_action :set_ambiente
     before_action :set_anotacion, only: %i[show edit update destroy]
@@ -9,6 +10,8 @@ module Ambientes
     def index
       @anotaciones = @ambiente.anotaciones
     end
+
+    def show; end
 
     def new
       @anotacion = @ambiente.anotaciones.new

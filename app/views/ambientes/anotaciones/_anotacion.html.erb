@@ -1,6 +1,8 @@
 <tr>
-  <td><%= anotacion.id %></td>
+  <td><%= link_to anotacion.id, ambiente_anotacion_path(@ambiente, anotacion) %></td>
   <td><%= anotacion.descripcion %></td>
   <td><%= l anotacion.created_at, format: :long%></td>
-  <td><%= link_to "Editar ", edit_ambiente_anotacion_path(@ambiente, anotacion), class:"btn btn-primary"%></td>
+  <td>
+    <h5 class="btn btn-primary btn-lg m-0">Comentarios</h5>
+  </td>
 </tr>

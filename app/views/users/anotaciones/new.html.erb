@@ -1,0 +1,23 @@
+<!-- breadcrumbs -->
+<div class="ibox mt-4 col-md-12 ">
+  <div class="ibox-title">
+    <h1>Datos De la anotación</h1>
+  </div>
+  <div class="ibox-content ">
+    <div class="info">
+      <div class="row ml-1">
+        <h2>
+          <span class="font-weight-bold">Nombre completo: </span>
+          <%=  @user.nombres %> <%=  @user.apellidos %>
+        </h2>
+      </div>
+      <div class="row ml-1">
+        <h2>
+          <span class="font-weight-bold">Ficha: </span>
+          <%=  @user.ficha.numero %>
+        </h2>
+      </div>
+    </div>
+    <%= render partial: 'form_new' %>
+  </div>
+</div>
