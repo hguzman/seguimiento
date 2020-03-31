@@ -1,0 +1,47 @@
+<!-- breadcrumbs -->
+<%# breadcrumb :ambientes %>
+<div class="row">
+ <div class="w-100">
+  <div class="card text-left mb-3">
+   <div class="card-body">
+    <h1 class="card-title">Listado de Anotaciones</h1>
+    <h4 class="card-text">Ambiente: <%=@ambiente.nombre%></h4>
+   </div>
+  </div>
+  <div class="ibox">
+   <div class="ibox-title d-flex justify-content-between align-items-center pr-3">
+    <form action="<%= ambiente_anotaciones_path %>" method="GET"
+     class="d-flex justify-content-between align-items-center">
+     <div class="input-group">
+      <input type="text" class="form-control" placeholder="Buscar.." aria-label="Recipient's username"
+       aria-describedby="button-addon2" name="q" value="<%= @q %>">
+      <div class="input-group-append">
+       <button class="btn btn-primary" type="submit" id="button-addon2"><i class="fa fa-search"></i></button>
+      </div>
+     </div>
+    </form>
+   </div>
+   <div class="ibox-content">
+    <table class="table table-hover">
+     <thead>
+      <tr>
+       <th>ID</th>
+       <th>Descripcion</th>
+       <th>Fecha de creacion</th>
+       <th>Acción</th>
+      </tr>
+     </thead>
+     <tbody>
+      <%= render @anotaciones %>
+     </tbody>
+    </table>
+    <%#= paginate @ambientes, theme: 'twitter-bootstrap-4' %>
+    <hr />
+    <div class="d-flex justify-content-between">
+     <%= link_to "Nueva Anotacion", new_ambiente_anotacion_path, class: "btn btn-primary"  %>
+     <%= link_to "Volver", ambientes_path, class: "btn btn-danger"  %>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>

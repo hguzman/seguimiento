@@ -1,0 +1,6 @@
+<tr>
+  <td><%= anotacion.id %></td>
+  <td><%= anotacion.descripcion %></td>
+  <td><%= l anotacion.created_at, format: :long%></td>
+  <td><%= link_to "Editar ", edit_ambiente_anotacion_path(@ambiente, anotacion), class:"btn btn-primary"%></td>
+</tr>

@@ -1,0 +1,26 @@
+<!-- breadcrumbs -->
+<div class="ibox mt-4 col-md-12 ">
+ <div class="ibox-title">
+  <h1>Informacion de la anotación</h1>
+ </div>
+ <div class="ibox-content ">
+  <div class="info col-md-4 mx-auto">
+   <div class="card">
+    <div class="card-body">
+     <h4 class="card-title">ID Ambiente: <%= @ambiente.id%> </h4>
+     <h4 class="card-title">Nombre Ambiente: <%= @ambiente.nombre%></h4>
+    </div>
+    <div class="card-footer">
+     <h4 class="card-title">ID Anotacion: <%= @anotacion.id%> </h4>
+     <h4 class="card-title">Descripcion Anotacion: <%= @anotacion.descripcion%></h4>
+    </div>
+   </div>
+  </div>
+  <hr>
+  <div class="row">
+   <div class="col-md-6">
+    <%= link_to "volver", ambiente_anotaciones_path, class: "btn btn-primary" %>
+   </div>
+  </div>
+ </div>
+</div>
