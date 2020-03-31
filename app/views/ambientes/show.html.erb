@@ -1,48 +1,24 @@
-<div class="container">
-       <!-- breadcrumbs -->
-  <div class="ibox mt-4 col-md-12 ">
-    <div class="ibox-title">
-        <h1>Ambientes</h1>
+<!-- breadcrumbs -->
+<div class="ibox mt-4 col-md-12 ">
+  <div class="ibox-title">
+    <h1>Informacion del ambiente</h1>
+  </div>
+  <div class="ibox-content ">
+    <div class="info col-md-3 mx-auto">
+      <div class="card text-white bg-primary">
+        <%=image_tag 'default-user-img.jpg', class: "m-b-md", alt: "User Image"%>
+        <div class="card-body">
+          <h4 class="card-title">ID: <%= @ambiente.id%> </h4>
+          <h4 class="card-title">Nombre: <%= @ambiente.nombre%></h4>
+          <p class="card-text"><%= @ambiente.descripcion%>></p>
+        </div>
+      </div>
     </div>
-      <div class="ibox-content ">
-            <div class="info">
-              <h2>
-                  <p> <span class="font-weight-bold">Nombre:</span>
-                   <%=  @ambiente.nombre %></p>
-              </h2>
-                  <h2>
-                    <p>
-                      <span class="font-weight-bold">Descripción: </span>
-                      <%=  @ambiente.descripcion %>
-                    </p>
-                  </h2>
-            </div>
-
-            <hr>
-            <h2>Lista de anotaciones</h2>
-               <table class="table table-hover">
-                     <thead>
-                           <tr>
-                               <th scope="col">Codigo De Anotaciones</th>
-                               <th scope="col">Novedad</th>
-                           </tr>
-                    </thead>
-                 <tbody>
-                     <%= render partial: "anotacion", collection: @anotaciones %>
-                 </tbody>
-              </table>
-
-              <div class="row">
-                  <div class="col-md-2">
-                        <%= link_to "Nueva Anotacion", new_ambiente_anotacion_path(@ambiente), class:"btn btn-primary btn-lg btn-block"%>
-                  </div>
-              </div>
-
+    <hr>
+    <div class="row">
+      <div class="col-md-6">
+        <%= link_to "volver", ambientes_path, class: "btn btn-primary" %>
       </div>
-      <div class="row">
-          <div class="col-md-4">
-              <%# <%= link_to "Editar ", edit_ambiente_path(@ambiente), class:"btn btn-primary btn-lg btn-block"%>
-          </div>
-      </div>
+    </div>
   </div>
 </div>

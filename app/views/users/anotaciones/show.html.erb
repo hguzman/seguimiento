@@ -1,0 +1,32 @@
+<!-- breadcrumbs -->
+<div class="ibox mt-4 col-md-6 mx-auto ">
+ <div class="ibox-title">
+  <h1>Informacion de la anotación</h1>
+ </div>
+ <div class="ibox-content ">
+  <div class="info col-md-8 mx-auto">
+   <div class="card">
+    <div class="card-body">
+     <h4 class="card-title">ID Aaprendiz: <%= @user.id%> </h4>
+     <h4 class="card-title">Nombre completo: <%= @user.nombres%> <%= @user.apellidos%></h4>
+    </div>
+    <div class="card-footer">
+     <h4 class="card-title">ID Anotacion: <%= @anotacion.id%> </h4>
+     <h4 class="card-title">Descripcion Anotacion: <%= @anotacion.descripcion%></h4>
+    </div>
+   </div>
+  </div>
+  <hr>
+  <div class="row">
+   <di class="col-md-4">
+    <%= link_to "Volver", user_anotaciones_path, class: "btn btn-primary" %>
+   </di mx-autov>
+   <di class="col-md-4">
+    <%= link_to "Editar", edit_user_anotacion_path(@user, @anotacion), class: "btn btn-primary" %>
+   </di mx-autov>
+   <div class="col-md-4">
+    <%= link_to "Eliminar", user_anotaciones_path, class: "btn btn-danger" %>
+   </div>
+  </div>
+ </div>
+</div>

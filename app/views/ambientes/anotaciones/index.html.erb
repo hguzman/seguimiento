@@ -2,17 +2,16 @@
 <%# breadcrumb :ambientes %>
 <div class="row">
  <div class="w-100">
-  <!-- infor usuario -->
   <div class="card text-left mb-3">
    <div class="card-body">
     <h1 class="card-title">Listado de Anotaciones</h1>
-    <h4 class="card-text">Aprendiz: <%= @user.nombres %> <%= @user.apellidos %></h4>
-    <h4 class="card-text">Ficha: <%= @user.ficha.numero %> </h4>
+    <h4 class="card-text">Ambiente: <%=@ambiente.nombre%></h4>
    </div>
   </div>
   <div class="ibox">
    <div class="ibox-title d-flex justify-content-between align-items-center pr-3">
-    <form action="<%= user_anotaciones_path %>" method="GET" class="d-flex justify-content-between align-items-center">
+    <form action="<%= ambiente_anotaciones_path %>" method="GET"
+     class="d-flex justify-content-between align-items-center">
      <div class="input-group">
       <input type="text" class="form-control" placeholder="Buscar.." aria-label="Recipient's username"
        aria-describedby="button-addon2" name="q" value="<%= @q %>">
@@ -22,7 +21,6 @@
      </div>
     </form>
    </div>
-   <!-- detalle anotaciones -->
    <div class="ibox-content">
     <table class="table table-hover">
      <thead>
@@ -37,12 +35,11 @@
       <%= render @anotaciones %>
      </tbody>
     </table>
-    <%= paginate @anotaciones, theme: 'twitter-bootstrap-4' %>
+    <%#= paginate @ambientes, theme: 'twitter-bootstrap-4' %>
     <hr />
-    <!-- Botones volver y nueva anotacion -->
     <div class="d-flex justify-content-between">
-     <%= link_to "Nueva Anotacion", new_user_anotacion_path, class: "btn btn-primary"  %>
-     <%= link_to "Volver", user_anotaciones_path, class: "btn btn-danger"  %>
+     <%= link_to "Nueva Anotacion", new_ambiente_anotacion_path, class: "btn btn-primary"  %>
+     <%= link_to "Volver", ambientes_path, class: "btn btn-danger"  %>
     </div>
    </div>
   </div>

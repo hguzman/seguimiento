@@ -3,10 +3,10 @@
 # Controlador de Ambientes
 class AmbientesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_ambiente, only: [:show, :edit, :update, :destroy]
+  before_action :set_ambiente, only: %i[show edit update destroy]
 
   def index
-    authorize Ambiente
+    # authorize Ambiente
     @ambientes = if params[:q].present?
                    Ambiente.where(
                      'nombre ilike :q or descripcion ilike :q',
