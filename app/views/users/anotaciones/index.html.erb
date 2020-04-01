@@ -1,50 +1,92 @@
 <!-- breadcrumbs -->
-<%# breadcrumb :ambientes %>
+<% breadcrumb :user_anotaciones, @user %>
 <div class="row">
- <div class="w-100">
-  <!-- infor usuario -->
-  <div class="card text-left mb-3">
-   <div class="card-body">
-    <h1 class="card-title">Listado de Anotaciones</h1>
-    <h4 class="card-text">Aprendiz: <%= @user.nombres %> <%= @user.apellidos %></h4>
-    <h4 class="card-text">Ficha: <%= @user.ficha.numero %> </h4>
-   </div>
-  </div>
-  <div class="ibox">
-   <div class="ibox-title d-flex justify-content-between align-items-center pr-3">
-    <form action="<%= user_anotaciones_path %>" method="GET" class="d-flex justify-content-between align-items-center">
-     <div class="input-group">
-      <input type="text" class="form-control" placeholder="Buscar.." aria-label="Recipient's username"
-       aria-describedby="button-addon2" name="q" value="<%= @q %>">
-      <div class="input-group-append">
-       <button class="btn btn-primary" type="submit" id="button-addon2"><i class="fa fa-search"></i></button>
+  <div class="w-100">
+    <!-- infor usuario -->
+    <div class="row">
+      <div class="col-12 ">
+        <div class="ibox-content d-flex justify-content-between ">
+          <!-- datos academicos -->
+          <div class="col-md-6 d-flex flex-wrap p-3">
+            <!-- foto perfil -->
+            <div class="col-md-4 profile-image m-0">
+              <img class="m-b-md" alt="User Image"
+                src="/assets/default-user-img-01678e88fe462e7b0c878fa8a0357fa406e9ad71a9e058023bc6025ad3a9ebca.jpg">
+            </div>
+            <!-- datos  -->
+            <div class="col-md-2 profile-info m-0">
+              <h2 class="no-margins"><%=  @user.nombres %> <%=  @user.apellidos %></h2>
+              <h4><%=@user.ficha.programa.nombre %></h4>
+            </div>
+          </div>
+          <!-- otros datos del parendiz -->
+          <div class="col-md-6 d-flex flex-wrap align-content-center">
+            <table class="table">
+              <tbody>
+                <tr>
+                  <td>
+                    <strong>Número de documento:</strong> <%= @user.ndocumento %>
+                  </td>
+                  <td>
+                    <strong>Teléfono:</strong> <%= @user.telefono %>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>E-mail:</strong> <%= @user.email %>
+                  </td>
+                  <td>
+                    <strong>Dirección:</strong> <%= @user.direccion %>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
-     </div>
-    </form>
-   </div>
-   <!-- detalle anotaciones -->
-   <div class="ibox-content">
-    <table class="table table-hover">
-     <thead>
-      <tr>
-       <th>ID</th>
-       <th>Descripcion</th>
-       <th>Fecha de creacion</th>
-       <th class="text-center">Acción</th>
-      </tr>
-     </thead>
-     <tbody>
-      <%= render @anotaciones %>
-     </tbody>
-    </table>
-    <%= paginate @anotaciones, theme: 'twitter-bootstrap-4' %>
-    <hr />
-    <!-- Botones volver y nueva anotacion -->
-    <div class="d-flex justify-content-between">
-     <%= link_to "Nueva Anotacion", new_user_anotacion_path, class: "btn btn-primary"  %>
-     <%= link_to "Volver", user_anotaciones_path, class: "btn btn-danger"  %>
     </div>
-   </div>
+    <!-- listado de las anotaciones del aprendiz -->
+    <div class="ibox mt-3">
+      <div class="ibox-title d-flex justify-content-between align-items-center pr-3">
+        <h1>Listado anotaciones</h1>
+        <form action="<%= user_anotaciones_path %>" method="GET"
+          class="d-flex justify-content-between align-items-center">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Buscar.." aria-label="Recipient's username"
+              aria-describedby="button-addon2" name="q" value="<%= @q %>">
+            <div class="input-group-append">
+              <button class="btn btn-primary" type="submit" id="button-addon2"><i class="fa fa-search"></i></button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <!-- detalle tabla anotaciones -->
+      <div class="ibox-content">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Descripcion</th>
+              <th>Fecha de creacion</th>
+              <th class="text-center">Acción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <%= render @anotaciones %>
+          </tbody>
+        </table>
+        <%= paginate @anotaciones, theme: 'twitter-bootstrap-4' %>
+        <hr />
+        <!-- Botones volver y nueva anotacion -->
+        <div class="row d-flex justify-content-between">
+          <div class="col-md-3">
+            <%= link_to "Nueva Anotacion", new_user_anotacion_path, class: "btn btn-primary btn-block"  %>
+          </div>
+          <div class="col-md-3">
+            <%= link_to "Volver", users_path, class: "btn btn-danger btn-block"  %>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
- </div>
 </div>

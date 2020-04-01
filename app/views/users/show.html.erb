@@ -1,26 +1,29 @@
- <div class="row">
-        <div class="col-12">
-            <div class="row ibox-content">
-                <div class="col-md-6 align-items-center">
-                    <div class="profile-image d-flex justify-content-center align-items-center">
-                        <div class="d-flex justify-content-center">
-                            <img class="m-b-md" alt="User Image" src="/assets/default-user-img-01678e88fe462e7b0c878fa8a0357fa406e9ad71a9e058023bc6025ad3a9ebca.jpg">
-                        </div>
+<!-- breadscrumbs -->
+<% breadcrumb :user_show, @user %>
+<div class="row">
+    <div class="col-12">
+        <div class="row ibox-content">
+            <div class="col-md-6 align-items-center">
+                <div class="profile-image d-flex justify-content-center align-items-center">
+                    <div class="d-flex justify-content-center">
+                        <img class="m-b-md" alt="User Image"
+                            src="/assets/default-user-img-01678e88fe462e7b0c878fa8a0357fa406e9ad71a9e058023bc6025ad3a9ebca.jpg">
                     </div>
-                    <div class="profile-info">
-                        <div class="">
-                            <div>
-                                <h2 class="no-margins">
-                                    <%=  @user.nombres %> <%=  @user.apellidos %>
-                                </h2>
-                                <h4>ADSI</h4>
-                            </div>
+                </div>
+                <div class="profile-info">
+                    <div class="">
+                        <div>
+                            <h2 class="no-margins">
+                                <%=  @user.nombres %> <%=  @user.apellidos %>
+                            </h2>
+                            <h4>ADSI</h4>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 d-flex justify-content-center align-items-center">
-                    <table class="table m-b-xs">
-                        <tbody>
+            </div>
+            <div class="col-md-6 d-flex justify-content-center align-items-center">
+                <table class="table m-b-xs">
+                    <tbody>
                         <tr>
                             <td>
                                 <strong>Número de documento:</strong> <%= @user.ndocumento %>
@@ -37,126 +40,9 @@
                                 <strong>Dirección:</strong> <%= @user.direccion %>
                             </td>
                         </tr>
-                        </tbody>
-                    </table>
-                </div>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
-
-
-
-    <div class="row mt-3">
-      <div class="w-100">
-        <div class="ibox ">
-          <div class="ibox-title">
-              <h5>Anotaciones de <%= @user.nombres %></h5>
-              <div class="ibox-tools">
-                  <a class="collapse-link">
-                      <i class="fa fa-chevron-up"></i>
-                  </a>
-                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                      <i class="fa fa-wrench"></i>
-                  </a>
-                  <ul class="dropdown-menu dropdown-user">
-                      <li><a href="#" class="dropdown-item">Config option 1</a>
-                      </li>
-                      <li><a href="#" class="dropdown-item">Config option 2</a>
-                      </li>
-                  </ul>
-                  <a class="close-link">
-                      <i class="fa fa-times"></i>
-                  </a>
-              </div>
-          </div>
-          <div class="ibox-content">
-
-              <table class="table table-hover">
-                  <thead>
-                    <tr>
-                        <th>Codigo</th>
-                        <th>Descripcion</th>
-                        <th>Fecha creación</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    
-
-                <% @anotaciones.each do |anotacion| %>
-                <tr>
-
-                    <td>
-                        <%=  anotacion.id %>
-                    </td>
-
-                    <td>
-                        <%=  anotacion.descripcion %>
-                    </td>
-
-                    <td>
-                        <%= anotacion.created_at%>
-                    </td>
-
-                </tr>
-                <%end%>
-
-                  </tbody>
-              </table>
-          </div>
-      </div>
-      </div>
-    </div>
-
-
-
-
-
-
-
-<!--<h1 class="text-center mov-naranja"><strong><%=  @user.nombres %> <%=  @user.apellidos %></strong></h1>
-<hr />
-<div class="usuario">
-    <div class="informacion">
-        <div class="ibox-title">
-            <div class="container_picture">
-                <div class="picture">
-                    <% if @user.avatar? %>
-                        <%= image_tag @user.avatar.url(:thumb) %>
-                    <%else%>
-                        <%=image_tag 'default-user-img.jpg', class: "m-b-md", alt: "User Image"%>
-                    <%end%>
-                </div>
-            </div>
-        </div>
-        <div class="container_details">
-            <div class="info">
-                <div class="ibox-content">
-                    <p class="details_info"><strong>Nombres:</strong>
-                        <%=  @user.nombres %>
-                    </p>
-                    <p class="details_info"><strong>apellidos:</strong>
-                        <%=  @user.apellidos %>
-                    </p>
-                    <p class="details_info"><strong>N documento:</strong>
-                        <%=  @user.ndocumento %>
-                    </p>
-                    <p class="details_info"><strong>Telefono:</strong>
-                        <%=  @user.telefono %>
-                    </p>
-                    <p class="details_info"><strong>Direccion:</strong>
-                        <%=  @user.direccion %>
-                    </p>
-                    <p class="details_info"><strong>email:</strong>
-                        <%=  @user.email %>
-                    </p>
-
-                    <div class="container">
-                        <div class="row">
-                            <%= link_to "editar mi perfil", edit_user_path(@user) , class:"btn btn-success"%>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>-->
+</div>

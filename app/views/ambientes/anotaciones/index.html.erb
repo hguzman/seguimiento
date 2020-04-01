@@ -1,5 +1,5 @@
 <!-- breadcrumbs -->
-<%# breadcrumb :ambientes %>
+<%breadcrumb :ambientes_anotaciones, @ambiente%>
 <div class="row">
  <div class="w-100">
   <div class="card text-left mb-3">
@@ -38,8 +38,14 @@
     <%#= paginate @ambientes, theme: 'twitter-bootstrap-4' %>
     <hr />
     <div class="d-flex justify-content-between">
-     <%= link_to "Nueva Anotacion", new_ambiente_anotacion_path, class: "btn btn-primary"  %>
-     <%= link_to "Volver", ambientes_path, class: "btn btn-danger"  %>
+    </div>
+    <div class="row d-flex justify-content-between">
+     <div class="col-md-3">
+      <%= link_to "Nueva Anotacion", new_ambiente_anotacion_path, class: "btn btn-primary btn-block"  %>
+     </div>
+     <div class="col-md-3">
+      <%= link_to "Volver", ambientes_path, class: "btn btn-danger btn-block"  %>
+     </div>
     </div>
    </div>
   </div>
