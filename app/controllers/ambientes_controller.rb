@@ -6,7 +6,7 @@ class AmbientesController < ApplicationController
   before_action :set_ambiente, only: %i[show edit update destroy]
 
   def index
-    # authorize Ambiente
+    authorize Ambiente
     @ambientes = if params[:q].present?
                    Ambiente.where(
                      'nombre ilike :q or descripcion ilike :q',

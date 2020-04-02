@@ -9,6 +9,6 @@ class AmbientePolicy
   end
 
   def index?
-    @user.has_role?(:instructor) || @user.has_role?(:admin)
+    @user.has_role?(:instructor)
   end
 end
