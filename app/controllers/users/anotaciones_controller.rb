@@ -41,6 +41,12 @@ module Users
       end
     end
 
+    def destroy
+      @anotacion.destroy
+      flash[:success] = t('.success')
+      respond_with @user, :anotaciones
+    end
+
     private
 
     def set_anotacion

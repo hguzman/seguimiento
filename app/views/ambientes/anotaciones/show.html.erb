@@ -1,4 +1,5 @@
 <!-- breadcrumbs -->
+<%breadcrumb :ambiente_anotacion_show, @anotacion, @ambiente %>
 <div class="ibox mt-4 col-md-12 ">
  <div class="ibox-title">
   <h1>Informacion de la anotación</h1>
@@ -18,8 +19,16 @@
   </div>
   <hr>
   <div class="row">
-   <div class="col-md-6">
-    <%= link_to "volver", ambiente_anotaciones_path, class: "btn btn-primary" %>
+   <div class="col-md-12 d-flex justify-content-around mb-3">
+    <div class="">
+     <%= link_to "volver", ambiente_anotaciones_path, class: "btn btn-primary btn-lg" %>
+    </div>
+    <div class="">
+     <%= link_to "Editar", edit_ambiente_anotacion_path(@ambiente, @anotacion), class: "btn btn-primary btn-lg" %>
+    </div>
+    <div class="">
+     <%= link_to "Eliminar", ambiente_anotacion_path(@ambiente, @anotacion), method: :delete, data: {confirm: "¿Estas seguro?"}, class:"btn btn-danger btn-lg"%>
+    </div>
    </div>
   </div>
  </div>
