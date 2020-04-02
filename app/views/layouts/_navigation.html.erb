@@ -30,19 +30,24 @@
                 <i class="fa fa-laptop"></i> <span class="nav-label">Inicio</span>
                 <% end %>
             </li>
-            <!-- anotaciones ambientes y aprendices solo admin e instructor-->
+            <!-- anotaciones ambientes y aprendices solo instructor-->
+            <% if policy(:user).index? %>
             <li class="<%= 'active' if current_page?('/users') %>">
                 <%= link_to "/users" do %> <i class="fa fa-users">
                 </i> <span class="nav-label">Aprendices</span>
                 <% end %>
             </li>
+            <% end %>
+            <% if policy(:ambiente).index? %>
             <li class="<%= 'active' if current_page?('/ambientes') %>">
                 <%= link_to ambientes_path do %>
                 <i class="fa fa-users"></i>
                 <span class="nav-label">Ambientes</span>
                 <% end %>
             </li>
+            <% end %>
             <!-- opciones admin -->
+            <% if current_user.has_role? :admin%>
             <li
                 class="<%= is_active_controller('admin/especialidades') %> <%= is_active_controller('admin/fichas') %> <%= is_active_controller('admin/ambientes') %> <%= is_active_controller('admin/tipo_documentos') %> ">
                 <a href="#"><i class="fa fa-shield"></i> <span class="nav-label"
@@ -64,11 +69,11 @@
                     </li>
                     <!-- Fichas -->
                     <!-- <li class="nav nav-second-level <%= is_active_controller('admin/fichas') %>">
-                        <%#= link_to admin_fichas_path do %>
-                        <i class="fa fa-users"></i>
-                        <span class="nav-label">Fichas</span>
-                        <%# end %>
-                    </li> -->
+                            <%#= link_to admin_fichas_path do %>
+                            <i class="fa fa-users"></i>
+                            <span class="nav-label">Fichas</span>
+                            <%# end %>
+                        </li> -->
                     <!-- Ambientes -->
                     <li class="nav nav-second-level <%= is_active_controller('/admin/ambientes') %>">
                         <%= link_to admin_ambientes_path do %>
@@ -78,6 +83,7 @@
                     </li>
                 </ul>
             </li>
+            <%end%>
             <!-- perfil current user -->
             <li class="<%= 'active' if current_page?(controller: '/devise/registrations', action: 'edit') %>">
                 <a href="#"><i class="fa fa-pencil"></i> <span class="nav-label"
