@@ -1,5 +1,5 @@
 <!-- breadcrumbs -->
-<%# breadcrumb :programas, @especialidad %>
+<% breadcrumb :admin_programa_fichas, @especialidad=@programa.especialidad, @programa%>
 <div class="row">
  <div class="w-100">
   <div class="card text-left mb-3">
@@ -11,7 +11,8 @@
   <div class="ibox ">
    <div class="ibox-title d-flex justify-content-between align-items-center pr-3">
     <h2>Listado fichas</span></h2>
-    <form action="admin_programa_fichas_path" method="GET" class="d-flex justify-content-between align-items-center">
+    <form action="<% admin_programa_fichas_path %>" method="GET"
+     class="d-flex justify-content-between align-items-center">
      <div class="input-group">
       <input type="text" class="form-control" placeholder="Buscar.." aria-label="Recipient's username"
        aria-describedby="button-addon2" name="q" value="<%= @q %>">
@@ -37,7 +38,7 @@
       <%= render partial: "ficha", collection: @fichas %>
      </tbody>
     </table>
-    <%#= paginate @programas, theme: 'twitter-bootstrap-4' %>
+    <%= paginate @fichas, theme: 'twitter-bootstrap-4' %>
     <hr>
     <div class="row">
      <div class="col-md-4">
