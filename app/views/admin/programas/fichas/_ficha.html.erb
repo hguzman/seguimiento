@@ -1,5 +1,27 @@
-<table>
-  <tr>
-    <td><%= ficha.numero %></td>
-  </tr>
-</table>
+<tr>
+  <td>
+    <%= ficha.id %>
+  </td>
+  <td>
+    <%= link_to ficha.numero, admin_programa_ficha_path(@programa, ficha) %>
+  </td>
+  <td>
+    <%= ficha.numero_aprendices %>
+  </td>
+  <td>
+    <%= ficha.programa.nombre %>
+  </td>
+  <td>
+    <%= ficha.fecha_fin_at %>
+  </td>
+  <td>
+    <div class="row">
+      <div class="col-md-6">
+        <%= link_to "Editar", edit_admin_programa_ficha_path(@programa,ficha), class:"btn btn-primary btn-xs btn-block" %>
+      </div>
+      <div class="col-md-6">
+        <%= link_to "Eliminar", admin_programa_ficha_path(@programa, ficha), method: :delete, data: {confirm: "¿Estas seguro?"}, class:"btn btn-danger btn-xs btn-block"%>
+      </div>
+    </div>
+  </td>
+</tr>
