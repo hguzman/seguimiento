@@ -3,6 +3,10 @@
     <td><%= link_to especialidad.nombre, admin_especialidad_path(especialidad) %></td>
     <td><%= l especialidad.created_at, format: :long%></td>
     <td>
-        <%= link_to "Programas", admin_especialidad_programas_path(especialidad), class:"btn btn-primary btn-lg" %>
+        <div class="row">
+            <div class="col-md-12">
+                <%= link_to "Programas", admin_especialidad_programas_path(especialidad), class:"btn btn-primary btn-xs btn-block" %>
+            </div>
+        </div>
     </td>
 </tr>

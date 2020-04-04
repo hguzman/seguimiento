@@ -1,1 +1,29 @@
-<%= @ficha.numero %>
+<!-- breadcrumbs -->
+<% breadcrumb :admin_programa_fichas_show, @ficha %>
+<div class="ibox mt-4 col-md-6 mx-auto">
+ <div class="ibox-title">
+  <div class="ibox-tools">
+   <span class="label label-primary float-right">Codigo: <%=@ficha.id%></span>
+  </div>
+  <h5>FICHA</h5>
+ </div>
+ <div class="ibox-content">
+  <h2 class="no-margins ">
+   <span class="font-weight-bold">Ficha numero: </span> <%= @ficha.numero %>
+  </h2>
+  <h2 class="no-margins ">
+   <span class="font-weight-bold">Numero aprendices: </span> <%= @ficha.numero_aprendices %>
+  </h2>
+  <h2 class="no-margins ">
+   <span class="font-weight-bold">Fecha finalizacion: </span> <%= @ficha.fecha_fin_at %>
+  </h2>
+  <h2 class="no-margins ">
+   <span class="font-weight-bold">Programa: </span> <%= @ficha.programa.nombre %>
+  </h2>
+  <div class="row mt-3">
+   <div class="col-md-12">
+    <%= link_to "volver", admin_programa_fichas_path(@programa), class: "btn btn-primary btn-lg btn-block"  %>
+   </div>
+  </div>
+ </div>
+</div>

@@ -4,7 +4,7 @@ crumb :root do
   link 'Home', root_path
 end
 
-# breadcrumbs para especialidades
+# breadcrumbs para admin<especialidades
 
 crumb :especialidades do
   link 'Especialidades', admin_especialidades_path
@@ -25,7 +25,7 @@ crumb :especialidad_show do |especialidad|
   parent :especialidades
 end
 
-# breadcrumbs para programas
+# breadcrumbs para admin<especialidades<programas
 
 crumb :programas do |especialidad|
   link 'Programas', admin_especialidad_programas_path(especialidad)
@@ -143,7 +143,7 @@ crumb :ambiente_anotacion_show do |anotacion, ambiente|
   parent :ambiente_show, ambiente
 end
 
-# breadcrumbs para admin_Tipo_documentos
+# breadcrumbs para admin<Tipo_documentos
 
 crumb :admin_tipo_documentos do
   link 'Tipo documentos', admin_tipo_documentos_path
@@ -162,4 +162,21 @@ end
 crumb :admin_tipo_documento_show do |tipodocumento|
   link tipodocumento.nombre, admin_tipo_documento_path(tipodocumento)
   parent :admin_tipo_documentos
+end
+
+# breadcrumbs para admin<programas<fichas
+
+crumb :admin_programa_fichas do
+  link 'Fichas', admin_programa_fichas_path
+end
+
+crumb :admin_programa_fichas_new do
+  link 'Ficha crear', new_admin_programa_ficha_path
+end
+
+crumb :admin_programa_fichas_edit do |ficha|
+  link "Ficha numero: #{ficha.numero}", edit_admin_programa_ficha_path(ficha)
+end
+crumb :admin_programa_fichas_show do |ficha|
+  link "Ficha numero: #{ficha.numero}", admin_programa_ficha_path(ficha)
 end
