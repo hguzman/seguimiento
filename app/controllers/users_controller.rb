@@ -50,7 +50,7 @@ class UsersController < ApplicationController
   def update
     if current_user.update(user_params)
       flash[:success] = 'Registro Actualizado'
-      redirect_to edit_user_path
+      redirect_to edit_user_registration_path
     else
       flash[:alert] = 'Error al Actualizar'
       render :edit
