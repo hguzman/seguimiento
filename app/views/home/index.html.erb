@@ -64,7 +64,7 @@
         <h1 class="text-center text-capitalize">anotaciones</h1>
       </div>
       <div class="ibox-content">
-        <!-- lista las anotaciones del curren_user -->
+        <!-- tabla con las las anotaciones del curren_user -->
         <table class="table table-hover">
           <thead>
             <tr>
@@ -74,21 +74,11 @@
             </tr>
           </thead>
           <tbody>
-            <% current_user.anotaciones.each do |anotacion| %>
-            <tr>
-              <td class="text-center">
-                <%= anotacion.id %>
-              </td>
-              <td class="text-center">
-                <%= anotacion.descripcion %>
-              </td>
-              <td>
-                <h3 class="text-center">comentar</h3>
-              </td>
-            </tr>
-            <% end %>
+            <%= render partial: "anotacion", collection: @anotaciones%>
           </tbody>
         </table>
+        <%= paginate @anotaciones, theme: 'twitter-bootstrap-4' %>
+        <hr>
       </div>
       <% end %>
       <!-- vista rol instructor -->
