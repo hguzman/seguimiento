@@ -14,6 +14,8 @@ class UsersController < ApplicationController
         'ndocumento ilike :q or nombres ilike :q or apellidos ilike :q',
         q: "%#{params[:q]}%"
       ).page params[:page]
+    elsif current_user.has_role? :instructor
+      @users = User.with_role(:aprendiz).page params[:page]
     else
       @users = User.all.page params[:page]
     end
