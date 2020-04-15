@@ -18,6 +18,15 @@ module Admin
       end
     end
 
+    def update
+      if @ambiente.update_attributes(ambiente_params)
+        flash[:success] = t('.success')
+        respond_with :admin, @ambiente
+      else
+        render 'edit'
+      end
+    end
+
     def new
       @ambiente = Ambiente.new
     end

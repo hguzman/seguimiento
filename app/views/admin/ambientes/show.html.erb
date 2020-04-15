@@ -16,11 +16,14 @@
             </h2>
             <br>
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <%= link_to "Editar ", edit_admin_ambiente_path(@ambiente), class:"btn btn-primary btn-lg btn-block"%>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <%= link_to "Eliminar", admin_ambiente_path(@ambiente), method: :delete, data: {confirm: "¿Estas seguro?"}, class:"btn btn-danger btn-lg btn-block"%>
+                </div>
+                <div class="col-md-4">
+                    <%= link_to "Volver", admin_ambientes_path, class: "btn btn-info btn-lg btn-block" %>
                 </div>
             </div>
         </div>
