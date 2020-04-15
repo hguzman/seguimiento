@@ -9,6 +9,13 @@ module Admin
 
     def index
       @ambientes = Ambiente.all.order(id: :asc).page params[:page]
+      respond_to do |format|
+        format.html
+        format.xlsx do
+          response.headers['Content-Disposition'] =
+            'attachment; filename="ambientes.xlsx"'
+        end
+      end
     end
 
     def new

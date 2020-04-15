@@ -15,6 +15,13 @@ class AmbientesController < ApplicationController
                  else
                    Ambiente.all.page params[:page]
                  end
+    respond_to do |format|
+      format.html
+      format.xlsx do
+        response.headers['Content-Disposition'] =
+          'attachment; filename="ambientes.xlsx"'
+      end
+    end
   end
 
   def show

@@ -19,6 +19,13 @@ class UsersController < ApplicationController
     else
       @users = User.all.page params[:page]
     end
+    respond_to do |format|
+      format.html
+      format.xlsx do
+        response.headers['Content-Disposition'] =
+          'attachment; filename="all_users.xlsx"'
+      end
+    end
   end
 
   def show

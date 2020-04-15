@@ -28,8 +28,6 @@ Rails.application.routes.draw do
 
   patch '/users/:id', to: 'users#update'
 
-  get 'toexcel', to: 'fichas#toexcel'
-
   resource :user, only: %i[index edit destroy update show] do
     get :ver_user, on: :member
     collection do
