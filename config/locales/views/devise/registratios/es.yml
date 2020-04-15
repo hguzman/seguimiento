@@ -10,6 +10,7 @@ es:
         email: 'Escriba su correo electronico'
         password: 'Escriba su contraseña'
         password_confirmation: 'Confirme su contraseña'
+        current_password: 'Digite su contraseña actual para continuar'
     prompts:
       user:
         tipodocumento: 'Tipo de documento'

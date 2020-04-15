@@ -14,8 +14,17 @@ class UsersController < ApplicationController
         'ndocumento ilike :q or nombres ilike :q or apellidos ilike :q',
         q: "%#{params[:q]}%"
       ).page params[:page]
+    elsif current_user.has_role? :instructor
+      @users = User.with_role(:aprendiz).page params[:page]
     else
       @users = User.all.page params[:page]
+    end
+    respond_to do |format|
+      format.html
+      format.xlsx do
+        response.headers['Content-Disposition'] =
+          'attachment; filename="all_users.xlsx"'
+      end
     end
   end
 
@@ -50,7 +59,7 @@ class UsersController < ApplicationController
   def update
     if current_user.update(user_params)
       flash[:success] = 'Registro Actualizado'
-      redirect_to edit_user_path
+      redirect_to edit_user_registration_path
     else
       flash[:alert] = 'Error al Actualizar'
       render :edit

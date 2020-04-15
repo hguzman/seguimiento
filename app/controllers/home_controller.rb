@@ -4,7 +4,9 @@
 class HomeController < ApplicationController
   before_action :authenticate_user!
 
-  def index; end
+  def index
+    @anotaciones = current_user.anotaciones.all.page params[:page]
+  end
 
   def minor; end
 end

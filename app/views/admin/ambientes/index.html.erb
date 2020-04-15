@@ -31,9 +31,16 @@
     </table>
     <%= paginate @ambientes, theme: 'twitter-bootstrap-4' %>
     <hr />
-    <div class="d-flex justify-content-between">
-     <%= link_to "Nuevo Ambiente", new_admin_ambiente_path, class: "btn btn-primary" %>
-     <%= link_to "Exportar a Excel", toexcel_path(format: "xlsx"), class: "btn btn-primary" %>
+    <div class="row d-flex justify-content-between">
+     <div class="col-md-3">
+      <%= link_to "Nuevo Ambiente", new_admin_ambiente_path, class: "btn btn-primary btn-lg btn-block" %>
+     </div>
+     <div class="col-md-3">
+      <%= link_to 'Generar excel', admin_ambientes_path(format: :xlsx), class: "btn btn-warning btn-lg btn-block" %>
+     </div>
+     <div class="col-md-3">
+      <%= link_to 'Inicio', :root, class: "btn btn-danger btn-lg btn-block" %>
+     </div>
     </div>
    </div>
   </div>

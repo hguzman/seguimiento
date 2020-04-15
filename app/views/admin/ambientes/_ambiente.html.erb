@@ -1,14 +1,12 @@
-<tr>
+<tr class="align-middle">
+ <td> <%= link_to ambiente.id, admin_ambiente_path(ambiente)%> </td>
+ <td> <%= ambiente.nombre %> </td>
+ <td> <%= ambiente.descripcion %> </td>
  <td>
-  <%= link_to ambiente.id, admin_ambiente_path(ambiente)%>
- </td>
- <td>
-  <%= ambiente.nombre %>
- </td>
- <td>
-  <%= ambiente.descripcion %>
- </td>
- <td>
-  <%= link_to "Editar", edit_admin_ambiente_path(ambiente), class: "btn btn-primary" %>
+  <div class="row">
+   <div class="col-md-12">
+    <%= link_to "Editar", edit_admin_ambiente_path(ambiente), class: "btn btn-primary btn-lg btn-block" %>
+   </div>
+  </div>
  </td>
 </tr>

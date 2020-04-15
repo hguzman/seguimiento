@@ -9,6 +9,22 @@ module Admin
 
     def index
       @ambientes = Ambiente.all.order(id: :asc).page params[:page]
+      respond_to do |format|
+        format.html
+        format.xlsx do
+          response.headers['Content-Disposition'] =
+            'attachment; filename="ambientes.xlsx"'
+        end
+      end
+    end
+
+    def update
+      if @ambiente.update_attributes(ambiente_params)
+        flash[:success] = t('.success')
+        respond_with :admin, @ambiente
+      else
+        render 'edit'
+      end
     end
 
     def new

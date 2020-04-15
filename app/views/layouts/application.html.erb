@@ -1,77 +1,59 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>SEGUIMIENTO | 2020</title>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>SEGUIMIENTO | 2020</title>
+        <%= csrf_meta_tags %>
+        <%= csp_meta_tag %>
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap" rel="stylesheet">
+        <!-- Main css styles -->
+        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+        <!-- Include style per-controller - vendor plugins -->
+        <!-- Include style per-controller - vendor plugins -->
+        <%= stylesheet_link_tag params[:controller] if ::Rails.application.assets.find_asset("#{params[:controller]}.css") %>
+        <!-- Main javascript files -->
+        <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    </head>
 
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap" rel="stylesheet">
-
-    <!-- Main css styles -->
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <!-- Include style per-controller - vendor plugins -->
-    <!-- Include style per-controller - vendor plugins -->
-    <%= stylesheet_link_tag params[:controller] if ::Rails.application.assets.find_asset("#{params[:controller]}.css") %>
-
-    <!-- Main javascript files -->
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-
-
-</head>
-
-<body>
-
-    <!-- Wrapper-->
-    <div id="wrapper" class="<%= params[:controller] %>.<%= params[:action] %>">
-
-        <!-- Navigation -->
-        <%= render 'layouts/navigation' %>
-
+    <body>
+        <!-- Wrapper-->
+        <div id="wrapper" class="<%= params[:controller] %>.<%= params[:action] %>">
+            <!-- Navigation -->
+            <%= render 'layouts/navigation' %>
             <!-- Page wraper -->
             <div id="page-wrapper" class="gray-bg <%= @extra_class %>">
-
                 <!-- Page wrapper -->
                 <%= render 'layouts/topnavbar' %>
-
-                    <!--<p class="notice"><%= notice %></p>
-            <p class="alert"><%= alert %></p>-->
-
-                        <div class="container mt-3 mb-3">
-                            <div class="row">
-                                <div class="col-md-12 breadcrumb p-3">
-                                    <%= breadcrumbs display_single_fragment: true ,separator: ' / ', class:""%>
-                                </div>
-                            </div>
+                <!--<p class="notice"><%= notice %></p>
+                <p class="alert"><%= alert %></p>-->
+                <div class="container mt-3 mb-3">
+                    <div class="row">
+                        <div class="col-md-12 breadcrumb p-3">
+                            <%= breadcrumbs display_single_fragment: true ,separator: ' / ', class:""%>
                         </div>
-
-                        <!-- Main view  -->
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <%= yield %>
-                                        <%= custom_bootstrap_flash %>
-                                </div>
-                            </div>
+                    </div>
+                </div>
+                <!-- Main view  -->
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <%= yield %>
+                            <%= custom_bootstrap_flash %>
                         </div>
-
-                        <!-- Footer -->
-                        <%= render 'layouts/footer' %>
-
+                    </div>
+                </div>
+                <!-- Footer -->
+                <%= render 'layouts/footer' %>
             </div>
             <!-- End page wrapper-->
-    </div>
-    <!-- End wrapper-->
-
-    <!-- Include javascript per-view -->
-    <!-- For demo purpose we include javascript in view but you can easily start SeedProject and organize it with Rails asset pipeline as you want -->
-    <%= yield :javascript %>
-
-
-</body>
+        </div>
+        <!-- End wrapper-->
+        <!-- Include javascript per-view -->
+        <!-- For demo purpose we include javascript in view but you can easily start SeedProject and organize it with Rails asset pipeline as you want -->
+        <%= yield :javascript %>
+    </body>
 
 </html>
