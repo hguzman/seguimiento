@@ -1,0 +1,28 @@
+<% @comentarios.each do |comentario|%>
+<div class="comment-main-level">
+	<!-- Avatar -->
+	<div class="comment-avatar">
+	<div class="d-flex justify-content-center">
+			<%=image_tag 'default-user-img.jpg', alt: "User Image"%>
+	</div>
+</div>
+	<!-- Contenedor del Comentario -->
+	<div class="comment-box">
+		<div class="comment-head">
+			<h6 class="comment-name by-author"><a>User</a></h6>
+			<span><%= comentario.created_at %></span>
+			<i class="fa fa-reply"></i>
+			<i class="fa fa-heart"></i>
+		</div>
+
+		<div class="comment-content">
+			<%= link_to comentario.comentario, anotacion_comentario_path(@anotacion, comentario) %>
+			<div class="row">
+				<%= link_to "Editar", edit_anotacion_comentario_path(@anotacion, comentario), class: "btn btn-success btn-xs" %>
+				<%= link_to "Eliminar", anotacion_comentario_path(@anotacion, comentario), method: :delete, data: {confirm: "¿Estas seguro?"}, class:"btn btn-danger btn-xs"%>
+			</div>
+	 </div>
+
+	</div>
+</div>
+<%end%>

@@ -14,7 +14,9 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :comentarios
+  resources :anotaciones do
+    resources :comentarios, module: :anotaciones
+  end
 
   resources :ambientes, only: %i[index show] do
     resources :anotaciones, module: :ambientes

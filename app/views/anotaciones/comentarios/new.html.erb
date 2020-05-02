@@ -1,0 +1,20 @@
+<!-- breadcrumbs -->
+ <%breadcrumb :anotacion_comentarios_new %>
+<div class="ibox mt-4 col-md-12 ">
+  <div class="ibox-title">
+    <h1>Datos De la Anotacion</h1>
+  </div>
+  <div class="ibox-content ">
+    <div class="info">
+      <h2>
+        <p> <span class="font-weight-bold">Id:</span>
+          <%= @anotacion.id %></p>
+      </h2>
+      <h2>
+        <p><span class="font-weight-bold">Descripción: </span>
+        <%=  @anotacion.descripcion %></p>
+      </h2>
+    </div>
+    <%= render partial: 'form_new' %>
+  </div>
+</div>

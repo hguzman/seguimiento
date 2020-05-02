@@ -1,0 +1,23 @@
+<!-- breadcrumbs -->
+<% breadcrumb :anotacion_comentarios_show, @comentario%>
+<div class="ibox mt-4 col-md-12 ">
+  <div class="ibox-title">
+    <h1>Informacion del ambiente</h1>
+  </div>
+  <div class="ibox-content ">
+    <div class="info col-md-3 mx-auto">
+      <div class="card text-white bg-primary">
+        <div class="card-body">
+          <h4 class="card-title">ID: <%= @comentario.id%> </h4>
+          <h4 class="card-title">comentario: <%= @comentario.comentario%></h4>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-md-6">
+        <%= link_to "volver", ambientes_path, class: "btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+</div>

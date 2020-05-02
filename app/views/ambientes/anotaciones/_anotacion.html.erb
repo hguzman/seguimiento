@@ -3,6 +3,7 @@
   <td><%= anotacion.descripcion %></td>
   <td><%= l anotacion.created_at, format: :long%></td>
   <td>
-    <h5 class="btn btn-primary btn-lg m-0">Comentarios</h5>
+    <h5><%= link_to "Comentarios", anotacion_comentarios_path(@ambiente, anotacion),
+        class: "btn btn-primary btn-lg m-0" %></h5>
   </td>
 </tr>

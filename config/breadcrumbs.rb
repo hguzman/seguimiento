@@ -177,6 +177,25 @@ end
 crumb :admin_programa_fichas_edit do |ficha|
   link "Ficha numero: #{ficha.numero}", edit_admin_programa_ficha_path(ficha)
 end
+
 crumb :admin_programa_fichas_show do |ficha|
   link "Ficha numero: #{ficha.numero}", admin_programa_ficha_path(ficha)
+end
+
+# breadcrumbs para anotaciones<Comentarios
+
+crumb :anotacion_comentarios do |anotacion|
+  link "comentarios de la anotacion: #{anotacion.id}", anotacion_comentarios_path
+end
+
+crumb :anotacion_comentarios_new do
+  link 'Comentar', new_anotacion_comentario_path
+end
+
+crumb :anotacion_comentarios_show do |comentario|
+  link "comentario numero: #{comentario.id}", anotacion_comentario_path(comentario)
+end
+
+crumb :anotacion_comentarios_edit do |anotacion,comentario|
+  link "Anotacion: #{anotacion.id} Comentario numero: #{comentario.id}", edit_anotacion_comentario_path(anotacion, comentario)
 end

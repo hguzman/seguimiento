@@ -1,0 +1,29 @@
+<!-- breadcrumbs -->
+<%breadcrumb :anotacion_comentarios, @anotacion %>
+<div class="ibox mt-4 col-md-12 ">
+ <div class="ibox-title">
+  <h1>Comentarios de la anotacion: <%= @anotacion.id %></h1>
+ </div>
+ <div class="ibox-content ">
+  <hr>
+  <div class="row">
+   <div class="col-md-12 d-flex justify-content-around mb-3">
+    <div class="col-md-1">
+     <%= link_to "volver", ambientes_path, class: "btn btn-warning btn-lg" %>
+    </div>
+    <div class="col-md-1">
+     <%= link_to "Comentar",  new_anotacion_comentario_path(@anotacion), class: "btn btn-primary btn-lg" %>
+    </div>
+    <!-- Contenedor Principal -->
+    	<div class="comments-container">
+    		<h1>Comentarios</h1>
+    		<ul id="comments-list" class="comments-list">
+    			<li>
+            <%= render @comentarios %>
+    			</li>
+    		</ul>
+    	</div>
+   </div>
+  </div>
+ </div>
+</div>

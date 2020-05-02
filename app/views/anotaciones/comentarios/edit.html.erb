@@ -1,0 +1,13 @@
+<%breadcrumb :anotacion_comentarios_edit, @anotacion, @comentario %>
+<%= simple_form_for [ @anotacion, @comentario ] do |f| %>
+<%= f.input :comentario %>
+<!-- Botones volver y nueva anotacion -->
+<div class="row d-flex justify-content-between">
+ <div class="col-md-3">
+  <%= f.button :submit, class: "btn btn-primary" %>
+  <% end %>
+ </div>
+ <div class="col-md-3">
+  <%= link_to "Volver", anotacion_comentarios_path, class: "btn btn-danger btn-block"  %>
+ </div>
+</div>

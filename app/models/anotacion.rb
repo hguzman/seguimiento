@@ -3,7 +3,7 @@
 # Clase anotaciones
 class Anotacion < ApplicationRecord
   belongs_to :anotable, polymorphic: true
-  has_many :comentarios
+  has_many :comentarios, dependent: :destroy
 
   def global_anotable
     anotable.to_global_id if anotable.present?
