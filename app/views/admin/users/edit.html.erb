@@ -1,0 +1,56 @@
+<div class="edit-users">
+ <div class="container">
+  <div class="row">
+   <div class="col-md-6 m-auto ibox-content">
+    <h2 class="text-center mb-3 w-100">Editar datos de
+     <%= @user.nombres%>
+     <%= @user.apellidos%>
+    </h2>
+    <%= simple_form_for [:admin, @user], wrapper_mappings: { check_boxes: :vertical_collection } do |f| %>
+    <%= f.error_notification %>
+    <div class="row">
+     <div class="col-md-6">
+      <%= f.input :nombres, required: true, autofocus: true, input_html: {class: "form-control"}%>
+     </div>
+     <div class="col-md-6">
+      <%= f.input :apellidos, required: true, autofocus: true, input_html: {class: "form-control"}%>
+     </div>
+    </div>
+    <div class="row">
+     <div class="col-md-6">
+      <%= f.association :tipodocumento, label_method: :nombre, value_method: :id, prompt: "Tipo de documento", label: 'Tipo Documento', input_html: {class: "form-control", min:"1" } %>
+     </div>
+     <div class="col-md-6">
+      <%= f.input :telefono, required: true, autofocus: true, input_html: {class: "number form-control", min:"1", max:"10"}, :limit => 10%>
+     </div>
+    </div>
+    <div class="row">
+     <div class="col-md-6">
+      <%= f.input :direccion, required: true, autofocus: true, input_html: {class: "form-control"}%>
+     </div>
+     <div class="col-md-6">
+      <%= f.input :email, required: true, autofocus: true, input_html: {class: "form-control"}%>
+     </div>
+     <div class="col-md-12 text-center">
+      <h4>Roles disponibes</h4>
+      <hr>
+     </div>
+     <div class="col-md-12 d-flex p-3 text-black justify-content-around">
+      <%= f.collection_check_boxes :role_ids, Role.all, :id, :name, include_hidden: false%>
+      <%#= f.association :roles, :collection => Role.global, :label_method => lambda{ |el| t "simple_form.options.user.roles.#{el.name}" }, include_hidden: false %>
+     </div>
+
+     <div class="col-md-12">
+      <%= f.button :submit, "Actualizar datos", class: "btn btn-primary btn-lg btn-block mb-3" %>
+     </div>
+    </div>
+    <div class="row">
+     <div class="col-md-12">
+      <%= link_to "Volver", :back, class: "btn btn-danger btn-lg btn-block" %>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>
+<% end %>

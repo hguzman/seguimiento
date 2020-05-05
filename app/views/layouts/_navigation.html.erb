@@ -49,7 +49,7 @@
             <!-- opciones admin -->
             <% if current_user.has_role? :admin%>
             <li
-                class="<%= is_active_controller('admin/especialidades') %> <%= is_active_controller('admin/fichas') %> <%= is_active_controller('admin/ambientes') %> <%= is_active_controller('admin/tipo_documentos') %> ">
+                class="<%= is_active_controller('admin/especialidades') %> <%= is_active_controller('admin/fichas') %> <%= is_active_controller('admin/ambientes') %> <%= is_active_controller('admin/tipo_documentos') %> <%= is_active_controller('/admin/users') %>">
                 <a href="#"><i class="fa fa-shield"></i> <span class="nav-label"
                         data-i18n="nav.menulevels">Administracion </span><span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
@@ -72,6 +72,13 @@
                         <%= link_to admin_ambientes_path do %>
                         <i class="fa fa-users"></i>
                         <span class="nav-label">Ambientes</span>
+                        <% end %>
+                    </li>
+                    <!-- Usuarios -->
+                    <li class="nav nav-second-level <%= is_active_controller('/admin/sers') %>">
+                        <%= link_to admin_users_path do %>
+                        <i class="fa fa-users"></i>
+                        <span class="nav-label">Usuarios</span>
                         <% end %>
                     </li>
                 </ul>
