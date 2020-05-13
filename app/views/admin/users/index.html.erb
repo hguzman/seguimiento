@@ -1,0 +1,47 @@
+<!-- breadscrumbs -->
+<% breadcrumb :users %>
+<div class="row">
+ <div class="w-100">
+  <div class="ibox">
+   <div class="ibox-title d-flex justify-content-between align-items-center pr-3">
+    <h5>Listado de Usuarios</h5>
+    <form action="<%= users_path %>" method="GET" class="d-flex justify-content-between align-items-center">
+     <div class="input-group">
+      <input type="text" class="form-control" placeholder="Buscar.." aria-label="Recipient's username"
+       aria-describedby="button-addon2" name="q" value="<%= @q %>">
+      <div class="input-group-append">
+       <button class="btn btn-primary" type="submit" id="button-addon2"><i class="fa fa-search"></i></button>
+      </div>
+     </div>
+    </form>
+   </div>
+   <div class="ibox-content">
+    <table class="table table-hover">
+     <thead>
+      <tr>
+       <th class="">Documento</th>
+       <th class="">Nombres</th>
+       <th class="">Apellidos</th>
+       <th class="">Fecha Creacion</th>
+       <th class="text-center">Rol actual</th>
+       <th class="text-center">Acción</th>
+      </tr>
+     </thead>
+     <tbody>
+      <%= render partial: "user", collection: @users %>
+     </tbody>
+    </table>
+    <hr>
+    <%#= paginate @users, theme: 'twitter-bootstrap-4' %>
+    <div class="row d-flex justify-content-between">
+     <div class="col-md-3">
+      <%= link_to "Volver", root_path, class: "btn btn-danger btn-lg btn-block" %>
+     </div>
+     <div class="col-md-3">
+      <%= link_to 'Generar excel', users_path(format: :xlsx), class: "btn btn-primary btn-lg btn-block" %>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>

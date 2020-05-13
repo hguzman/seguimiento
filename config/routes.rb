@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     resources :programas do
       resources :fichas, module: :programas
     end
+    resources :users
   end
 
   resources :comentarios
