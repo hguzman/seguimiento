@@ -4,8 +4,7 @@ Rails.application.routes.draw do
   root to: 'home#index'
 
   namespace :admin do
-    resources :ambientes
-    resources :tipo_documentos
+    resources :ambientes, :tipo_documentos
     resources :especialidades do
       resources :programas, module: :especialidades
     end
@@ -14,8 +13,6 @@ Rails.application.routes.draw do
     end
     resources :users
   end
-
-  resources :comentarios
 
   resources :ambientes, only: %i[index show] do
     resources :anotaciones, module: :ambientes
