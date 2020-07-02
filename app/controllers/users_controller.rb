@@ -62,7 +62,7 @@ class UsersController < ApplicationController
       redirect_to edit_user_registration_path
     else
       flash[:alert] = 'Error al Actualizar'
-      render :edit
+      redirect_to edit_user_registration_path
     end
   end
 
@@ -82,7 +82,7 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(
-      :email,
+                                 :email,
                                  :password,
                                  :current_password, :password_confirmation,
                                  :nombres, :apellidos,
