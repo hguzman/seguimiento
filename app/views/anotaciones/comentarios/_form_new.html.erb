@@ -1,0 +1,4 @@
+<%= simple_form_for [@anotacion ,@comentario] do |f| %>
+  <%= f.input :comentario, as: :text, label: false %>
+  <%= f.button :submit, class: "btn btn-primary btn-block col-4" %>
+<% end %>
