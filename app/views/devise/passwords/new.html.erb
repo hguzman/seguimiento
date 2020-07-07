@@ -1,9 +1,9 @@
 <h1 class="text-center mov-naranja"><strong>Olvidaste tu contraseña?</strong></h1>
-<div class="ibox col-md-4 mx-auto mt-3">
-  <div class="ibox-content">
-    <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-    <%= f.error_notification %>
-    <%= f.input :email, required: true, autofocus: true, label: false %>
+<div class="container_session">
+  <div class="session">
+      <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+      <%= f.error_notification %>
+      <%= f.input :email, required: true, autofocus: true, label: false %>
     <div class="row">
       <div class="col-md-6">
         <%= f.button :submit, "Reset password", class: "btn-primary block full-width m-b"  %>
@@ -12,10 +12,8 @@
       <div class="col-md-6">
         <a class="btn btn-sm btn-info btn-block" href="<%=new_user_session_path%>">Iniciar sesion</a>
       </div>
-      <div class="row w-100 mx-auto mt-3">
-        <div class=" col-md-12 ">
-          <a class="btn btn-sm btn-warning btn-block mt" href="<%=new_user_registration_path%>">Crear cuenta</a>
-        </div>
+      <div class=" col-md-12 ">
+        <a class="btn btn-sm btn-link btn-block" href="<%=new_user_registration_path%>">Crear cuenta</a>
       </div>
     </div>
   </div>

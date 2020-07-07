@@ -1,8 +1,17 @@
 <tr>
-    <td><%= link_to anotacion.id, user_anotacion_path(@user, anotacion) %></td>
-    <td><%=  anotacion.descripcion %></td>
-    <td><%= anotacion.created_at%></td>
-    <td>
-        <h5 class="btn btn-primary btn-lg btn-block m-0">Comentarios</h5>
-    </td>
+  <td>
+    <%= link_to anotacion.id, user_anotacion_path(@user, anotacion) %>
+  </td>
+  <td>
+    <%=  anotacion.descripcion %>
+  </td>
+  <td>
+    <%= anotacion.created_at%>
+  </td>
+  <td>
+    <%= link_to "Comentarios", anotacion_comentarios_path(anotacion), class: "btn btn-primary btn-lg btn-block m-0" %>
+  </td>
+  <td>
+    <h5 class="btn btn-danger btn-lg btn-block m-0">Cerrar</h5>
+  </td>
 </tr>

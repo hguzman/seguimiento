@@ -1,29 +1,33 @@
-<h2>Change your password</h2>
+<h1 class="text-center mov-naranja"><strong>Cambio de clave</strong></h1>
+<div class="container_session">
+  <div class="session">
+    <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+    <%= f.error_notification %>
+    <%= f.input :reset_password_token, as: :hidden %>
+    <%= f.full_error :reset_password_token %>
 
-<%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-  <%= f.error_notification %>
-
-  <%= f.input :reset_password_token, as: :hidden %>
-  <%= f.full_error :reset_password_token %>
-
-  <div class="row m-auto">
-  </div>
-  <div class="form-inputs">
-    <%= f.input :password,
-                label: "New password",
+  <%= f.input   :password,
                 required: true,
+                label:false,
                 autofocus: true,
                 hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
                 input_html: { autocomplete: "new-password" } %>
     <%= f.input :password_confirmation,
-                label: "Confirm your new password",
+                label:false,
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
-  </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Change my password" %>
+          <div class="row">
+            <div class="col-md-6">
+              <%= f.button :submit, "Cambiar Clave", class: "btn-primary block full-width m-b"  %>
+                <% end %>
+            </div>
+            <div class="col-md-6">
+              <a class="btn btn-sm btn-info btn-block" href="<%=new_user_session_path%>">Iniciar sesion</a>
+            </div>
+            <div class=" col-md-12 ">
+              <a class="btn btn-sm btn-link btn-block" href="<%=new_user_registration_path%>">Crear cuenta</a>
+            </div>
+          </div>
   </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>

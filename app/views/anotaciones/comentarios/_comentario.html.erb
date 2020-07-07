@@ -1,0 +1,21 @@
+<tr>
+  <td>
+    <%= link_to comentario.id, anotacion_comentario_path(@anotacion, comentario) %>
+  </td>
+  <td>
+    <%= comentario.comentario %>
+  </td>
+  <td>
+    <%= comentario.created_at %>
+  </td>
+  <td>
+    <%= comentario.updated_at %>
+  </td>
+  <!-- <td>
+    <div class="row">
+      <div class="col-md-12">
+        <button class="btn btn-primary btn-block" type="button">Replicar</button>
+      </div>
+    </div>
+  </td> -->
+</tr>

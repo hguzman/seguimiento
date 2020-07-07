@@ -1,0 +1,7 @@
+<%= simple_form_for [@anotacion ,@comentario] do |f| %>
+  <%= f.input :comentario, as: :text, label: false %>
+<div class="row d-flex justify-content-between  px-3">
+  <%= f.button :submit, class: "btn btn-primary btn-block col-4" %>
+<% end %>
+  <%= link_to "Volver", anotacion_comentarios_path(@anotacion), class: "btn btn-danger btn-block col-4 m-0"  %>
+</div>

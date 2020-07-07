@@ -17,7 +17,7 @@ module Admin
     def update
       if @user.update(user_params)
         flash[:success] = 'Registro Actualizado'
-        redirect_to edit_user_registration_path
+        render :edit
       else
         flash[:alert] = 'Error al Actualizar'
         render :edit
