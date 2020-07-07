@@ -3,35 +3,7 @@
 <div class="row">
   <div class="w-100">
 <!-- infor anotacion -->
-    <div class="row">
-      <div class="col-12 ">
-        <div class="ibox-content d-flex justify-content-between ">
-          <div class="col-md-12 d-flex flex-wrap">
-          <h1>Datos anotacion</h1>
-            <table class="table">
-              <tbody>
-                <tr>
-                  <td>
-                    <strong>ID Anotacion:</strong> <%= @anotacion.id %>
-                  </td>
-                  <td>
-                    <strong>Fecha de creacion:</strong> <%= @anotacion.created_at %>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <strong>Creado por:</strong>
-                  </td>
-                  <td>
-                    <strong>Descricion anotacion:</strong> <%= @anotacion.descripcion %>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </div>
+    <%= render partial: 'cabecera' %>
 <!-- listado de los comentarios de la anotacion -->
     <div class="row mt-3">
       <div class="col-12">
@@ -57,7 +29,8 @@
                   <th>ID</th>
                   <th>Descripcion</th>
                   <th>Fecha de creacion</th>
-                  <th class="text-center">Acción</th>
+                  <th>Fecha de actualizacion</th>
+                  <!-- <th class="text-center">Acción</th> -->
                 </tr>
               </thead>
               <tbody>

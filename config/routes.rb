@@ -2,12 +2,6 @@
 
 Rails.application.routes.draw do
   resources :anotaciones do
-    # get 'comentarios/inde'
-    # get 'comentarios/show'
-    # get 'comentarios/edit'
-    # get 'comentarios/update'
-    # get 'comentarios/new'
-    # get 'comentarios/create'
     resources :comentarios, module: :anotaciones
   end
   root to: 'home#index'
