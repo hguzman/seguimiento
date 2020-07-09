@@ -12,7 +12,32 @@ Rails.application.configure do
   # Show full error reports.
   config.consider_all_requests_local = true
 
-   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+  # configuracion gema Letter Opener
+  # config.action_mailer.delivery_method = :letter_opener
+
+  # configuracion de envio delemail desde gmail
+  config.action_mailer.delivery_method = :sendmail
+
+  # Defaults to:
+  # config.action_mailer.sendmail_settings = {
+  #   location: '/usr/sbin/sendmail',
+  #   arguments: '-i'
+  # }
+  config.action_mailer.default_options = { from: 'ojsilvera@misena.edu.co' }
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {  address:  'smtp.gmail.com',
+                                          port: 587,
+                                          domain: 'example.com',
+                                          user_name:  'ojsilvera@misena.edu.co',
+                                          password: '@Sc72286456Oj',
+                                          authentication: 'plain',
+                                          enable_starttls_auto: true  }
+
+
+  config.action_mailer.perform_deliveries = true
 
   # Enable/disable caching. By default caching is disabled.
   # Run rails dev:cache to toggle caching.
