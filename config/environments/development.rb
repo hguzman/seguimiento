@@ -15,26 +15,25 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
   # configuracion gema Letter Opener
-  # config.action_mailer.delivery_method = :letter_opener
+  config.action_mailer.delivery_method = :letter_opener
 
-  # configuracion de envio delemail desde gmail
-  config.action_mailer.delivery_method = :sendmail
-
+  # configuracion de envio delemail desde gmail activar para ejecucion del envio
+  # config.action_mailer.delivery_method = :sendmail
   # Defaults to:
   # config.action_mailer.sendmail_settings = {
   #   location: '/usr/sbin/sendmail',
   #   arguments: '-i'
   # }
-  config.action_mailer.default_options = { from: 'YOUR_EMAIL' }
+  config.action_mailer.default_options = { from: 'ENV[YOUR_EMAIL]' }
 
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {  address:  'smtp.gmail.com',
-                                          port: 587,
-                                          domain: 'example.com',
-                                          user_name:  'USER_NAME',
-                                          password: 'USER_PASSWORD',
-                                          authentication: 'plain',
-                                          enable_starttls_auto: true  }
+  # config.action_mailer.smtp_settings = {  address:  'smtp.gmail.com',
+  #                                         port: 587,
+  #                                         domain:  'example.com',
+  #                                         user_name:  'ENV[EMAIL_USER_NAME]',
+  #                                         password: 'ENV[EMAIL_USER_PASSWORD]',
+  #                                         authentication: 'plain',
+  #                                         enable_starttls_auto: true  }
 
 
   config.action_mailer.perform_deliveries = true

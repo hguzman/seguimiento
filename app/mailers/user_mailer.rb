@@ -8,7 +8,11 @@ class UserMailer < ApplicationMailer
 
   # notificar anotacion
 
-  def anotacion_mailer; end
+  def anotacion_mailer(user, anotacion)
+    @user = user
+    @anotacion = anotacion
+    mail(to: @user.email, subject: 'Nueva anotacion')
+  end
 
   # notificar comentario
 
