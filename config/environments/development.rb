@@ -25,14 +25,14 @@ Rails.application.configure do
   #   location: '/usr/sbin/sendmail',
   #   arguments: '-i'
   # }
-  config.action_mailer.default_options = { from: 'ojsilvera@misena.edu.co' }
+  config.action_mailer.default_options = { from: 'YOUR_EMAIL' }
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {  address:  'smtp.gmail.com',
                                           port: 587,
                                           domain: 'example.com',
-                                          user_name:  'ojsilvera@misena.edu.co',
-                                          password: '@Sc72286456Oj',
+                                          user_name:  'USER_NAME',
+                                          password: 'USER_PASSWORD',
                                           authentication: 'plain',
                                           enable_starttls_auto: true  }
 
