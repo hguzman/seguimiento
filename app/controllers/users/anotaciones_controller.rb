@@ -6,6 +6,7 @@ module Users
     before_action :authenticate_user!
     before_action :set_user
     before_action :set_anotacion, only: %i[show edit update destroy notificar]
+    before_action :set_operator, only: %i[create update]
     respond_to :html
 
     def index
@@ -56,6 +57,10 @@ module Users
 
     def set_user
       @user = User.find(params[:user_id])
+    end
+
+    def set_operator
+      OperatorRecordable.operator = current_user
     end
 
     def anotacion_params

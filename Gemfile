@@ -96,3 +96,7 @@ gem 'rubocop', require: false
 # Kaminari is a Scope & Engine paginator for Rails 4+
 gem 'bootstrap4-kaminari-views'
 gem 'kaminari', '~> 1.2'
+# OperatorRecordable is a Rails plugin gem that makes your ActiveRecord models
+# to be saved logically deleted with automatically set created_by, updated_by.
+# read more in: https://github.com/yujideveloper/operator_recordable
+gem 'operator_recordable'

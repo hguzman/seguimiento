@@ -1,3 +1,3 @@
 class Comentario < ApplicationRecord
-    belongs_to :anotacion
+	belongs_to :anotacion
 end
