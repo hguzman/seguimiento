@@ -1,7 +1,7 @@
 module Anotaciones
   class ComentariosController < ApplicationController
     before_action :authenticate_user!
-    before_action :set_anotacion
+    before_action :set_anotacion, :set_operator
     before_action :set_comentario, only: %i[show edit update destroy]
     respond_to :html
 
@@ -46,6 +46,10 @@ module Anotaciones
 
     def set_comentario
       @comentario = Comentario.find(params[:id])
+    end
+
+    def set_operator
+      OperatorRecordable.operator = current_user
     end
 
     def comentario_params
