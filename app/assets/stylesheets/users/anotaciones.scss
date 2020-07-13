@@ -1,3 +1,32 @@
-// Place all the styles related to the users/anotaciones controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+.text-overflow-dynamic-container {
+  position: relative;
+  max-width: 100%;
+  padding: 0 !important;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: flex;
+  vertical-align: text-bottom !important;
+}
+
+.text-overflow-dynamic-ellipsis {
+  position: absolute;
+  white-space: nowrap;
+  overflow-y: visible;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  -ms-text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  max-width: 100%;
+  min-width: 0;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+.text-overflow-dynamic-container:after,
+.text-overflow-dynamic-ellipsis:after {
+  content: '-';
+  display: inline;
+  visibility: hidden;
+  width: 0;
+}

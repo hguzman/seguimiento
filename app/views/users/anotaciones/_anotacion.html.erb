@@ -3,15 +3,27 @@
     <%= link_to anotacion.id, user_anotacion_path(@user, anotacion) %>
   </td>
   <td>
-    <%=  anotacion.descripcion %>
+    <span class="text-overflow-dynamic-container">
+      <span class="text-overflow-dynamic-ellipsis">
+      <%= anotacion.descripcion %>
+      </span>
+    </span>
   </td>
-  <td>
+  <td class="text-center">
     <%= anotacion.created_at%>
   </td>
-  <td>
-    <%= link_to "Comentarios", anotacion_comentarios_path(anotacion), class: "btn btn-primary btn-lg btn-block m-0" %>
+  <td  class="text-center">
+    <%= anotacion.creator.nombres %>
+    <%= anotacion.creator.apellidos %>
   </td>
   <td>
-    <h5 class="btn btn-danger btn-lg btn-block m-0">Cerrar</h5>
+    <div class="row d-flex justify-content-between">
+      <div class="col-md-6">
+        <%= link_to "Comentarios", anotacion_comentarios_path(anotacion), class: "btn btn-primary btn-lg btn-block m-0" %>
+      </div>
+      <div class="col-md-6">
+        <h5 class="btn btn-danger btn-lg btn-block m-0">Cerrar</h5>
+      </div>
+    </div>
   </td>
 </tr>
