@@ -3,6 +3,8 @@ module Anotaciones
     before_action :authenticate_user!
     before_action :set_anotacion, :set_operator
     before_action :set_comentario, only: %i[show edit update destroy]
+    before_action :set_anotacion_creator
+    after_action  :notificar, only: %i[create update]
     respond_to :html
 
     def index
@@ -38,6 +40,10 @@ module Anotaciones
       end
     end
 
+    def notificar
+      UserMailer.comentario_mailer(@user, @anotacion, @comentario).deliver_now
+    end
+
     private
 
     def set_anotacion
@@ -46,6 +52,10 @@ module Anotaciones
 
     def set_comentario
       @comentario = Comentario.find(params[:id])
+    end
+
+    def set_anotacion_creator
+      @user = Anotacion.find(params[:anotacion_id]).creator
     end
 
     def set_operator
