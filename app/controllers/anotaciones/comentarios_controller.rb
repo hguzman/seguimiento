@@ -3,7 +3,7 @@ module Anotaciones
     before_action :authenticate_user!
     before_action :set_anotacion, :set_operator
     before_action :set_comentario, only: %i[show edit update destroy]
-    before_action :set_anotacion_creator
+    before_action :set_anotacion_creator, :set_propietario
     after_action  :notificar, only: %i[create update]
     respond_to :html
 
@@ -41,7 +41,20 @@ module Anotaciones
     end
 
     def notificar
-      UserMailer.comentario_mailer(@user, @anotacion, @comentario).deliver_now
+      # se notifica al creador de la anotacion, que el aprendiz creo un comentario.
+      if @user.has_role? :aprendiz
+        UserMailer.comentario_mailer(@user, @anotacion, @comentario).deliver_now
+      # se notifica al aprendiz y alcreador de la anotacion
+      # que se creo un comentario
+      elsif  @user.id != current_user.id
+        @list = [@user, @user_propietario]
+        @list.each do |user|
+          UserMailer.comentario_mailer(user, @anotacion, @comentario).deliver_now
+        end
+      # notifica al aprendiz que se creo un comentario
+      elsif  @user.id == current_user.id
+        UserMailer.comentario_mailer(@user_propietario, @anotacion, @comentario).deliver_now
+      end
     end
 
     private
@@ -54,10 +67,17 @@ module Anotaciones
       @comentario = Comentario.find(params[:id])
     end
 
+    # quien crea la anotacion
     def set_anotacion_creator
       @user = Anotacion.find(params[:anotacion_id]).creator
     end
 
+    # a quienle asigna la anotacion
+    def set_propietario
+      @user_propietario = User.find(Anotacion.find(params[:anotacion_id]).anotable_id)
+    end
+
+    # quien crea el comentario
     def set_operator
       OperatorRecordable.operator = current_user
     end
