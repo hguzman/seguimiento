@@ -1,9 +1,6 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  resources :anotaciones do
-    resources :comentarios, module: :anotaciones
-  end
   root to: 'home#index'
 
   namespace :admin do
@@ -15,6 +12,10 @@ Rails.application.routes.draw do
       resources :fichas, module: :programas
     end
     resources :users
+  end
+
+  resources :anotaciones do
+    resources :comentarios, module: :anotaciones
   end
 
   resources :ambientes, only: %i[index show] do

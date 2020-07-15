@@ -16,9 +16,14 @@
             <div class="info col-12">
               <div class="card border-secondar">
                 <div class="card-header ">
-                  <h4 class="card-subtitle">Comentario ID: <strong><%= @comentario.id %></strong></h4>
-                  <h4 class="card-subtitle">Fecha de creacion: <strong><%= @comentario.created_at%></strong></h4>
-                  <h4 class="card-subtitle">Creada por: </strong>
+                  <h4 class="card-subtitle">
+                    Comentario ID: <strong><%= @comentario.id %></strong>
+                  </h4>
+                  <h4 class="card-subtitle">
+                    Fecha de creacion: <strong><%= @comentario.created_at%></strong>
+                  </h4>
+                  <h4 class="card-subtitle">
+                    Creada por: <%= @comentario.creator.nombres%> <%= @comentario.creator.apellidos%></strong>
                   </h4>
                 </div>
                 <div class="card-body">

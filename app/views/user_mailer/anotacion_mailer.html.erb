@@ -1,0 +1,15 @@
+<h1>Ten un excelente dia,
+  <%= @user.nombres %>.
+    <h2>Esta es una notificacion de nueva anotacion, creada por <br>
+      <%= @anotacion.creator.nombres%>
+        <%= @anotacion.creator.apellidos%>
+    </h2>
+</h1>
+<p>
+  una nueva anotacion ha sido creada a nombre de:
+  <%= @user.email %>, dentro del sistema de Seguimiento al aprendiz, con codigo
+    <%= @anotacion.id %>, Favor verificala y tienes oportunidad a traves de la aplicacion, en el boton comentario,de realizar tu apresiacion de la situacion, agradecemos tus comentarios, <strong>si nos comunicamos todos crecemos</strong>.
+</p>
+<p>
+  Gracias por hacer parte de la gran familia <strong> Sena </strong> <br> Ten un excelente día
+</p>

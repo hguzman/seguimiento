@@ -3,19 +3,23 @@
     <%= link_to comentario.id, anotacion_comentario_path(@anotacion, comentario) %>
   </td>
   <td>
-    <%= comentario.comentario %>
+    <span class="text-overflow-dynamic-container">
+      <span class="text-overflow-dynamic-ellipsis">
+        <%= comentario.comentario %>
+      </span>
+    </span>
   </td>
-  <td>
+  <td class="text-center">
     <%= comentario.created_at %>
   </td>
-  <td>
+  <td class="text-center">
+    <%= comentario.creator.nombres %>
+    <%= comentario.creator.apellidos %>
+  </td>
+  <td class="text-center">
     <%= comentario.updated_at %>
   </td>
-  <!-- <td>
-    <div class="row">
-      <div class="col-md-12">
-        <button class="btn btn-primary btn-block" type="button">Replicar</button>
-      </div>
-    </div>
-  </td> -->
+  <td>
+    <%= link_to "Contestar", new_anotacion_comentario_path, class: "btn btn-primary btn-block"  %>
+  </td>
 </tr>

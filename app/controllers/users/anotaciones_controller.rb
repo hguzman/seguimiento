@@ -5,7 +5,8 @@ module Users
   class AnotacionesController < ApplicationController
     before_action :authenticate_user!
     before_action :set_user
-    before_action :set_anotacion, only: %i[show edit update destroy]
+    before_action :set_anotacion, only: %i[show edit update destroy notificar]
+    before_action :set_operator, only: %i[create update]
     respond_to :html
 
     def index
@@ -23,6 +24,7 @@ module Users
       if @anotacion.save
         flash[:success] = t('.success')
         respond_with @user, @anotacion
+        UserMailer.anotacion_mailer(@user, @anotacion).deliver_now
       else
         flash[:alert] = t('.alert')
         render :new
@@ -55,6 +57,10 @@ module Users
 
     def set_user
       @user = User.find(params[:user_id])
+    end
+
+    def set_operator
+      OperatorRecordable.operator = current_user
     end
 
     def anotacion_params
