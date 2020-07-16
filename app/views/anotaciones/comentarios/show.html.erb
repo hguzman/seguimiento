@@ -1,5 +1,5 @@
 <!-- breadcrumbs -->
-<%# breadcrumb :user_anotaciones, @user %>
+<% breadcrumb :anotacion_comentario_show, @anotacion, @comentario %>
 <div class="row">
   <div class="w-100">
     <!-- infor anotacion -->
@@ -23,7 +23,10 @@
                     Fecha de creacion: <strong><%= @comentario.created_at%></strong>
                   </h4>
                   <h4 class="card-subtitle">
-                    Creada por: <%= @comentario.creator.nombres%> <%= @comentario.creator.apellidos%></strong>
+                    Creada por:
+                    <%= @comentario.creator.nombres%>
+                      <%= @comentario.creator.apellidos%>
+                        </strong>
                   </h4>
                 </div>
                 <div class="card-body">
@@ -39,7 +42,7 @@
               <div class="col-12 mt-3 mt-3 d-flex justify-content-between">
                 <div class="col-4">
                   <%#= link_to "Volver", user_anotaciones_path, class: "btn btn-primary btn-block" %>
-                  <%= link_to "Volver", anotacion_comentarios_path(@anotacion), class: "btn btn-danger btn-block"  %>
+                    <%= link_to "Volver", anotacion_comentarios_path(@anotacion), class: "btn btn-danger btn-block"  %>
                 </div>
                 <div class="col-4">
                   <%= link_to "Editar", edit_anotacion_comentario_path(@anotacion, @comentario), class: "btn btn-primary btn-block" %>
