@@ -1,14 +1,14 @@
-<%= simple_form_for [@user, @anotacion] do |f| %>
-<%= f.input :descripcion, class: "form-control" %>
+  <%= simple_form_for [@user, @anotacion] do |f| %>
+  <%= f.input :descripcion, class: "form-control" %>
 <div class="row">
- <!-- botones -->
- <!-- Boton editar anotacion -->
- <div class="col-md-6">
-  <%= f.button :submit, class: "btn btn-primary btn-md btn-block" %>
-  <% end %>
- </div>
- <!-- boton volver -->
- <div class="col-md-6">
-  <%= link_to "volver", user_anotaciones_path, class: "btn btn-danger btn-md btn-block" %>
- </div>
+  <!-- botones -->
+  <!-- Boton editar anotacion -->
+  <div class="col-md-6">
+    <%= f.button :submit, class: "btn btn-primary btn-md btn-block" %>
+      <% end %>
+  </div>
+  <!-- boton volver -->
+  <div class="col-md-6">
+    <%= link_to "volver", user_anotaciones_path, class: "btn btn-danger btn-md btn-block" %>
+  </div>
 </div>
