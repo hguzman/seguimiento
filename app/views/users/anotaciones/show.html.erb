@@ -20,7 +20,7 @@
               <div class="card border-secondar">
                 <div class="card-header ">
                   <h4 class="card-title">Anotacion ID: <strong><%= @anotacion.id%></strong></h4>
-                  <h4 class="card-subtitle">Fecha de creacion: <strong><%= @anotacion.created_at%></strong></h4>
+                  <h4 class="card-subtitle">Fecha de creacion: <strong><%= @anotacion.created_at.strftime("%F %T")%></strong></h4>
                   <h4 class="card-subtitle">Creada por: </strong>
                   </h4>
                 </div>

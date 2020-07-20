@@ -20,13 +20,14 @@
                     Comentario ID: <strong><%= @comentario.id %></strong>
                   </h4>
                   <h4 class="card-subtitle">
-                    Fecha de creacion: <strong><%= @comentario.created_at%></strong>
+                    Fecha de creacion: <strong><%= @comentario.created_at.strftime("%F %T")%></strong>
                   </h4>
                   <h4 class="card-subtitle">
                     Creada por:
-                    <%= @comentario.creator.nombres%>
+                    <strong>
+                      <%= @comentario.creator.nombres%>
                       <%= @comentario.creator.apellidos%>
-                        </strong>
+                    </strong>
                   </h4>
                 </div>
                 <div class="card-body">

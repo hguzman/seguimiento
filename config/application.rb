@@ -37,5 +37,7 @@ module Railsapp
       # Or to configure mailer layout
       # Devise::Mailer.layout "email" # email.haml or email.erb
     end
+
+    config.time_zone = 'Bogota'
   end
 end

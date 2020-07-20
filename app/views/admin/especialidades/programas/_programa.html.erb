@@ -1,11 +1,17 @@
 <tr>
-  <td><%= link_to programa.id, admin_especialidad_programa_path(@especialidad, programa) %></td>
-  <td><%= link_to programa.nombre, admin_especialidad_programa_path(@especialidad, programa) %></td>
-  <td><%= l programa.created_at, format: :long%></td>
+  <td>
+    <%= link_to programa.id, admin_especialidad_programa_path(@especialidad, programa) %>
+  </td>
+  <td>
+    <%= link_to programa.nombre, admin_especialidad_programa_path(@especialidad, programa) %>
+  </td>
+  <td>
+    <%= programa.created_at.strftime("%F %T")%>
+  </td>
   <td>
     <div class="row">
       <div class="col-md-12">
-        <%= link_to "fichas", admin_programa_fichas_path(programa), class:"btn btn-primary btn-xs btn-block"%>
+        <%= link_to "fichas", admin_programa_fichas_path(programa), class:"btn btn-primary btn-block"%>
       </div>
     </div>
   </td>
