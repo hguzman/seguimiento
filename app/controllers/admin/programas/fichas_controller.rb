@@ -25,7 +25,7 @@ module Admin
       def create
         @ficha = @programa.fichas.new(ficha_params)
         if @ficha.save
-          flash[:success] = t('success')
+          flash[:success] = t('.success')
           respond_with :admin, @programa, @ficha
         else
           flash[:alert] = t('.alert')

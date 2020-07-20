@@ -1,0 +1,11 @@
+es:
+  anotaciones:
+    comentarios:
+      create:
+        success: Se creo el comentario de manera correcta
+        alert: Problemas al momento de registrar el comentario.
+      update:
+        success: Comentario actualizado.
+        alert: Problemas con la actualización del comentario.
+      destroy:
+        success: Comentario eliminado correctamente.
