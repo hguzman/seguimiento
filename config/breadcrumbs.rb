@@ -180,3 +180,25 @@ end
 crumb :admin_programa_fichas_show do |ficha|
   link "Ficha numero: #{ficha.numero}", admin_programa_ficha_path(ficha)
 end
+
+# breadcrumbs para anotaciones<comentarios(aprendiz)
+
+crumb :anotacion_comentarios do |anotacion|
+  link 'anotacion/'"#{anotacion.id}"'/Comentarios', anotacion_comentarios_path(anotacion)
+  # parent :user_anotacion_show, anotacion, user
+end
+
+crumb :new_anotacion_comentario do |anotacion|
+  link 'Crear', new_anotacion_comentario_path(anotacion)
+  parent :anotacion_comentarios, anotacion
+end
+
+crumb :anotacion_comentario_edit do |anotacion, comentario|
+  link '/Editar/'"#{comentario.id}", edit_anotacion_comentario_path(anotacion)
+  parent :anotacion_comentario_show, anotacion, comentario
+end
+
+crumb :anotacion_comentario_show do |anotacion, comentario|
+  link 'Ver/'"#{comentario.id}", anotacion_comentario_path(comentario)
+  parent :anotacion_comentarios, anotacion
+end

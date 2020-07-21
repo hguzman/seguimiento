@@ -1,12 +1,14 @@
 <tr class="align-middle">
-    <td><%= link_to especialidad.id, admin_especialidad_path(especialidad) %></td>
-    <td><%= link_to especialidad.nombre, admin_especialidad_path(especialidad) %></td>
-    <td><%= l especialidad.created_at, format: :long%></td>
-    <td>
-        <div class="row">
-            <div class="col-md-12">
-                <%= link_to "Programas", admin_especialidad_programas_path(especialidad), class:"btn btn-primary btn-xs btn-block" %>
-            </div>
-        </div>
-    </td>
+  <td>
+    <%= link_to especialidad.id, admin_especialidad_path(especialidad) %>
+  </td>
+  <td>
+    <%= link_to especialidad.nombre, admin_especialidad_path(especialidad) %>
+  </td>
+  <td>
+    <%= especialidad.created_at.strftime("%F %T") %>
+  </td>
+  <td>
+    <%= link_to "Programas", admin_especialidad_programas_path(especialidad), class:"btn btn-primary btn-block" %>
+  </td>
 </tr>

@@ -1,0 +1,48 @@
+<div class="col-12">
+  <div class="ibox-content d-flex justify-content-between">
+    <!-- datos academicos -->
+    <div class="col-md-6 d-flex flex-wrap p-3">
+      <!-- foto perfil -->
+      <div class="col-md-4 profile-image m-0">
+        <img class="m-b-md" alt="User Image" src="/assets/default-user-img-01678e88fe462e7b0c878fa8a0357fa406e9ad71a9e058023bc6025ad3a9ebca.jpg">
+      </div>
+      <!-- datos  -->
+      <div class="col-md-2 profile-info m-0">
+        <h2 class="no-margins">
+          <%=  @user.nombres %>
+          <%=  @user.apellidos %>
+        </h2>
+        <h4>
+          <%=@user.ficha.programa.nombre %>
+        </h4>
+      </div>
+    </div>
+    <!-- otros datos del parendiz -->
+    <div class="col-md-6 d-flex flex-wrap align-content-center">
+      <table class="table">
+        <tbody>
+          <tr>
+            <td>
+              <strong>Número de documento:</strong>
+              <%= @user.ndocumento %>
+            </td>
+            <td>
+              <strong>Teléfono:</strong>
+              <%= @user.telefono %>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <strong>E-mail:</strong>
+              <%= @user.email %>
+            </td>
+            <td>
+              <strong>Dirección:</strong>
+              <%= @user.direccion %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

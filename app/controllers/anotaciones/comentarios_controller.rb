@@ -17,7 +17,7 @@ module Anotaciones
 
     def update
       if @comentario.update(comentario_params)
-        flash[:success] = 'Anotacion Registrada'
+        flash[:success] = t('.success')
         respond_with @anotacion, @comentario
       else
         flash[:alert] = t('.alert')
@@ -32,7 +32,7 @@ module Anotaciones
     def create
       @comentario = @anotacion.comentarios.new(comentario_params)
       if @comentario.save
-        flash[:success] = t('success')
+        flash[:success] = t('.success')
         respond_with @anotacion, @comentario
       else
         flash[:alert] = t('.alert')

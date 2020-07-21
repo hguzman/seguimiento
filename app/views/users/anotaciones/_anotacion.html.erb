@@ -10,9 +10,9 @@
     </span>
   </td>
   <td class="text-center">
-    <%= anotacion.created_at%>
+    <%= anotacion.created_at.strftime("%F %T")%>
   </td>
-  <td  class="text-center">
+  <td class="text-center">
     <%= anotacion.creator.nombres %>
     <%= anotacion.creator.apellidos %>
   </td>

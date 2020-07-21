@@ -10,14 +10,14 @@
     </span>
   </td>
   <td class="text-center">
-    <%= comentario.created_at %>
+    <%= comentario.created_at.strftime("%F %T") %>
   </td>
   <td class="text-center">
     <%= comentario.creator.nombres %>
-    <%= comentario.creator.apellidos %>
+      <%= comentario.creator.apellidos %>
   </td>
   <td class="text-center">
-    <%= comentario.updated_at %>
+    <%= comentario.updated_at.strftime("%F %T") %>
   </td>
   <td>
     <%= link_to "Contestar", new_anotacion_comentario_path, class: "btn btn-primary btn-block"  %>

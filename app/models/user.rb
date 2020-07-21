@@ -2,6 +2,10 @@ class User < ApplicationRecord
 
   rolify
 
+  validates :apellidos, presence: true
+  validates :ndocumento, presence: true
+  validates :telefono, presence: true
+
   after_create :assign_default_role
   after_create :user_mailer
   # Include default devise modules. Others available are:

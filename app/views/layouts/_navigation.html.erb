@@ -1,104 +1,110 @@
 <nav class="navbar-default navbar-static-side" role="navigation">
-    <div class="sidebar-collapse">
-        <ul class="nav metismenu" id="side-menu">
-            <li class="nav-header">
-                <div class="dropdown profile-element">
-                    <% if user_signed_in? %>
-                    <% if current_user.avatar.thumb.present?%>
-                    <div class="d-flex justify-content-center imagen">
-                        <%= image_tag current_user.avatar.thumb.url, class: " circle-border m-b-md w-50 h-50", alt: "User Image"%>
-                    </div>
-                    <%else%>
-                    <div class="d-flex justify-content-center">
-                        <%=image_tag 'default-user-img.jpg', class: "rounded-circle w-50 circle-border m-b-md", alt: "User Image"%>
-                    </div>
-                    <%end%>
-                    <%end%>
-                    <span class="block m-t-xs font-bold"></span>
-                    <span class="text-muted text-xs block"><%= current_user.nombres %>
-                        <%= current_user.apellidos %></span>
-                    <span class="block m-t-xs font-bold"></span>
-                    <span class="text-muted text-xs block"><%= current_user.email %></span>
-                </div>
-                <div class="logo-element">
-                    <%=link_to "SG20", root_path %>
-                </div>
-            </li>
-            <!-- boton inicio -->
-            <li class="<%= 'active' if current_page?('/') %>">
-                <%= link_to "/" do %>
-                <i class="fa fa-laptop"></i> <span class="nav-label">Inicio</span>
-                <% end %>
-            </li>
-            <!-- anotaciones ambientes y aprendices solo instructor-->
-            <% if policy(:user).index? %>
-            <li class="<%= 'active' if current_page?('/users') %>">
-                <%= link_to "/users" do %> <i class="fa fa-users">
-                </i> <span class="nav-label">Aprendices</span>
-                <% end %>
-            </li>
+  <div class="sidebar-collapse">
+    <ul class="nav metismenu" id="side-menu">
+      <li class="nav-header">
+        <div class="dropdown profile-element">
+          <% if user_signed_in? %>
+						<% if current_user.avatar.thumb.present?%>
+						<div class="d-flex flex-column">
+							<div class="row d-flex justify-content-center imagen">
+								<%= image_tag current_user.avatar.thumb.url, class: "circle-border m-b-md w-50 h-50", alt: "User Image"%>
+							</div>
+							<div class="row">
+								<span class="text-muted text-xs block"><%= current_user.nombres %><%= current_user.apellidos %></span>
+								<span class="text-muted text-xs block"><%= current_user.email %></span>
+							</div>
+						</div>
+						<%else%>
+						<div class="d-flex flex-column">
+							<div class="row d-flex justify-content-center imagen">
+								<%=image_tag 'default-user-img.jpg', class: "circle-border m-b-md w-50 ", alt: "User Image"%>
+							</div>
+							<div class="row">
+								<span class="text-muted text-xs block"><%= current_user.nombres %><%= current_user.apellidos %></span>
+								<span class="text-muted text-xs block"><%= current_user.email %></span>
+							</div>
+						</div>
+						<%end%>
+          <%end%>
+        </div>
+        <div class="logo-element">
+          <%=link_to "SG20", root_path %>
+        </div>
+      </li>
+      <!-- boton inicio -->
+      <li class="<%= 'active' if current_page?('/') %>">
+        <%= link_to "/" do %>
+        <i class="fa fa-laptop"></i> <span class="nav-label">Inicio</span>
+        <% end %>
+      </li>
+      <!-- anotaciones ambientes y aprendices solo instructor-->
+      <% if policy(:user).index? %>
+				<li class="<%= 'active' if current_page?('/users') %>">
+					<%= link_to "/users" do %> <i class="fa fa-users">
+					</i> <span class="nav-label">Aprendices</span>
+					<% end %>
+				</li>
+				<% end %>
+				<% if policy(:ambiente).index? %>
+				<li class="<%= 'active' if current_page?('/ambientes') %>">
+					<%= link_to ambientes_path do %>
+					<i class="fa fa-users"></i>
+					<span class="nav-label">Ambientes</span>
+					<% end %>
+				</li>
+      <% end %>
+      <!-- opciones admin -->
+      <% if current_user.has_role? :admin%>
+      <li class="<%= is_active_controller('admin/especialidades') %> <%= is_active_controller('admin/fichas') %> <%= is_active_controller('admin/ambientes') %> <%= is_active_controller('admin/tipo_documentos') %> <%= is_active_controller('/admin/users') %>">
+        <a href="#"><i class="fa fa-shield"></i> <span class="nav-label"
+            data-i18n="nav.menulevels">Administracion </span><span class="fa arrow"></span></a>
+        <ul class="nav nav-second-level">
+          <!-- Especialidades -->
+          <li class="<%= 'active' if current_page?('/admin/especialidades') %>">
+            <%= link_to admin_especialidades_path do %>
+            <i class="fa fa-graduation-cap"></i>
+            <span class="nav-label">Especialidades</span>
             <% end %>
-            <% if policy(:ambiente).index? %>
-            <li class="<%= 'active' if current_page?('/ambientes') %>">
-                <%= link_to ambientes_path do %>
-                <i class="fa fa-users"></i>
-                <span class="nav-label">Ambientes</span>
-                <% end %>
-            </li>
+          </li>
+          <!-- tipodocumento -->
+          <li class="<%= 'active' if current_page?('/admin/tipo_documentos') %>">
+            <%= link_to admin_tipo_documentos_path do %>
+            <i class="fa fa-graduation-cap"></i>
+            <span class="nav-label">Tipo documentos</span>
             <% end %>
-            <!-- opciones admin -->
-            <% if current_user.has_role? :admin%>
-            <li
-                class="<%= is_active_controller('admin/especialidades') %> <%= is_active_controller('admin/fichas') %> <%= is_active_controller('admin/ambientes') %> <%= is_active_controller('admin/tipo_documentos') %> <%= is_active_controller('/admin/users') %>">
-                <a href="#"><i class="fa fa-shield"></i> <span class="nav-label"
-                        data-i18n="nav.menulevels">Administracion </span><span class="fa arrow"></span></a>
-                <ul class="nav nav-second-level">
-                    <!-- Especialidades -->
-                    <li class="<%= 'active' if current_page?('/admin/especialidades') %>">
-                        <%= link_to admin_especialidades_path do %>
-                        <i class="fa fa-graduation-cap"></i>
-                        <span class="nav-label">Especialidades</span>
-                        <% end %>
-                    </li>
-                    <!-- tipodocumento -->
-                    <li class="<%= 'active' if current_page?('/admin/tipo_documentos') %>">
-                        <%= link_to admin_tipo_documentos_path do %>
-                        <i class="fa fa-graduation-cap"></i>
-                        <span class="nav-label">Tipo documentos</span>
-                        <% end %>
-                    </li>
-                    <!-- Ambientes -->
-                    <li class="nav nav-second-level <%= is_active_controller('/admin/ambientes') %>">
-                        <%= link_to admin_ambientes_path do %>
-                        <i class="fa fa-users"></i>
-                        <span class="nav-label">Ambientes</span>
-                        <% end %>
-                    </li>
-                    <!-- Usuarios -->
-                    <li class="nav nav-second-level <%= is_active_controller('/admin/sers') %>">
-                        <%= link_to admin_users_path do %>
-                        <i class="fa fa-users"></i>
-                        <span class="nav-label">Usuarios</span>
-                        <% end %>
-                    </li>
-                </ul>
-            </li>
-            <%end%>
-            <!-- perfil current user -->
-            <li class="<%= 'active' if current_page?(controller: '/devise/registrations', action: 'edit') %>">
-                <a href="#"><i class="fa fa-pencil"></i> <span class="nav-label"
-                        data-i18n="nav.graphs">Opciones</span><span class="fa arrow"></span></a>
-                <ul class="nav nav-second-level collapse ">
-                    <li class="<%= 'active' if current_page?(controller: '/devise/registrations', action: 'edit') %>">
-                        <a class="dropdown-item" href=" <%=edit_user_registration_path %>" class="btn btn-nar"><i
-                                class="fa fa-user"></i>Mi Perfil</a>
-                    </li>
-                    <li class="<%= 'active' if current_page?(controller: '/users', action: 'change_password') %>">
-                        <a class="dropdown-item" href="<%= change_password_user_path %>"><i
-                                class="fa fa-lock"></i>Cambiar Contraseña</a>
-                    </li>
-                </ul>
-            </li>
+          </li>
+          <!-- Ambientes -->
+          <li class="nav nav-second-level <%= is_active_controller('/admin/ambientes') %>">
+            <%= link_to admin_ambientes_path do %>
+            <i class="fa fa-users"></i>
+            <span class="nav-label">Ambientes</span>
+            <% end %>
+          </li>
+          <!-- Usuarios -->
+          <li class="nav nav-second-level <%= is_active_controller('/admin/sers') %>">
+            <%= link_to admin_users_path do %>
+            <i class="fa fa-users"></i>
+            <span class="nav-label">Usuarios</span>
+            <% end %>
+          </li>
         </ul>
-    </div>
+      </li>
+      <%end%>
+      <!-- perfil current user -->
+      <li class="<%= 'active' if current_page?(controller: '/devise/registrations', action: 'edit') %>">
+        <a href="#"><i class="fa fa-pencil"></i> <span class="nav-label"
+            data-i18n="nav.graphs">Opciones</span><span class="fa arrow"></span></a>
+        <ul class="nav nav-second-level collapse ">
+          <li class="<%= 'active' if current_page?(controller: '/devise/registrations', action: 'edit') %>">
+            <a class="dropdown-item" href=" <%=edit_user_registration_path %>" class="btn btn-nar"><i
+                class="fa fa-user"></i>Mi Perfil</a>
+          </li>
+          <li class="<%= 'active' if current_page?(controller: '/users', action: 'change_password') %>">
+            <a class="dropdown-item" href="<%= change_password_user_path %>"><i
+                class="fa fa-lock"></i>Cambiar Contraseña</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
 </nav>

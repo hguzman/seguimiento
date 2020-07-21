@@ -12,7 +12,7 @@
               </td>
               <td>
                 <strong>Fecha de creacion:</strong>
-                <%= @anotacion.created_at %>
+                <%= @anotacion.created_at.strftime("%F %T") %>
               </td>
             </tr>
             <tr>
