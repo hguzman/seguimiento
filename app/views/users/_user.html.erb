@@ -1,17 +1,18 @@
 <tr>
- <td>
-  <%= user.ndocumento %>
- </td>
- <td>
-  <%= user.nombres%>
- </td>
- <td>
-  <%= user.apellidos%>
- </td>
- <td>
-  <%= user.created_at%>
- </td>
- <td>
-  <%= link_to "Anotaciones", user_anotaciones_path(user), class: "btn btn-primary btn-lg btn-block"%>
- </td>
+  <td class="text-center">
+    <%= user.ndocumento %>
+  </td>
+  <td class="text-center">
+    <%= user.nombres%>
+  </td>
+  <td class="text-center">
+    <%= user.apellidos%>
+  </td>
+  <td class="text-center">
+    <%= user.ficha.numero%>
+<!-- <%= user.created_at%> -->
+  </td>
+  <td>
+    <%= link_to "Anotaciones", user_anotaciones_path(user), class: "btn btn-primary btn-lg btn-block"%>
+  </td>
 </tr>
