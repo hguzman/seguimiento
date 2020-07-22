@@ -10,7 +10,14 @@ module Users
     respond_to :html
 
     def index
-      @anotaciones = @user.anotaciones.page params[:page]
+      if params[:q].present?
+        @anotaciones=@user.anotaciones.where('cast(created_by as text) ilike :p',
+        p: "#{User.where('nombres ilike :q or apellidos ilike :q', q:
+        "%#{params[:q]}%").ids.first}").or(@user.anotaciones.where('cast(id as
+        text) ilike :q or cast(created_at as text) ilike :q or cast(created_by as text) ilike :q ', q: "%#{params[:q]}%")).order(id: :asc).page params[:page]
+      elsif current_user.has_role? :instructor
+        @anotaciones = @user.anotaciones.order(id: :asc).page params[:page]
+      end
     end
 
     def show; end

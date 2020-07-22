@@ -16,8 +16,6 @@ class UsersController < ApplicationController
         ilike :q or apellidos ilike :q', q: "%#{params[:q]}%").references(:ficha)).page params[:page]
     elsif current_user.has_role? :instructor
       @users = User.with_role(:aprendiz).page params[:page]
-    else
-      @users = User.all.page params[:page]
     end
     respond_to do |format|
       format.html
