@@ -1,2 +1,52 @@
-<h1>Admin::Users#show</h1>
-<p>Find me in app/views/admin/users/show.html.erb</p>
+<!-- breadscrumbs -->
+<% breadcrumb :user_show, @user %>
+<div class="row">
+  <div class="col-12">
+    <div class="row ibox-content">
+      <div class="col-md-6 align-items-center">
+        <div class="profile-image d-flex justify-content-center align-items-center">
+          <div class="d-flex justify-content-center">
+            <img class="m-b-md" alt="User Image" src="/assets/default-user-img-01678e88fe462e7b0c878fa8a0357fa406e9ad71a9e058023bc6025ad3a9ebca.jpg">
+          </div>
+        </div>
+        <div class="profile-info">
+          <div class="">
+            <div>
+              <h2 class="no-margins">
+                <%=  @user.nombres %>
+                  <%=  @user.apellidos %>
+              </h2>
+              <h4>ADSI</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 d-flex justify-content-center align-items-center">
+        <table class="table m-b-xs">
+          <tbody>
+            <tr>
+              <td>
+                <strong>Número de documento:</strong>
+                <%= @user.ndocumento %>
+              </td>
+              <td>
+                <strong>Teléfono:</strong>
+                <%= @user.telefono %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <strong>E-mail:</strong>
+                <%= @user.email %>
+              </td>
+              <td>
+                <strong>Dirección:</strong>
+                <%= @user.direccion %>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

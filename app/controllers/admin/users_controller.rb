@@ -7,7 +7,16 @@ module Admin
     %i[show edit update]
 
     def index
-      @users = User.all
+      if params[:q].present?
+        if params[:q].include? ':'
+          @users = User.with_role :"#{params[:q].gsub(':', '')}"
+        else
+          @users = User.where('cast(ndocumento as text) ilike :q or cast(created_at as text) ilike :q or cast(nombres as text) ilike :q or cast(apellidos as text) ilike :q', q: "%#{params[:q]}%").order(id: :asc)
+        end
+      elsif current_user.has_role? :admin
+        # @anotaciones = @user.anotaciones.order(id: :asc).page params[:page]
+        @users = User.all
+      end
     end
 
     def show; end
@@ -17,11 +26,10 @@ module Admin
     def update
       if @user.update(user_params)
         flash[:success] = 'Registro Actualizado'
-        render :edit
       else
         flash[:alert] = 'Error al Actualizar'
-        render :edit
       end
+      render :edit
     end
 
     private
