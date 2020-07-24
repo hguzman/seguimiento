@@ -8,7 +8,15 @@ module Anotaciones
     respond_to :html
 
     def index
-      @comentarios = @anotacion.comentarios.page params[:page]
+      if params[:q].present?
+        if params[:q].include? ':'
+          @comentarios = @anotacion.comentarios.where('cast(id as text) ilike :q', q: "%#{params[:q].gsub(":","").to_i}%").order(id: :asc).page params[:page]
+        else
+          @comentarios = @anotacion.comentarios.where('cast(id as text) ilike :q or cast(created_at as text) ilike :q', q: "%#{params[:q]}%").or(@anotacion.comentarios.where('cast(created_by as text) ilike any (array[?])', User.where('nombres ilike :q or apellidos ilike :q', q:"%#{params[:q]}%").ids.map {|val| val.to_s})).order(id: :asc).page params[:page]
+        end
+      elsif current_user.has_role? :instructor
+        @comentarios = @anotacion.comentarios.page params[:page]
+      end
     end
 
     def show; end
