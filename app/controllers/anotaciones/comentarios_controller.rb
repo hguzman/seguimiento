@@ -16,6 +16,8 @@ module Anotaciones
         end
       elsif current_user.has_role? :instructor
         @comentarios = @anotacion.comentarios.page params[:page]
+      elsif current_user.has_role? :aprendiz
+        @comentarios = @anotacion.comentarios.page params[:page]
       end
     end
 

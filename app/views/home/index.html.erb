@@ -1,123 +1,51 @@
 <!-- breadcrumbs -->
 <% breadcrumb :root %>
 <!-- datos del current user -->
-<div class="row mb-3">
-  <div class="col-lg-12">
-    <div class="row ibox-content">
-      <div class="col-md-6 align-items-center">
-        <div class="profile-image d-flex justify-content-center align-items-center">
-          <% if user_signed_in? %>
-          <% if current_user.avatar.thumb.present?%>
-          <div class="d-flex justify-content-center">
-            <%= image_tag current_user.avatar.thumb.url,  class: "m-b-md", alt: "User Image"%>
-          </div>
-          <%else%>
-          <div class="d-flex justify-content-center">
-            <%=image_tag 'default-user-img.jpg', class: "m-b-md", alt: "User Image"%>
-          </div>
-          <%end%>
-          <%end%>
-        </div>
-        <div class="profile-info">
-          <div class="">
-            <div>
-              <h2 class="no-margins">
-                <%= current_user.nombres %> <%= current_user.apellidos %>
-              </h2>
-              <h4>ADSI</h4>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 d-flex justify-content-center align-items-center">
-        <table class="table m-b-xs">
-          <tbody>
-            <tr>
-              <td>
-                <strong>Número de documento:</strong> <%= current_user.ndocumento %>
-              </td>
-              <td>
-                <strong>Teléfono:</strong> <%= current_user.telefono %>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <strong>E-mail:</strong> <%= current_user.email %>
-              </td>
-              <td>
-                <strong>Dirección:</strong> <%= current_user.direccion %>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-</div>
 <!-- ventanas de info para el current user -->
 <div class="row d-flex justify-content-space-bettween">
   <div class="w-100">
     <div class="ibox">
       <!-- vista inicio rol aprendiz -->
       <% if current_user.has_role? :aprendiz %>
-      <div class="ibox-title">
-        <h1 class="text-center text-capitalize">anotaciones</h1>
-      </div>
-      <div class="ibox-content">
-        <!-- tabla con las las anotaciones del curren_user -->
-        <table class="table table-hover">
-          <thead>
-            <tr>
-              <th class="text-center">Id</th>
-              <th class="text-center">Descripcion</th>
-              <th class="text-center">Acción</th>
-            </tr>
-          </thead>
-          <tbody>
-            <%= render partial: "anotacion", collection: @anotaciones%>
-          </tbody>
-        </table>
-        <%= paginate @anotaciones, theme: 'twitter-bootstrap-4' %>
-        <hr>
-      </div>
+        <h1>aqui numero de anotaciones del aprendiz</h1>
       <% end %>
       <!-- vista rol instructor -->
       <% if current_user.has_role? :instructor%>
-      <div class="ibox-title">
-        <h5>Anotaciones</h5>
-      </div>
-      <div class="ibox-content">
-        <h1 class="no-margins"><%= current_user.anotaciones.count %></h1>
-        <small>Total anotaciones</small>
-      </div>
-      <div class="card-deck mt-3 d-flex justify-content-between">
-        <div class="card col-md-5">
-          <img class="card-img-top" src="holder.js/100x180/" alt="">
-          <div class="card-body">
-            <h4 class="card-title">Aprendiz</h4>
-            <p class="card-text">En esta seccion podrá crear, editar y comentar las anotacions asociadas a los
-              aprendices.</p>
+        <div class="ibox-title">
+          <h5>Anotaciones</h5>
+        </div>
+        <div class="ibox-content">
+          <h1 class="no-margins"><%= current_user.anotaciones.count %></h1>
+          <small>Total anotaciones</small>
+        </div>
+        <div class="card-deck mt-3 d-flex justify-content-between">
+          <div class="card col-md-5">
+            <img class="card-img-top" src="holder.js/100x180/" alt="">
+            <div class="card-body">
+              <h4 class="card-title">Aprendiz</h4>
+              <p class="card-text">En esta seccion podrá crear, editar y comentar las anotacions asociadas a los
+                aprendices.</p>
+            </div>
+          </div>
+          <div class="card col-md-5">
+            <img class="card-img-top" src="holder.js/100x180/" alt="">
+            <div class="card-body">
+              <h4 class="card-title">Ambientes</h4>
+              <p class="card-text">En esta seccion podr reportar novedades sobre los ambientes de formación, adscritos al
+                centro.</p>
+            </div>
           </div>
         </div>
-        <div class="card col-md-5">
-          <img class="card-img-top" src="holder.js/100x180/" alt="">
-          <div class="card-body">
-            <h4 class="card-title">Ambientes</h4>
-            <p class="card-text">En esta seccion podr reportar novedades sobre los ambientes de formación, adscritos al
-              centro.</p>
-          </div>
-        </div>
-      </div>
       <% end %>
       <!-- vista rol admin -->
       <% if current_user.has_role? :admin %>
-      <div class="ibox-title">
-        <h5>Anotaciones</h5>
-      </div>
-      <div class="ibox-content">
-        <h1 class="no-margins"><%= current_user.anotaciones.count %></h1>
-        <small>Total anotaciones</small>
-      </div>
+        <div class="ibox-title">
+          <h5>Anotaciones</h5>
+        </div>
+        <div class="ibox-content">
+          <h1 class="no-margins"><%= current_user.anotaciones.count %></h1>
+          <small>Total anotaciones</small>
+        </div>
       <% end %>
     </div>
   </div>

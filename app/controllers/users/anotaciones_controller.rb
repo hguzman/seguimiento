@@ -18,6 +18,8 @@ module Users
         end
       elsif current_user.has_role? :instructor
         @anotaciones = @user.anotaciones.order(id: :asc).page params[:page]
+      elsif current_user.has_role? :aprendiz
+        @anotaciones = @user.anotaciones.order(id: :asc).page params[:page]
       end
     end
 
