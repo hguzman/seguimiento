@@ -1,0 +1,9 @@
+<!-- Formulario edit -->
+<%= simple_form_for [:admin, @especialidad] do |f| %>
+<%= f.input :nombre, class: "form-control" %>
+<!-- Botones volver -->
+<div class="row d-flex justify-content-between px-3">
+  <%= link_to "Volver", :back, class: "btn btn-danger btn-block col-4"%>
+  <%= f.button :submit, class: "btn btn-primary btn-block col-4 m-0" %>
+  <% end %>
+</div>

@@ -24,3 +24,5 @@ public/uploads
 
 .history
 config/local_env.yml
+.vscode
+.vscode/settings.json

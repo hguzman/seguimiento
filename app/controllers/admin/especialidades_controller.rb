@@ -8,12 +8,21 @@ module Admin
 
     def index
       # authorize Especialidad
-      @especialidades = if params[:q].present?
-                          Especialidad.where('nombre ilike :q', q:
-                          "%#{params[:q]}%").page params[:page]
-                        else
-                          Especialidad.all.page params[:page]
-                        end
+      if params[:q].present?
+        if params[:q].include? ':'
+        @especialidades = Especialidad.where('cast(id as text) ilike :q', q: "%#{params[:q].gsub(":","").to_i}%").order(id: :asc).page params[:page]
+        else
+        @especialidades = Especialidad.where('cast(id as text) ilike :q or cast(created_at as text) ilike :q or nombre ilike :q', q: "%#{params[:q]}%").order(id: :asc).page params[:page]
+        end
+      else
+        @especialidades = Especialidad.all.page params[:page]
+      end
+      # @especialidades = if params[:q].present?
+      #                     Especialidad.where('nombre ilike :q', q:
+      #                     "%#{params[:q]}%").page params[:page]
+      #                   else
+      #                     Especialidad.all.page params[:page]
+      #                   end
     end
 
     def show; end
