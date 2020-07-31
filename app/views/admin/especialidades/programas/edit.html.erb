@@ -1,7 +1,35 @@
 <!-- breadcrumb -->
 <% breadcrumb :programa_edit, @especialidad, @programa %>
-<!-- vista formulario form.html.erb -->
-<div class="col-md-6 mx-auto">
- <h1 class="text-center"><strong>Editar datos del Programa</strong></h1>
- <%= render partial: 'form' %>
+<!-- datos de la especialidad -->
+<%= render partial: 'cabecera_programa' %>
+<!-- Formulario de actualizacion del programa -->
+<div class="row">
+  <!-- titulo -->
+  <div class="w-100">
+    <div class="row mt-3">
+      <div class="col-12">
+        <div class="ibox-content d-flex justify-content-between">
+          <div class="col-md-12 d-flex flex-wrap">
+            <div class="col-12 p-0">
+              <h1>Actualizar Programa</h1>
+              <!-- cuerpo especialidad -->
+              <div class="card border-secondar">
+                <div class="card-header">
+                  <div class="col-12 d-flex justify-content-between p-0">
+                    <div class="col-10 pl-0">
+                      <h4 class="card-subtitle">Creada por: <%= current_user.nombres%> </h4>
+                    </div>
+                  </div>
+                </div>
+                <!-- formulario -->
+                <div class="card-body">
+                  <%= render partial: 'form_new' %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

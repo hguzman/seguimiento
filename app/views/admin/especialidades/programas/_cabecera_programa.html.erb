@@ -2,21 +2,21 @@
   <div class="col-12 p-0">
     <div class="ibox-content d-flex justify-content-between ">
       <div class="col-md-12 d-flex flex-wrap">
-        <h1><strong>Datos especialidad</strong></h1>
+        <h1><strong>Datos del Programa</strong></h1>
         <table class="table">
           <tbody>
             <tr>
               <td>
-                <strong>ID Especialidad:</strong>
-                <%= @especialidad.id %>
+                <strong>ID programa:</strong>
+                <%= @programa.id %>
               </td>
               <td>
                 <strong>Nombre:</strong>
-                <%= @especialidad.nombre %>
+                <%= @programa.nombre %>
               </td>
               <td>
                 <strong>Fecha de creacion:</strong>
-                <%= @especialidad.created_at.strftime("%F %T") %>
+                <%= @programa.created_at.strftime("%F %T") %>
               </td>
             </tr>
           </tbody>
