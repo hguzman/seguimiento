@@ -1,20 +1,34 @@
 <!-- breadcrumbs -->
 <% breadcrumb :admin_tipo_documento_edit, @tipodocumento %>
 
-<div class="container">
- <!-- breadcrumbs-->
- <!-- titulo -->
- <h1>Editar tipo de documento</strong></h1>
- <!-- Formulario edit -->
- <%= simple_form_for @tipodocumento, url: admin_tipo_documento_path do |f| %>
- <%= f.input :nombre, class: "form-control" %>
- <div class="row">
-  <div class="col-md-6">
-   <%= f.button :submit, class: "btn btn-primary btn-lg btn-block" %>
-   <% end %>
+<!-- Formulario de actualizacion de tipo de documento -->
+<div class="row">
+  <!-- titulo -->
+  <div class="w-100">
+    <div class="row mt-3">
+      <div class="col-12">
+        <div class="ibox-content d-flex justify-content-between">
+          <div class="col-md-12 d-flex flex-wrap">
+            <div class="col-12 p-0">
+              <h1><strong>Actualizar Documento</strong></h1>
+              <!-- cuerpo especialidad -->
+              <div class="card border-secondar">
+                <div class="card-header">
+                  <div class="col-12 d-flex justify-content-between p-0">
+                    <div class="col-10 pl-0">
+                      <h4 class="card-subtitle">Creada por: <%= current_user.nombres%> </h4>
+                    </div>
+                  </div>
+                </div>
+                <!-- formulario -->
+                <div class="card-body">
+                  <%= render partial: 'form' %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="col-md-6">
-   <%= link_to "Volver", :back, class: "btn btn-danger btn-lg btn-block" %>
-  </div>
- </div>
 </div>
