@@ -1,29 +1,49 @@
 <!-- breadcrumbs -->
 <% breadcrumb :admin_programa_fichas_show, @ficha %>
-<div class="ibox mt-4 col-md-6 mx-auto">
- <div class="ibox-title">
-  <div class="ibox-tools">
-   <span class="label label-primary float-right">Codigo: <%=@ficha.id%></span>
+<!-- informacion de la especialidad -->
+<%= render partial: 'admin/especialidades/programas/cabecera_programa' %>
+<!-- informacion del programa -->
+<div class="row">
+  <div class="col-12 p-0 w-100">
+    <div class="ibox content">
+      <div clas="row">
+        <div class="col-12 p-0 mt-3">
+          <!--title-->
+          <div class="ibox-title">
+            <h1 class="pl-4"><strong>Información de la ficha</strong></h1>
+          </div>
+          <div class="ibox-content">
+            <!--Datos especialidad-->
+            <div class="info col-12">
+              <div class="card border-secondar">
+                <div class="card-header ">
+                  <h4 class="card-subtitle">ID: <strong><%= @ficha.id%></strong></h4>
+                  <h4 class="card-subtitle">Nombre: <%= @ficha.numero%> </strong></h4>
+                  <h4 class="card-subtitle">Fecha de creacion: <strong><%= @programa.created_at.strftime("%F %T")%></strong></h4>
+                  <h4 class="card-subtitle">Numero aprendices: <strong><%= @ficha.numero_aprendices %></strong></h4>
+                  <h4 class="card-subtitle">Fecha finalizacion: <strong><%= @ficha.fecha_fin_at %></strong></h4>
+                  <h4 class="card-subtitle">Fecha creacion: <strong><%= @ficha.created_at %></strong></h4>
+                  <h4 class="card-subtitle">Programa: <strong><%= @ficha.programa.nombre %></strong></h4>
+                </div>
+              </div>
+            </div>
+            <!--botonera-->
+            <div class="row">
+              <div class="col-12 mt-3 mt-3 d-flex justify-content-between">
+                <div class="col-4">
+                  <%= link_to "volver", admin_programa_fichas_path(@programa), class: "btn btn-primary btn-lg btn-block"  %>
+                </div>
+                <div class="col-4">
+                  <%= link_to "Editar",  edit_admin_programa_ficha_path(@programa), class:"btn btn-primary btn-lg btn-block mb-3"%>
+                </div>
+                <div class="col-4">
+                  <%= link_to "Eliminar",  admin_programa_ficha_path(@programa), method: :delete, data: {confirm: "¿Estas seguro?"}, class:"btn btn-danger btn-lg btn-block"%>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-  <h5>FICHA</h5>
- </div>
- <div class="ibox-content">
-  <h2 class="no-margins ">
-   <span class="font-weight-bold">Ficha numero: </span> <%= @ficha.numero %>
-  </h2>
-  <h2 class="no-margins ">
-   <span class="font-weight-bold">Numero aprendices: </span> <%= @ficha.numero_aprendices %>
-  </h2>
-  <h2 class="no-margins ">
-   <span class="font-weight-bold">Fecha finalizacion: </span> <%= @ficha.fecha_fin_at %>
-  </h2>
-  <h2 class="no-margins ">
-   <span class="font-weight-bold">Programa: </span> <%= @ficha.programa.nombre %>
-  </h2>
-  <div class="row mt-3">
-   <div class="col-md-12">
-    <%= link_to "volver", admin_programa_fichas_path(@programa), class: "btn btn-primary btn-lg btn-block"  %>
-   </div>
-  </div>
- </div>
 </div>

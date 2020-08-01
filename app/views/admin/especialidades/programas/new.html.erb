@@ -1,15 +1,33 @@
-<div class="ibox mt-8 col-md-8 mx-auto">
- <!-- breadcrumbs -->
- <% breadcrumb :programa_new, @especialidad %>
- <!-- titulo de la seccion-->
- <h1 class="ibox-title font-weight-bold text-center pr-3">Crear nuevo Programa</h1>
- <div class="ibox-content p-3 ">
-  <div class="col-12">
-   <!-- en que especialidad va a crear el nuevo programa -->
-   <h1>Especialidad: <%= @especialidad.nombre%></h1>
-   <hr>
-   <!-- formulario _form.html.erb -->
-   <%= render "form" %>
+<!-- breadcrumbs -->
+<% breadcrumb :programa_new, @especialidad %>
+<!-- Informacion de la especialidad -->
+<%= render partial: 'admin/especialidades/cabecera_especialidad' %>
+<!-- Informacion del nuevo programa -->
+<div class="row">
+  <div class="w-100">
+    <div class="row mt-3">
+      <div class="col-12">
+        <div class="ibox-content d-flex justify-content-between">
+          <div class="col-md-12 d-flex flex-wrap">
+            <div class="col-12 p-0">
+              <h1>Crear nuevo Programa</h1>
+              <!-- cuerpo comentario -->
+              <div class="card border-secondar">
+                <div class="card-header">
+                  <div class="col-12 d-flex justify-content-between p-0">
+                    <div class="col-10 pl-0">
+                      <h4 class="card-subtitle">Creada por: <%= current_user.nombres%> </strong> </h4>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <%= render partial: 'form_new' %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
- </div>
 </div>

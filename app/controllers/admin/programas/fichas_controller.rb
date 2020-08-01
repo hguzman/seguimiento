@@ -8,12 +8,15 @@ module Admin
       before_action :set_ficha, only: %i[show edit update destroy]
 
       def index
-        @fichas = if params[:q].present?
-                    @programa.fichas.where('cast(fichas.numero as text) ilike
-                    :q', q: "%#{params[:q]}%").page params[:page]
-                  else
-                    @programa.fichas.page params[:page]
-                  end
+        if params[:q].present?
+          if params[:q].include? ':'
+            @fichas = @programa.fichas.where('cast(id as text) ilike :q', q: "%#{params[:q].gsub(":","").to_i}%").order(id: :asc).page params[:page]
+          else
+            @fichas = @programa.fichas.where('cast(id as text) ilike :q or cast(created_at as text) ilike :q or cast(numero as text) ilike :q or cast(numero_aprendices as text) ilike :q or cast(fecha_fin_at as text) ilike :q', q: "%#{params[:q]}%").order(id: :asc).page params[:page]
+          end
+        else
+          @fichas = @programa.fichas.page params[:page]
+        end
       end
 
       def new

@@ -8,14 +8,8 @@
   <td>
     <%= tipodocumento.created_at.strftime("%F %T") %>
   </td>
-  <td>
-    <div class="row">
-      <div class="col-md-6">
-        <%= link_to "Editar", edit_admin_tipo_documento_path(tipodocumento), class:"btn btn-primary btn-xs btn-block" %>
-      </div>
-      <div class="col-md-6">
-        <%= link_to "Eliminar", admin_tipo_documento_path(tipodocumento), method: :delete, data: {confirm: "¿Estas seguro?"}, class:"btn btn-danger btn-xs btn-block"%>
-      </div>
-    </div>
+  <td class="d-flex justify-content-between">
+      <%= link_to "Editar", edit_admin_tipo_documento_path(tipodocumento), class:"btn btn-primary btn-xs btn-block col-5 m-0" %>
+      <%= link_to "Eliminar", admin_tipo_documento_path(tipodocumento), method: :delete, data: {confirm: "¿Estas seguro?"}, class:"btn btn-danger btn-xs btn-block col-5 m-0"%>
   </td>
 </tr>

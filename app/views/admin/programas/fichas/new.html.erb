@@ -1,15 +1,32 @@
-<div class="ibox mt-8 col-md-8 mx-auto">
- <!-- breadcrumbs -->
- <% breadcrumb :admin_programa_fichas_new, @programa %>
- <!-- titulo de la seccion-->
- <h1 class="ibox-title font-weight-bold text-center pr-3">Crear nueva Ficha</h1>
- <div class="ibox-content p-3 ">
-  <div class="col-12">
-   <!-- en que programa va a crear la nueva ficha -->
-   <h1>Especialidad: <%= @programa.nombre%></h1>
-   <hr>
-   <!-- formulario _firm.html.erb -->
-   <%= render "form" %>
+<!-- breadcrumbs -->
+<% breadcrumb :admin_programa_fichas_new, @programa %>
+<!-- Informacion de la especialidad -->
+<%= render partial: 'admin/especialidades/programas/cabecera_programa' %>
+<!-- formulario creacio nueva ficha -->
+<div class="row">
+  <div class="w-100">
+    <div class="row mt-3">
+      <div class="col-12">
+        <div class="ibox-content d-flex justify-content-between">
+          <div class="col-md-12 d-flex flex-wrap">
+            <div class="col-12 p-0">
+              <h1>Crear nueva ficha</h1>
+              <div class="card border-secondar">
+                <div class="card-header">
+                  <div class="col-12 d-flex justify-content-between p-0">
+                    <div class="col-10 pl-0">
+                      <h4 class="card-subtitle">Creada por: <%= current_user.nombres%> </strong> </h4>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <%= render partial: 'form' %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
- </div>
 </div>

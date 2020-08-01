@@ -37,6 +37,14 @@
         <i class="fa fa-laptop"></i> <span class="nav-label">Inicio</span>
         <% end %>
       </li>
+      <!-- anotaciones Aprendiz-->
+      <% if current_user.has_role? :aprendiz %>
+        <li class="<%= 'active' if current_page?('/user/anotaciones') %>">
+          <%= link_to user_anotaciones_path(user_id: current_user.id) do %> <i class="fa fa-users">
+            </i> <span class="nav-label">Anotaciones</span>
+          <% end %>
+        </li>
+      <% end %>
       <!-- anotaciones ambientes y aprendices solo instructor-->
       <% if policy(:user).index? %>
 				<li class="<%= 'active' if current_page?('/users') %>">

@@ -4,7 +4,9 @@
     <div class="w-100">
       <!-- infor usuario -->
       <div class="row">
-        <%= render partial: 'cabecera' %>
+        <% if current_user.has_role? :instructor  %>
+          <%= render partial: 'cabecera' %>
+        <% end %>
       </div>
       <!-- listado de las anotaciones del aprendiz -->
       <div class="ibox mt-3">
@@ -32,7 +34,11 @@
               </tr>
             </thead>
             <tbody>
-              <%= render @anotaciones %>
+              <% if  current_user.has_role? :instructor%>
+                <%= render @anotaciones %>
+              <% else %>
+                <%= render partial: 'anotacion', collection: @anotaciones %>
+              <% end %>
             </tbody>
           </table>
           <%= paginate @anotaciones, theme: 'twitter-bootstrap-4' %>

@@ -10,14 +10,12 @@ class UsersController < ApplicationController
   def index
     authorize User
     if params[:q].present?
-      @users = User.where(
-        'ndocumento ilike :q or nombres ilike :q or apellidos ilike :q',
-        q: "%#{params[:q]}%"
-      ).page params[:page]
+      @users = User.includes(:ficha).with_role(:aprendiz).where('cast(numero as text) ilike
+      :q', q: "%#{params[:q]}%").references(:ficha).or(User.includes(
+        :ficha).with_role(:aprendiz).where('ndocumento ilike :q or nombres
+        ilike :q or apellidos ilike :q', q: "%#{params[:q]}%").references(:ficha)).page params[:page]
     elsif current_user.has_role? :instructor
       @users = User.with_role(:aprendiz).page params[:page]
-    else
-      @users = User.all.page params[:page]
     end
     respond_to do |format|
       format.html
@@ -48,20 +46,24 @@ class UsersController < ApplicationController
     if @user.update_with_password(user_params)
       # Sign in the user by passing validation in case their password changed
       bypass_sign_in(@user)
-      flash[:success] = 'Contraseña Actualizada'
+      # flash[:success] = 'Contraseña Actualizada'
+      flash[:success] = t('.success')
       redirect_to '/'
     else
-      flash[:alert] = 'Error al Actualizar'
+      # flash[:alert] = 'Error al Actualizar'
+      flash[:alert] = t('.alert')
       render 'change_password'
     end
   end
 
   def update
     if current_user.update(user_params)
-      flash[:success] = 'Registro Actualizado'
+      # flash[:success] = 'Registro Actualizado'
+      flash[:success] = t('.success')
       redirect_to edit_user_registration_path
     else
-      flash[:alert] = 'Error al Actualizar'
+      # flash[:alert] = 'Error al Actualizar'
+      flash[:alert] = t('.alert')
       redirect_to edit_user_registration_path
     end
   end
