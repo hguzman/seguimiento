@@ -50,7 +50,7 @@
                     <% if current_user.has_role? :instructor %>
                       <%= link_to "Volver", users_path, class: "btn btn-danger btn-block"  %>
                     <% elsif current_user.has_role? :aprendiz %>
-                      <%= link_to "Volver", root_path, class: "btn btn-danger btn-block"  %>
+                      <%= link_to "Volver", user_anotaciones_path(user_id: current_user.id), class: "btn btn-danger btn-block" %>
                     <% end %>
                   </div>
                 </div>
