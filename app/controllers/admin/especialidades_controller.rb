@@ -5,6 +5,7 @@ module Admin
     before_action :authenticate_user!
     before_action :set_especialidad, only: %i[show edit update destroy]
     respond_to :html
+    respond_to :js
 
     def index
       # authorize Especialidad
@@ -17,22 +18,12 @@ module Admin
       else
         @especialidades = Especialidad.all.page params[:page]
       end
-      # @especialidades = if params[:q].present?
-      #                     Especialidad.where('nombre ilike :q', q:
-      #                     "%#{params[:q]}%").page params[:page]
-      #                   else
-      #                     Especialidad.all.page params[:page]
-      #                   end
     end
 
     def show; end
 
     def new
       @especialidad = Especialidad.new
-      respond_to do |f|
-        # f.html
-        f.js
-      end
     end
 
     def create
@@ -41,8 +32,8 @@ module Admin
         flash[:success] = t('.success')
         respond_with :admin, @especialidad
       else
-        flash[:alert] = t('.alert')
-        render 'new'
+        flash[:alert] = t('alert')
+        respond_with :admin, :especialidades
       end
     end
 
@@ -54,7 +45,7 @@ module Admin
         flash[:success] = t('.success')
         respond_with :admin, @especialidad
       else
-        flash[:alert] = t(`'alert'`)
+        flash[:alert] = t('alert')
         render 'edit'
       end
     end

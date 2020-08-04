@@ -16,12 +16,6 @@ module Admin
       else
         @tipodocumentos =  Tipodocumento.page params[:page]
       end
-      # @tipodocumentos = if params[:q].present?
-      #                     Tipodocumento.where('nombre ilike :q', q:
-      #                       "%#{params[:q]}%").page params[:page]
-      #                   else
-      #                     Tipodocumento.all.page params[:page]
-      #                   end
     end
 
     def show; end

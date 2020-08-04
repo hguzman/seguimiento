@@ -9,7 +9,7 @@
         </div>
         <div class="modal-body">
           <%= simple_form_for [:admin, @especialidad] do |f| %>
-          <%= f.input :nombre, class: "form-control", label: false %>
+          <%= f.input :nombre, required: true, class: "form-control", label: false %>
           <%= f.button :submit, class: "btn btn-primary"%>
           <% end %>
         </div>
