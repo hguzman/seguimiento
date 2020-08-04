@@ -67,6 +67,12 @@ module Anotaciones
       end
     end
 
+    def destroy
+      @comentario.destroy
+      flash[:success] = t('.success')
+      respond_with @anotacion, :comentarios
+    end
+
     private
 
     def set_anotacion
