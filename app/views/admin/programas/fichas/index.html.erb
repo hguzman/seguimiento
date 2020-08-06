@@ -39,16 +39,9 @@
         </table>
         <%= paginate @fichas, theme: 'twitter-bootstrap-4' %>
         <hr>
-        <div class="row">
-          <div class="col-md-4">
-            <%= link_to "nueva ficha", new_admin_programa_ficha_path(@programa), class: "btn btn-primary btn-lg btn-block"  %>
-          </div>
-          <div class="col-md-4">
-            <%= link_to "Programas", admin_especialidad_programas_path(@programa.especialidad), class: "btn btn-primary btn-lg btn-block"  %>
-          </div>
-          <div class="col-md-4">
-            <%= link_to "Especialidades", admin_especialidades_path, class: "btn btn-danger btn-lg btn-block" %>
-          </div>
+        <div class="row d-flex justify-content-between mx-1">
+          <%= link_to "nueva ficha", new_admin_programa_ficha_path(@programa), class: "btn btn-primary btn-lg btn-block col-4" %>
+          <%= link_to "Programas", admin_especialidad_programas_path(@programa.especialidad), class: "btn btn-danger btn-block col-4 m-0" %>
         </div>
       </div>
     </div>

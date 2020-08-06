@@ -1,31 +1,50 @@
-<div class="container">
-    <!-- breadcrumbs -->
-    <% breadcrumb :admin_ambiente_show, @ambiente %>
-    <div class="ibox mt-4 col-md-12 ">
-        <div class="ibox-title">
-            <h1>Ambientes</h1>
-        </div>
-        <div class="ibox-content ">
-            <h2 class="no-margins ">
-                <span class="font-weight-bold">Nombre: </span>
-                <%= @ambiente.nombre %>
-            </h2>
-            <h2 class="no-margins ">
-                <span class="font-weight-bold">Descripcion: </span>
-                <%= @ambiente.descripcion %>
-            </h2>
-            <br>
-            <div class="row">
-                <div class="col-md-4">
-                    <%= link_to "Editar ", edit_admin_ambiente_path(@ambiente), class:"btn btn-primary btn-lg btn-block"%>
-                </div>
-                <div class="col-md-4">
-                    <%= link_to "Eliminar", admin_ambiente_path(@ambiente), method: :delete, data: {confirm: "¿Estas seguro?"}, class:"btn btn-danger btn-lg btn-block"%>
-                </div>
-                <div class="col-md-4">
-                    <%= link_to "Volver", admin_ambientes_path, class: "btn btn-info btn-lg btn-block" %>
-                </div>
+<!-- breadcrumbs -->
+<% breadcrumb :admin_ambiente_show, @ambiente %>
+<!-- informacion del programa -->
+<div class="row">
+  <div class="col-12 p-0 w-100">
+    <div class="ibox content">
+      <div clas="row">
+        <div class="col-12 p-0 mt-3">
+          <!--title-->
+          <div class="ibox-title d-flex justify-content-between pr-5">
+            <div>
+              <h1 class="pl-4"><strong>Información del ambiente</strong></h1>
             </div>
+            <div class="d-flex align-items-center">
+              <%= link_to admin_ambiente_path(@ambiente), method: :delete, data: {confirm: "¿Estas seguro?"} do%>
+                <img src="/assets/icoeliminar.png" alt="icono eliminar">
+              <% end %>
+            </div>
+          </div>
+          <div class="ibox-content">
+            <!--Datos especialidad-->
+            <div class="info col-12">
+              <div class="card border-secondar">
+                <div class="card-header ">
+                  <h4 class="card-subtitle">ID: <strong><%= @ambiente.id%></strong></h4>
+                  <h4 class="card-subtitle">Nombre: <%= @ambiente.nombre%> </strong>
+                    <h4 class="card-subtitle">Fecha de creacion: <strong><%= @ambiente.created_at.strftime("%F %T")%></strong></h4>
+                    <h4 class="card-subtitle">Descripcion: <%= @ambiente.descripcion%> </strong>
+                  </h4>
+                </div>
+              </div>
+            </div>
+            <!--botonera-->
+            <div class="row">
+              <div class="col-12 mt-3 mt-3 d-flex justify-content-between">
+                <div class="col-4">
+                  <%= link_to "Editar ", edit_admin_ambiente_path(@ambiente), class:"btn btn-primary btn-lg btn-block"%>
+                </div>
+                <div class="col-4">
+                  <%= link_to "Volver", admin_ambientes_path, class: "btn btn-danger btn-lg btn-block" %>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </div>
+

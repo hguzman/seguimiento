@@ -1,29 +1,33 @@
 <!-- breadcrumbs -->
 <% breadcrumb :admin_ambiente_edit, @ambiente %>
-<div class="ibox mt-4 col-md-12 mx-auto">
- <div class="row">
-  <h1>NUEVO AMBIENTE</h1>
- </div>
- <div class="row">
-  <div class="col-12">
-   <%= simple_form_for [:admin, @ambiente] do |f| %>
-   <div class="row">
-    <div class="col">
-     <%= f.input :nombre, class: "form-control" %>
+<!-- Formulario de actualizacion del programa -->
+<div class="row">
+  <!-- titulo -->
+  <div class="w-100">
+    <div class="row mt-3">
+      <div class="col-12">
+        <div class="ibox-content d-flex justify-content-between">
+          <div class="col-md-12 d-flex flex-wrap">
+            <div class="col-12 p-0">
+              <h1>Actualizar ambiente</h1>
+              <!-- cuerpo ambiente -->
+              <div class="card border-secondar">
+                <div class="card-header">
+                  <div class="col-12 d-flex justify-content-between p-0">
+                    <div class="col-10 pl-0">
+                      <h4 class="card-subtitle">Creado por: <%= current_user.nombres%> </h4>
+                    </div>
+                  </div>
+                </div>
+                <!-- formulario -->
+                <div class="card-body">
+                  <%= render partial: 'form' %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="col">
-     <%= f.input :descripcion, class: "form-control" %>
-    </div>
-   </div>
-   <div class="row">
-    <div class="col-6">
-     <%= f.button :submit, class: "btn btn-primary btn-lg btn-block" %>
-    </div>
-    <div class="col-6">
-     <%= link_to "Volver", :back, class: "btn btn-danger btn-lg btn-block" %>
-    </div>
-   </div>
-   <% end %>
   </div>
- </div>
 </div>

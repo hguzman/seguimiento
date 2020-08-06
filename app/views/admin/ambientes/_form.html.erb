@@ -1,5 +1,6 @@
-<%= simple_form_for [:admin, @especialidad, @programa] do |f| %>
-  <%= f.input :nombre, label: false %>
+<%= simple_form_for [:admin, @ambiente] do |f| %>
+  <%= f.input :nombre, label: false, class: "form-control" %>
+  <%= f.input :descripcion, label: false, class: "form-control" %>
   <div class="d-flex flex-row justify-content-between">
     <%= f.button :submit, class: "btn btn-primary btn-block col-4 " %>
     <%= link_to "Volver", :back, class: "btn btn-danger btn-block col-4 m-0" %>
