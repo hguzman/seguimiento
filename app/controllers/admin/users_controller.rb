@@ -14,8 +14,7 @@ module Admin
           @users = User.where('cast(ndocumento as text) ilike :q or cast(created_at as text) ilike :q or cast(nombres as text) ilike :q or cast(apellidos as text) ilike :q', q: "%#{params[:q]}%").order(id: :asc)
         end
       elsif current_user.has_role? :admin
-        # @anotaciones = @user.anotaciones.order(id: :asc).page params[:page]
-        @users = User.all
+        @users = User.order(id: :asc).page params[:page]
       end
     end
 

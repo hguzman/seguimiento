@@ -17,7 +17,7 @@ module Admin
           @programas = @especialidad.programas.where('cast(id as text) ilike :q or cast(created_at as text) ilike :q or nombre ilike :q', q: "%#{params[:q]}%").order(id: :asc).page params[:page]
           end
         else
-          @programas = @especialidad.programas.page params[:page]
+          @programas = @especialidad.programas.order(id: :asc).page params[:page]
         end
       end
 
