@@ -12,14 +12,21 @@
       <div class="ibox mt-3">
         <div class="ibox-title d-flex justify-content-between align-items-center pr-3">
           <h1>Listado anotaciones</h1>
-          <form action="<%= user_anotaciones_path %>" method="GET" class="d-flex justify-content-between align-items-center">
-            <div class="input-group">
-              <input type="text" class="form-control" placeholder="Buscar.." aria-label="Recipient's username" aria-describedby="button-addon2" name="q" value="<%= @q %>">
-              <div class="input-group-append">
-                <button class="btn btn-primary" type="submit" id="button-addon2"><i class="fa fa-search"></i></button>
-              </div>
+          <div class="d-flex justify-content-between">
+            <div class="mr-4">
+              <%= link_to admin_ambientes_path(format: :xlsx) do %>
+                <img src="/assets/msexcel_svg.svg" alt="icono generar excel">
+              <% end %>
             </div>
-          </form>
+            <form action="<%= user_anotaciones_path %>" method="GET" class="d-flex justify-content-between align-items-center">
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="Buscar.." aria-label="Recipient's username" aria-describedby="button-addon2" name="q" value="<%= @q %>">
+                <div class="input-group-append">
+                  <button class="btn btn-primary" type="submit" id="button-addon2"><i class="fa fa-search"></i></button>
+                </div>
+              </div>
+            </form>
+          </div>
         </div>
         <!-- detalle tabla anotaciones -->
         <div class="ibox-content">
