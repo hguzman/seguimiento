@@ -9,8 +9,15 @@
       <div clas="row">
         <div class="col-12 p-0 mt-3">
           <!--title-->
-          <div class="ibox-title">
-            <h1 class="pl-4"><strong>Información de la ficha</strong></h1>
+          <div class="ibox-title d-flex justify-content-between pr-5">
+            <div>
+              <h1 class="pl-4"><strong>Información de la ficha</strong></h1>
+            </div>
+            <div class="d-flex align-items-center">
+              <%= link_to admin_programa_ficha_path(@programa), method: :delete, data: {confirm: "¿Estas seguro?"} do%>
+                <img src="/assets/icoeliminar.png" alt="icono eliminar">
+              <% end %>
+            </div>
           </div>
           <div class="ibox-content">
             <!--Datos especialidad-->
@@ -19,11 +26,9 @@
                 <div class="card-header ">
                   <h4 class="card-subtitle">ID: <strong><%= @ficha.id%></strong></h4>
                   <h4 class="card-subtitle">Nombre: <%= @ficha.numero%> </strong></h4>
-                  <h4 class="card-subtitle">Fecha de creacion: <strong><%= @programa.created_at.strftime("%F %T")%></strong></h4>
+                  <h4 class="card-subtitle">Fecha de creacion: <strong><%= @ficha.created_at.strftime("%F %T")%></strong></h4>
                   <h4 class="card-subtitle">Numero aprendices: <strong><%= @ficha.numero_aprendices %></strong></h4>
                   <h4 class="card-subtitle">Fecha finalizacion: <strong><%= @ficha.fecha_fin_at %></strong></h4>
-                  <h4 class="card-subtitle">Fecha creacion: <strong><%= @ficha.created_at %></strong></h4>
-                  <h4 class="card-subtitle">Programa: <strong><%= @ficha.programa.nombre %></strong></h4>
                 </div>
               </div>
             </div>
@@ -31,13 +36,10 @@
             <div class="row">
               <div class="col-12 mt-3 mt-3 d-flex justify-content-between">
                 <div class="col-4">
-                  <%= link_to "volver", admin_programa_fichas_path(@programa), class: "btn btn-primary btn-lg btn-block"  %>
-                </div>
-                <div class="col-4">
                   <%= link_to "Editar",  edit_admin_programa_ficha_path(@programa), class:"btn btn-primary btn-lg btn-block mb-3"%>
                 </div>
                 <div class="col-4">
-                  <%= link_to "Eliminar",  admin_programa_ficha_path(@programa), method: :delete, data: {confirm: "¿Estas seguro?"}, class:"btn btn-danger btn-lg btn-block"%>
+                  <%= link_to "volver", admin_programa_fichas_path(@programa), class: "btn btn-danger btn-lg btn-block"  %>
                 </div>
               </div>
             </div>

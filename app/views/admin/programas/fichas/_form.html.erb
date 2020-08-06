@@ -1,7 +1,7 @@
 <%= simple_form_for [:admin, @programa, @ficha] do |f| %>
-<%= f.input :numero, label: false %>
-<%= f.input :numero_aprendices, class: "form-control", label: false %>
-<%= f.input :fecha_fin_at, as: :date, html5: true, label: 'Fecha finalizacion' %>
+<%= f.input :numero, required: true, label: false %>
+<%= f.input :numero_aprendices, required: true, class: "form-control", label: false %>
+<%= f.input :fecha_fin_at, as: :date, required: true, html5: true, label: 'Fecha finalizacion' %>
 <div class="row">
   <!-- botones -->
   <!-- Boton nueva ficha -->

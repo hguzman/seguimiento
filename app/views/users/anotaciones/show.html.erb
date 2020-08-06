@@ -18,11 +18,17 @@
           <div class="ibox-content">
             <div class="info col-12">
               <div class="card border-secondar">
-                <div class="card-header ">
-                  <h4 class="card-title">Anotacion ID: <strong><%= @anotacion.id%></strong></h4>
-                  <h4 class="card-subtitle">Fecha de creacion: <strong><%= @anotacion.created_at.strftime("%F %T")%></strong></h4>
-                  <h4 class="card-subtitle">Creada por: </strong>
-                  </h4>
+                <div class="card-header d-flex justify-content-between">
+                  <div class="card-subtitle">
+                    <h4>Anotacion ID: <strong><%= @anotacion.id%></strong></h4>
+                    <h4>Fecha de creacion: <strong><%= @anotacion.created_at.strftime("%F %T")%></strong></h4>
+                    <h4>Creada por: </strong> </h4>
+                  </div>
+                  <div class="card-subtitle d-flex align-items-center">
+                    <%= link_to user_anotacion_path(@user, @anotacion), method: :delete, data: {confirm: "¿Estas seguro?"} do%>
+                      <img src="/assets/icoeliminar.png" alt="icono eliminar">
+                    <% end %>
+                  </div>
                 </div>
                 <div class="card-body">
                   <h4 class="card-subtile">Descripcion:</h4>
@@ -36,14 +42,10 @@
             <div class="row">
               <div class="col-12 mt-3 mt-3 d-flex justify-content-between">
                 <div class="col-4">
-                  <%= link_to "Volver", user_anotaciones_path, class: "btn btn-primary btn-block" %>
-                </div>
-                <div class="col-4">
                   <%= link_to "Editar", edit_user_anotacion_path(@user, @anotacion), class: "btn btn-primary btn-block" %>
                 </div>
                 <div class="col-4">
-                  <%#= link_to "Eliminar", user_anotacion_path(@user, @anotacion), method: :delete, data: {confirm: "¿Estas seguro?"}, class:"btn btn-danger btn-block"%>
-                    <button class="btn btn-danger btn-block" type="button">Cerrar</button>
+                  <%= link_to "Volver", user_anotaciones_path, class: "btn btn-danger btn-block"%>
                 </div>
               </div>
             </div>

@@ -9,8 +9,15 @@
       <div clas="row">
         <div class="col-12 p-0 mt-3">
           <!--title-->
-          <div class="ibox-title">
-            <h1 class="pl-4"><strong>Información del programa</strong></h1>
+          <div class="ibox-title d-flex justify-content-between pr-5">
+            <div>
+              <h1 class="pl-4"><strong>Información del programa</strong></h1>
+            </div>
+            <div class="d-flex align-items-center">
+              <%= link_to admin_especialidad_programa_path(@especialidad, @programa), method: :delete, data: {confirm: "¿Estas seguro?"} do%>
+                <img src="/assets/icoeliminar.png" alt="icono eliminar">
+              <% end %>
+            </div>
           </div>
           <div class="ibox-content">
             <!--Datos especialidad-->
@@ -32,9 +39,6 @@
                 </div>
                 <div class="col-4">
                   <%= link_to "Editar", edit_admin_especialidad_programa_path(@especialidad, @programa), class:"btn btn-primary btn-lg btn-block mb-3"%>
-                </div>
-                <div class="col-4">
-                  <%= link_to "Eliminar", admin_especialidad_programa_path(@especialidad, @programa), method: :delete, data: {confirm: "¿Estas seguro?"}, class:"btn btn-danger btn-lg btn-block"%>
                 </div>
               </div>
             </div>

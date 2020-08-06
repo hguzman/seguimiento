@@ -1,15 +1,18 @@
 es:
-  create:
-    success: Ficha creada de manera correcta.
-    alert: Problemas con la creación del ficha.
-  update:
-    success: Se acualizo de manera correcta el ficha.
-    alert: Problemas con la actualizacion del ficha.
-  destroy:
-    success: Se elimino la ficha de manera correcta.
-  simple_form:
-    placeholders:
-          ficha:
-              numero: 'Escribe aquí el nuevo ficha'
-              numero_aprendices: 'Escribe aquí el numero de aprendices'
-              create_at: 'fecha de creacion'
+  admin:
+    programas:
+          fichas:
+            create:
+              success: Ficha creada de manera correcta.
+              alert: Problemas con la creación del ficha.
+            update:
+              success: Se acualizo de manera correcta el ficha.
+              alert: Problemas con la actualizacion del ficha.
+            destroy:
+              success: Se elimino la ficha de manera correcta.
+            simple_form:
+              placeholders:
+                    ficha:
+                        numero: 'Escribe aquí el nuevo ficha'
+                        numero_aprendices: 'Escribe aquí el numero de aprendices'
+                        create_at: 'fecha de creacion'
