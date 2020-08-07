@@ -43,13 +43,8 @@
         </table>
         <hr>
         <%= paginate @users, theme: 'twitter-bootstrap-4' %>
-        <div class="row d-flex justify-content-between">
-          <div class="col-md-4">
-            <%= link_to "Volver", root_path, class: "btn btn-danger btn-lg btn-block" %>
-          </div>
-          <div class="col-md-4">
-            <%= link_to 'Generar excel', users_path(format: :xlsx), class: "btn btn-primary btn-lg btn-block" %>
-          </div>
+        <div class="row d-flex justify-content-start pl-3">
+            <%= link_to "Volver", root_path, class: "btn btn-danger btn-lg btn-block col-4" %>
         </div>
       </div>
     </div>

@@ -1,35 +1,50 @@
 <!-- breadcrumbs -->
 <%breadcrumb :ambiente_anotacion_show, @anotacion, @ambiente %>
-<div class="ibox mt-4 col-md-12 ">
- <div class="ibox-title">
-  <h1>Informacion de la anotación</h1>
- </div>
- <div class="ibox-content ">
-  <div class="info col-md-4 mx-auto">
-   <div class="card">
-    <div class="card-body">
-     <h4 class="card-title">ID Ambiente: <%= @ambiente.id%> </h4>
-     <h4 class="card-title">Nombre Ambiente: <%= @ambiente.nombre%></h4>
+<!-- datos ambiente -->
+<%= render partial: 'cabecera' %>
+<!-- Formulario de show -->
+<div class="row">
+  <div class="col-12 p-0 w-100">
+    <div class="ibox content">
+      <!-- datos anotacion -->
+      <div clas="row">
+        <div class="col-12 p-0 mt-3">
+          <!--title-->
+          <div class="ibox-title d-flex justify-content-between pr-4">
+            <h1 class="pl-4"><strong>Información de la anotación</strong></h1>
+            <div class="card-subtitle d-flex align-items-center p-2">
+              <%= link_to ambiente_anotacion_path(@ambiente, @anotacion), method: :delete, data: {confirm: "¿Estas seguro?"} do%>
+                <img src="/assets/icoeliminar.png" alt="icono eliminar">
+              <% end %>
+            </div>
+          </div>
+          <!--Anotacion -->
+          <div class="ibox-content">
+            <div class="info col-12">
+              <div class="card border-secondar">
+                <div class="card-header">
+                  <div class="card-subtitle">
+                    <h4>Anotacion ID: <strong><%= @anotacion.id%></strong></h4>
+                    <h4>Fecha de creacion: <strong><%= @anotacion.created_at.strftime("%F %T")%></strong></h4>
+                    <h4>Creada por: </strong> </h4>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <h4 class="card-subtile">Descripcion:</h4>
+                  <p class="card-text">
+                    <%= @anotacion.descripcion%>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!--botonera-->
+            <div class="row d-flex justify-content-between mt-2 px-2 mx-1">
+              <%= link_to "Editar", edit_ambiente_anotacion_path(@ambiente, @anotacion), class: "btn btn-primary btn-block col-4" %>
+              <%= link_to "volver", ambiente_anotaciones_path, class: "btn btn-danger btn-block col-4 m-0" %>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="card-footer">
-     <h4 class="card-title">ID Anotacion: <%= @anotacion.id%> </h4>
-     <h4 class="card-title">Descripcion Anotacion: <%= @anotacion.descripcion%></h4>
-    </div>
-   </div>
   </div>
-  <hr>
-  <div class="row">
-   <div class="col-md-12 d-flex justify-content-around mb-3">
-    <div class="">
-     <%= link_to "volver", ambiente_anotaciones_path, class: "btn btn-primary btn-lg" %>
-    </div>
-    <div class="">
-     <%= link_to "Editar", edit_ambiente_anotacion_path(@ambiente, @anotacion), class: "btn btn-primary btn-lg" %>
-    </div>
-    <div class="">
-     <%= link_to "Eliminar", ambiente_anotacion_path(@ambiente, @anotacion), method: :delete, data: {confirm: "¿Estas seguro?"}, class:"btn btn-danger btn-lg"%>
-    </div>
-   </div>
-  </div>
- </div>
 </div>

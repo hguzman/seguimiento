@@ -52,9 +52,11 @@
             <hr />
             <!-- Botones volver y nueva anotacion -->
             <div class="row d-flex justify-content-between">
-              <div class="col-md-3">
-                <%= link_to "Nueva Anotacion", new_user_anotacion_path, class: "btn btn-primary btn-block"  %>
-              </div>
+              <% if current_user.has_role? :instructor %>
+                <div class="col-md-3">
+                  <%= link_to "Nueva Anotacion", new_user_anotacion_path, class: "btn btn-primary btn-block"  %>
+                </div>
+              <% end %>
               <div class="col-md-3">
                 <%= link_to "Volver", users_path, class: "btn btn-danger btn-block"  %>
               </div>

@@ -1,8 +1,24 @@
 <tr>
-  <td><%= link_to anotacion.id, ambiente_anotacion_path(@ambiente, anotacion) %></td>
-  <td><%= anotacion.descripcion %></td>
-  <td><%= l anotacion.created_at, format: :long%></td>
   <td>
-    <h5 class="btn btn-primary btn-lg m-0">Comentarios</h5>
+    <%= link_to anotacion.id, ambiente_anotacion_path(@ambiente, anotacion) %>
+  </td>
+  <td>
+    <span class="text-overflow-dynamic-container">
+      <span class="text-overflow-dynamic-ellipsis">
+        <%= anotacion.descripcion %>
+      </span>
+    </span>
+  </td>
+  <td class="text-center">
+    <%= anotacion.created_at.strftime("%F %T")%>
+  </td>
+  <td class="text-center">
+    <%= anotacion.creator.nombres %>
+    <%= anotacion.creator.apellidos %>
+  </td>
+  <td>
+    <div class="row d-flex justify-content-center">
+        <%= link_to "Comentarios", anotacion_comentarios_path(anotacion), class: "btn btn-primary btn-block col-6" %>
+    </div>
   </td>
 </tr>

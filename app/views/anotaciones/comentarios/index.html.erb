@@ -34,7 +34,6 @@
                 <th class="text-center">Creado por</th>
                 <th class="text-center">Fecha de actualizacion</th>
                 <th class="text-center">Accion</th>
-                <!-- <th class="text-center">Acción</th> -->
               </tr>
             </thead>
             <tbody>
@@ -49,8 +48,11 @@
             </div>
             <div class="col-3 pr-0">
               <% if current_user.has_role? :instructor %>
-                <%#= link_to "Volver", users_path, class: "btn btn-danger btn-block"  %>
-                <%= link_to "Volver", user_anotaciones_path(user_id: @anotacion.anotable_id), class: "btn btn-danger btn-block" %>
+                <% if  @anotacion.anotable_type == "Ambiente" %>
+                  <%= link_to "Volver", ambiente_anotaciones_path(ambiente_id: @anotacion.anotable_id), class: "btn btn-danger btn-block" %>
+                <% else %>
+                  <%= link_to "Volver", user_anotaciones_path(user_id: @anotacion.anotable_id), class: "btn btn-danger btn-block" %>
+                <% end %>
               <% elsif current_user.has_role? :aprendiz %>
                 <%= link_to "Volver", user_anotaciones_path(user_id: current_user.id), class: "btn btn-danger btn-block" %>
               <% end %>

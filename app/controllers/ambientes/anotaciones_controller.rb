@@ -6,9 +6,10 @@ module Ambientes
     respond_to :html
     before_action :set_ambiente
     before_action :set_anotacion, only: %i[show edit update destroy]
+    before_action :set_operator, only: %i[create update]
 
     def index
-      @anotaciones = @ambiente.anotaciones
+      @anotaciones = @ambiente.anotaciones.order(id: :asc).page params[:page]
     end
 
     def show; end
@@ -40,6 +41,12 @@ module Ambientes
       end
     end
 
+    def destroy
+      @anotacion.destroy
+      flash[:success] = t('.success')
+      respond_with @ambiente, :anotaciones
+    end
+
     private
 
     def set_anotacion
@@ -48,6 +55,10 @@ module Ambientes
 
     def set_ambiente
       @ambiente = Ambiente.find(params[:ambiente_id])
+    end
+
+    def set_operator
+      OperatorRecordable.operator = current_user
     end
 
     def anotacion_params

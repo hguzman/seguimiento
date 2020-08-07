@@ -5,7 +5,7 @@ module Users
   class AnotacionesController < ApplicationController
     before_action :authenticate_user!
     before_action :set_user
-    before_action :set_anotacion, only: %i[show edit update destroy notificar]
+    before_action :set_anotacion, only: %i[show edit update destroy]
     before_action :set_operator, only: %i[create update]
     respond_to :html
 
