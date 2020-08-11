@@ -1,0 +1,7 @@
+wb = xlsx_package.workbook
+wb.add_worksheet(name: "Listado de usuarios") do |sheet|
+sheet.add_row ['Id', 'Documento', 'Fecha de creacion', 'Documento', 'Ficha', 'Programa', 'Especialidad', 'Rol' ]
+@users.each do |user|
+    sheet.add_row [user.id, user.nombres, user.apellidos, user.ndocumento, user.created_at, user.ficha.numero, user.ficha.programa.nombre, user.roles.map{|s| s[:name]}.first]
+  end
+end

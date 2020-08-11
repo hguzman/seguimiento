@@ -1,0 +1,7 @@
+wb = xlsx_package.workbook
+wb.add_worksheet(name: "Fichas") do |sheet|
+sheet.add_row ['Id', 'Codigo', 'Numero Aprendices', 'Programa', 'Termina el' ]
+@fichas.each do |ficha|
+    sheet.add_row [ficha.id, ficha.numero, ficha.numero_aprendices, ficha.programa.nombre, ficha.fecha_fin_at]
+  end
+end

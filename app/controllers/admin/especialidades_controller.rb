@@ -11,12 +11,22 @@ module Admin
       # authorize Especialidad
       if params[:q].present?
         if params[:q].include? ':'
-        @especialidades = Especialidad.where('cast(id as text) ilike :q', q: "%#{params[:q].gsub(":","").to_i}%").order(id: :asc).page params[:page]
+          @especialidades = Especialidad.where('cast(id as text) ilike :q', q: "%#{params[:q].gsub(":","").to_i}%").order(id: :asc).page params[:page]
         else
-        @especialidades = Especialidad.where('cast(id as text) ilike :q or cast(created_at as text) ilike :q or nombre ilike :q', q: "%#{params[:q]}%").order(id: :asc).page params[:page]
+          @especialidades = Especialidad.where('cast(id as text) ilike :q or cast(created_at as text) ilike :q or nombre ilike :q', q: "%#{params[:q]}%").order(id: :asc).page params[:page]
         end
       else
         @especialidades = Especialidad.all.page params[:page]
+      end
+      respond_html_and_csv
+    end
+
+    def respond_html_and_csv
+      respond_to do |format|
+        format.html
+        format.xlsx do
+          response.headers['Content-Disposition'] = 'attachment; filename="especialidades.xlsx"'
+        end
       end
     end
 

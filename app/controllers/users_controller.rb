@@ -17,11 +17,15 @@ class UsersController < ApplicationController
     elsif current_user.has_role? :instructor
       @users = User.with_role(:aprendiz).page params[:page]
     end
+    respond_html_and_csv
+  end
+
+  def respond_html_and_csv
     respond_to do |format|
       format.html
       format.xlsx do
         response.headers['Content-Disposition'] =
-          'attachment; filename="all_users.xlsx"'
+          'attachment; filename="Aprendices.xlsx"'
       end
     end
   end

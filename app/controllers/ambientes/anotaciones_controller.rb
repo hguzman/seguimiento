@@ -10,7 +10,17 @@ module Ambientes
 
     def index
       @anotaciones = @ambiente.anotaciones.order(id: :asc).page params[:page]
+      respond_html_and_csv
     end
+
+def respond_html_and_csv
+  respond_to do |format|
+    format.html
+    format.xlsx do
+      response.headers['Content-Disposition'] = 'attachment; filename="AmbientesAnotaciones.xlsx"'
+    end
+  end
+end
 
     def show; end
 

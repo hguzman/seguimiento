@@ -15,6 +15,10 @@ class AmbientesController < ApplicationController
                  else
                    Ambiente.all.page params[:page]
                  end
+    respond_html_and_csv
+  end
+
+  def respond_html_and_csv
     respond_to do |format|
       format.html
       format.xlsx do

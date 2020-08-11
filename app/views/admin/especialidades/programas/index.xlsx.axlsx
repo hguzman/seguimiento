@@ -1,0 +1,7 @@
+wb = xlsx_package.workbook
+wb.add_worksheet(name: "Programas") do |sheet|
+sheet.add_row ['Id', 'Nombre', 'Fecha de creacion', Especialidad]
+@programas.each do |programa|
+    sheet.add_row [programa.id, programa.nombre, programa.created_at, programa.especialidad.nombre]
+  end
+end
