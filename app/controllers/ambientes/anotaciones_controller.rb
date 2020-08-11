@@ -6,10 +6,29 @@ module Ambientes
     respond_to :html
     before_action :set_ambiente
     before_action :set_anotacion, only: %i[show edit update destroy]
+    before_action :set_operator, only: %i[create update]
 
     def index
-      @anotaciones = @ambiente.anotaciones
+      if params[:q].present?
+        if params[:q].include? ':'
+          @anotaciones = @ambiente.anotaciones.where('cast(id as text) ilike :q', q: "%#{params[:q].gsub(":","").to_i}%").order(id: :asc).page params[:page]
+        else
+          @anotaciones = @ambiente.anotaciones.where('cast(id as text) ilike :q or cast(created_at as text) ilike :q', q: "%#{params[:q]}%").or(@user.anotaciones.where('cast(created_by as text) ilike any (array[?])', User.where('nombres ilike :q or apellidos ilike :q', q:"%#{params[:q]}%").ids.map {|val| val.to_s})).order(id: :asc).page params[:page]
+        end
+      elsif current_user.has_role? :instructor
+        @anotaciones = @ambiente.anotaciones.order(id: :asc).page params[:page]
+      end
+      respond_html_and_csv
     end
+
+def respond_html_and_csv
+  respond_to do |format|
+    format.html
+    format.xlsx do
+      response.headers['Content-Disposition'] = 'attachment; filename="AmbientesAnotaciones.xlsx"'
+    end
+  end
+end
 
     def show; end
 
@@ -40,6 +59,12 @@ module Ambientes
       end
     end
 
+    def destroy
+      @anotacion.destroy
+      flash[:success] = t('.success')
+      respond_with @ambiente, :anotaciones
+    end
+
     private
 
     def set_anotacion
@@ -48,6 +73,10 @@ module Ambientes
 
     def set_ambiente
       @ambiente = Ambiente.find(params[:ambiente_id])
+    end
+
+    def set_operator
+      OperatorRecordable.operator = current_user
     end
 
     def anotacion_params

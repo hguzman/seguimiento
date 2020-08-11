@@ -8,7 +8,7 @@
   <td>
     <%= especialidad.created_at.strftime("%F %T") %>
   </td>
-  <td>
-    <%= link_to "Programas", admin_especialidad_programas_path(especialidad), class:"btn btn-primary btn-block" %>
+  <td class="d-flex justify-content-center">
+    <%= link_to "Programas", admin_especialidad_programas_path(especialidad), class:"btn btn-primary btn-block col-4" %>
   </td>
 </tr>

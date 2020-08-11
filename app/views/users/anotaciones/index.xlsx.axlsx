@@ -1,0 +1,8 @@
+wb = xlsx_package.workbook
+  wb.add_worksheet(name: "Aprendiz_anotaciones") do |sheet|
+  sheet.add_row ['Id', 'Descripcion', 'Fecha de creacion', 'Fecha de actualizacion', 'Creador nombre', 'Creador apellido', 'Aprendiz_Nombres', 'Aprendiz_Apellidos' ]
+    @anotaciones.each do |anotacion|
+      sheet.add_row [anotacion.id, anotacion.descripcion, anotacion.created_at, anotacion.updated_at, anotacion.creator.nombres, anotacion.creator.apellidos,
+      User.find(anotacion.anotable_id).nombres, User.find(anotacion.anotable_id).apellidos]
+    end
+end

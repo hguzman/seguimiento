@@ -9,3 +9,8 @@ es:
         alert: Problemas con la actualizacion
       destroy:
         success: Se elimino el ambiente de manera correcta
+  simple_form:
+    placeholders:
+      ambiente:
+          nombre: 'Escribe aquí nombre del ambiente'
+          descripcion: 'Escribe aquí la descripcion del ambiente (Ubicacion u otro dato relevante)'

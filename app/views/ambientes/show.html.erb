@@ -1,24 +1,32 @@
 <!-- breadcrumbs -->
 <% breadcrumb :ambiente_show, @ambiente%>
-<div class="ibox mt-4 col-md-12 ">
-  <div class="ibox-title">
-    <h1>Informacion del ambiente</h1>
-  </div>
-  <div class="ibox-content ">
-    <div class="info col-md-3 mx-auto">
-      <div class="card text-white bg-primary">
-        <%=image_tag 'default-user-img.jpg', class: "m-b-md", alt: "User Image"%>
-        <div class="card-body">
-          <h4 class="card-title">ID: <%= @ambiente.id%> </h4>
-          <h4 class="card-title">Nombre: <%= @ambiente.nombre%></h4>
-          <p class="card-text"><%= @ambiente.descripcion%>></p>
+<div clas="row">
+  <div class="col-12 p-0 mt-3">
+    <!--title-->
+    <div class="ibox-title">
+      <h1 class="pl-4"><strong>Información del ambiente</strong></h1>
+    </div>
+    <!--Ambiente -->
+    <div class="ibox-content">
+      <div class="info col-12">
+        <div class="card border-secondar">
+          <div class="card-header d-flex justify-content-between">
+            <div class="card-subtitle">
+              <h4>Ambiente ID: <strong><%= @ambiente.id%></strong></h4>
+              <h4>Fecha de creacion: <strong><%= @ambiente.created_at.strftime("%F %T")%></strong></h4>
+            </div>
+          </div>
+          <div class="card-body">
+            <h4 class="card-subtile">Descripcion:</h4>
+            <p class="card-text">
+              <%= @ambiente.descripcion%>>
+            </p>
+          </div>
         </div>
       </div>
-    </div>
-    <hr>
-    <div class="row">
-      <div class="col-md-6">
-        <%= link_to "volver", ambientes_path, class: "btn btn-primary" %>
+      <!--botonera-->
+      <div class="row d-flex justify-content-start ml-3 mt-2">
+        <%= link_to "volver", ambientes_path, class: "btn btn-block btn-danger bn-lg col-4" %>
       </div>
     </div>
   </div>

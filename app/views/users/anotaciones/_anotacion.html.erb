@@ -17,13 +17,8 @@
     <%= anotacion.creator.apellidos %>
   </td>
   <td>
-    <div class="row d-flex justify-content-between">
-      <div class="col-md-6">
-        <%= link_to "Comentarios", anotacion_comentarios_path(anotacion), class: "btn btn-primary btn-lg btn-block m-0" %>
-      </div>
-      <div class="col-md-6">
-        <h5 class="btn btn-danger btn-lg btn-block m-0">Cerrar</h5>
-      </div>
+    <div class="row d-flex justify-content-center">
+        <%= link_to "Comentarios", anotacion_comentarios_path(anotacion), class: "btn btn-primary btn-block col-6" %>
     </div>
   </td>
 </tr>

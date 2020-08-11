@@ -1,0 +1,7 @@
+wb = xlsx_package.workbook
+wb.add_worksheet(name: "Ambientes") do |sheet|
+sheet.add_row ['Id', 'Descripcion', 'Fecha de creacion', 'Creador nombres', 'Creador apellidos']
+@comentarios.each do |comentario|
+    sheet.add_row [comentario.id, comentario.comentario, comentario.created_at, comentario.creator.nombres, comentario.creator.apellidos ]
+  end
+end

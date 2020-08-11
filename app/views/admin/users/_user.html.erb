@@ -12,7 +12,7 @@
   <%= user.created_at%>
  </td>
  <td class="text-center">
-  <%= user.roles.map{|s| s[:name]}.first%>
+  <%= user.roles.map{|s| s[:name]}.first %>
  </td>
  <td class="text-center">
   <h5><%= link_to "Actualizar datos", edit_admin_user_path(user), class: "btn btn-primary"%></h5>

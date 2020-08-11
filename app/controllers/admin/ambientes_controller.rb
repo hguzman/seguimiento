@@ -8,7 +8,19 @@ module Admin
     respond_to :html
 
     def index
-      @ambientes = Ambiente.all.order(id: :asc).page params[:page]
+      if params[:q].present?
+        if params[:q].include? ':'
+          @ambientes = Ambiente.where('cast(id as text) ilike :q', q: "%#{params[:q].gsub(":","").to_i}%").order(id: :asc).page params[:page]
+        else
+          @ambientes = Ambiente.where('cast(id as text) ilike :q or cast(created_at as text) ilike :q or cast(nombre as text) ilike :q', q: "%#{params[:q]}%").order(id: :asc).page params[:page]
+        end
+      else
+        @ambientes = Ambiente.all.order(id: :asc).page params[:page]
+      end
+      respond_html_and_csv
+    end
+
+    def respond_html_and_csv
       respond_to do |format|
         format.html
         format.xlsx do

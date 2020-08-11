@@ -1,0 +1,7 @@
+wb = xlsx_package.workbook
+wb.add_worksheet(name: "Tipo de documentos") do |sheet|
+sheet.add_row ['Id', 'Documento', 'Fecha de creacion' ]
+@tipodocumentos.each do |documento|
+    sheet.add_row [documento.id, documento.nombre, documento.created_at]
+  end
+end

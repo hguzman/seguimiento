@@ -16,7 +16,17 @@ module Admin
       elsif current_user.has_role? :admin
         @users = User.order(id: :asc).page params[:page]
       end
+      respond_html_and_csv
     end
+
+  def respond_html_and_csv
+    respond_to do |format|
+      format.html
+      format.xlsx do
+        response.headers['Content-Disposition'] = 'attachment; filename="users.xlsx"'
+      end
+    end
+  end
 
     def show; end
 

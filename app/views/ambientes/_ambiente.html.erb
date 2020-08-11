@@ -1,11 +1,14 @@
 <tr>
- <td>
-  <%= link_to ambiente.nombre, ambiente_path(ambiente) %>
- </td>
- <td>
-  <%= ambiente.descripcion%>
- </td>
- <td>
-  <%= link_to 'Anotaciones', ambiente_anotaciones_path(ambiente), class: "btn btn-primary btn-lg btn-block"%>
- </td>
+  <td>
+    <%= link_to ambiente.id, ambiente_path(ambiente) %>
+  </td>
+  <td>
+    <%= link_to ambiente.nombre, ambiente_path(ambiente) %>
+  </td>
+  <td>
+    <%= ambiente.descripcion%>
+  </td>
+  <td>
+    <%= link_to 'Anotaciones', ambiente_anotaciones_path(ambiente), class: "btn btn-primary btn-lg btn-block"%>
+  </td>
 </tr>

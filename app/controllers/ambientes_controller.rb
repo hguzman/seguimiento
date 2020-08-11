@@ -7,19 +7,23 @@ class AmbientesController < ApplicationController
 
   def index
     authorize Ambiente
-    @ambientes = if params[:q].present?
-                   Ambiente.where(
-                     'nombre ilike :q or descripcion ilike :q',
-                     q: "%#{params[:q]}%"
-                   ).page params[:page]
-                 else
-                   Ambiente.all.page params[:page]
-                 end
+    if params[:q].present?
+      if params[:q].include? ':'
+        @ambientes = Ambiente.where('cast(id as text) ilike :q', q: "%#{params[:q].gsub(":","").to_i}%").order(id: :asc).page params[:page]
+      else
+        @ambientes = Ambiente.where('cast(id as text) ilike :q or cast(descripcion as text) ilike :q or cast(nombre as text) ilike :q', q: "%#{params[:q]}%").order(id: :asc).page params[:page]
+      end
+    else
+      @ambientes = Ambiente.all.order(id: :asc).page params[:page]
+    end
+    respond_html_and_csv
+  end
+
+  def respond_html_and_csv
     respond_to do |format|
       format.html
       format.xlsx do
-        response.headers['Content-Disposition'] =
-          'attachment; filename="ambientes.xlsx"'
+        response.headers['Content-Disposition'] = 'attachment; filename="ambientes.xlsx"'
       end
     end
   end

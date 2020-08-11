@@ -1,48 +1,49 @@
 <!-- breadcrumbs -->
 <% breadcrumb :admin_ambientes %>
 <div class="row">
- <div class="w-100">
-  <div class="ibox">
-   <div class="ibox-title d-flex justify-content-between align-items-center pr-3">
-    <h5>Listado de Ambientes</h5>
-    <form action="<%= admin_ambientes_path %>" method="GET">
-     <div class="input-group mb-3">
-      <input type="text" class="form-control" placeholder="Buscar.." aria-label="Recipient's username"
-       aria-describedby="button-addon2" name="q" value="<%= params[:q] %>">
-      <div class="input-group-append">
-       <button class="btn btn-primary" type="submit" id="button-addon2"><i class="fa fa-search"></i></button>
+  <div class="w-100">
+    <div class="ibox">
+      <div class="ibox-title d-flex justify-content-between align-items-center pr-3">
+        <h5>Listado de Ambientes</h5>
+        <div class="d-flex mb-3 justify-content-between">
+          <form action="<%= admin_ambientes_path %>" method="GET" class="d-flex justify-content-between align-items-center">
+            <button class="btn" formaction="<%= admin_ambientes_path(format: :xlsx) %>"  type="submit" id="button-addon2" >
+              <i><img src="/assets/msexcel_svg.svg" alt="icono generar excel"></i></button>
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Buscar.." aria-label="Recipient's username"
+              aria-describedby="button-addon2" name="q" value="<%= params[:q] %>">
+              <div class="input-group-append">
+                <button class="btn btn-primary" type="submit" id="button-addon2"><i class="fa fa-search"></i></button>
+              </div>
+            </div>
+          </form>
+        </div>
       </div>
-     </div>
-    </form>
-   </div>
-   <div class="ibox-content">
-    <table class="table table-hover">
-     <thead>
-      <tr>
-       <th>Codigo</th>
-       <th>Nombre</th>
-       <th>Descripcion</th>
-       <th>Acción</th>
-      </tr>
-     </thead>
-     <tbody>
-      <%= render @ambientes %>
-     </tbody>
-    </table>
-    <%= paginate @ambientes, theme: 'twitter-bootstrap-4' %>
-    <hr />
-    <div class="row d-flex justify-content-between">
-     <div class="col-md-3">
-      <%= link_to "Nuevo Ambiente", new_admin_ambiente_path, class: "btn btn-primary btn-lg btn-block" %>
-     </div>
-     <div class="col-md-3">
-      <%= link_to 'Generar excel', admin_ambientes_path(format: :xlsx), class: "btn btn-warning btn-lg btn-block" %>
-     </div>
-     <div class="col-md-3">
-      <%= link_to 'Inicio', :root, class: "btn btn-danger btn-lg btn-block" %>
-     </div>
+      <div class="ibox-content">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>Codigo</th>
+              <th>Nombre</th>
+              <th>Descripcion</th>
+              <th>Acción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <%= render @ambientes %>
+          </tbody>
+        </table>
+        <%= paginate @ambientes, theme: 'twitter-bootstrap-4' %>
+        <hr />
+        <div class="row d-flex justify-content-between">
+          <div class="col-4">
+            <%= link_to "Nuevo Ambiente", new_admin_ambiente_path, class: "btn btn-primary btn-lg btn-block" %>
+          </div>
+          <div class="col-4">
+            <%= link_to 'volver', :root, class: "btn btn-danger btn-lg btn-block" %>
+          </div>
+        </div>
+      </div>
     </div>
-   </div>
   </div>
- </div>
 </div>

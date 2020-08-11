@@ -10,9 +10,9 @@ es:
               alert: Problemas con la actualizacion del ficha.
             destroy:
               success: Se elimino la ficha de manera correcta.
-            simple_form:
-              placeholders:
-                    ficha:
-                        numero: 'Escribe aquí el nuevo ficha'
-                        numero_aprendices: 'Escribe aquí el numero de aprendices'
-                        create_at: 'fecha de creacion'
+  simple_form:
+    placeholders:
+          ficha:
+              numero: 'Escribe aquí el nuevo ficha'
+              numero_aprendices: 'Escribe aquí el numero de aprendices'
+              create_at: 'fecha de creacion'

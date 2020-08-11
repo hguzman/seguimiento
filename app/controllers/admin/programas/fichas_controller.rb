@@ -17,8 +17,17 @@ module Admin
         else
           @fichas = @programa.fichas.page params[:page]
         end
+        respond_html_and_csv
       end
 
+    def respond_html_and_csv
+      respond_to do |format|
+        format.html
+        format.xlsx do
+          response.headers['Content-Disposition'] = 'attachment; filename="fichas.xlsx"'
+        end
+      end
+    end
       def new
         @ficha = @programa.fichas.new
       end

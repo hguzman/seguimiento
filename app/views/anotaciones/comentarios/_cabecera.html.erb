@@ -1,34 +1,32 @@
 <div class="row">
-  <div class="col-12 ">
-    <div class="ibox-content d-flex justify-content-between ">
-      <div class="col-md-12 d-flex flex-wrap">
-        <h1>Datos anotacion</h1>
-        <table class="table">
-          <tbody>
-            <tr>
-              <td>
-                <strong>ID Anotacion:</strong>
-                <%= @anotacion.id %>
-              </td>
-              <td>
-                <strong>Fecha de creacion:</strong>
-                <%= @anotacion.created_at.strftime("%F %T") %>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <strong>Creado por:</strong>
-                <%= @anotacion.creator.nombres %>
-                <%= @anotacion.creator.apellidos %>
-              </td>
-              <td>
-                <strong>Descricion anotacion:</strong>
-                <%= @anotacion.descripcion %>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+  <div class="ibox-content d-flex justify-content-between w-100">
+    <div class="col-md-12 d-flex flex-wrap">
+      <h1>Datos anotacion</h1>
+      <table class="table">
+        <tbody>
+          <tr>
+            <td>
+              <strong>ID Anotacion:</strong>
+              <%= @anotacion.id %>
+            </td>
+            <td>
+              <strong>Fecha de creacion:</strong>
+              <%= @anotacion.created_at.strftime("%F %T") %>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <strong>Creado por:</strong>
+              <%= @anotacion.creator.nombres %>
+              <%= @anotacion.creator.apellidos %>
+            </td>
+            <td>
+              <strong>Descricion anotacion:</strong>
+              <%= @anotacion.descripcion %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>

@@ -12,4 +12,5 @@ class UserPolicy
   def index?
     @user.has_role?(:instructor)
   end
+
 end

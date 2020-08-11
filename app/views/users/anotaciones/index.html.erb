@@ -12,14 +12,20 @@
       <div class="ibox mt-3">
         <div class="ibox-title d-flex justify-content-between align-items-center pr-3">
           <h1>Listado anotaciones</h1>
-          <form action="<%= user_anotaciones_path %>" method="GET" class="d-flex justify-content-between align-items-center">
-            <div class="input-group">
-              <input type="text" class="form-control" placeholder="Buscar.." aria-label="Recipient's username" aria-describedby="button-addon2" name="q" value="<%= @q %>">
-              <div class="input-group-append">
-                <button class="btn btn-primary" type="submit" id="button-addon2"><i class="fa fa-search"></i></button>
+          <div class="d-flex justify-content-between">
+            <!-- convertir a excel el listado -->
+            <form action="<%= user_anotaciones_path %>" method="GET" class="d-flex justify-content-between align-items-center">
+              <button class="btn" formaction="<%= user_anotaciones_path(format: :xlsx) %>"  type="submit" id="button-addon2" >
+                  <i><img src="/assets/msexcel_svg.svg" alt="icono generar excel"></i></button>
+              <div class="input-group">
+                  <input type="text" class="form-control" placeholder="Buscar.." aria-label="Recipient's username"
+                  aria-describedby="button-addon2" name="q" value="<%= params[:q] %>">
+                  <div class="input-group-append">
+                      <button class="btn btn-primary" type="submit" id="button-addon2"><i class="fa fa-search"></i></button>
+                  </div>
               </div>
-            </div>
-          </form>
+            </form>
+          </div>
         </div>
         <!-- detalle tabla anotaciones -->
         <div class="ibox-content">
@@ -45,9 +51,11 @@
             <hr />
             <!-- Botones volver y nueva anotacion -->
             <div class="row d-flex justify-content-between">
-              <div class="col-md-3">
-                <%= link_to "Nueva Anotacion", new_user_anotacion_path, class: "btn btn-primary btn-block"  %>
-              </div>
+              <% if current_user.has_role? :instructor %>
+                <div class="col-md-3">
+                  <%= link_to "Nueva Anotacion", new_user_anotacion_path, class: "btn btn-primary btn-block"  %>
+                </div>
+              <% end %>
               <div class="col-md-3">
                 <%= link_to "Volver", users_path, class: "btn btn-danger btn-block"  %>
               </div>

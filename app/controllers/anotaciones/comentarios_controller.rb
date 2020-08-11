@@ -1,10 +1,10 @@
 module Anotaciones
   class ComentariosController < ApplicationController
     before_action :authenticate_user!
-    before_action :set_anotacion, :set_operator
+    before_action :set_anotacion, :set_operator, :set_anotacion_creator
     before_action :set_comentario, only: %i[show edit update destroy]
-    before_action :set_anotacion_creator, :set_propietario
     after_action  :notificar, only: %i[create update]
+    before_action :set_propietario, unless: :propietario_is_user?
     respond_to :html
 
     def index
@@ -18,6 +18,16 @@ module Anotaciones
         @comentarios = @anotacion.comentarios.page params[:page]
       elsif current_user.has_role? :aprendiz
         @comentarios = @anotacion.comentarios.page params[:page]
+      end
+      respond_html_and_csv
+    end
+
+    def respond_html_and_csv
+      respond_to do |format|
+        format.html
+        format.xlsx do
+          response.headers['Content-Disposition'] = 'attachment; filename="omentariosAnotaciones.xlsx"'
+        end
       end
     end
 
@@ -51,19 +61,22 @@ module Anotaciones
     end
 
     def notificar
-      # se notifica al creador de la anotacion, que el aprendiz creo un comentario.
-      if @user.has_role? :aprendiz
-        UserMailer.comentario_mailer(@user, @anotacion, @comentario).deliver_now
-      # se notifica al aprendiz y alcreador de la anotacion
-      # que se creo un comentario
-      elsif  @user.id != current_user.id
-        @list = [@user, @user_propietario]
-        @list.each do |user|
-          UserMailer.comentario_mailer(user, @anotacion, @comentario).deliver_now
+      # validar si la solicitud de notificacion viene de un ambiente o de un user con anotable_type=2
+      if @anotacion.anotable_type == "User"
+        # se notifica al creador de la anotacion, que el aprendiz creo un comentario.
+        if @user.has_role? :aprendiz
+          UserMailer.comentario_mailer(@user, @anotacion, @comentario).deliver_now
+        # se notifica al aprendiz y al creador de la anotacion
+        # que se creo un comentario
+        elsif  @user.id != current_user.id
+          @list = [@user, @user_propietario]
+          @list.each do |user|
+            UserMailer.comentario_mailer(@user, @anotacion, @comentario).deliver_now
+          end
+        # notifica al aprendiz que se creo un comentario
+        elsif  @user.id == current_user.id
+          UserMailer.comentario_mailer(@user_propietario, @anotacion, @comentario).deliver_now
         end
-      # notifica al aprendiz que se creo un comentario
-      elsif  @user.id == current_user.id
-        UserMailer.comentario_mailer(@user_propietario, @anotacion, @comentario).deliver_now
       end
     end
 
@@ -88,7 +101,12 @@ module Anotaciones
       @user = Anotacion.find(params[:anotacion_id]).creator
     end
 
-    # a quienle asigna la anotacion
+    # Tipo de anotacion realizada
+    def propietario_is_user?
+      @anotacion.anotable_type == "Ambiente"
+    end
+
+    # a quien se le asigna la anotacion
     def set_propietario
       @user_propietario = User.find(Anotacion.find(params[:anotacion_id]).anotable_id)
     end
