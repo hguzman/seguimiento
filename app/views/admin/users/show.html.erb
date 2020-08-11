@@ -2,80 +2,57 @@
 <% breadcrumb :user_show, @user %>
 <div class="row">
   <div class="w-100">
-        <div class="ibox-content d-flex justify-content-between">
-          <!-- datos academicos -->
-          <div class="col-md-6 d-flex justify-content-center flex-wrap p-3">
-            <!-- foto perfil -->
-            <div class="col-md-6 profile-image m-0">
-              <div class="dropdown profile-element">
-                <% if user_signed_in? %>
-                  <% if @user.avatar.thumb.present?%>
-                    <div class="d-flex flex-column">
-                      <div class="row d-flex justify-content-center">
-                        <%= image_tag @user.avatar.thumb.url, class: "circle-border w-70 h-70", alt: "User Image"%>
-                      </div>
-                      <div class="row d-flex justify-content-center">
-                        <div class="row d-flex justify-content-center w-100">
-                          <span class="text-muted text-xs block"><%= @user.nombres %><%= current_user.apellidos %></span>
-                        </div>
-                        <div class="row d-flex justify-content-center w-100">
-                          <span class="text-muted text-xs block"><%= @user.email %></span>
-                        </div>
-                        <div class="row d-flex justify-content-center w-100">
-                          <span class="text-muted text-xs block"><%= @user.ficha.programa.nombre %></span>
-                        </div>
-                      </div>
-                    </div>
-                  <%else%>
-                    <div class="d-flex flex-column">
-                      <div class="row d-flex justify-content-center">
-                        <%=image_tag 'default-user-img.jpg', class: "circle-border w-70 h-70", alt: "User Image"%>
-                      </div>
-                      <!-- datos Basicos aprendiz -->
-                      <div class="row d-flex justify-content-center">
-                        <div class="row d-flex justify-content-center w-100">
-                          <span class="text-muted text-xs block"><%= @user.nombres %><%= current_user.apellidos %></span>
-                        </div>
-                        <div class="row d-flex justify-content-center w-100">
-                          <span class="text-muted text-xs block"><%= @user.email %></span>
-                        </div>
-                        <div class="row d-flex justify-content-center w-100">
-                          <span class="text-muted text-xs block"><%= @user.ficha.programa.nombre %></span>
-                        </div>
-                      </div>
-                    </div>
-                  <%end%>
-                <%end%>
-              </div>
-            </div>
-          </div>
-          <!-- otros datos del parendiz -->
-          <div class="col-md-6 d-flex flex-wrap align-content-center">
-            <table class="table">
-              <tbody>
-                <tr>
-                  <td>
-                    <strong>Número de documento:</strong>
-                    <%= @user.ndocumento %>
-                  </td>
-                  <td>
-                    <strong>Teléfono:</strong>
-                    <%= @user.telefono %>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <strong>E-mail:</strong>
-                    <%= @user.email %>
-                  </td>
-                  <td>
-                    <strong>Dirección:</strong>
-                    <%= @user.direccion %>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+    <div class="ibox-content d-flex justify-content-between">
+      <!-- datos academicos -->
+      <div class="col-md-6 d-flex justify-content-center flex-wrap p-3">
+        <!-- foto perfil -->
+        <div class="col-md-6 profile-image m-0">
+            <% if user_signed_in? %>
+              <% if @user.avatar.thumb.present?%>
+                <div class="row d-flex justify-content-center">
+                  <%= image_tag @user.avatar.thumb.url, class: "circle-border w-70 h-70", alt: "User Image"%>
+                </div>
+              <%else%>
+                <div class="row d-flex justify-content-center">
+                  <%=image_tag 'default-user-img.jpg', class: "circle-border w-70 h-70", alt: "User Image"%>
+                </div>
+              <%end%>
+            <%end%>
         </div>
+        <!-- datos Basicos aprendiz -->
+        <div class="row w-100 text-center">
+          <span class="text-muted text-xs w-100 block"><%= @user.nombres %><%= current_user.apellidos %></span>
+          <span class="text-muted text-xs w-100 block"><%= @user.email %></span>
+          <span class="text-muted text-xs w-100 block"><%= @user.ficha.programa.nombre %></span>
+        </div>
+      </div>
+      <!-- otros datos del parendiz -->
+      <div class="col-md-6 d-flex flex-wrap align-content-center">
+        <table class="table">
+          <tbody>
+            <tr>
+              <td>
+                <strong>Número de documento:</strong>
+                <%= @user.ndocumento %>
+              </td>
+              <td>
+                <strong>Teléfono:</strong>
+                <%= @user.telefono %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <strong>E-mail:</strong>
+                <%= @user.email %>
+              </td>
+              <td>
+                <strong>Dirección:</strong>
+                <%= @user.direccion %>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
+</div>
