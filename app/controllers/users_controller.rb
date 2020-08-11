@@ -10,10 +10,15 @@ class UsersController < ApplicationController
   def index
     authorize User
     if params[:q].present?
-      @users = User.includes(:ficha).with_role(:aprendiz).where('cast(numero as text) ilike
-      :q', q: "%#{params[:q]}%").references(:ficha).or(User.includes(
-        :ficha).with_role(:aprendiz).where('ndocumento ilike :q or nombres
-        ilike :q or apellidos ilike :q', q: "%#{params[:q]}%").references(:ficha)).page params[:page]
+      if params[:q].include? ':'
+        # @users = User.with_role :"#{params[:q].gsub(':', '')}"
+        @users = User.with_role(:aprendiz).where('cast(ndocumento as text) ilike :q', q: "%#{params[:q].gsub(":","").to_i}%").order(id: :asc).page params[:page]
+      else
+        @users = User.includes(:ficha).with_role(:aprendiz).where('cast(numero as text) ilike
+        :q', q: "%#{params[:q]}%").references(:ficha).or(User.includes(
+          :ficha).with_role(:aprendiz).where('ndocumento ilike :q or nombres
+          ilike :q or apellidos ilike :q', q: "%#{params[:q]}%").references(:ficha)).page params[:page]
+      end
     elsif current_user.has_role? :instructor
       @users = User.with_role(:aprendiz).page params[:page]
     end

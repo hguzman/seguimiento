@@ -101,6 +101,7 @@ module Anotaciones
       @user = Anotacion.find(params[:anotacion_id]).creator
     end
 
+    # Tipo de anotacion realizada
     def propietario_is_user?
       @anotacion.anotable_type == "Ambiente"
     end

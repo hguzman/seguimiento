@@ -1,7 +1,7 @@
 wb = xlsx_package.workbook
 wb.add_worksheet(name: "Users") do |sheet|
-sheet.add_row ['id', 'nombres', 'apellidos', 'documeto']
+sheet.add_row ['Id', 'Nombres', 'Apellidos', 'Documeto', 'Ficha', 'Programa','Anotaciones']
 @users.each do |user|
-    sheet.add_row [user.id, user.nombres, user.apellidos, user.ndocumento]
+    sheet.add_row [user.id, user.nombres, user.apellidos, user.ndocumento, user.ficha.numero, user.ficha.programa.nombre, user.anotaciones.count]
   end
 end
