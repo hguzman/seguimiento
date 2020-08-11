@@ -5,5 +5,5 @@ class Ficha < ApplicationRecord
     validates :numero_aprendices, presence: true
 
     belongs_to :programa
-    has_many :users
+    has_many :users, dependent: :destroy
 end

@@ -5,7 +5,7 @@ class Anotacion < ApplicationRecord
   validates :descripcion, presence: true
 
   belongs_to :anotable, polymorphic: true
-  has_many :comentarios
+  has_many :comentarios, dependent: :destroy
   record_operator_on :create, :update
 
   def global_anotable
