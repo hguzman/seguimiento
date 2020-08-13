@@ -14,12 +14,19 @@
   </td>
   <td class="text-center">
     <%= comentario.creator.nombres %>
-      <%= comentario.creator.apellidos %>
+    <%= comentario.creator.apellidos %>
+  </td>
+  <td class="text-center">
+    <% if comentario.file.present?%>
+      <%= link_to 'Download file', comentario.file.url %>
+    <%else%>
+      no file
+    <% end %>
   </td>
   <td class="text-center">
     <%= comentario.updated_at.strftime("%F %T") %>
   </td>
   <td>
-    <%= link_to "Contestar", new_anotacion_comentario_path, class: "btn btn-primary btn-block"  %>
+    <%= link_to "Contestar", new_anotacion_comentario_path, class: "btn btn-primary btn-block p-0" %>
   </td>
 </tr>
