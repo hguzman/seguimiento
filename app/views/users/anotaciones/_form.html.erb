@@ -1,11 +1,11 @@
   <%= simple_form_for [@user, @anotacion] do |f| %>
   <div class="card-header">
     <div class="col-12 d-flex justify-content-between p-0">
-      <div class="col-10 pl-0">
+      <div class="col-6 pl-0">
         <h4 class="card-subtitle">Creada por: <%= current_user.nombres %> </strong> </h4>
       </div>
-      <div class="col-2 pr-0 text-right">
-        <button class="btn pr-0"><i class="fa fa-chevron-up"></i> Cargar archivo</button>
+      <div class="col-4">
+        <%= f.file_field :file, label: false, input_html: {class: "m-0 p-0"}%>
       </div>
     </div>
   </div>

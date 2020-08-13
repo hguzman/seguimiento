@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_13_224219) do
+ActiveRecord::Schema.define(version: 2020_08_13_145719) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 2020_07_13_224219) do
     t.bigint "anotable_id", null: false
     t.integer "created_by"
     t.integer "updated_by"
+    t.string "file"
     t.index ["anotable_type", "anotable_id"], name: "index_anotaciones_on_anotable_type_and_anotable_id"
   end
 
@@ -40,6 +41,7 @@ ActiveRecord::Schema.define(version: 2020_07_13_224219) do
     t.bigint "anotacion_id", null: false
     t.integer "created_by"
     t.integer "updated_by"
+    t.string "file"
     t.index ["anotacion_id"], name: "index_comentarios_on_anotacion_id"
   end
 

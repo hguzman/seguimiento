@@ -8,6 +8,8 @@ class Anotacion < ApplicationRecord
   has_many :comentarios, dependent: :destroy
   record_operator_on :create, :update
 
+  mount_uploader :file, FileUploader
+
   def global_anotable
     anotable.to_global_id if anotable.present?
   end
