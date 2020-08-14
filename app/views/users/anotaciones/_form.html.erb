@@ -1,8 +1,19 @@
   <%= simple_form_for [@user, @anotacion] do |f| %>
+  <div class="card-header">
+    <div class="col-12 d-flex justify-content-between p-0">
+      <div class="col-6 pl-0">
+        <h4 class="card-subtitle">Creada por: <%= current_user.nombres %> </strong> </h4>
+      </div>
+      <div class="col-4">
+        <%= f.file_field :file, label: false, input_html: {class: "m-0 p-0"}%>
+      </div>
+    </div>
+  </div>
+  <div class="card-body">
   <%= f.input :descripcion, class: "form-control" %>
 <div class="row">
   <!-- botones -->
-  <!-- Boton editar anotacion -->
+  <!-- Boton editar/crear anotacion -->
   <div class="col-md-6">
     <%= f.button :submit, class: "btn btn-primary btn-md btn-block" %>
       <% end %>
@@ -11,4 +22,5 @@
   <div class="col-md-6">
     <%= link_to "volver", user_anotaciones_path, class: "btn btn-danger btn-md btn-block" %>
   </div>
+</div>
 </div>

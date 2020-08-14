@@ -80,7 +80,7 @@ end
     end
 
     def anotacion_params
-      params.require(:anotacion).permit(:descripcion)
+      params.require(:anotacion).permit(:descripcion, :file)
     end
   end
 end

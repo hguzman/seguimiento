@@ -1,7 +1,22 @@
 <%= simple_form_for [@anotacion ,@comentario] do |f| %>
-  <%= f.input :comentario, as: :text, label: false %>
-<div class="row d-flex justify-content-between  px-3">
-  <%= f.button :submit, class: "btn btn-primary btn-block col-4" %>
-<% end %>
-  <%= link_to "Volver", anotacion_comentarios_path(@anotacion), class: "btn btn-danger btn-block col-4 m-0"  %>
+<div class="card-header">
+  <div class="col-12 d-flex justify-content-between p-0">
+    <div class="col-6 pl-0">
+      <h4 class="card-subtitle">Creada por:
+        <%= current_user.nombres%>
+          </strong>
+      </h4>
+    </div>
+    <div class="col-4">
+      <%= f.file_field :file, label: false, input_html: {class: "m-0 p-0"}%>
+    </div>
+  </div>
 </div>
+<div class="card-body">
+  <%= f.input :comentario, as: :text, label: false %>
+  <div class="row d-flex justify-content-between  px-3">
+    <%= f.button :submit, class: "btn btn-primary btn-block col-4" %>
+    <%= link_to "Volver", anotacion_comentarios_path(@anotacion), class: "btn btn-danger btn-block col-4 m-0"  %>
+  </div>
+</div>
+<% end %>

@@ -1,6 +1,6 @@
 <tr>
   <td class="text-center">
-    <%= user.ndocumento %>
+    <%= link_to user.ndocumento, admin_user_path(user) %>
   </td>
   <td class="text-center">
     <%= user.nombres%>

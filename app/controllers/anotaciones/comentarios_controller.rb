@@ -117,7 +117,7 @@ module Anotaciones
     end
 
     def comentario_params
-      params.require(:comentario).permit(:comentario)
+      params.require(:comentario).permit(:comentario, :file)
     end
   end
 end
