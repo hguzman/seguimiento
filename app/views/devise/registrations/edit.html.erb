@@ -33,19 +33,19 @@
                     </div>
                     <div class="col-md-12">
                         <label class="btn btn-primary">
-                            Add a Avatar!
+                            Elije tu Avatar!
                             <span style="display:none;">
                                 <%= f.file_field :avatar %>
                             </span>
                         </label>
                     </div>
-                    <div class="col-md-12">
-                        <%= f.button :submit, "Actualizar datos", class: "btn btn-primary btn-lg btn-block mb-3 mt-3" %>
-                    </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-12">
-                        <%= link_to "Volver", admin_users_path, class: "btn btn-danger btn-lg btn-block" %>
+                    <div class="col-md-6">
+                        <%= f.button :submit, "Actualizar datos", class: "btn btn-primary btn-lg btn-block mb-3 mt-3" %>
+                    </div>
+                    <div class="col-md-6">
+                        <%= link_to "Volver", :back, class: "btn btn-danger btn-lg btn-block mb-3 mt-3" %>
                     </div>
                 </div>
             </div>
