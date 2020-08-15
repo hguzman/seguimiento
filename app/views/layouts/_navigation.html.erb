@@ -7,7 +7,7 @@
             <% if current_user.avatar.thumb.present?%>
             <div class="d-flex flex-column">
               <div class="row d-flex justify-content-center">
-                <%= image_tag current_user.avatar.thumb.url, class: "circle-border m-b-md w-50 h-50", alt: "User Image"%>
+                <%= image_tag current_user.avatar.url, class: "circle-border m-b-md w-50 h-50", alt: "User Image"%>
               </div>
               <div class="row">
                 <span class="text-muted text-xs block"><%= current_user.nombres %><%= current_user.apellidos %></span>

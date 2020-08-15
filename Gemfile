@@ -100,3 +100,12 @@ gem 'kaminari', '~> 1.2'
 # to be saved logically deleted with automatically set created_by, updated_by.
 # read more in: https://github.com/yujideveloper/operator_recordable
 gem 'operator_recordable'
+# Configuracion aws s3
+gem 'carrierwave-aws'
+gem 'aws-sdk-rails'
+
+# aws s3 + fog + carrierwave
+# The Ruby cloud services library. Supports all major cloud providers including
+# AWS, Rackspace, Linode, Blue Box, StormOnDemand, and many others.
+# read more in: https://rubygems.org/gems/fog/
+gem 'fog', '~> 1.38'
