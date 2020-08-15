@@ -9,16 +9,17 @@
 #     region:            ENV.fetch('AWS_REGION') # Required
 #   }
 # end
-
-CarrierWave.configure do |config|
-  config.fog_credentials = {
-    :provider               => 'AWS',       # required
-    :aws_access_key_id      => ENV.fetch('AWS_ACCESS_KEY_ID'),       # required
-    :aws_secret_access_key  => ENV.fetch('AWS_SECRET_ACCESS_KEY'),   # required
-    :region                 => ENV.fetch('AWS_REGION')               # required
-  }
-  config.fog_directory  = ENV.fetch('S3_BUCKET_NAME')                # required
-  config.asset_host     = 'https://s3.amazonaws.com'                   # optional, defaults to nil
-  config.fog_public     = true                                         # optional, defaults to true
-  config.fog_attributes = {'Cache-Control'=>'max-age=315576000'}       # optional, defaults to {}
+if Rails.env.production?
+  CarrierWave.configure do |config|
+    config.fog_credentials = {
+      :provider               => 'AWS',                                                                        # required
+      :aws_access_key_id      => ENV.fetch('AWS_ACCESS_KEY_ID'),                                               # required
+      :aws_secret_access_key  => ENV.fetch('AWS_SECRET_ACCESS_KEY'),                                           # required
+      :region                 => ENV.fetch('AWS_REGION')                                                       # required
+    }
+    config.fog_directory  = ENV.fetch('S3_BUCKET_NAME')                                             # required
+    config.asset_host   = "https://s3-#{ENV.fetch('AWS_REGION')}.amazonaws.com/#{ENV.fetch('S3_BUCKET_NAME')}" # optional, defaults to nil
+    config.fog_public   = true                                                                                 # optional, defaults to true
+    config.fog_attributes = {'Cache-Control'=>'max-age=315576000'}                                             # optional, defaults to {}
+  end
 end
