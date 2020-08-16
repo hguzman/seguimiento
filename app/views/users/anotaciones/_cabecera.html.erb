@@ -7,7 +7,7 @@
           <% if user_signed_in? %>
             <% if @user.avatar.thumb.present?%>
               <div class="row d-flex justify-content-center">
-                <%= image_tag @user.avatar.thumb.url, class: "circle-border w-70 h-70", alt: "User Image"%>
+                <%= image_tag @user.avatar.url, class: "circle-border w-70 h-70", alt: "User Image"%>
               </div>
             <%else%>
               <div class="row d-flex justify-content-center">

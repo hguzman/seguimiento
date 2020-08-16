@@ -4,8 +4,17 @@
       <div class="col-6 pl-0">
         <h4 class="card-subtitle">Creada por: <%= current_user.nombres %> </strong> </h4>
       </div>
-      <div class="col-4">
-        <%= f.file_field :file, label: false, input_html: {class: "m-0 p-0"}%>
+      <!-- Cargar archivo -->
+      <div class="col-2 pr-0 d-flex justify-content-end">
+        <label>
+            <img src="/assets/upload_svg.svg" alt="icono eliminar">
+            <label class="btn btn-primary p-1 m-0">
+              Cargar archivo
+              <span style="display:none;">
+                <%= f.file_field :file %>
+              </span>
+            </label>
+        </label>
       </div>
     </div>
   </div>

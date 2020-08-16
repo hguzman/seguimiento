@@ -13,12 +13,17 @@
     <%= anotacion.created_at.strftime("%F %T")%>
   </td>
   <td class="text-center">
+    <% if anotacion.file.present?%>
+      <%= link_to 'Download file', anotacion.file.url %>
+    <%else%>
+      no file
+    <% end %>
+  </td>
+  <td class="text-center">
     <%= anotacion.creator.nombres %>
     <%= anotacion.creator.apellidos %>
   </td>
   <td>
-    <div class="row d-flex justify-content-center">
-        <%= link_to "Comentarios", anotacion_comentarios_path(anotacion), class: "btn btn-primary btn-block col-6" %>
-    </div>
+    <%= link_to "Comentarios", anotacion_comentarios_path(anotacion), class: "btn btn-primary btn-block p-0"%>
   </td>
 </tr>
