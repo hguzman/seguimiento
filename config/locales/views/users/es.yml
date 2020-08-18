@@ -1,0 +1,5 @@
+es:
+  users:
+    update:
+      success: Datos actualizados.
+      alert: Problemas par actualizar los datos.
