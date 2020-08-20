@@ -3,7 +3,11 @@
     <%= link_to especialidad.id, admin_especialidad_path(especialidad) %>
   </td>
   <td>
-    <%= link_to especialidad.nombre, admin_especialidad_path(especialidad) %>
+    <span class="text-overflow-dynamic-container">
+      <span class="text-overflow-dynamic-ellipsis">
+        <%= link_to especialidad.nombre, admin_especialidad_path(especialidad) %>
+      </span>
+    </span>
   </td>
   <td>
     <%= especialidad.created_at.strftime("%F %T") %>

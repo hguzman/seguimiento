@@ -3,7 +3,11 @@
     <%= link_to programa.id, admin_especialidad_programa_path(@especialidad, programa) %>
   </td>
   <td>
-    <%= link_to programa.nombre, admin_especialidad_programa_path(@especialidad, programa) %>
+    <span class="text-overflow-dynamic-container">
+      <span class="text-overflow-dynamic-ellipsis">
+        <%= link_to programa.nombre, admin_especialidad_programa_path(@especialidad, programa) %>
+      </span>
+    </span>
   </td>
   <td>
     <%= programa.created_at.strftime("%F %T")%>

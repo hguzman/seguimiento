@@ -1,16 +1,15 @@
-// Place all the styles related to the admin/ambientes controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+/* line 4, app/assets/stylesheets/admin/especialidades.scss */
 .text-overflow-dynamic-container {
   position: relative;
   max-width: 100%;
   padding: 0 !important;
-  display: -webkit-flex;
   display: -moz-flex;
+  display: -webkit-box;
   display: flex;
   vertical-align: text-bottom !important;
 }
 
+/* line 14, app/assets/stylesheets/admin/especialidades.scss */
 .text-overflow-dynamic-ellipsis {
   position: absolute;
   white-space: nowrap;
@@ -26,6 +25,7 @@
   left: 0;
 }
 
+/* line 29, app/assets/stylesheets/admin/especialidades.scss */
 .text-overflow-dynamic-container:after,
 .text-overflow-dynamic-ellipsis:after {
   content: '-';
