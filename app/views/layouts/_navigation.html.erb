@@ -10,8 +10,8 @@
                 <%= image_tag current_user.avatar.url, class: "circle-border m-b-md w-50 h-50", alt: "User Image"%>
               </div>
               <div class="row">
-                <span class="text-muted text-xs block"><%= current_user.nombres %><%= current_user.apellidos %></span>
-                <span class="text-muted text-xs block"><%= current_user.email %></span>
+                <span class="block text-xs text-muted"><%= current_user.nombres %><%= current_user.apellidos %></span>
+                <span class="block text-xs text-muted"><%= current_user.email %></span>
               </div>
             </div>
             <%else%>
@@ -20,8 +20,8 @@
                 <%=image_tag 'default-user-img.jpg', class: "circle-border m-b-md w-50 ", alt: "User Image"%>
               </div>
               <div class="row">
-                <span class="text-muted text-xs block"><%= current_user.nombres %><%= current_user.apellidos %></span>
-                <span class="text-muted text-xs block"><%= current_user.email %></span>
+                <span class="block text-xs text-muted"><%= current_user.nombres %><%= current_user.apellidos %></span>
+                <span class="block text-xs text-muted"><%= current_user.email %></span>
               </div>
             </div>
             <%end%>
@@ -63,7 +63,8 @@
       <% end %>
       <!-- opciones admin -->
       <% if current_user.has_role? :admin %>
-        <li class="<%= is_active_controller('admin/especialidades') %> <%= is_active_controller('admin/fichas') %> <%= is_active_controller('admin/ambientes') %> <%= is_active_controller('admin/tipo_documentos') %> <%= is_active_controller('admin/users') %> <%= is_active_controller('admin/roles') %> ">
+        <li class="<%= is_active_controller('admin/especialidades') %> <%= is_active_controller('admin/especialidades/programas') %> <%= is_active_controller('admin/programas/fichas') %>
+          <%= is_active_controller('admin/ambientes') %> <%= is_active_controller('admin/tipo_documentos') %> <%= is_active_controller('admin/users') %> <%= is_active_controller('admin/roles') %> ">
           <a href="#"><i class="fa fa-shield"></i> <span class="nav-label"
           data-i18n="nav.menulevels">Administracion </span><span class="fa arrow"></span></a>
           <ul class="nav nav-second-level">
